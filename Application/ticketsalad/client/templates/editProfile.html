@@ -1,16 +1,48 @@
-<<<<<<< HEAD
 <ion-view view-title="Edit Profile">
         <ion-content>
 
+                <div class = "ui center aligned segment"> 
+
+                        <div>
+                  
+                           <img class="ui centered small image" src="http://bigbang.lefigaro.fr/wp-content/uploads/sites/18/2016/05/avatar.png">
+                  
+                           <div class="nameField">
+                              <b>{{name}}</b> 
+                            </div>
+                  
+                            <button class="circular ui icon button" ng-click = "profile.edit()">
+                                Choose Image
+                            </button>
+                            
+
+                              </div>          
+                            
+                              <form class="ui form" style="padding-top: 3%">
+                                    <div class="field">
+                                      <label>First Name</label>
+                                      <input type="text" name="first-name" placeholder="First Name">
+                                    </div>
+
+                                    <div class="field">
+                                      <label>Last Name</label>
+                                      <input type="text" name="last-name" placeholder="Last Name">
+                                    </div>
+
+                                    <div class="field">
+                                            <label>Email</label>
+                                            <input type="text" name="last-name" placeholder="youremail@example.com">
+                                    </div>
+
+                                    <div class="field">
+                                            <label>Mobile Number</label>
+                                            <input type="text" name="last-name" placeholder="+27 123 4567">
+                                    </div>
+                                    
+                                    <button class="ui button" ng-click = "editProfile.done()">Done</button>
+                                  </form>
+                             
+                        </div>
             
         </ion-content>
     </ion-view>
-=======
-<ion-view title="Edit Profile">
-
-    <ion-content>
-    </ion-content>
-      
-</ion-view>
-      
->>>>>>> origin/feature/Authentication

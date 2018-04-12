@@ -2,24 +2,17 @@
 
   <ion-content>
 
-    <div class = "ui center aligned segment">
+    <div class = "ui center aligned segment"> 
 
       <div>
 
          <img class="ui centered small image" src="http://bigbang.lefigaro.fr/wp-content/uploads/sites/18/2016/05/avatar.png">
 
-<<<<<<< HEAD
-
-          <div class="nameField">
-            <b>John Smith</b>
-            
-=======
          <div class="nameField">
             <b>{{name}}</b> 
->>>>>>> origin/feature/Authentication
           </div>
 
-          <button class="circular ui icon button" >
+          <button class="circular ui icon button" ng-click = "profile.edit()">
               edit
           </button>
 
@@ -54,12 +47,8 @@
             
             <div style ="padding-top: 10%;">
               <button class="ui blue button">Buys Credits</button>
-<<<<<<< HEAD
-              <button class="ui red button">Log Out</button>
-=======
               <button class="ui red button" ng-click = "profile.logout()">Log Out</button>
 
->>>>>>> origin/feature/Authentication
            </div>
 
       </div>
