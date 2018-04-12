@@ -28,4 +28,11 @@ Meteor.startup(function()
     events.forEach((event) => {
         const eventId = Events.insert(event);
     });
+
+    /*db.users.aggregate([
+        {
+          $addFields: {
+            claims
+          }
+        }]);*/
 });
