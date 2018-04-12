@@ -15,9 +15,19 @@ export default class EventsCtrl extends Controller
     }
 
 
-    getEvents(text)
+    getEvents()
     {
-      //console.log("reached");
+      var text = angular.element(document.getElementById('search')).val();
+
+      if(text == "" || text == false)
+      {
+        this.helpers({
+          data() {
+            return Events.find();
+          }
+        });
+      }
+
       console.log(text);
       console.log();
       this.helpers({
@@ -25,26 +35,6 @@ export default class EventsCtrl extends Controller
           return Events.find({'name': text});
         }
       });
-
-      other = data;
-      data = temp;
-    }
-
-    remove()
-    {
-      Events.remove(1);
-    }
-
-    getItems(text)
-    {
-      if(text == "")
-      {
-        return;
-      }
-      else
-      {
-        this.getEvents(text);
-      }
     }
 }
 EventsCtrl.$name = 'EventsCtrl';

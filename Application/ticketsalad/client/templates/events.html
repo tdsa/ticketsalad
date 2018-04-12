@@ -3,7 +3,7 @@
         <div class="ui search">
             <input id = "search" class="prompt" type="text" placeholder="Search events...">
         </div>
-        <button id = "searchBut" class="ui right floated button" ng-click="events.getEvents('Tomorrowland')">Search</button>
+        <button id = "searchBut" class="ui right floated button" ng-click="events.getEvents()">Search</button>
         <div class="ui link stackable cards">
             <div class="card" ng-repeat = "event in events.data">
                 <div class="image">
