@@ -1,7 +1,7 @@
 {
     "gitflow4code.init": {
         "master": "master",
-        "develop": "dev",
+        "develop": "develop",
         "releases": "release/",
         "hotfixes": "hotfix/",
         "features": "feature/",
@@ -9,7 +9,11 @@
     },
     "gitflow4code.features": [
         {
+<<<<<<< HEAD
             "name": "feature/Profile",
+=======
+            "name": "feature/SignUp",
+>>>>>>> feature/SignUp
             "base": "develop"
         }
     ]
