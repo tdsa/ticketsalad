@@ -8,7 +8,6 @@ export default class ProfileCtrl extends Controller {
     if(Meteor.user())
     {
       this.name = Meteor.user().profile;
-      this.credits= Meteor.user().credits;
     }
   }
 

@@ -9,7 +9,7 @@
                     <label>Password</label>
                     <input type="text" name="pass" placeholder="Password" ng-model="login.pass">
                 </div>
-            <button class="ui button" type="submit" ng-click="login.login()">Login</button>
+            <button class="ui button" type="submit" ng-click="login.login()" on-return = "login.login()">Login</button>
         </form>       
     </ion-content>
 </ion-view>

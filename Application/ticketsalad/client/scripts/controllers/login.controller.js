@@ -5,8 +5,8 @@ export default class LoginCtrl extends Controller
 {
   
   login() {
-    //if (_.isEmpty(this.email)) return;
-    //if (_.isEmpty(this.pass)) return;
+    if (_.isEmpty(this.email)) return;
+    if (_.isEmpty(this.pass)) return;
  
     Meteor.loginWithPassword(this.email, this.pass, function (err) {
       if (!err) {
