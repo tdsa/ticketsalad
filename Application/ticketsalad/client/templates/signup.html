@@ -2,14 +2,22 @@
     <ion-content>
         <form class="ui form">
                 <div class="field">
-                    <label>First Name</label>
-                    <input type="text" name="first-name" placeholder="First Name">
+                        <label>Name</label>
+                        <input type="text" name="name" placeholder="Name" ng-model="signup.name">
                 </div>
                 <div class="field">
-                    <label>Last Name</label>
-                    <input type="text" name="last-name" placeholder="Last Name">
+                        <label>Username</label>
+                        <input type="text" name="user" placeholder="Username" ng-model="signup.user">
                 </div>
-            <button class="ui button" type="submit">Submit</button>
+                <div class="field">
+                    <label>Email</label>
+                    <input type="text" name="email" placeholder="Email" ng-model="signup.email">
+                </div>
+                <div class="field">
+                    <label>Password</label>
+                    <input type="text" name="pass" placeholder="Password" ng-model="signup.pass">
+                </div>
+            <button class="ui button" type="submit" ng-click="signup.signup()">Submit</button>
         </form>       
     </ion-content>
 </ion-view>
