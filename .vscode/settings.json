@@ -7,5 +7,10 @@
         "features": "feature/",
         "support": ""
     },
-    "gitflow4code.features": []
+    "gitflow4code.features": [
+        {
+            "name": "feature/Search",
+            "base": "develop"
+        }
+    ]
 }
