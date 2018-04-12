@@ -14,27 +14,28 @@ export default class EventsCtrl extends Controller
         });
     }
 
-
     getEvents()
     {
-      var text = angular.element(document.getElementById('search')).val();
-
-      if(text == "" || text == false)
+      if(this.text == "" || this.text == false)
       {
-        this.helpers({
+        console.log("empty");
+        console.log(Events.find());
+        /*this.helpers({
           data() {
             return Events.find();
           }
-        });
+        });*/
       }
 
-      console.log(text);
+      console.log(this.text);
       console.log();
-      this.helpers({
+      /*this.helpers({
         data() {
-          return Events.find({'name': text});
+          return Events.find({'name': this.text});
         }
-      });
+      });*/
     }
+    
 }
 EventsCtrl.$name = 'EventsCtrl';
+
