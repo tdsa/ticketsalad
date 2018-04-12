@@ -1,23 +1,56 @@
 <ion-view title="Profile">
-    <ion-nav-buttons side="right">
-    </ion-nav-buttons>
-   
-    <ion-content class="profile">
-      <a class="profile-picture positive">
-        <div class="upload-placehoder">
-          Add photo
-        </div>
-      </a>
-   
-      <div class="instructions">
-        Add an optional profile picture
+
+  <ion-content>
+
+    <div class = "ui center aligned segment">
+      <div>
+         <img class="ui centered small image" src="http://bigbang.lefigaro.fr/wp-content/uploads/sites/18/2016/05/avatar.png">
+
+         <div class="nameField">
+            <b>John Smith</b> 
+          </div>
+
+          <div class = "ui center aligned segment">
+
+                <div class="creditDiv">
+                  <b>Credit Balance</b> 
+                </div>
+
+                <div>
+                    <p class="ui teal big label">1200</p>
+                </div>
+
+            </div>
+
+                <div class="ui info message">
+                    
+                    <div class="header">
+                      About Ticket Salad
+                    </div>
+
+                     <div style = "padding-top: 2%">
+                        <p>Ticket Salad is everyone's ticket winning solution<br/>Check out <a href = "http://www.ticketsalad.com"><b>ticketsalad.com</b></a> for more info!</p>
+                    </div>
+                    
+                  </div>
+
+           
+
+
+            </div>          
+          
+            
+            <div style ="padding-top: 10%;">
+
+              <button class="ui blue button">Buys Credits</button>
+              <button class="ui red button">Log Out</button>
+
+           </div>
+
       </div>
-   
-      <div class="list profile-name">
-        <label class="item item-input">
-          <input ng-model="profile.name" type="text" placeholder="John Ticket">
-        </label>
-      </div>
-      <button class="ui button" type="submit" ng-click="profile.logout()">Submit</button>
-    </ion-content>
-  </ion-view>
+
+    
+      
+  </ion-content>
+
+</ion-view>
