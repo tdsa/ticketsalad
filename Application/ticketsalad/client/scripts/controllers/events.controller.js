@@ -14,6 +14,11 @@ export default class EventsCtrl extends Controller
         });
     }
 
+    focusEvent(event)
+    {
+      console.log(event);
+      this.focusevent = event;
+    }
 
     getEvents(text)
     {
