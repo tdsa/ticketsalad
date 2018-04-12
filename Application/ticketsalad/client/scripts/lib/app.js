@@ -1,6 +1,7 @@
 // Libs
 import 'angular-animate';
 import 'angular-meteor';
+import 'angular-meteor-auth';
 import 'angular-sanitize';
 import 'angular-ui-router';
 import 'ionic-scripts';
@@ -20,6 +21,7 @@ const App = 'TicketSalad';
 // App
 Angular.module(App, [
   'angular-meteor',
+  'angular-meteor.auth',
   'ionic'
 ]);
 
