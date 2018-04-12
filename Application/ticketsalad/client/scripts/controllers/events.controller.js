@@ -13,28 +13,6 @@ export default class EventsCtrl extends Controller
           }
         });
     }
-
-    getEvents()
-    {
-      if(this.text == "" || this.text == false)
-      {
-        console.log("empty");
-        console.log(Events.find());
-        /*this.helpers({
-          data() {
-            return Events.find();
-          }
-        });*/
-      }
-
-      console.log(this.text);
-      console.log();
-      /*this.helpers({
-        data() {
-          return Events.find({'name': this.text});
-        }
-      });*/
-    }
     
 }
 EventsCtrl.$name = 'EventsCtrl';
