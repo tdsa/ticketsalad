@@ -15,8 +15,9 @@
    
       <div class="list profile-name">
         <label class="item item-input">
-          <input type="text" placeholder="John Ticket">
+          <input ng-model="profile.name" type="text" placeholder="John Ticket">
         </label>
       </div>
+      <button class="ui button" type="submit" ng-click="profile.logout()">Submit</button>
     </ion-content>
   </ion-view>
