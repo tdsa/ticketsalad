@@ -17,9 +17,11 @@ export default class EventsCtrl extends Controller
 
     getEvents(text)
     {
+      //console.log("reached");
+      console.log(text);
       this.helpers({
         data() {
-          return Events.find({'name': 'Tomorrowland'});
+          return Events.find({'name': ""});
         }
       });
 

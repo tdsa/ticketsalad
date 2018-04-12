@@ -6,5 +6,6 @@
         "hotfixes": "hotfix/",
         "features": "feature/",
         "support": ""
-    }
+    },
+    "gitflow4code.features": []
 }
