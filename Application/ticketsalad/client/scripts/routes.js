@@ -13,6 +13,8 @@ class RoutesConfig extends Config {
   constructor() 
   {
     super(...arguments);
+
+    
   }
 
   configure() {
@@ -27,7 +29,10 @@ class RoutesConfig extends Config {
         views: {
           'tab-events': {
             templateUrl: eventsTemplateUrl,
-            controller: 'EventsCtrl as events'
+            controller: 'EventsCtrl as events',
+            resolve: {
+              user: this.isAuthorized
+            }
           }
         }
       })
@@ -36,7 +41,10 @@ class RoutesConfig extends Config {
         views: {
           'tab-profile': {
             templateUrl: profileTemplateUrl,
-            controller: 'ProfileCtrl as profile'
+            controller: 'ProfileCtrl as profile',
+            resolve: {
+              user: this.isAuthorized
+            }
           }
         }
         
@@ -46,6 +54,9 @@ class RoutesConfig extends Config {
         url: '/editProfile',
         templateUrl: editProfileTemplateUrl,
         controller: 'EditProfileCtrl as editProfile',
+        resolve: {
+          user: this.isAuthorized
+        }
       })
 
       .state('tab.login', {
@@ -70,6 +81,19 @@ class RoutesConfig extends Config {
       });
  
     this.$urlRouterProvider.otherwise('tab/events');
+  }
+
+  isAuthorized() {
+    /*if(!Meteor.user())
+    {
+      this.$state.go('tab.login');
+    }
+    else
+    {
+      return;
+    }*/
+
+    return;
   }
 }
  

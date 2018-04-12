@@ -13,7 +13,8 @@ export default class SignupCtrl extends Controller {
         username: this.user,
         email: this.email,
         password: this.pass,
-        profile: this.name
+        profile: this.name,
+        credits: '0'
       });
 
       this.$state.go('tab.login', {

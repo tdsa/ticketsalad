@@ -5,11 +5,11 @@ export default class ProfileCtrl extends Controller {
   constructor() {
     super(...arguments);
 
-    if(Meteor.user() != null)
+    if(Meteor.user())
     {
       this.name = Meteor.user().profile;
+      this.credits= Meteor.user().credits;
     }
-    
   }
 
   logout() {
