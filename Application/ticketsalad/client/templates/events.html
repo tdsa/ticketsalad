@@ -1,10 +1,12 @@
 <ion-view view-title="Events">
     <ion-content>
-        <div class="ui search">
-            <input id = "search" class="prompt" type="text" placeholder="Search events...">
+        <div class="ui fluid search" >
+            <input id = "search" class="prompt" type="text" placeholder="Search events..." ng-model="search">
         </div>
         <div class="ui link stackable cards">
-            <div class="card" ng-repeat = "event in events.data" onclick="$('.ui.modal').modal('show');" ng-click="events.focusEvent(event)">
+
+            <div class="card" ng-repeat = "event in events.data | filter:search" onclick="$('.ui.modal').modal('show');" ng-click="events.focusEvent(event)">
+
                 <div class="image">
                     <img ng-src = "{{event.picture}}">
                 </div>
@@ -25,6 +27,7 @@
                 </div>
             </div>
         </div>
+
 
         <div class="ui modal">
             <div class="header" ng-style="{'background-image':'url(' + events.focusevent.picture + ')'}">{{events.focusevent.name}}</div>
@@ -64,6 +67,7 @@
                 </div>
             </div>
         </div>
+
       </ion-content>
 </ion-view>
 

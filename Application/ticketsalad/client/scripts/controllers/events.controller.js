@@ -14,6 +14,7 @@ export default class EventsCtrl extends Controller
         });
     }
 
+
     focusEvent(event)
     {
       console.log(event);
@@ -50,5 +51,7 @@ export default class EventsCtrl extends Controller
         this.getEvents(text);
       }
     }
+
 }
 EventsCtrl.$name = 'EventsCtrl';
+
