@@ -27,6 +27,11 @@ export default class LoginCtrl extends Controller
   {
     this.$state.go('tab.events');
   }
+
+  create()
+  {
+    this.$state.go('tab.signup');
+  }
 }
  
 LoginCtrl.$name = 'LoginCtrl';

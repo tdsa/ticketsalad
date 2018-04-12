@@ -1,23 +1,83 @@
 <ion-view view-title="Sign Up">
+
     <ion-content>
+        <div class="container">
         <form class="ui form">
-                <div class="field">
-                        <label>Name</label>
-                        <input type="text" name="name" placeholder="Name" ng-model="signup.name">
+        
+          <div class="field">
+              <label>Name</label>
+              <input type="text" name="first-name" placeholder="name" size="14" ng-model="signup.name">
+            </div>
+            
+            <div class="field">
+              <label>Surname</label>
+              <input type="text" name="surname" placeholder="surname" ng-model="signup.surname">
+            </div>
+
+
+            <div class="field">
+              <label>Email</label>
+              <input type="email" name="email" placeholder="Enter your email" ng-model="signup.email">
+            </div>
+
+            <div class="field">
+              <label>Mobile Number</label>
+              <input type="text" name="mobile-number" placeholder="mobile number" ng-model="signup.number">
+            </div>
+
+            <div class="field">
+              <label>Password</label>
+              <input type="text" name="password" placeholder="Password" ng-model="signup.pass">
+            </div>
+
+            
+            
+           
+              <div class="field">
+                  <label>Gender</label>
+                  <div class="ui radio checkbox">
+                      <input name="male" checked="checked" type="radio" ng-model="signup.gender">
+                      <label>Male</label>
+                  </div>
+                    <div class="ui radio checkbox">
+                        <input name="female" type="radio" >
+                        <label>Female</label>
+                    </div>
+              
+
+              </div>
+
+              <div class="field">
+                  <label>Type Of ID</label>
+      
+              <div class="ui form">
+                  <div class="grouped fields">
+                    <div class="field">
+                      <div class="ui radio checkbox">
+                        <input name="example2" checked="checked" type="radio">
+                        <label>RSA ID</label>
+                      </div>
+                      <div class="ui radio checkbox">
+                          <input name="example2" type="radio">
+                          <label>Passport</label>
+                        </div>
+                    </div>
+
+                  </div>
                 </div>
-                <div class="field">
-                        <label>Username</label>
-                        <input type="text" name="user" placeholder="Username" ng-model="signup.user">
                 </div>
-                <div class="field">
-                    <label>Email</label>
-                    <input type="text" name="email" placeholder="Email" ng-model="signup.email">
-                </div>
-                <div class="field">
-                    <label>Password</label>
-                    <input type="text" name="pass" placeholder="Password" ng-model="signup.pass">
-                </div>
-            <button class="ui button" type="submit" ng-click="signup.signup()">Submit</button>
-        </form>       
+
+              <div class="field">
+                  <label>ID</label>
+                  <input type="text" name="id" placeholder="ID">
+              </div>
+             
+
+                    
+                      
+              <button class="ui button" type="submit" ng-click="signup.signup()">Submit</button>
+
+          </form>
+          </div>
     </ion-content>
 </ion-view>

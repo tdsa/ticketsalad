@@ -1,15 +1,33 @@
 <ion-view view-title="Log In">
     <ion-content>
-        <form class="ui form">
-                <div class="field">
-                    <label>Email</label>
-                    <input type="text" name="email" placeholder="Email" ng-model="login.email">
+        <div class="container">
+        <form>
+                <div class="ui form success">
+                        <div class="field">
+                          <label>E-mail</label>
+                          <input placeholder="Enter your email" type="email" ng-model="login.email">
+                        </div>
                 </div>
-                <div class="field">
-                    <label>Password</label>
-                    <input type="text" name="pass" placeholder="Password" ng-model="login.pass">
+                <div class="ui horizontal divider">
                 </div>
-            <button class="ui button" type="submit" ng-click="login.login()" on-return = "login.login()">Login</button>
-        </form>       
+                 <div class="ui from form">
+                     <div class="field">
+                        <label>Password</label>
+                        <input placeholder="password" type="text" ng-model="login.pass">
+                    </div>
+                </div>
+                <div class="ui horizontal divider">
+                 </div>
+                 <center>
+                        <div class="ui submit button" ng-click="login.login()">Login</div>
+                        <div class="ui button" ng-click = "login.create()">Create Account</div>
+                 </center>
+                <div>
+                      <center>
+                            <p><a>Forgot Password?</a> </p>
+                      </center>  
+                </div>
+        </form>
+    </div>
     </ion-content>
 </ion-view>
