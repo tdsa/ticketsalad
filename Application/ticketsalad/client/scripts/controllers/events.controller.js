@@ -13,35 +13,7 @@ export default class EventsCtrl extends Controller
           }
         });
     }
-
-
-    getEvents(text)
-    {
-      this.helpers({
-        data() {
-          return Events.find({'name': 'Tomorrowland'});
-        }
-      });
-
-      other = data;
-      data = temp;
-    }
-
-    remove()
-    {
-      Events.remove(1);
-    }
-
-    getItems(text)
-    {
-      if(text == "")
-      {
-        return;
-      }
-      else
-      {
-        this.getEvents(text);
-      }
-    }
+    
 }
 EventsCtrl.$name = 'EventsCtrl';
+

@@ -9,7 +9,11 @@
     },
     "gitflow4code.features": [
         {
+<<<<<<< HEAD
             "name": "feature/Profile",
+=======
+            "name": "feature/Search",
+>>>>>>> origin/feature/Authentication
             "base": "develop"
         }
     ]

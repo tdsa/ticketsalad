@@ -1,11 +1,10 @@
 <ion-view view-title="Events">
     <ion-content>
-        <div class="ui search">
-            <input id = "search" class="prompt" type="text" placeholder="Search events...">
+        <div class="ui fluid search" >
+            <input id = "search" class="prompt" type="text" placeholder="Search events..." ng-model="search">
         </div>
-        <button id = "searchBut" class="ui right floated button">Search</button>
         <div class="ui link stackable cards">
-            <div class="card" ng-repeat = "event in events.data">
+            <div class="card" ng-repeat = "event in events.data | filter:search">
                 <div class="image">
                     <img ng-src = "{{event.picture}}">
                 </div>
@@ -26,6 +25,7 @@
                 </div>
             </div>
         </div>
+        <script></script>
       </ion-content>
 </ion-view>
 

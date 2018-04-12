@@ -3,6 +3,8 @@ import { Config, Runner } from 'angular-ecmascript/module-helpers';
  
 import eventsTemplateUrl from '../templates/events.html';
 import profileTemplateUrl from '../templates/profile.html';
+import loginTemplateUrl from '../templates/login.html';
+import signupTemplateUrl from '../templates/signup.html';
 import tabsTemplateUrl from '../templates/tabs.html';
  
 class RoutesConfig extends Config {
@@ -34,6 +36,26 @@ class RoutesConfig extends Config {
           'tab-profile': {
             templateUrl: profileTemplateUrl,
             controller: 'ProfileCtrl as profile'
+          }
+        }
+        
+      })
+      .state('tab.login', {
+        url: '/login',
+        views: {
+          'tab-login': {
+            templateUrl: loginTemplateUrl,
+            controller: 'LoginCtrl as login'
+          }
+        }
+        
+      })
+      .state('tab.signup', {
+        url: '/signup',
+        views: {
+          'tab-signup': {
+            templateUrl: signupTemplateUrl,
+            controller: 'SignupCtrl as signup'
           }
         }
         
