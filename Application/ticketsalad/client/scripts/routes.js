@@ -6,6 +6,7 @@ import profileTemplateUrl from '../templates/profile.html';
 import editProfileTemplateUrl from '../templates/editProfile.html';
 import loginTemplateUrl from '../templates/login.html';
 import signupTemplateUrl from '../templates/signup.html';
+import forgotPasswordTemplateUrl from '../templates/forgotPassword.html';
 import tabsTemplateUrl from '../templates/tabs.html';
  
 class RoutesConfig extends Config {
@@ -24,6 +25,11 @@ class RoutesConfig extends Config {
         abstract: true,
         templateUrl: tabsTemplateUrl
       })
+      .state('forgotPassword', {
+        url: '/forgotpassword',
+        templateUrl: forgotPasswordTemplateUrl,
+        controller: 'ForgotPasswordCtrl as forgotPassword' 
+      })
       .state('login', {
         url: '/login',
         templateUrl: loginTemplateUrl,
@@ -34,7 +40,6 @@ class RoutesConfig extends Config {
         templateUrl: signupTemplateUrl,
         controller: 'SignupCtrl as signup' 
       })
-
       .state('tab.events', {
         url: '/events',
         views: {
