@@ -1,4 +1,4 @@
-<ion-view title="Profile" onload="profile.reload()">
+<ion-view title="Profile" ng-load="profile.reload()">
 
   <ion-content>
 
@@ -9,7 +9,7 @@
          <img class="ui centered small circular image" src="/img/user.png">
 
          <div class="nameField">
-            <b>{{profile.name}}</b> 
+            <b>{{profile.user.profile.name}} {{profile.user.profile.surname}}</b> 
           </div>
 
           <button class="circular ui icon button" ng-click = "profile.edit()" href="#/editProfile">
@@ -23,7 +23,7 @@
                 </div>
 
                 <div>
-                    <p class="ui teal big label">0</p>
+                    <p class="ui teal big label">{{profile.user.profile.credits}}</p>
                 </div>
 
             </div>
