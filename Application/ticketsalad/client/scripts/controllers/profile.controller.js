@@ -13,8 +13,12 @@ export default class ProfileCtrl extends Controller {
 
   logout() {
     Meteor.logout();
-    //Meteor.users.update({}, {$set : { "services.resume.loginTokens" : [] }}, {multi:true});
-    this.$state.go('tab.login');
+
+    if(!Meteor.user())
+    {
+      this.$state.go('tab.login');
+    }
+    
   }
 
   edit()
@@ -22,6 +26,13 @@ export default class ProfileCtrl extends Controller {
     this.$state.go('editProfile');
   }
 
+  check()
+  {
+    if(!Meteor.user())
+    {
+      this.$state.go('tab.login');
+    }
+  }
   
 }
  
