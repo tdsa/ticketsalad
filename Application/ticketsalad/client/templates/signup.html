@@ -1,6 +1,6 @@
 <ion-view view-title="Sign Up">
     <ion-content>
-        <div class="container">
+        <div class="container" style = "padding-top: 5%">
         <form class="ui form">
           <div class="field">
               <label>Name</label>
@@ -20,18 +20,24 @@
             </div>
             <div class="field">
               <label>Password</label>
-              <input type="text" name="password" placeholder="Password" ng-model="signup.pass">
+              <input type="password" name="password" placeholder="Password" ng-model="signup.pass">
             </div>          
               <div class="field">
-                  <label>Gender</label>
-                  <div class="ui radio checkbox">
-                      <input name="male" checked="checked" type="radio" ng-model="signup.gender">
-                      <label>Male</label>
-                  </div>
-                    <div class="ui radio checkbox">
-                        <input name="female" type="radio" >
+                  <label>Gender</label>     
+              <div class="ui form">
+                  <div class="grouped fields">
+                    <div class="field">
+                      <div class="ui radio checkbox">
+                          <input name="gen" checked="checked" type="radio" ng-model="signup.genderM">
+                          <label>Male</label>
+                      </div>
+                      <div class="ui radio checkbox">
+                          <input name="gen" type="radio" ng-model="signup.genderF">
                         <label>Female</label>
-                    </div>              
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="field">
                   <label>Type of ID</label>     
@@ -39,24 +45,26 @@
                   <div class="grouped fields">
                     <div class="field">
                       <div class="ui radio checkbox">
-                        <input name="example2" checked="checked" type="radio">
+                        <input name="example2" checked="checked" type="radio" ng-model="signup.idRadio">
                         <label>RSA ID</label>
                       </div>
                       <div class="ui radio checkbox">
-                          <input name="example2" type="radio">
-                          <label>Passport</label>
-                        </div>
+                        <input name="example2" type="radio" ng-model="signup.passportRadio">
+                        <label>Passport</label>
+                      </div>
                     </div>
                   </div>
                 </div>
-                </div>
+              </div>
               <div class="field">
                   <label>ID</label>
-                  <input type="text" name="id" placeholder="ID">
-              </div>                      
-              <div class="ui submit button" ng-click="signup.signup()">Submit</div>
+                  <input type="text" name="id" placeholder="ID" ng-model="signup.id">
+              </div>
+              <center>
+                  <div class="ui submit button" ng-click="signup.signup()" >Submit</div>
+              </center>                 
           </form>
-          <div>
+          <div style = "padding-top: 5%">
             <center>
                   <p><a ng-click="signup.login()" href="#/login">Already have an account?</a> </p>
             </center>  

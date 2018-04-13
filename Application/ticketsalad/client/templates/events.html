@@ -1,9 +1,9 @@
 <ion-view view-title="Events" onload="events.check()">
     <ion-content>
-        <div class="ui fluid search" >
+        <div class="ui fluid search" style = "padding-bottom: 5%; padding-top: 2%; margin: 0 auto; width: 95%">
             <input id = "search" class="prompt" type="text" placeholder="Search events..." ng-model="search">
         </div>
-        <div class="ui link stackable cards">
+        <div class="ui link stackable cards" id = "scroll">
 
             <div class="card" ng-repeat = "event in events.data | filter:search" onclick="$('.ui.modal').modal('show');" ng-click="events.focusEvent(event)">
 
