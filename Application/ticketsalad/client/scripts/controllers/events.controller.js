@@ -21,6 +21,15 @@ export default class EventsCtrl extends Controller
       this.focusevent = event;
     }
 
+    check()
+  {
+    if(!Meteor.user())
+    {
+      window.location.href = '#/login';
+      this.$state.go('login');
+    }
+  }
+
 }
 EventsCtrl.$name = 'EventsCtrl';
 
