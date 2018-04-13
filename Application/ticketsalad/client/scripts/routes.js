@@ -1,6 +1,19 @@
+/*
+* File Name: routes.js
+* Version 1.0
+*
+* Tribus Digita
+* Ticket Salad
+*
+* Functional description: routes handles all javascript associated importing templates from the HTML counterparts, and configuring them as states
+These states are used to provide the different views of the application
+*/
+
+//libs
 import { _ } from 'meteor/underscore';
 import { Config, Runner } from 'angular-ecmascript/module-helpers';
- 
+
+//Templates
 import eventsTemplateUrl from '../templates/events.html';
 import profileTemplateUrl from '../templates/profile.html';
 import buyCreditsTemplateUrl from '../templates/buyCredits.html';
@@ -15,11 +28,10 @@ class RoutesConfig extends Config {
   constructor() 
   {
     super(...arguments);
-
-    
   }
 
-  configure() {
+  configure() //Creates the templates as states
+  {
     this.$stateProvider
       .state('tab', {
         url: '/tab',
@@ -71,11 +83,11 @@ class RoutesConfig extends Config {
         controller: 'EditProfileCtrl as editProfile'
       });
  
-    this.$urlRouterProvider.otherwise('login');
+    this.$urlRouterProvider.otherwise('login'); //Default state
   }
 }
  
-RoutesConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
+RoutesConfig.$inject = ['$stateProvider', '$urlRouterProvider']; //Puts all the states in a router
  
 class RoutesRunner extends Runner {
   run() {
