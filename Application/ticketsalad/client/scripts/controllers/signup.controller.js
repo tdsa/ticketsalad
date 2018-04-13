@@ -6,11 +6,9 @@ export default class SignupCtrl extends Controller {
   signup() {
     if (_.isEmpty(this.email)) return;
     if (_.isEmpty(this.name)) return;
-    if (_.isEmpty(this.user)) return;
     if (_.isEmpty(this.pass)) return;
  
       Accounts.createUser({
-        username: this.user,
         email: this.email,
         password: this.pass,
         profile: this.name,

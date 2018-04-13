@@ -84,14 +84,14 @@ class RoutesConfig extends Config {
   }
 
   isAuthorized() {
-    /*if(!Meteor.user())
+    if(!Meteor.user())
     {
       this.$state.go('tab.login');
     }
     else
     {
       return;
-    }*/
+    }
 
     return;
   }
