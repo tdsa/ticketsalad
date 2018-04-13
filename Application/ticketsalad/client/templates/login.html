@@ -1,6 +1,6 @@
 <ion-view view-title="Log In">
     <ion-content>
-        <div class="container">
+        <div class="container" style = "padding-top: 5%">
         <form>
                 <div class="ui form success">
                         <div class="field">
@@ -13,7 +13,7 @@
                  <div class="ui from form">
                      <div class="field">
                         <label>Password</label>
-                        <input placeholder="password" type="text" ng-model="login.pass">
+                        <input placeholder="Enter your password" type="password" ng-model="login.pass">
                     </div>
                 </div>
                 <div class="ui horizontal divider">
@@ -22,10 +22,10 @@
                         <div class="ui submit button" ng-click="login.login()">Login</div>
                         <div class="ui button" ng-click = "login.create()" href="#/signup">Create Account</div>
                  </center>
-                <div>
-                      <center>
-                            <p><a>Forgot Password?</a> </p>
-                      </center>  
+                <div style = "padding-top: 5%">
+                    <center>
+                        <p><a>Forgot Password?</a> </p>
+                    </center>  
                 </div>
         </form>
     </div>
