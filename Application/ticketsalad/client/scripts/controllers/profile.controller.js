@@ -23,6 +23,7 @@ export default class ProfileCtrl extends Controller {
     this.$state.go('editProfile');
   }
 
+<<<<<<< HEAD
   reload()
   {
     if(Meteor.user())
@@ -42,6 +43,13 @@ export default class ProfileCtrl extends Controller {
     }
   }
   
+=======
+  buyCredits()
+  {
+    this.$state.go('buyCredits');
+  }
+
+>>>>>>> origin/feature/Profile
 }
  
 ProfileCtrl.$name = 'ProfileCtrl';
