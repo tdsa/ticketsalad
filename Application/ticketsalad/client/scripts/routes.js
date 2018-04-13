@@ -24,15 +24,23 @@ class RoutesConfig extends Config {
         abstract: true,
         templateUrl: tabsTemplateUrl
       })
+      .state('login', {
+        url: '/login',
+        templateUrl: loginTemplateUrl,
+        controller: 'LoginCtrl as login'
+      })
+      .state('signup', {
+        url: '/signup',
+        templateUrl: signupTemplateUrl,
+        controller: 'SignupCtrl as signup' 
+      })
+
       .state('tab.events', {
         url: '/events',
         views: {
           'tab-events': {
             templateUrl: eventsTemplateUrl,
-            controller: 'EventsCtrl as events',
-            resolve: {
-              user: this.isAuthorized
-            }
+            controller: 'EventsCtrl as events'
           }
         }
       })
@@ -41,10 +49,7 @@ class RoutesConfig extends Config {
         views: {
           'tab-profile': {
             templateUrl: profileTemplateUrl,
-            controller: 'ProfileCtrl as profile',
-            resolve: {
-              user: this.isAuthorized
-            }
+            controller: 'ProfileCtrl as profile'
           }
         }
         
@@ -53,47 +58,10 @@ class RoutesConfig extends Config {
       .state('editProfile', {
         url: '/editProfile',
         templateUrl: editProfileTemplateUrl,
-        controller: 'EditProfileCtrl as editProfile',
-        resolve: {
-          user: this.isAuthorized
-        }
-      })
-
-      .state('tab.login', {
-        url: '/login',
-        views: {
-          'tab-login': {
-            templateUrl: loginTemplateUrl,
-            controller: 'LoginCtrl as login'
-          }
-        }
-        
-      })
-      .state('tab.signup', {
-        url: '/signup',
-        views: {
-          'tab-signup': {
-            templateUrl: signupTemplateUrl,
-            controller: 'SignupCtrl as signup'
-          }
-        }
-        
+        controller: 'EditProfileCtrl as editProfile'
       });
  
-    this.$urlRouterProvider.otherwise('tab/events');
-  }
-
-  isAuthorized() {
-    if(!Meteor.user())
-    {
-      this.$state.go('tab.login');
-    }
-    else
-    {
-      return;
-    }
-
-    return;
+    this.$urlRouterProvider.otherwise('login');
   }
 }
  

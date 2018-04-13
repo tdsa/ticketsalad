@@ -23,6 +23,11 @@ export default class SignupCtrl extends Controller {
       });
   }
 
+  login()
+  {
+    this.$state.go('login');
+  }
+
 }
  
 SignupCtrl.$name = 'SignupCtrl';

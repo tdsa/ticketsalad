@@ -1,4 +1,4 @@
-<ion-view title="Profile" onload="login.check()">
+<ion-view title="Profile" onload="profile.reload()">
 
   <ion-content>
 
@@ -47,7 +47,7 @@
             
             <div style ="padding-top: 10%;">
               <button class="ui blue button">Buys Credits</button>
-              <button class="ui red button" ng-click = "profile.logout()">Log Out</button>
+              <button class="ui red button" ng-click = "profile.logout()" href="#/login">Log Out</button>
 
            </div>
 

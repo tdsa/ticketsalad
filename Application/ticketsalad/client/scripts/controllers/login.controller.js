@@ -30,7 +30,7 @@ export default class LoginCtrl extends Controller
 
   create()
   {
-    this.$state.go('tab.signup');
+    this.$state.go('signup');
   }
 }
  
