@@ -46,13 +46,4 @@ Meteor.startup(function()
     events.forEach((event) => {
         const eventId = Events.insert(event);
     });
-
-    //db.users.update({},{$set : {"new_field":1}},false,true)
-
-    /*db.users.aggregate([
-        {
-          $addFields: {
-            claims
-          }
-        }]);*/
 });
