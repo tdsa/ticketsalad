@@ -11,8 +11,15 @@ export default class SignupCtrl extends Controller {
       Accounts.createUser({
         email: this.email,
         password: this.pass,
-        profile: this.name,
-        credits: '0'
+        profile: {
+          name: this.name,
+          surname: this.surname,
+          cell: this.number,
+          id: this.id,
+          gender: this.genderM? "Male" : "Female",
+          idType: this.idRadion? "ID" : "Passport",
+          credits: 0
+        }
       });
 
       this.$state.go('tab.login', {

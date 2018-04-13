@@ -4,15 +4,20 @@ import { Controller } from 'angular-ecmascript/module-helpers';
 export default class ProfileCtrl extends Controller {
   constructor() {
     super(...arguments);
-    //this.name = "";
-  }
+    this.user = Meteor.user();
+    
+    //this.ready(this.reload);
+    //console.log(this);
+    }
 
   logout() {
     Meteor.logout();
 
     if(!Meteor.user())
     {
-      this.instance = null;
+      
+      this.user = null;
+      //this = null;
       this.$state.go('login');
     }
     
@@ -27,10 +32,10 @@ export default class ProfileCtrl extends Controller {
   {
     if(Meteor.user())
     {
-      this.name = Meteor.user().profile;
+      this.user = Meteor.user();
     }
 
-    console.log(this.name);
+    console.log(this.user);
   }
 
   check()
