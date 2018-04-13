@@ -1,10 +1,22 @@
+/*
+* File Name: bootstrap.js
+* Version 1.0
+*
+* Tribus Digita
+* Ticket Salad
+*
+* Functional description: bootstrap handles all javascript associated with creating a mongo collection
+*/
+
+//libs
 import Moment from 'moment';
 import { Meteor } from 'meteor/meteor';
 import { Events } from '../lib/collections';
  
 Meteor.startup(function() 
 {
-    Events.remove({});
+    Events.remove({}); //clears the collection
+
     const events = [
     {
         name: 'Tomorrowland',
@@ -44,6 +56,6 @@ Meteor.startup(function()
     }];
 
     events.forEach((event) => {
-        const eventId = Events.insert(event);
+        const eventId = Events.insert(event); //Inserts into collections
     });
 });

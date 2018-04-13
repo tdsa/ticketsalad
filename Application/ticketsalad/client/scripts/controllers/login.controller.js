@@ -54,5 +54,5 @@ export default class LoginCtrl extends Controller
   }
 }
  
-LoginCtrl.$name = 'LoginCtrl';
-LoginCtrl.$inject = ['$state', '$ionicPopup', '$log'];
+LoginCtrl.$name = 'LoginCtrl';//To refer to the controller in scope
+LoginCtrl.$inject = ['$state', '$ionicPopup', '$log'];// Adds the controller to the routes config

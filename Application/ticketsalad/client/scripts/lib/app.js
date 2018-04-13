@@ -1,3 +1,14 @@
+/*
+* File Name: app.js
+* Version 1.0
+*
+* Tribus Digita
+* Ticket Salad
+*
+* Functional description: app handles all javascript associated with initiating the application, importing all controllers.
+It performs all onReady functionalities and loads all the views in the tab stack.
+*/
+
 // Libs
 import 'angular-animate';
 import 'angular-meteor';
@@ -28,6 +39,7 @@ Angular.module(App, [
   'ionic'
 ]);
 
+//Loads controllers to be used
 new Loader(App)
 .load(EventsCtrl)
 .load(ProfileCtrl)

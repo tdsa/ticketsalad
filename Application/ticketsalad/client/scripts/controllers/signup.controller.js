@@ -37,5 +37,5 @@ export default class SignupCtrl extends Controller {
 
 }
  
-SignupCtrl.$name = 'SignupCtrl';
-SignupCtrl.$inject = ['$state', '$ionicPopup', '$log'];
+SignupCtrl.$name = 'SignupCtrl'; //To refer to the controller in scope
+SignupCtrl.$inject = ['$state', '$ionicPopup', '$log'];// Adds the controller to the routes config
