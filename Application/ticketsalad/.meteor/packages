@@ -27,4 +27,7 @@ juliancwirko:postcss
 less
 jquery
 accounts-base
+<<<<<<< HEAD
 accounts-password
+=======
+>>>>>>> origin/feature/Event_Details

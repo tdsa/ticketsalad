@@ -8,20 +8,38 @@ Meteor.startup(function()
     const events = [
     {
         name: 'Tomorrowland',
+        city: 'Boom',
+        country: 'Belgium',
         picture: 'img/TL.jpg',
-        date: 'July 2018',
+        from: 'Jul 21, 2018',
+        to: 'Jul 29, 2018',
+        webpage: 'https://www.tomorrowland.com/en/festival/welcome',
+        credits: '15',
+        description: '',
         claims: 75
     },
     {
         name: 'Rocking The Daisies',
+        city: 'New York',
+        country: 'America',
         picture: 'img/RTD.jpg',
-        date: 'October 2018',
+        from: 'Oct 5, 2018',
+        to: 'Oct 7, 2018',
+        webpage: 'https://rockingthedaisies.com/',
+        credits: '5',
+        description: '',
         claims: 52
     },
     {
         name: 'In The City',
+        city: 'Moscow',
+        country: 'Russia',
         picture: 'img/ITC.png',
-        date: 'August 2018',
+        from: 'Oct 7, 2018',
+        to: 'Oct 9, 2018',
+        webpage: 'http://inthecityjhb.co.za/',
+        credits: '5',
+        description: '',
         claims: 35
     }];
 

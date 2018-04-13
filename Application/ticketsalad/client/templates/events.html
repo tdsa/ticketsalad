@@ -4,14 +4,16 @@
             <input id = "search" class="prompt" type="text" placeholder="Search events..." ng-model="search">
         </div>
         <div class="ui link stackable cards">
-            <div class="card" ng-repeat = "event in events.data | filter:search">
+
+            <div class="card" ng-repeat = "event in events.data | filter:search" onclick="$('.ui.modal').modal('show');" ng-click="events.focusEvent(event)">
+
                 <div class="image">
                     <img ng-src = "{{event.picture}}">
                 </div>
                 <div class="content">
                     <div class="header">{{event.name}}</div>
                     <div class="meta">
-                    <a>{{event.date}}</a>
+                    <a>{{event.from}}</a>
                     </div>
                 </div>
                 <div class="extra content">
@@ -25,7 +27,47 @@
                 </div>
             </div>
         </div>
-        <script></script>
+
+
+        <div class="ui modal">
+            <div class="header" ng-style="{'background-image':'url(' + events.focusevent.picture + ')'}">{{events.focusevent.name}}</div>
+            <div class="content ui grid">
+                <div class="row">
+                    <div class="left floated eight wide column">
+                        <div class="row">
+                            <h3>{{events.focusevent.city}}, {{events.focusevent.country}}</h3>
+                        </div>
+                        <div class="row">
+                            <a href="{{events.focusevent.webpage}}" class="ui button">Visit Webpage</a>
+                        </div>
+                    </div>
+                    <div class="right floated eight wide column">
+                        <div class="row">
+                            <h3>From {{events.focusevent.from}}</h3>
+                        </div>
+                        <div class="row">
+                            <h3>To {{events.focusevent.to}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="eight wide column"></div>
+                    <div class="eight wide column">
+                        <div class="row">
+                            <b>CREDITS PER CLAIM</b>
+                        </div>
+                        <div class="row">
+                            <h3>{{events.focusevent.credits}} credits</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row center aligned">
+                    <h4>More About The Event</h4>
+                    <p>{{events.focusevent.description}}</p>
+                </div>
+            </div>
+        </div>
+
       </ion-content>
 </ion-view>
 
