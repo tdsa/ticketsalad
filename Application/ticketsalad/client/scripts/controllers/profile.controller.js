@@ -24,6 +24,11 @@ export default class ProfileCtrl extends Controller {
     this.$state.go('editProfile');
   }
 
+  buyCredits()
+  {
+    this.$state.go('buyCredits');
+  }
+
 }
  
 ProfileCtrl.$name = 'ProfileCtrl';
