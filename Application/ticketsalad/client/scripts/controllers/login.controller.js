@@ -5,7 +5,11 @@ export default class LoginCtrl extends Controller
 {
   
   login() {
-    if (_.isEmpty(this.email)) return;
+    if (_.isEmpty(this.email))
+    {
+      //angular.element(document.getElementById('e').setAttribute("display: inline"));
+      return;
+    }
     if (_.isEmpty(this.pass)) return;
  
     Meteor.loginWithPassword(this.email, this.pass, function (err) {
@@ -31,6 +35,11 @@ export default class LoginCtrl extends Controller
   create()
   {
     this.$state.go('signup');
+  }
+
+  forgot()
+  {
+    this.$state.go('forgotPassword');
   }
 }
  

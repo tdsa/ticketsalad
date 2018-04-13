@@ -5,7 +5,10 @@
                 <div class="ui form success">
                         <div class="field">
                           <label>E-mail</label>
-                          <input placeholder="Enter your email" type="email" ng-model="login.email">
+                          <input placeholder="Enter your email address" type="email" ng-model="login.email">
+                          <div class="ui pointing red basic label" id = "#e" style = "display: none">
+                                Please enter your email address
+                            </div>
                         </div>
                 </div>
                 <div class="ui horizontal divider">
@@ -14,6 +17,9 @@
                      <div class="field">
                         <label>Password</label>
                         <input placeholder="Enter your password" type="password" ng-model="login.pass">
+                        <div class="ui pointing red basic label" id = "#p" style = "display: none">
+                                Please enter your password
+                            </div>
                     </div>
                 </div>
                 <div class="ui horizontal divider">
@@ -24,7 +30,7 @@
                  </center>
                 <div style = "padding-top: 5%">
                     <center>
-                        <p><a>Forgot Password?</a> </p>
+                        <p><a ng-click="login.forgot()" href="#/forgotPassword">Forgot Password?</a> </p>
                     </center>  
                 </div>
         </form>
