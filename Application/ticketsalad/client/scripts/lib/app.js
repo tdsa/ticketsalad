@@ -13,6 +13,7 @@ import { Meteor } from 'meteor/meteor';
 import EventsCtrl from '../controllers/events.controller';
 import ProfileCtrl from '../controllers/profile.controller';
 import EditProfileCtrl from '../controllers/editProfile.controller';
+import BuyCreditsCtrl from '../controllers/buyCredits.controller';
 import LoginCtrl from '../controllers/login.controller';
 import SignupCtrl from '../controllers/signup.controller';
 import Routes from '../routes';
@@ -29,6 +30,7 @@ Angular.module(App, [
 new Loader(App)
 .load(EventsCtrl)
 .load(ProfileCtrl)
+.load(BuyCreditsCtrl)
 .load(EditProfileCtrl)
 .load(LoginCtrl)
 .load(SignupCtrl)

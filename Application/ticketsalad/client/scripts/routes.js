@@ -3,6 +3,7 @@ import { Config, Runner } from 'angular-ecmascript/module-helpers';
  
 import eventsTemplateUrl from '../templates/events.html';
 import profileTemplateUrl from '../templates/profile.html';
+import buyCreditsTemplateUrl from '../templates/buyCredits.html';
 import editProfileTemplateUrl from '../templates/editProfile.html';
 import loginTemplateUrl from '../templates/login.html';
 import signupTemplateUrl from '../templates/signup.html';
@@ -42,11 +43,7 @@ class RoutesConfig extends Config {
         
       })
 
-      .state('editProfile', {
-        url: '/editProfile',
-        templateUrl: editProfileTemplateUrl,
-        controller: 'EditProfileCtrl as editProfile',
-      })
+   
 
       .state('tab.login', {
         url: '/login',
@@ -58,6 +55,19 @@ class RoutesConfig extends Config {
         }
         
       })
+
+      .state('editProfile', {
+        url: '/editProfile',
+        templateUrl: editProfileTemplateUrl,
+        controller: 'EditProfileCtrl as editProfile',
+      })
+
+      .state('buyCredits', {
+        url: '/buyCredits',
+        templateUrl: buyCreditsTemplateUrl,
+        controller: 'BuyCreditsCtrl as buyCredits',
+      })
+
       .state('tab.signup', {
         url: '/signup',
         views: {
