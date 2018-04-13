@@ -12,10 +12,9 @@ export default class ProfileCtrl extends Controller {
   }
 
   logout() {
-    Meteor.logout((err) => {
-      if (err) return this.handleError(err);
-      this.$state.go('tab.login');
-    })
+    Meteor.logout();
+    //Meteor.users.update({}, {$set : { "services.resume.loginTokens" : [] }}, {multi:true});
+    this.$state.go('tab.login');
   }
 
   edit()
