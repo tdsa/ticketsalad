@@ -24,7 +24,6 @@ export default class ProfileCtrl extends Controller {
     this.$state.go('editProfile');
   }
 
-  
 }
  
 ProfileCtrl.$name = 'ProfileCtrl';
