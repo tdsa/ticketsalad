@@ -1,0 +1,54 @@
+\documentclass[11pt]{article}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\usepackage{graphicx}
+\usepackage{float}
+
+\begin{document}
+	\title{Ticket Salad Requirements and design document}
+	\date{}
+	\maketitle
+	\tableofcontents
+	\newpage
+	
+	\section{Functional Requirements}
+	R.1 Ticket Salad shall allow the user to sign up \newline
+	R.1.1Ticket Salad shall allow a user to enter their required information.\newline
+	R.1.2 Ticket Salad shall create a user account based on the information.\newline
+	R.1.3 Ticket Salad shall reject account creation if the information is not valid.\newline
+	R.1.4 Ticket Salad shall secure the account information in secure database.\newline\newline
+	R.2 Ticket shall allow the user to Log In\newline
+	R.2.1 Ticket Salad shall allow a user to log in to their account.\newline
+	R.2.2 Ticket Salad shall allow a user to log out of their account.\newline
+	R.2.3Ticket Salad shall reject a login based off invalid details.\newline
+	R.2.4 Ticket Salad shall hide all in-app views if a user is logged out.\newline\newline
+	R.3 Ticket Salad shall allow the user to view events
+	\newline R3.1 Ticket Salad shall allow a user to view all current ticket events.
+	\newline R.3.2 Ticket Salad shall allow a user to search through the displayed events.
+	\newline R.3.3 Ticket Salad shall display more information in the expanded event.
+	\newline R.3.4 Ticket Salad shall allow a user to expand a certain event.
+	\newline R.3.5 Ticket Salad shall allow a user to bid on an event from the expanded view.
+	\newline R.3.6 Ticket Salad shall allow a user to bid on an event directly from the events view.
+	\newline R.3.7 Ticket Salad shall notify users when an event closes
+	\newline R.3.8 Ticket Salad shall notify a user if they win an event \newline\newline
+	R.4 Ticket Salad shall allow the user to gain access to their profile
+	\newline R.4.1 Ticket Salad shall allow a user to view their profile.
+	\newline R.4.2 Ticket Salad shall allow a user to edit information regarding their profile.
+	\newline R.4.3 Ticket Salad shall allow a user to delete their account at their request.
+	\newline R.4.4 Ticket Salad shall reject changes to the user’s profile if the information is invalid.\newline\newline
+	R.5 Ticket Salad shall allow the user to access their claim credits
+	\newline R.5.1 Ticket Salad shall allow a user to view their claim credit balance.
+	\newline R.5.2 Ticket Salad shall allow a user to purchase more claim credits.
+	\newline R.5.3 Ticket Salad shall allow a user to claim bids if they possess enough credits.
+	\newline R.5.4 Ticket Salad shall deduct claim credits when a user bids on an event
+	\newline
+	\section{Domain Model}
+	\includegraphics[scale=0.4]{Domain}
+	\section{System Architecture}
+	\includegraphics[scale=0.4]{Architecture}
+	\newline
+	The architecture used in the Ticket Salad application is client server. The system runs it's main database functions on a central server along with certain server functions which can then be accessed by the client device in order to verify data used for the application which runs on the client device.
+	
+	
+	
+	
+\end{document}
