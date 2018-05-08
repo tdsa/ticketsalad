@@ -1,0 +1,39 @@
+<ion-view view-title="Log In">
+    <ion-content>
+        <div class="container" style = "padding-top: 5%">
+        <form>
+                <div class="ui form success">
+                        <div class="field">
+                          <label>E-mail</label>
+                          <input placeholder="Enter your email address" type="email" ng-model="login.email">
+                          <div class="ui pointing red basic label" id = "#e" style = "display: none">
+                                Please enter your email address
+                            </div>
+                        </div>
+                </div>
+                <div class="ui horizontal divider">
+                </div>
+                 <div class="ui from form">
+                     <div class="field">
+                        <label>Password</label>
+                        <input placeholder="Enter your password" type="password" ng-model="login.pass">
+                        <div class="ui pointing red basic label" id = "#p" style = "display: none">
+                                Please enter your password
+                            </div>
+                    </div>
+                </div>
+                <div class="ui horizontal divider">
+                 </div>
+                 <center>
+                        <div class="ui submit button" ng-click="login.login()">Login</div>
+                        <div class="ui button" ng-click = "login.create()" href="#/signup">Create Account</div>
+                 </center>
+                <div style = "padding-top: 5%">
+                    <center>
+                        <p><a ng-click="login.forgot()" href="#/forgotPassword">Forgot Password?</a> </p>
+                    </center>  
+                </div>
+        </form>
+    </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,74 @@
+<ion-view view-title="Sign Up">
+    <ion-content>
+        <div class="container" style = "padding-top: 5%">
+        <form class="ui form">
+          <div class="field">
+              <label>Name</label>
+              <input type="text" name="first-name" placeholder="Name" size="14" ng-model="signup.name">
+            </div>            
+            <div class="field">
+              <label>Surname</label>
+              <input type="text" name="surname" placeholder="Surname" ng-model="signup.surname">
+            </div>
+            <div class="field">
+              <label>Email</label>
+              <input type="email" name="email" placeholder="Enter your email" ng-model="signup.email">
+            </div>
+            <div class="field">
+              <label>Mobile Number</label>
+              <input type="text" name="mobile-number" placeholder="Mobile number" ng-model="signup.number">
+            </div>
+            <div class="field">
+              <label>Password</label>
+              <input type="password" name="password" placeholder="Password" ng-model="signup.pass">
+            </div>          
+              <div class="field">
+                  <label>Gender</label>     
+              <div class="ui form">
+                  <div class="grouped fields">
+                    <div class="field">
+                      <div class="ui radio checkbox">
+                          <input name="gen" checked="checked" type="radio" ng-model="signup.genderM">
+                          <label>Male</label>
+                      </div>
+                      <div class="ui radio checkbox">
+                          <input name="gen" type="radio" ng-model="signup.genderF">
+                        <label>Female</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                  <label>Type of ID</label>     
+              <div class="ui form">
+                  <div class="grouped fields">
+                    <div class="field">
+                      <div class="ui radio checkbox">
+                        <input name="example2" checked="checked" type="radio" ng-model="signup.idRadio">
+                        <label>RSA ID</label>
+                      </div>
+                      <div class="ui radio checkbox">
+                        <input name="example2" type="radio" ng-model="signup.passportRadio">
+                        <label>Passport</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                  <label>ID</label>
+                  <input type="text" name="id" placeholder="ID" ng-model="signup.id">
+              </div>
+              <center>
+                  <div class="ui submit button" ng-click="signup.signup()" >Submit</div>
+              </center>                 
+          </form>
+          <div style = "padding-top: 5%">
+            <center>
+                  <p><a ng-click="signup.login()" href="#/login">Already have an account?</a> </p>
+            </center>  
+        </div>
+          </div>
+    </ion-content>
+</ion-view>
