@@ -1,0 +1,16 @@
+{
+    "gitflow4code.features": [
+        {
+            "name": "feature/Search",
+            "base": "develop"
+        },
+        {
+            "name": "feature/Authentication",
+            "base": "develop"
+        },
+        {
+            "name": "feature/Authentication + Signup",
+            "base": "feature/Authentication"
+        }
+    ]
+}
