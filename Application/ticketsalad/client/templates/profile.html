@@ -1,6 +1,6 @@
 <ion-view title="Profile" ng-load="profile.reload()">
 
-  <ion-content>
+  <ion-content scroll="false">
 
     <div class = "ui center aligned segment"> 
 
@@ -46,7 +46,7 @@
           
             
             <div style ="padding-top: 10%;">
-              <button class="ui blue button" ng-click = "profile.buyCredits()" href="#/buyCredits">Buy Credits</button>
+              <button class="ui blue button" ng-click = "profile.buyCredits()" href="#/tab/buyCredits">Buy Credits</button>
               <button class="ui red button" ng-click = "profile.logout()" href="#/login">Log Out</button>
 
            </div>
