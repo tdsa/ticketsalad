@@ -43,11 +43,11 @@ Angular.module(App, [
 new Loader(App)
 .load(EventsCtrl)
 .load(ProfileCtrl)
-.load(BuyCreditsCtrl)
 .load(EditProfileCtrl)
 .load(ForgotPasswordCtrl)
 .load(LoginCtrl)
 .load(SignupCtrl)
+.load(BuyCreditsCtrl)
 .load(Routes);
 
 // Startup
