@@ -74,7 +74,9 @@ export default class EventsCtrl extends Controller
         window.location.href = '#/login';
         this.$state.go('login');
       }
+
     }
+  }
 
 
 }
