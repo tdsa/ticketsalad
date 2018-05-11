@@ -30,3 +30,4 @@ accounts-base
 accounts-password
 lawshe:full-page
 twbs:bootstrap
+meteortesting:mocha
