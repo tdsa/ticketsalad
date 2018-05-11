@@ -15,8 +15,6 @@ import { Controller } from 'angular-ecmascript/module-helpers';
  
 export default class LoginCtrl extends Controller 
 {
-
-  
   
   login() {
     if (_.isEmpty(this.email))

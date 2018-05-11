@@ -15,6 +15,7 @@ import { Events } from '../lib/collections';
  
 Meteor.startup(function() 
 {
+
     function generateCode()
     {
         var code = "";
