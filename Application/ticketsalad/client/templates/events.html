@@ -1,11 +1,11 @@
-<ion-view view-title="Events">
+<ion-view view-title="Events" onload="events.check()">
     <ion-content>
-        <div class="ui fluid search" >
+        <div class="ui fluid search" style = "padding-bottom: 5%; padding-top: 2%; margin: 0 auto; width: 95%">
             <input id = "search" class="prompt" type="text" placeholder="Search events..." ng-model="search">
         </div>
-        <div class="ui link stackable cards">
+        <div class="ui link stackable cards" id = "scroll">
 
-            <div class="card" ng-repeat = "event in events.data | filter:search" onclick="$('.ui.modal').modal('show');" ng-click="events.focusEvent(event)">
+            <div class="card" ng-repeat = "event in events.data | filter:search " ng-if="event.claimed == 0" onclick="$('#display').modal('show');" ng-click="events.focusEvent(event)">
 
                 <div class="image">
                     <img ng-src = "{{event.picture}}">
@@ -22,14 +22,14 @@
                     {{event.claims}}
                     </span>
                 </div>
-                <div class="ui bottom attached button">
+                <button class="ui bottom attached button" ng-click="this.focusEvent(event)" onclick="$('#claim').modal('show');">
                     Claim
-                </div>
+                </button>
             </div>
         </div>
 
 
-        <div class="ui modal">
+        <div class="ui modal" id="display">
             <div class="header" ng-style="{'background-image':'url(' + events.focusevent.picture + ')'}">{{events.focusevent.name}}</div>
             <div class="content ui grid">
                 <div class="row">
@@ -65,9 +65,35 @@
                     <h4>More About The Event</h4>
                     <p>{{events.focusevent.description}}</p>
                 </div>
+                <button class="ui button" onclick="$('#claim').modal({onHide: function(){console.log('hidden');$('#success_modal, #failure_modal').addClass('hidden')}}).modal('show');">Claim Now</button>
+            </div>
+        </div>
+        <div class="ui modal" id="claim">
+            <div class="header">Claim {{events.focusevent.name}}</div>
+            <div class="content ui grid" ng-init="events.claimCode='00000'">
+                <input type="text" ng-bind="events.claimCode" ng-model="events.claimCode">
+                <button ng-click="events.claimEvent()" class="ui button">Claim {{events.focusevent.name}}</button>
+            </div>
+            <div class="ui icon message hidden" id="success_modal">
+                <i class="trophy icon"></i>
+                <div class="content">
+                    <div class="header">
+                        Congratulations!!!
+                    </div>
+                    <p>You have won the {{events.focusevent.name}} ticket claim!</p>
+                </div>
+            </div>
+            <div class="ui icon message hidden" id="failure_modal">
+                <i class="thumbs down icon"></i>
+                <div class="content">
+                    <div class="header">
+                        Better Luck Next Time
+                    </div>
+                    <p>Your selected code just wasn't the one. Feel free to try again!</p>
+                </div>
             </div>
         </div>
 
-      </ion-content>
+    </ion-content>
 </ion-view>
 
