@@ -14,7 +14,18 @@ import { Controller } from 'angular-ecmascript/module-helpers';
 export default class ProfileCtrl extends Controller {
   constructor() {
     super(...arguments);
-    this.user = Meteor.user();
+    this.helpers({
+      getUser(){
+        console.log("Current loaded");
+        console.log(this.user);
+        console.log("Current logged");
+        console.log(Meteor.user());
+        this.user = Meteor.user();
+        console.log("New loaded");
+        console.log(this.user);
+        
+      }
+    });
 
     }
 
