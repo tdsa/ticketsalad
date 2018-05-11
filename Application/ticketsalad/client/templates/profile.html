@@ -1,0 +1,63 @@
+<ion-view title="Profile" ng-load="profile.reload()">
+
+<<<<<<< HEAD
+  <ion-content scroll="false">
+=======
+{{profile.getUser}}
+
+  <ion-content>
+>>>>>>> 8711392453c7aeeafd3455d1e12434883eda697e
+
+    <div class = "ui center aligned segment"> 
+
+      <div>
+
+         <img class="ui centered small circular image" src="/img/user.png">
+
+         <div class="nameField">
+            <b>{{profile.user.profile.name}} {{profile.user.profile.surname}}</b> 
+          </div>
+
+          <button class="circular ui icon button" ng-click = "profile.edit()" href="#/editProfile">
+              edit
+          </button>
+
+          <div class = "ui center aligned segment">
+
+                <div class="creditDiv">
+                  <b>Credit Balance</b> 
+                </div>
+
+                <div>
+                    <p class="ui teal big label">{{profile.user.profile.credits}}</p>
+                </div>
+
+            </div>
+
+
+                <div class="ui positive message">
+                    
+                    <div class="header">
+                      About Ticket Salad
+                    </div>
+
+                     <div style = "padding-top: 2%">
+                        <p>Ticket Salad is everyone's ticket winning solution<br/>Check out <a href = "http://www.ticketsalad.com"><b>ticketsalad.com</b></a> for more info!</p>
+                    </div>
+                    
+                  </div>
+
+
+            </div>          
+          
+            
+            <div style ="padding-top: 10%;">
+              <button class="ui blue button" ng-click = "profile.buyCredits()" href="#/tab/buyCredits">Buy Credits</button>
+              <button class="ui red button" ng-click = "profile.logout()" href="#/login">Log Out</button>
+
+           </div>
+
+      </div>
+  </ion-content>
+
+</ion-view>
