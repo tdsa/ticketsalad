@@ -16,10 +16,23 @@ export default class BuyCreditsCtrl extends Controller {
     constructor()
     {
       super(...arguments);
-      $('#fullpage').fullpage({
-        verticalCentered: false,
-        crollOverflow: false
+
+      this.helpers({
+        data() {
+          return Meteor.user().profile.cards;
+        }
       });
+
+      var mySwiper = new Swiper ('.swiper-container', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+    
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+        },
+      })
     }
 
     done() //Takes a user back to their profile page
@@ -28,7 +41,7 @@ export default class BuyCreditsCtrl extends Controller {
         
     }
 
-    add() //Takes a user back to their profile page
+    addCard() //Takes a user back to their profile page
     {
       this.$state.go('tab.newCard');
         
