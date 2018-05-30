@@ -1,34 +1,17 @@
 <ion-view view-title="Buy Credits">
         <ion-content >
-                          <div id="fullpage" style="padding-bottom: 50px">
-                            <div class="section fp-auto-height" style="padding-top: 20px">
-                                <div class="slide">
-                                    <div class="intro">
-                                        <p class = "rcorners1">Card 1</p>
-                                    </div>
-                                </div>
-                                <div class="slide">
-                                    <div class="intro">
-                                        <div class="intro">
-                                                <p class = "rcorners1">Card 2</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="slide">
-                                    <div class="intro">
-                                        <div class="intro">
-                                                <p class = "rcorners1">Card 3</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <center style="padding-bottom: 20px">
-                                <div class="ui submit button">Edit This Card</div>
-                                <div class="ui button" ng-click="buyCredits.add()">Add New Card</div>
-                         </center>
-            <center style="bottom: 0">
-                <div class="ui submit button" ng-click="buyCredits.done()">Buy More Claims</div>
-         </center>
+            <div class="swiper-container">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide" ng-repeat = "card in buyCredits.data">{{card.name}}</div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+            <center>
+                    <div class="ui submit button" ng-click="buyCredits.addCard()" >Submit</div>
+            </center>       
+            <script src="../dist/js/swiper.min.js"></script>
         </ion-content>
     </ion-view>
