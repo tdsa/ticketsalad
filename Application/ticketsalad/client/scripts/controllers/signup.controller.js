@@ -5,24 +5,21 @@ export default class SignupCtrl extends Controller {
   
   signup() {
     if (_.isEmpty(this.email)) return;
-    if (_.isEmpty(this.name)) return;
     if (_.isEmpty(this.pass)) return;
  
       Accounts.createUser({
         email: this.email,
         password: this.pass,
-        profile: {
+        profile: 
+        {
           completed: false,
-          credits: 0,
-          cards: []
+          credits: 0
         }
       });
 
       this.$state.go('login', {
-        username: this.user,
         email: this.email,
-        password: this.pass,
-        profile: this.name
+        password: this.pass
       });
   }
 
