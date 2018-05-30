@@ -17,6 +17,23 @@ export default class NewCardCtrl extends Controller {
     {
         super(...arguments);
     }
+
+    done()
+    {
+        if (_.isEmpty(this.name)) return;
+        if (_.isEmpty(this.acc)) return;
+        //if (_.isEmpty(this.month)) return;
+        if (_.isEmpty(this.year)) return;
+        if (_.isEmpty(this.cvv)) return;
+
+        var details = {"name" : this.name, "acc" : this.acc, "year" : this.year, "cvv" : this.cvv};
+
+        if(this.name != null)
+        {
+          Meteor.users.update(Meteor.userId(), {$addToSet: {"profile.cards": details}});
+        }
+        this.$state.go('tab.buyCredits');
+    }
   }
  
 NewCardCtrl.$name = 'NewCardCtrl';

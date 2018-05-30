@@ -16,22 +16,53 @@ export default class BuyCreditsCtrl extends Controller {
     constructor()
     {
       super(...arguments);
-      $('#fullpage').fullpage({
-        verticalCentered: false,
-        crollOverflow: false
-    });
+
+      this.mySwiper = new Swiper ('.swiper-container', {
+        // Optional parameters
+        direction: 'horizontal',
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        spaceBetween: 10,
+    
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+        },
+
+        observer: true
+      });
+
+      this.helpers({
+        data() {
+          return Meteor.user().profile.cards;
+        },
+      });
     }
 
-    done() //Takes a user back to their profile page
+    buyMore()
     {
-      this.$state.go('tab.profile');
-        
+      if(this.claims != 0)
+      {
+        Meteor.users.update(Meteor.userId(), {$set: {"profile.credits": this.claims}});
+      }
     }
 
-    add() //Takes a user back to their profile page
+    addCard() //Takes a user back to their profile page
     {
       this.$state.go('tab.newCard');
         
+    }
+
+    updateClaims()
+    {
+     
+      this.claims = this.amount*5;
+      
+    }
+
+    updateRands()
+    {    
+      this.amount = this.claims/5;
     }
   }
  
