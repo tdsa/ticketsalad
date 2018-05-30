@@ -43,7 +43,7 @@ export default class BuyCreditsCtrl extends Controller {
     {
       if(this.claims != 0)
       {
-        Meteor.users.update(Meteor.userId(), {$set: {"profile.credits": this.claims}});
+        Meteor.users.update(Meteor.userId(), {$inc: {"profile.credits": parseInt(this.claims)}});
       }
     }
 
