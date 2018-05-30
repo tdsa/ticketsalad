@@ -17,6 +17,7 @@ import { Config, Runner } from 'angular-ecmascript/module-helpers';
 import eventsTemplateUrl from '../templates/events.html';
 import profileTemplateUrl from '../templates/profile.html';
 import buyCreditsTemplateUrl from '../templates/buyCredits.html';
+import completeProfileTemplateUrl from '../templates/completeProfile.html';
 import newCardTemplateUrl from '../templates/newCard.html';
 import editProfileTemplateUrl from '../templates/editProfile.html';
 import loginTemplateUrl from '../templates/login.html';
@@ -78,6 +79,15 @@ class RoutesConfig extends Config {
           'tab-profile': {
             templateUrl: buyCreditsTemplateUrl,
             controller: 'BuyCreditsCtrl as buyCredits'
+            }
+          }
+      })
+      .state('tab.completeProfile', {
+        url: '/completeProfile',
+        views: {
+          'tab-events': {
+            templateUrl: completeProfileTemplateUrl,
+            controller: 'CompleteProfileCtrl as completeProfile'
             }
           }
       })
