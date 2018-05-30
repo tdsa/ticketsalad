@@ -79,6 +79,6 @@ export default class EventsCtrl extends Controller
   }
 
 
-}
+
 EventsCtrl.$name = 'EventsCtrl'; //To refer to the controller in scope
 
