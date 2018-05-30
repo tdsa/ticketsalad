@@ -24,6 +24,25 @@ export default class EventsCtrl extends Controller
         });
     }
 
+    showClaimModal()
+    {
+      if(Meteor.user().profile.completed)
+      {
+        $('#claim').modal(
+          {
+            onHide: function()
+            {
+              console.log('hidden');
+              $('#success_modal, #failure_modal').addClass('hidden')
+            }
+          }).modal('show');
+      }else
+      {
+        console.log(this);
+        this.completeProfile();
+      }
+      
+    }
 
     focusEvent(event)
     {
@@ -33,6 +52,8 @@ export default class EventsCtrl extends Controller
 
     claimEvent()
     {
+      console.log("Completed");
+      console.log(Meteor.user().profile.completed);
       $("#success_modal, #failure_modal").addClass("hidden");
       if(typeof this.focusevent !== 'undefined')
       {
@@ -76,9 +97,20 @@ export default class EventsCtrl extends Controller
       }
 
     }
+    completeProfile()
+    {
+      $(".modal").modal("hide");
+      this.$state.go('tab.completeProfile');
+    }
+    openClaim(event)
+    {
+      console.log("openclaim");
+      this.focusEvent(event);
+      this.showClaimModal();
+    }
   }
 
 
 
 EventsCtrl.$name = 'EventsCtrl'; //To refer to the controller in scope
-
+EventsCtrl.$inject = ['$state', '$ionicPopup', '$log'];// Adds the controller to the routes config
