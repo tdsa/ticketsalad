@@ -9,6 +9,15 @@
     },
     "gitflow4code.features": [
         {
+            "name": "feature/SignUp",
+            "base": "develop"
+        },
+        {
+            "name": "feature/EmailRegistration",
+            "base": "develop"
+        },
+        {
+            "name": "feature/CreditsLowAlert",
             "base": "develop"
         }
     ]
