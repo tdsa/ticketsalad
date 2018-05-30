@@ -13,20 +13,26 @@ import { Controller } from 'angular-ecmascript/module-helpers';
  
 export default class BuyCreditsCtrl extends Controller {
 
-  constructor()
-  {
-    super(...arguments);
-    $('#fullpage').fullpage({
-      verticalCentered: false,
-      crollOverflow: false
-  });
-  }
+    constructor()
+    {
+      super(...arguments);
+      $('#fullpage').fullpage({
+        verticalCentered: false,
+        crollOverflow: false
+    });
+    }
 
-  done() //Takes a user back to their profile page
-  {
-    this.$state.go('tab.profile');
-      
-  }
+    done() //Takes a user back to their profile page
+    {
+      this.$state.go('tab.profile');
+        
+    }
+
+    add() //Takes a user back to their profile page
+    {
+      this.$state.go('tab.newCard');
+        
+    }
   }
  
 BuyCreditsCtrl.$name = 'BuyCreditsCtrl';
