@@ -11,6 +11,10 @@
         {
             "name": "feature/Authentication + Signup",
             "base": "feature/Authentication"
+        },
+        {
+            "name": "feature/EditCard",
+            "base": "master"
         }
     ]
 }

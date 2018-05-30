@@ -9,6 +9,7 @@
 all javascript functions along with the state controllers are placed here.
 */
 import { _ } from 'meteor/underscore';
+import { MeteorCameraUI } from 'meteor/okland:camera-ui';
 import { Controller } from 'angular-ecmascript/module-helpers';
  
 export default class ProfileCtrl extends Controller {
