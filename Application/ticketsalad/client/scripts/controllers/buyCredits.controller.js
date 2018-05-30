@@ -19,7 +19,7 @@ export default class BuyCreditsCtrl extends Controller {
       $('#fullpage').fullpage({
         verticalCentered: false,
         crollOverflow: false
-    });
+      });
     }
 
     done() //Takes a user back to their profile page
