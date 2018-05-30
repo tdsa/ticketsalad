@@ -45,7 +45,7 @@ export default class ProfileCtrl extends Controller {
 
   edit() // change view to the editProfile screen
   {
-    this.$state.go('editProfile');
+    this.$state.go('tab.editProfile');
   }
 
   check() //Enforces authorised user
@@ -59,7 +59,7 @@ export default class ProfileCtrl extends Controller {
   
   buyCredits() // change view to the buyCrdits screen
   {
-    this.$state.go('buyCredits');
+    this.$state.go('tab.buyCredits');
   }
 
 }
