@@ -9,12 +9,24 @@
 all javascript functions along with the state controllers are placed here.
 */
 import { _ } from 'meteor/underscore';
+import { MeteorCameraUI } from 'meteor/okland:camera-ui';
 import { Controller } from 'angular-ecmascript/module-helpers';
  
 export default class ProfileCtrl extends Controller {
   constructor() {
     super(...arguments);
-    this.user = Meteor.user();
+    this.helpers({
+      getUser(){
+        console.log("Current loaded");
+        console.log(this.user);
+        console.log("Current logged");
+        console.log(Meteor.user());
+        this.user = Meteor.user();
+        console.log("New loaded");
+        console.log(this.user);
+        
+      }
+    });
 
     }
 
@@ -33,7 +45,7 @@ export default class ProfileCtrl extends Controller {
 
   edit() // change view to the editProfile screen
   {
-    this.$state.go('editProfile');
+    this.$state.go('tab.editProfile');
   }
 
   check() //Enforces authorised user
@@ -47,7 +59,7 @@ export default class ProfileCtrl extends Controller {
   
   buyCredits() // change view to the buyCrdits screen
   {
-    this.$state.go('buyCredits');
+    this.$state.go('tab.buyCredits');
   }
 
 }
