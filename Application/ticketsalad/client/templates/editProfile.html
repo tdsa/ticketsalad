@@ -1,19 +1,22 @@
 <ion-view view-title="Edit Profile">
         <ion-content>
+          
 
                 <div class = "ui center aligned segment"> 
 
                         <div>
                   
-                           <img class="ui centered small circular image" src="https://s3-eu-west-1.amazonaws.com/video.gallereplay.com/production/user_74/picture_17112016100959.jpg">
-                  
-                           <div class="nameField">
-                              <b>{{profile.name}}</b> 
-                            </div>
-                  
-                            <button class="circular ui icon button" ng-click = "profile.edit()">
-                                Choose Image
-                            </button>
+                           <img class="ui centered small circular image" src="img/user.png">
+
+                            <a class="profile-picture positive" ng-click="editProfile.updatePicture()">
+                                <div ng-if="editProfile.user.profile.picture">
+                                  <img ng-src="{{ editProfile.user.profile.picture }}" alt="profile picture">
+                                  edit
+                                </div>
+                                <div ng-if="!editProfile.user.profile.picture" class="upload-placehoder">
+                                  Add photo
+                                </div>
+                                </a>
                             
 
                               </div>          
@@ -21,25 +24,25 @@
                               <form class="ui form" style="padding-top: 5%">
                                     <div class="field">
                                       <label>First Name</label>
-                                      <input type="text" name="first-name" placeholder="First Name">
+                                      <input type="text" name="first-name" ng-model="editProfile.name">
                                     </div>
 
                                     <div class="field">
                                       <label>Last Name</label>
-                                      <input type="text" name="last-name" placeholder="Last Name">
+                                      <input type="text" name="last-name" ng-model="editProfile.surname">
                                     </div>
 
                                     <div class="field">
                                             <label>Email</label>
-                                            <input type="text" name="last-name" placeholder="youremail@example.com">
+                                            <input type="text" name="last-name" ng-model="editProfile.email">
                                     </div>
 
                                     <div class="field">
                                             <label>Mobile Number</label>
-                                            <input type="text" name="last-name" placeholder="+27 123 4567">
+                                            <input type="text" name="last-name" ng-model="editProfile.cell">
                                     </div>
                                     
-                                    <button class="ui button" ng-click = "editProfile.done()">Done</button>
+                                    <button class="ui button" ng-click = "editProfile.done()">Save</button>
                                   </form>
                              
                         </div>

@@ -15,6 +15,18 @@ import { Events } from '../lib/collections';
  
 Meteor.startup(function() 
 {
+
+    function generateCode()
+    {
+        var code = "";
+        for (var index = 0; index < 5; index++) 
+        {
+            var digit = Math.floor((Math.random() * 10));
+            code += digit + "";
+        }
+        //Console.log(code);
+        return code;
+    }
     Events.remove({}); //clears the collection
 
     const events = [
@@ -28,7 +40,10 @@ Meteor.startup(function()
         webpage: 'https://www.tomorrowland.com/en/festival/welcome',
         credits: '15',
         description: '',
-        claims: 75
+        claims: 75,
+        code: generateCode(),
+        claimed: 0,
+        winner: null
     },
     {
         name: 'Rocking The Daisies',
@@ -40,7 +55,10 @@ Meteor.startup(function()
         webpage: 'https://rockingthedaisies.com/',
         credits: '5',
         description: '',
-        claims: 52
+        claims: 52,
+        code: generateCode(),
+        claimed: 0,
+        winner: null
     },
     {
         name: 'In The City',
@@ -52,7 +70,10 @@ Meteor.startup(function()
         webpage: 'http://inthecityjhb.co.za/',
         credits: '5',
         description: '',
-        claims: 35
+        claims: 35,
+        code: generateCode(),
+        claimed: 0,
+        winner: null
     }];
 
     events.forEach((event) => {

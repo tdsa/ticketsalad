@@ -9,11 +9,6 @@
     },
     "gitflow4code.features": [
         {
-<<<<<<< HEAD
-            "name": "feature/Profile",
-=======
-            "name": "feature/SignUp",
->>>>>>> feature/SignUp
             "base": "develop"
         }
     ]
