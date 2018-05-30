@@ -1,12 +1,3 @@
-.intro img
-{
-    max-width:70%;
-max-height:100%;
-display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .button
 {
     max-width: 80;
@@ -15,13 +6,25 @@ display: block;
     margin-right: auto;
 }
 
-.rcorners1 {
-    border-radius: 25px;
-    background: rgb(47, 179, 231);
-    height: 200px;
-    width: 80%; 
-    display: block;
-    margin: auto;
+.swiper-container {
+    width: 100%;
+    height: 250px;
+    border: 1px, black, solid;
+}
+
+.swiper-slide
+{
     text-align: center;
-    line-height: 200px;
+    width: 250px;
+    background-color: rgb(0, 153, 255);
+    height: 150px;
+    margin: auto;
+    border-radius: 25px;
+}
+
+.fit
+{
+    height: 80%;
+    width: 80%;
+    margin: auto;
 }
