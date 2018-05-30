@@ -77,6 +77,7 @@ export default class EventsCtrl extends Controller
         console.log("Claim: ");
         console.log(this.focusevent);
         console.log("Code: " + this.claimCode);
+        Meteor.users.update(Meteor.userId(), {$inc: {"profile.credits": 0-this.focusevent.credits}});
         var claimEvent = this.focusevent;
         if(claimEvent.code == this.claimCode)
         {
