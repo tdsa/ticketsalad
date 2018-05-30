@@ -102,6 +102,12 @@ export default class EventsCtrl extends Controller
       $(".modal").modal("hide");
       this.$state.go('tab.completeProfile');
     }
+    openClaim(event)
+    {
+      console.log("openclaim");
+      this.focusEvent(event);
+      this.showClaimModal();
+    }
   }
 
 
