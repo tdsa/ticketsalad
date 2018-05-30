@@ -14,6 +14,7 @@ export default class CompleteProfileCtrl extends Controller {
             Meteor.users.update(Meteor.userId(), {$set: {"profile.name": this.name}});
         }else
         {
+            console.log("no name");
             completedProfile = false;
         }
         if(this.surname != null)
@@ -21,6 +22,7 @@ export default class CompleteProfileCtrl extends Controller {
             Meteor.users.update(Meteor.userId(), {$set: {"profile.surname": this.surname}});
         }else
         {
+            console.log("no surname");
             completedProfile = false;
         }
         if(this.number != null)
@@ -28,8 +30,10 @@ export default class CompleteProfileCtrl extends Controller {
             Meteor.users.update(Meteor.userId(), {$set: {"profile.cell": this.number}});
         }else
         {
+            console.log("no number");
             completedProfile = false;
         }
+
         if(this.genderM === true)
         {
             Meteor.users.update(Meteor.userId(), {$set: {"profile.gender": "Male"}});
@@ -38,10 +42,13 @@ export default class CompleteProfileCtrl extends Controller {
         {
             Meteor.users.update(Meteor.userId(), {$set: {"profile.gender": "Female"}});
         }
-        if(this.genderF !== true && this.genderM !== true)
+
+        if(this.genderF === null && this.genderM === null)
         {
+            console.log("no gender");
             completedProfile = false;
         }
+
         if(this.idRadio === true)
         {
             Meteor.users.update(Meteor.userId(), {$set: {"profile.idType": "ID"}});
@@ -51,8 +58,9 @@ export default class CompleteProfileCtrl extends Controller {
             Meteor.users.update(Meteor.userId(), {$set: {"profile.idType": "Passport"}});
         }
 
-        if(this.idRadio !== true && this.passportRadio !== true)
+        if(this.idRadio === null && this.passportRadio === null)
         {
+            console.log("no idtype");
             completedProfile = false;
         }
 
@@ -61,6 +69,7 @@ export default class CompleteProfileCtrl extends Controller {
             Meteor.users.update(Meteor.userId(), {$set: {"profile.id": this.id}});
         }else
         {
+            console.log("no id");
             completedProfile = false;
         }
         
