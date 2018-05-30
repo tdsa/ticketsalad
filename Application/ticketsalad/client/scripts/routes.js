@@ -82,6 +82,15 @@ class RoutesConfig extends Config {
             }
           }
       })
+      .state('tab.eventCredits', {
+        url: '/eventCredits',
+        views: {
+          'tab-events': {
+            templateUrl: buyCreditsTemplateUrl,
+            controller: 'BuyCreditsCtrl as buyCredits'
+            }
+          }
+      })
       .state('tab.completeProfile', {
         url: '/completeProfile',
         views: {

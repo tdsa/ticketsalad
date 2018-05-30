@@ -28,20 +28,37 @@ export default class EventsCtrl extends Controller
     {
       if(Meteor.user().profile.completed)
       {
-        $('#claim').modal(
-          {
-            onHide: function()
+        if(Meteor.user().profile.credits >= this.focusevent.credits)
+        {
+          $('#claim').modal(
             {
-              console.log('hidden');
-              $('#success_modal, #failure_modal').addClass('hidden')
-            }
-          }).modal('show');
+              onHide: function()
+              {
+                console.log('hidden');
+                $('#success_modal, #failure_modal').addClass('hidden')
+              }
+            }).modal('show');
+        }else
+        {
+          this.topUpAlert();
+        }
       }else
       {
         console.log(this);
         this.completeProfile();
       }
       
+    }
+
+    topUpAlert()
+    {
+      $('#insufficient').modal("show");
+    }
+
+    buyClaims()
+    {
+      $(".modal").modal("hide");
+      this.$state.go('tab.eventCredits');
     }
 
     focusEvent(event)

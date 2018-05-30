@@ -93,6 +93,21 @@
                 </div>
             </div>
         </div>
+        <div class="ui modal" id="insufficient">
+            <div class="header">Insufficient credits</div>
+            <div class="content ui">
+                    <div class="ui icon message warning">
+                        <i class="exclamation triangle icon"></i>
+                        <div class="content">
+                            <div class="header">
+                            You have insufficient credits to claim on this event
+                            </div>
+                            <button class="ui button" ng-click="events.buyClaims()">Buy more Claims</button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
 
     </ion-content>
 </ion-view>
