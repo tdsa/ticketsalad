@@ -13,11 +13,58 @@ import { Controller } from 'angular-ecmascript/module-helpers';
  
 export default class BuyCreditsCtrl extends Controller {
 
-  done() //Takes a user back to their profile page
-  {
-    this.$state.go('tab.profile');
+    constructor()
+    {
+      super(...arguments);
+
+      this.mySwiper = new Swiper ('.swiper-container', {
+        // Optional parameters
+        direction: 'horizontal',
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        spaceBetween: 10,
+    
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+        },
+
+        observer: true
+      });
+
+      this.helpers({
+        data() {
+          return Meteor.user().profile.cards;
+        },
+      });
+    }
+
+    buyMore()
+    {
+      if(this.claims != 0)
+      {
+        Meteor.users.update(Meteor.userId(), {$inc: {"profile.credits": parseInt(this.claims)}});
+      }
+    }
+
+    addCard() //Takes a user back to their profile page
+    {
+      this.$state.go('tab.newCard');
+        
+    }
+
+    updateClaims()
+    {
+     
+      this.claims = this.amount*5;
+      
+    }
+
+    updateRands()
+    {    
+      this.amount = this.claims/5;
+    }
   }
-}
  
 BuyCreditsCtrl.$name = 'BuyCreditsCtrl';
 BuyCreditsCtrl.$inject = ['$state', '$ionicPopup', '$log'];

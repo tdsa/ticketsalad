@@ -25,6 +25,8 @@ import EventsCtrl from '../controllers/events.controller';
 import ProfileCtrl from '../controllers/profile.controller';
 import EditProfileCtrl from '../controllers/editProfile.controller';
 import BuyCreditsCtrl from '../controllers/buyCredits.controller';
+import CompleteProfileCtrl from '../controllers/completeProfile.controller';
+import NewCardCtrl from '../controllers/newCard.controller';
 import LoginCtrl from '../controllers/login.controller';
 import SignupCtrl from '../controllers/signup.controller';
 import ForgotPasswordCtrl from '../controllers/forgotPassword.controller';
@@ -43,11 +45,13 @@ Angular.module(App, [
 new Loader(App)
 .load(EventsCtrl)
 .load(ProfileCtrl)
-.load(BuyCreditsCtrl)
+.load(CompleteProfileCtrl)
 .load(EditProfileCtrl)
+.load(NewCardCtrl)
 .load(ForgotPasswordCtrl)
 .load(LoginCtrl)
 .load(SignupCtrl)
+.load(BuyCreditsCtrl)
 .load(Routes);
 
 // Startup

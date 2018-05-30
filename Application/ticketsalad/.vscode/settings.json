@@ -15,10 +15,13 @@
         {
             "name": "feature/EditCard",
             "base": "master"
+<<<<<<< HEAD
         },
         {
             "name": "feature/grid",
             "base": "develop"
+=======
+>>>>>>> develop
         }
     ]
 }

@@ -1,31 +1,46 @@
 <ion-view view-title="Buy Credits">
-        <ion-content>
-
-                <div class="fluid ui card">
-                        <a class="image" >
-                                <center><h1 class="ui header" style="padding-top: 5%">Choose Card</h1></center>
-                          <img src="/img/card.png">
-                        </a>
-                        <div class="content">
-                          <a class="header" href="/img/card.png">1234 5678 9876 5432 (VISA)</a>
-                          <div class="meta">
-                            <a>Current selected card.</a>
-                          </div>
+    <ion-content scroll="false">
+            <div class="swiper-container">
+                <div class="swiper-wrapper" >
+                    <div class="swiper-slide" ng-repeat="card in buyCredits.data">
+                        <div class = "fit">
+                            <div class = "row center">
+                                {{card.acc}}
+                            </div>
+                            <div class = "row center">
+                                {{card.name}}
+                                {{card.year}}
+                            </div>
                         </div>
-                      </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        <center>
+            <div class="ui submit button" ng-click="buyCredits.addCard()">Add A New Card</div>
+            <div class="ui submit button" ng-click="buyCredits.editCard()">Edit This Card</div>
+        </center>
+    
+        <script src="../dist/js/swiper.min.js"></script>
 
-                      <center><div class="ui  action input">
-                            <input id = "money" type="text" value="0">
-                            <button class="ui teal labeled icon button">
-                              <i class="cart icon"></i>
-                              Buy Credits
-                            </button>
-                            
-                          </div></center>
-
-                          <div style="padding: 20%"></div>
-                
-            
-            <button class="ui fluid blue button"  ng-click = "buyCredits.done()">Done</button> 
-        </ion-content>
+        <div class="container" style = "padding-top: 5%; width: 80%">
+            <form class="ui form clearing segment">
+                    <div class="field row ">
+                        <label>Enter Amount: </label>
+                        <div >
+                            <input type="text" name="amountRands" placeholder="0" ng-model="buyCredits.amount" ng-change="buyCredits.updateClaims()">
+                        </div>
+                    </div>
+                    <div class="field row">
+                        <label>Claims Amount: </label>
+                        <div>
+                            <input type="text" name="amountClaims" placeholder="0" ng-model="buyCredits.claims" ng-change="buyCredits.updateRands()">
+                        </div>
+                    </div>                 
+            </form>
+            <center style="padding-top: 20px">
+                    <div class="ui submit button" ng-click="buyCredits.buyMore()">Buy More Claims</div>
+            </center>                                 
+        </div>
+    </ion-content>
     </ion-view>
