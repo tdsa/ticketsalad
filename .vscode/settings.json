@@ -9,7 +9,11 @@
     },
     "gitflow4code.features": [
         {
-            "name": "feature/Search",
+            "name": "feature/SignUp",
+            "base": "develop"
+        },
+        {
+            "name": "feature/Documentation",
             "base": "develop"
         }
     ]

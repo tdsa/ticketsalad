@@ -1,3 +1,12 @@
-\contentsline {section}{\numberline {1}Functional Requirements}{2}
-\contentsline {section}{\numberline {2}Domain Model}{3}
-\contentsline {section}{\numberline {3}System Architecture}{3}
+\contentsline {section}{\numberline {1}Software architecture overview}{2}
+\contentsline {section}{\numberline {2}Overall software architecture}{2}
+\contentsline {subsection}{\numberline {2.1}Architecture requirements}{2}
+\contentsline {subsubsection}{\numberline {2.1.1}Access and integration requirements}{2}
+\contentsline {subsubsection}{\numberline {2.1.2}Quality requirements}{3}
+\contentsline {section}{\numberline {3}Functional Requirements}{6}
+\contentsline {section}{\numberline {4}Domain Model}{7}
+\contentsline {section}{\numberline {5}System Architecture}{7}
+\contentsline {section}{\numberline {6}Use Cases}{8}
+\contentsline {subsection}{\numberline {6.1}Logging in}{8}
+\contentsline {subsection}{\numberline {6.2}Display Main screen}{9}
+\contentsline {subsection}{\numberline {6.3}Event Bidding}{10}
