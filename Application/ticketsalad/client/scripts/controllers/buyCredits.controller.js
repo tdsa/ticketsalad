@@ -13,20 +13,57 @@ import { Controller } from 'angular-ecmascript/module-helpers';
  
 export default class BuyCreditsCtrl extends Controller {
 
-  constructor()
-  {
-    super(...arguments);
-    $('#fullpage').fullpage({
-      verticalCentered: false,
-      crollOverflow: false
-  });
-  }
+    constructor()
+    {
+      super(...arguments);
 
-  done() //Takes a user back to their profile page
-  {
-    this.$state.go('tab.profile');
+      this.mySwiper = new Swiper ('.swiper-container', {
+        // Optional parameters
+        direction: 'horizontal',
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        spaceBetween: 10,
+    
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+        },
+
+        observer: true
+      });
+
+      this.helpers({
+        data() {
+          return Meteor.user().profile.cards;
+        },
+      });
+    }
+
+    buyMore()
+    {
+      if(this.claims != 0)
+      {
+        Meteor.users.update(Meteor.userId(), {$inc: {"profile.credits": parseInt(this.claims)}});
+      }
+    }
+
+    addCard() //Takes a user back to their profile page
+    {
+      this.$state.go('tab.newCard');
+        
+    }
+
+    updateClaims()
+    {
+     
+      this.claims = this.amount*5;
       
-  }
+    }
+
+    updateRands()
+    {    
+      this.amount = this.claims/5;
+    }
   }
  
 BuyCreditsCtrl.$name = 'BuyCreditsCtrl';

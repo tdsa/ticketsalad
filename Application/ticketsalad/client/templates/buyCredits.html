@@ -1,30 +1,46 @@
 <ion-view view-title="Buy Credits">
-        <ion-content scroll="false">
-                          <div id="fullpage" style="padding-bottom: 50px">
-                            <div class="section fp-auto-height">
-                                <div class="slide">
-                                    <div class="intro">
-                                        <img src="/img/credit-card.png" alt="Logo">
-                                    </div>
-                                </div>
-                                <div class="slide">
-                                    <div class="intro">
-                                        <div class="intro">
-                                            <img src="/img/credit-card.png" alt="Logo">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="slide">
-                                    <div class="intro">
-                                        <div class="intro">
-                                            <img src="/img/credit-card.png" alt="Logo">
-                                        </div>
-                                    </div>
-                                </div>
+    <ion-content scroll="false">
+            <div class="swiper-container">
+                <div class="swiper-wrapper" >
+                    <div class="swiper-slide" ng-repeat="card in buyCredits.data">
+                        <div class = "fit">
+                            <div class = "row center">
+                                {{card.acc}}
+                            </div>
+                            <div class = "row center">
+                                {{card.name}}
+                                {{card.year}}
                             </div>
                         </div>
-            <center style="bottom: 0">
-                <div class="ui submit button" ng-click="buyCredits.done()">Buy More Claims</div>
-         </center>
-        </ion-content>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        <center>
+            <div class="ui submit button" ng-click="buyCredits.addCard()">Add A New Card</div>
+            <div class="ui submit button" ng-click="buyCredits.editCard()">Edit This Card</div>
+        </center>
+    
+        <script src="../dist/js/swiper.min.js"></script>
+
+        <div class="container" style = "padding-top: 5%; width: 80%">
+            <form class="ui form clearing segment">
+                    <div class="field row ">
+                        <label>Enter Amount: </label>
+                        <div >
+                            <input type="text" name="amountRands" placeholder="0" ng-model="buyCredits.amount" ng-change="buyCredits.updateClaims()">
+                        </div>
+                    </div>
+                    <div class="field row">
+                        <label>Claims Amount: </label>
+                        <div>
+                            <input type="text" name="amountClaims" placeholder="0" ng-model="buyCredits.claims" ng-change="buyCredits.updateRands()">
+                        </div>
+                    </div>                 
+            </form>
+            <center style="padding-top: 20px">
+                    <div class="ui submit button" ng-click="buyCredits.buyMore()">Buy More Claims</div>
+            </center>                                 
+        </div>
+    </ion-content>
     </ion-view>
