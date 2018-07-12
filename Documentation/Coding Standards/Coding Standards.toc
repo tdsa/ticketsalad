@@ -13,16 +13,16 @@
 \contentsline {subsubsection}{\numberline {3.1.1}File names}{5}
 \contentsline {subsubsection}{\numberline {3.1.2}Class names and ID names}{5}
 \contentsline {subsection}{\numberline {3.2}Formatting requirements}{5}
-\contentsline {subsection}{\numberline {3.3}In-code comment requirements}{5}
+\contentsline {subsection}{\numberline {3.3}In-code comment requirements}{6}
 \contentsline {section}{\numberline {4}Javascript Guidelines}{6}
 \contentsline {subsection}{\numberline {4.1}Naming requirements}{6}
 \contentsline {subsubsection}{\numberline {4.1.1}File names}{6}
 \contentsline {subsubsection}{\numberline {4.1.2}Variable names}{6}
-\contentsline {subsubsection}{\numberline {4.1.3}Function names}{6}
+\contentsline {subsubsection}{\numberline {4.1.3}Function names}{7}
 \contentsline {subsection}{\numberline {4.2}Formatting requirements}{7}
 \contentsline {subsection}{\numberline {4.3}In-code comment requirements}{7}
-\contentsline {subsection}{\numberline {4.4}File Headers}{7}
+\contentsline {subsection}{\numberline {4.4}File Headers}{8}
 \contentsline {section}{\numberline {5}Rules and requirement}{8}
 \contentsline {subsection}{\numberline {5.1}Review Method}{8}
-\contentsline {subsection}{\numberline {5.2}Application of coding standards}{8}
-\contentsline {section}{\numberline {6}GIT file structure}{9}
+\contentsline {subsection}{\numberline {5.2}Application of coding standards}{9}
+\contentsline {section}{\numberline {6}GIT file structure}{10}
