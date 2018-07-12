@@ -15,7 +15,10 @@
 	engineering department so that reading, checking, and maintaining code written by different persons
 	becomes easier. The intent of these standards is to define a natural style and consistency, yet leave
 	to the authors of the engineering department source code, the freedom to practice their craft without
-	unnecessary burden
+	unnecessary burden.
+	
+	
+	\textbf{This document contains the coding standards that will be used in the TicketSalad system.}
 	\subsection{Scope}
 	This document describes general software coding standards for code written in HTML, SCSS, Javascript and Mongo.
 	\subsection{Terms used in this document}
@@ -24,14 +27,21 @@
 	\subsection{Naming requirements}
 	Naming conventions form a major part of coding standards as it makes code more readable by other developers thus increasing the scalability of the software.
 	\subsubsection{File names}
+	\textbf{The following file naming conventions will be used in the TicketSalad system}
+	\newline
 	HTMl files names are short, preferably one word names based directly on the html pages direct purpose.
 	\textbf{e.g} A login page will be named 'LogIn.html'. 
 	\subsubsection{Class names and ID names}
+	\textbf{The following file naming conventions will be used for class and ID names}
+	\newline
 	Classes are applied to many different elements in the HTML, therefore they are not very unique and describe a general purpose or layout preference for that element.
 	ID attributes are uniquely applied to different elements. Therefore they are unique and describe what is unique about that element. 
 	\textbf{e.g} A class that is used for icons on the webpage will have a class: 'icon. A element that serves a unique role such as a login button will be have id: 'login'
 	\subsection{Formatting requirements}
 	The layout of code plays a large part in the ability for someone else to read the code as it allows for the readers ability to "flow" through the code to be improved because there is a logical layout.
+	\newline
+	\textbf{The following formatting conventions will be used in the TicketSalad system}
+	
 	\begin{itemize}
 		\item Sub-elements are indented by one space to the right compared to their parent element.
 		\item White lines are used to break up large amounts of code into more understandable subsections of the HTML page.
@@ -42,6 +52,8 @@
 	Comments are crucial to the ability to understand code because if another developer cannot identify the purpose of the specific section of code they can address the comments.
 	
 	In HTML comments are not as necessary compared to other languages, however is required in some cases. However over commenting a file is avoided.
+	\newline
+	\textbf{The following commenting conventions will be used in the TicketSalad system}
 	\begin{itemize}
 		\item Comments are not made on elements that can be identified using their classes and ID's
 		\item Comments are made when the page calls any javascript functions, this comment will describe the function that is being called.
@@ -52,11 +64,16 @@
 	\subsection{Naming requirements}
 	Naming conventions form a major part of coding standards as it makes code more readable by other developers thus increasing the scalability of the software.
 	\subsubsection{File names}
+	\textbf{The following file naming conventions will be used in the TicketSalad system}
+	\newline
 	CSS files are named according to HTML file they relate to. \textbf{e.g} A CSS file used to style the login page will be called 'login.css'
 	\subsubsection{Class names and ID names}
+	\textbf{The following class and ID naming conventions will be used in the TicketSalad system}
 	Class and id names relate directly to the class and id names defined in the html.
 	\subsection{Formatting requirements}
 	The layout of code plays a large part in the ability for someone else to read the code as it allows for the readers ability to "flow" through the code to be improved because there is a logical layout.
+	\newline
+	\textbf{The following formatting conventions will be used in the TicketSalad system}
 	\begin{itemize}
 		\item White lines are used to break up large amounts of code into more understandable subsections of the css page.
 		\item There is no unnecessary whitespace in the CSS document.
@@ -71,11 +88,15 @@
 	\subsection{Naming requirements}
 	Naming conventions form a major part of coding standards as it makes code more readable by other developers thus increasing the scalability of the software.
 	\subsubsection{File names}
+	\textbf{The following naming conventions will be used in the TicketSalad system}
+	\newline
 	Javascript files are named according to the HTML page the script will be applied to followed by '.controller'.\textbf{e.g} The javascript file for the login page will be called 'login.controller.js'
 	
 	Javascript files that are applied to many pages and serve a more general purpose, are named according to their purpose.
 	\subsubsection{Variable names}
 	Variable names form a crucial part of coding standards in javascript as all variables serve a specific purpose.
+	\newline
+	\textbf{The following variable naming conventions will be used in the TicketSalad system}
 	\begin{itemize}
 		\item Variable names describe what data will be stored by a variable\textbf{e.g} A variable used to store a users id will be named id.
 		\item Variable names are short and descriptive
@@ -86,12 +107,17 @@
 	\end{itemize}
 	\subsubsection{Function names}
 	Function names are used to call that function's code in other parts of the document and other files. If function names are random and non-descriptive the purpose of that function will not be easily identifiable.
+	\newline
+	\textbf{The following function naming conventions will be used in the TicketSalad system}
 	\begin{itemize}
 		\item Function names are short and descriptive. \textbf{e.g} A function that is used to calculate a users credits will be called 'calculateCredits()'.
 		\item Function names follow the camelCasing style.
 	\end{itemize}
 	\subsection{Formatting requirements}
 	The layout of code plays a large part in the ability for someone else to read the code as it allows for the readers ability to "flow" through the code to be improved because there is a logical layout.
+	\newline
+	\textbf{The following formatting requirements will be used in the TicketSalad system}
+	\newline
 	\begin{itemize}
 		\item Each statement of code is on a new line.
 		\item White lines are used to break up large amounts of code into more understandable subsections of the javascript page.
@@ -103,6 +129,7 @@
 	Comments are crucial to the ability to understand code because if another developer cannot identify the purpose of the specific section of code they can address the comments.
 	
 	In javascript comments are essential as not all javascript code effectively describes the purpose of that code.
+	\textbf{The following commenting conventions will be used in the Ticket Salad system}
 	\begin{itemize}
 		\item Comments are not made on variables that have a descriptive name
 		\item Comments are made on all functions except very simple ones, describing the purpose of the function.
@@ -111,6 +138,8 @@
 	\end{itemize}
 	\subsection{File Headers}
 	File headers are included in all the javascript files describing the following aspects.
+	\newline
+	\textbf{The following file header conventions will be used in the TickeySaladSystem}
 	\begin{itemize}
 		\item File name
 		\item Version
