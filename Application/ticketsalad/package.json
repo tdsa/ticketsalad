@@ -17,7 +17,11 @@
     "bcrypt": "^2.0.1",
     "ionic-scripts": "^1.3.5",
     "meteor-node-stubs": "^0.3.2",
+<<<<<<< HEAD
     "moment": "^2.22.2"
+=======
+    "moment": "^2.22.0"
+>>>>>>> 01af81a1bccce8b084b690e10d9a441c8dd361ae
   },
   "devDependencies": {
     "autoprefixer": "^6.3.1"
