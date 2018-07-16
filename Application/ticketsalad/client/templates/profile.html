@@ -1,0 +1,54 @@
+<ion-view title="Profile" ng-load="profile.reload()">
+
+{{profile.getUser}}
+
+  <ion-content scroll="false">
+
+
+    <div class = "ui center aligned segment"> 
+
+      <div>
+
+         <img class="ui centered small circular image" src="/img/user.png">
+
+         <div class="nameField">
+            <b>{{profile.user.profile.name}} {{profile.user.profile.surname}}</b> 
+          </div>
+
+          
+              
+         
+
+          <div class = "ui center aligned segment">
+
+                <div class="creditDiv">
+                  <b>Credit Balance</b> 
+                </div>
+
+                <div>
+                    <p class="ui teal big label">{{profile.user.profile.credits}}</p>
+                </div>
+               
+                <center style = "padding-top: 5%"><button class="ui circular primary button" ng-click = "profile.buyCredits()" href="#/buyCredits">Buy Credits</button></center>
+            </div>
+
+
+                
+
+
+            </div>          
+          
+            
+            <div style ="padding-top: 5%;">
+                <center style = "padding-bottom: 5%"><button class="fluid primary big circular ui icon button" ng-click = "profile.edit()" href="#/editProfile">Edit Profile</button></center>
+
+                <center style = "padding-bottom: 5%"><button class="ui fluid big circular primary button" ng-click = "profile.logout()" href="#/login">Contact Us</button></center>
+              
+              <center style = "padding-bottom: 5%"><button class="ui fluid big circular primary button" ng-click = "profile.logout()" href="#/login">Log Out</button></center>
+
+           </div>
+
+      </div>
+  </ion-content>
+
+</ion-view>

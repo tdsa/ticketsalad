@@ -1,0 +1,114 @@
+<ion-view view-title="Events" onload="events.check()">
+    <ion-content>
+        <div class="ui fluid search" style = "padding-bottom: 5%; padding-top: 2%; margin: 0 auto; width: 95%">
+            <input id = "search" class="prompt" type="text" placeholder="Search events..." ng-model="search">
+        </div>
+        <div class="ui link stackable cards" id = "scroll">
+
+            <div class="card" ng-repeat = "event in events.data | filter:search " ng-if="event.claimed == 0" onclick="$('#display').modal('show');" ng-click="events.focusEvent(event)">
+
+                <div class="image">
+                    <img ng-src = "{{event.picture}}">
+                </div>
+                <div class="content">
+                    <div class="header">{{event.name}}</div>
+                    <div class="meta">
+                    <a>{{event.from}}</a>
+                    </div>
+                </div>
+                <div class="extra content">
+                    <span>
+                    <i class="user icon"></i>
+                    {{event.claims}}
+                    </span>
+                </div>
+                <button class="ui bottom attached button" ng-click="events.openClaim(event)">
+                    Claim
+                </button>
+            </div>
+        </div>
+
+
+        <div class="ui modal" id="display">
+            <div class="header" ng-style="{'background-image':'url(' + events.focusevent.picture + ')'}">{{events.focusevent.name}}</div>
+            <div class="content ui grid">
+                <div class="row">
+                    <div class="left floated eight wide column">
+                        <div class="row">
+                            <h3>{{events.focusevent.city}}, {{events.focusevent.country}}</h3>
+                        </div>
+                        <div class="row">
+                            <a href="{{events.focusevent.webpage}}" class="ui button">Visit Webpage</a>
+                        </div>
+                    </div>
+                    <div class="right floated eight wide column">
+                        <div class="row">
+                            <h3>From {{events.focusevent.from}}</h3>
+                        </div>
+                        <div class="row">
+                            <h3>To {{events.focusevent.to}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="eight wide column"></div>
+                    <div class="eight wide column">
+                        <div class="row">
+                            <b>CREDITS PER CLAIM</b>
+                        </div>
+                        <div class="row">
+                            <h3>{{events.focusevent.credits}} credits</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row center aligned">
+                    <h4>More About The Event</h4>
+                    <p>{{events.focusevent.description}}</p>
+                </div>
+                <button class="ui button" ng-click="events.showClaimModal()">Claim Now</button>
+            </div>
+        </div>
+        <div class="ui modal" id="claim">
+            <div class="header">Claim {{events.focusevent.name}}</div>
+            <div class="content ui grid" ng-init="events.claimCode='00000'">
+                <input type="text" ng-bind="events.claimCode" ng-model="events.claimCode">
+                <button ng-click="events.claimEvent()" class="ui button">Claim {{events.focusevent.name}}</button>
+            </div>
+            <div class="ui icon message hidden" id="success_modal">
+                <i class="trophy icon"></i>
+                <div class="content">
+                    <div class="header">
+                        Congratulations!!!
+                    </div>
+                    <p>You have won the {{events.focusevent.name}} ticket claim!</p>
+                </div>
+            </div>
+            <div class="ui icon message hidden" id="failure_modal">
+                <i class="thumbs down icon"></i>
+                <div class="content">
+                    <div class="header">
+                        Better Luck Next Time
+                    </div>
+                    <p>Your selected code just wasn't the one. Feel free to try again!</p>
+                </div>
+            </div>
+        </div>
+        <div class="ui modal" id="insufficient">
+            <div class="header">Insufficient credits</div>
+            <div class="content ui">
+                    <div class="ui icon message warning">
+                        <i class="exclamation triangle icon"></i>
+                        <div class="content">
+                            <div class="header">
+                            You have insufficient credits to claim on this event
+                            </div>
+                            <button class="ui button" ng-click="events.buyClaims()">Buy more Claims</button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+
+    </ion-content>
+</ion-view>
+

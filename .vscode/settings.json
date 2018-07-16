@@ -1,0 +1,24 @@
+{
+    "gitflow4code.init": {
+        "master": "master",
+        "develop": "develop",
+        "releases": "release/",
+        "hotfixes": "hotfix/",
+        "features": "feature/",
+        "support": ""
+    },
+    "gitflow4code.features": [
+        {
+            "name": "feature/SignUp",
+            "base": "develop"
+        },
+        {
+            "name": "feature/EmailRegistration",
+            "base": "develop"
+        },
+        {
+            "name": "feature/CreditsLowAlert",
+            "base": "develop"
+        }
+    ]
+}
