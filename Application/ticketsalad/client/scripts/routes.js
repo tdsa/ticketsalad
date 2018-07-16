@@ -17,7 +17,10 @@ import { Config, Runner } from 'angular-ecmascript/module-helpers';
 import eventsTemplateUrl from '../templates/events.html';
 import profileTemplateUrl from '../templates/profile.html';
 import buyCreditsTemplateUrl from '../templates/buyCredits.html';
+<<<<<<< HEAD
 import termsConditionsTemplateUrl from '../templates/termsConditions.html';
+=======
+>>>>>>> 01af81a1bccce8b084b690e10d9a441c8dd361ae
 import completeProfileTemplateUrl from '../templates/completeProfile.html';
 import newCardTemplateUrl from '../templates/newCard.html';
 import editProfileTemplateUrl from '../templates/editProfile.html';
@@ -46,11 +49,14 @@ class RoutesConfig extends Config {
         templateUrl: forgotPasswordTemplateUrl,
         controller: 'ForgotPasswordCtrl as forgotPassword' 
       })
+<<<<<<< HEAD
       .state('termsConditions', {
         url: '/termsConditions',
         templateUrl: termsConditionsTemplateUrl,
         controller: 'termsConditionsCtrl as termsConditions' 
       })
+=======
+>>>>>>> 01af81a1bccce8b084b690e10d9a441c8dd361ae
       .state('login', {
         url: '/login',
         templateUrl: loginTemplateUrl,
