@@ -16,12 +16,40 @@ export default class EventsCtrl extends Controller
     constructor() 
     {
         super(...arguments);
+
+        this.mySwiper = new Swiper ('.swiper-container', {
+          // Optional parameters
+          direction: 'horizontal',
+          slidesPerView: '1.4',
+          centeredSlides: true,
+          spaceBetween: 25,
+          effect: 'coverflow',
+      
+          // If we need pagination
+          pagination: {
+            el: '.swiper-pagination',
+          },
+
+          coverflowEffect: {
+            rotate: 30,
+            slideShadows: false,
+          },
+  
+          observer: true
+        });
         
         this.helpers({
           data() {
             return Events.find();
-          }
+          },
+
+          getUser()
+          {
+            this.user = Meteor.user();
+          },
         });
+
+        this.mySwiper.on('slideChange', this.index = this.mySwiper.realIndex);
     }
 
     showClaimModal()
@@ -48,6 +76,17 @@ export default class EventsCtrl extends Controller
         this.completeProfile();
       }
       
+    }
+
+    goTo(destination)
+    {
+      $(".modal").modal("hide");
+      this.$state.go('tab.' + destination);
+    }
+
+    closeMenu()
+    {
+      $(".modal").modal("hide");
     }
 
     topUpAlert()
