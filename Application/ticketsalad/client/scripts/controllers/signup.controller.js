@@ -28,6 +28,12 @@ export default class SignupCtrl extends Controller {
     this.$state.go('login');
   }
 
+
+  gotoTC()
+  {
+    this.$state.go('termsConditions');
+  }
+
 }
  
 SignupCtrl.$name = 'SignupCtrl'; //To refer to the controller in scope
