@@ -24,10 +24,7 @@ import { Meteor } from 'meteor/meteor';
 import EventsCtrl from '../controllers/events.controller';
 import ProfileCtrl from '../controllers/profile.controller';
 import EditProfileCtrl from '../controllers/editProfile.controller';
-<<<<<<< HEAD
 import termsConditionsCtrl from '../controllers/termsConditions.controller';
-=======
->>>>>>> 01af81a1bccce8b084b690e10d9a441c8dd361ae
 import BuyCreditsCtrl from '../controllers/buyCredits.controller';
 import CompleteProfileCtrl from '../controllers/completeProfile.controller';
 import NewCardCtrl from '../controllers/newCard.controller';
@@ -51,10 +48,7 @@ new Loader(App)
 .load(ProfileCtrl)
 .load(CompleteProfileCtrl)
 .load(EditProfileCtrl)
-<<<<<<< HEAD
 .load(termsConditionsCtrl)
-=======
->>>>>>> 01af81a1bccce8b084b690e10d9a441c8dd361ae
 .load(NewCardCtrl)
 .load(ForgotPasswordCtrl)
 .load(LoginCtrl)
