@@ -38,3 +38,4 @@ meteortesting:mocha
 
 cryptoquick:stylus-multi
 accounts-ui
+accounts-google
