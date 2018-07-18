@@ -6,13 +6,16 @@ If I forgot my login details
 So that I can use the application
 
 Background:
+    Given I am an existing user
     when I forgot my password
     And I navigate to "/forgotPassword"
 
 @dev
 Scenario:
-    Given I forgot my login details
-    Then when I press the forgot password link
-    Then I should be the forgot password page
-    
+    when I press the forgot password link
+    Then I should be in the forgot password page
+    when I enter my email "abc@gmail.com" and new password "456"
+    And I submit the form 
+    Then I should see the events page
+
     
