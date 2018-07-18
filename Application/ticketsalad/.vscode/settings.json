@@ -19,6 +19,14 @@
         {
             "name": "feature/grid",
             "base": "develop"
+        },
+        {
+            "name": "feature/New_UI",
+            "base": "develop"
+        },
+        {
+            "name": "feature/Latest_UI_Update",
+            "base": "feature/grid"
         }
     ]
 }
