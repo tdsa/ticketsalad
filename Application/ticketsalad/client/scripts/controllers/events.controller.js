@@ -81,7 +81,7 @@ export default class EventsCtrl extends Controller
     goTo(destination)
     {
       $(".modal").modal("hide");
-      this.$state.go('tab.' + destination);
+      this.$state.go(destination);
     }
 
     closeMenu()

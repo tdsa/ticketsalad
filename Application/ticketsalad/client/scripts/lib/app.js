@@ -24,7 +24,7 @@ import { Meteor } from 'meteor/meteor';
 import EventsCtrl from '../controllers/events.controller';
 import ProfileCtrl from '../controllers/profile.controller';
 import EditProfileCtrl from '../controllers/editProfile.controller';
-import termsConditionsCtrl from '../controllers/termsConditions.controller';
+//import termsConditionsCtrl from '../controllers/termsConditions.controller';
 import BuyCreditsCtrl from '../controllers/buyCredits.controller';
 import CompleteProfileCtrl from '../controllers/completeProfile.controller';
 import NewCardCtrl from '../controllers/newCard.controller';
@@ -48,7 +48,7 @@ new Loader(App)
 .load(ProfileCtrl)
 .load(CompleteProfileCtrl)
 .load(EditProfileCtrl)
-.load(termsConditionsCtrl)
+//.load(termsConditionsCtrl)
 .load(NewCardCtrl)
 .load(ForgotPasswordCtrl)
 .load(LoginCtrl)
