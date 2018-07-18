@@ -381,19 +381,40 @@
   grid-template-columns: 35% 30% 35%;
   grid-template-rows: 100%;
   grid-template-areas: "picLef circlePic picRight";
-  background: linear-gradient(to top, white 0%, white 50%, transparent 50%, transparent 100%);
+  background: transparent;
 }
 
 .circlePic {
   grid-area: circlePic;
+  background: linear-gradient(to top, white 0%, white 50%, transparent 50%, transparent 100%);
 }
 
 .picLef {
   grid-area: picLef;
+  position: relative;
+}
+
+.leftShoulder {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  bottom: 0;
+  border-top-left-radius: 50px;
+  background-color: white;
 }
 
 .picRight {
   grid-area: picRight;
+  position: relative;
+}
+
+.rightShoulder {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  bottom: 0;
+  border-top-right-radius: 50px;
+  background-color: white;
 }
 
 .menuName {
@@ -410,7 +431,8 @@
   top: 10%;
   text-align: center;
   font-size: 200%;
-  color: rgb(235, 233, 233);
+  color: rgb(217, 217, 217);
+  font-weight: bold;
 }
 
 .blank {
@@ -481,9 +503,9 @@
 .myButton
 {
   background-color: rgb(99, 200, 242);
-  height: 80%;
+  height: 70%;
   margin-left: 10%;
-  top: 10%;
+  top: 15%;
   width: 80%;
   border-radius: 20px;
   text-align: center;
