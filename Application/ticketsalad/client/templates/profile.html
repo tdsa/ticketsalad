@@ -1,75 +1,65 @@
 <ion-view title="Profile" ng-load="profile.reload()">
 
 {{profile.getUser}}
-
   <ion-content scroll="false">
 
 
-    <div class = "ui center aligned segment"> 
-
-      <div>
-
-         <img class="ui centered small circular image" src="/img/user.png">
-
-         <div class="nameField">
-            <b>{{profile.user.profile.name}} {{profile.user.profile.surname}}</b> 
-          </div>
-
-          <button class="circular ui icon button" ng-click = "profile.edit()" href="#/editProfile">
-              edit
-          </button>
-
-
-          <div class = "ui center aligned segment">
-
-                <div class="creditDiv">
-                  <b>Credit Balance</b> 
-                </div>
-
-                <div>
-                    <p class="ui teal big label">{{profile.user.profile.credits}}</p>
-                </div>
-
-               
-                <center style = "padding-top: 5%"><button class="ui circular primary button" ng-click = "profile.buyCredits()" href="#/buyCredits">Buy Credits</button></center>
-            </div>
-
-
-            </div>
-
-
-                <div class="ui positive message">
-                    
-                    <div class="header">
-                      About Ticket Salad
-                    </div>
-
-                     <div style = "padding-top: 2%">
-                        <p>Ticket Salad is everyone's ticket winning solution<br/>Check out <a href = "http://www.ticketsalad.com"><b>ticketsalad.com</b></a> for more info!</p>
-                    </div>
-                    
-                  </div>
-
-
-
-            </div>          
-          
-            
-
-            <div style ="padding-top: 5%;">
-                <center style = "padding-bottom: 5%"><button class="fluid primary big circular ui icon button" ng-click = "profile.edit()" href="#/editProfile">Edit Profile</button></center>
-
-                <center style = "padding-bottom: 5%"><button class="ui fluid big circular primary button" ng-click = "profile.logout()" href="#/login">Contact Us</button></center>
-              
-              <center style = "padding-bottom: 5%"><button class="ui fluid big circular primary button" ng-click = "profile.logout()" href="#/login">Log Out</button></center>
-            <div style ="padding-top: 10%;">
-              <button class="ui blue button" ng-click = "profile.buyCredits()" href="#/buyCredits">Buy Credits</button>
-              <button class="ui red button" ng-click = "profile.logout()" href="#/login">Log Out</button>
-
-
-           </div>
-
+    <div class="grid-containerProfile">
+      <div class="profileHeader">
+        <div class="profileTitle">
+          Profile
+        </div>
+        <div class="menuIcon">
+          <i class="times"></i>
+        </div>
       </div>
-  </ion-content>
+      <div class="profileInfo">
+        <div class="profileText">
+          <div class="profileName">
+              {{profile.user.profile.name}} {{profile.user.profile.surname}}
+          </div>
+          <div class="profileUsrName">
+            @username
+          </div>
+          <div class="profileBalance">
+              {{profile.user.profile.credits}}
+          </div>
+          <div class="profileRemaining">
+            claims remaining
+          </div>
+        </div>
+        <div class="profileImgBtn">
+          <div class="profilePictre">
 
+            <img class ="imgProfile" alt="profileImage" src="/img/user.png">
+
+          </div>
+          <div class="buyClaimsBtn">
+              <div  class="ClaimsBtn">Buy Claims</div>
+          </div>
+        </div>
+      </div>
+      <div class="profileButtons">
+        <div class="button1">
+
+          <div class="profileBtn">How It Works</div>
+
+        </div>
+
+        <div class="button2">
+            <div class="profileBtn">Edit Profile</div>
+        </div>
+
+        <div class="button3">
+            <div class="profileBtn">Contact Us</div>
+        </div>
+
+        <div class="button4">
+            <div class="profileBtn">Log Out</div>
+        </div>
+      </div>
+    </div>
+
+
+  </ion-content>
 </ion-view>
