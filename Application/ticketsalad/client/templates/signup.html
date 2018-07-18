@@ -1,4 +1,5 @@
 <ion-view view-title="Sign Up">
+<<<<<<< HEAD
     <ion-content scroll = "false">
         <div class="grid-containerSignUp">
             <div class="signUpHeader">
@@ -33,5 +34,37 @@
                 <center><span class = "linkText">Already have an account? &emsp;</span><span class = "link" ng-click="signup.login()" href="#/login">Sign In</span></center>
             </div>
         </div>
+=======
+    <ion-content>
+        
+        <div class="container" style = "padding-top: 5%">
+            <form class="ui form">
+                <div class="field">
+                  <label>Email</label>
+                  <input type="email" name="email" placeholder="Enter your email" ng-model="signup.email">
+                </div>
+                <div class="field">
+                  <label>Password</label>
+                  <input type="password" name="password" placeholder="Password" ng-model="signup.pass">
+                </div>   
+                
+                
+                <center style="display: inline" ><p>I have read and agreed to the <a ng-click="signup.gotoTC()">Terms and Conditions</a></p></center>
+             
+
+                  <center style="padding-top: 5%">
+                      <div  class="ui submit button" ng-click="signup.signup()" >Submit</div>
+                  </center>                 
+              </form>
+              <div style = "padding-top: 5%">
+                <center>
+                      <p><a ng-click="signup.login()" href="#/login">Already have an account?</a> </p>
+                </center>  
+            </div>
+              </div>
+
+
+
+>>>>>>> origin/feature/TermsConditions
     </ion-content>
 </ion-view>
