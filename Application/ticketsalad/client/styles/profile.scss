@@ -1,13 +1,170 @@
-.nameField{
-  background-color: white;
-  padding-top: 5%;
-  font-size: 180%;
+.grid-containerProfile {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 100%;
+  grid-template-rows: 10% 45% 45%;
+  grid-template-areas: "profileHeader" "profileInfo" "profileButtons";
 }
 
-.creditDiv{
-  background-color: white;
-  padding-top: 2%;
-  padding-bottom: 5%;
+.profileButtons {
+  display: grid;
+  grid-area: profileButtons;
+  grid-template-columns: 100%;
+  grid-template-rows: 25% 25% 25% 25%;
+  grid-template-areas: "button1" "button2" "button3" "button4";
+}
+
+.button1 {
+  grid-area: button1;
+}
+
+.button2 {
+  grid-area: button2;
+}
+
+.button3 {
+  grid-area: button3;
+}
+
+.button4 {
+  grid-area: button4;
+}
+
+.profileHeader {
+  display: grid;
+  grid-area: profileHeader;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 100%;
+  grid-template-areas: "profileTitle menuIcon";
+
+}
+
+.profileTitle {
+  grid-area: profileTitle;
+  font-size: 200%;
+  font-weight: bolder;
+  margin-left: 10%;
+  margin-top: 15%
+}
+
+.menuIcon {
+  grid-area: menuIcon;
+}
+
+.profileInfo {
+  display: grid;
+  grid-area: profileInfo;
+  grid-template-columns: 100%;
+  grid-template-rows: 33% 67%;
+  grid-template-areas: "." ".";
+
+}
+
+.profileText {
+  display: grid;
+  grid-area: 2 / 1 / 2 / 1;
+  grid-template-columns: 100%;
+  grid-template-rows: 25% 25% 35% 15%;
+  grid-template-areas: "profileName" "profileUsrName" "profileBalance" "profileRemaining";
+}
+
+.profileName {
+  grid-area: profileName;
+  vertical-align:bottom;
+  bottom: 0;
+  text-align: center;
+  line-height: 200%;
+  font-size: 200%;
+  font-weight: bold;
+}
+
+.profileUsrName {
+  grid-area: profileUsrName;
+  vertical-align:bottom;
+  bottom: 0;
+  text-align: center;
+  line-height: 200%;
+  color: gray;
+  font-size: 120%;
+  font-weight: thin;
+}
+
+.profileBalance {
+  grid-area: profileBalance;
+  vertical-align:bottom;
+  bottom: 0;
+  text-align: center;
+  line-height: 150%;
+  color: rgb(99, 200, 242);
+  font-size: 300%;
+  font-weight: thin;
+}
+
+.profileRemaining {
+  grid-area: profileRemaining;
+  vertical-align:bottom;
+  bottom: 0;
+  text-align: center;
+  line-height: 50%;
+  color: gray;
+  font-size: 120%;
+  font-weight: thin;
+}
+
+.profileImgBtn {
+  display: grid;
+  grid-area: 1 / 1 / 1 / 1;
+  grid-template-columns: 33% 67%;
+  grid-template-rows: 100%;
+  grid-template-areas: "profilePictre buyClaimsBtn";
+}
+
+
+
+.profilePictre {
+  grid-area: profilePictre;
+}
+
+.buyClaimsBtn {
+  grid-area: buyClaimsBtn;
+}
+
+
+.profileBtn {
+  width: 80%;
+  height: 80%;
+  border-radius: 10px;
+  background-color: rgb(99, 200, 242);
+  margin-left:10%;
+  text-align: center;
   font-size: 150%;
+  color: white;
+  line-height: 250%;
+  font-weight: thin;
+  
 }
 
+.imgProfile{
+
+  height: 80%;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-left: 20%;
+  margin-top: 10%
+}
+
+.ClaimsBtn{
+  width:80%;
+  height: 60%;
+  margin-top: 8%;
+  font-size: 180%;
+  line-height: 290%;
+  border-radius: 10px;
+  background-color: rgb(99, 200, 242);
+  margin-left:5%;
+  text-align: center;
+  font-size: 150%;
+  color: white;
+  line-height: 250%;
+  font-weight: thin;
+}
