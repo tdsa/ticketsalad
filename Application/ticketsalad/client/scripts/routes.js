@@ -18,7 +18,7 @@ import eventsTemplateUrl from '../templates/events.html';
 import profileTemplateUrl from '../templates/profile.html';
 import buyCreditsTemplateUrl from '../templates/buyCredits.html';
 
-import termsConditionsTemplateUrl from '../templates/termsConditions.html';
+//import termsConditionsTemplateUrl from '../templates/termsConditions.html';
 import completeProfileTemplateUrl from '../templates/completeProfile.html';
 import newCardTemplateUrl from '../templates/newCard.html';
 import editProfileTemplateUrl from '../templates/editProfile.html';
@@ -32,6 +32,7 @@ class RoutesConfig extends Config {
   constructor() 
   {
     super(...arguments);
+    user = null;
   }
 
   configure() //Creates the templates as states
@@ -47,11 +48,11 @@ class RoutesConfig extends Config {
         templateUrl: forgotPasswordTemplateUrl,
         controller: 'ForgotPasswordCtrl as forgotPassword' 
       })
-      .state('termsConditions', {
+      /*.state('termsConditions', {
         url: '/termsConditions',
         templateUrl: termsConditionsTemplateUrl,
         controller: 'termsConditionsCtrl as termsConditions' 
-      })
+      })*/
       .state('login', {
         url: '/login',
         templateUrl: loginTemplateUrl,
@@ -62,68 +63,40 @@ class RoutesConfig extends Config {
         templateUrl: signupTemplateUrl,
         controller: 'SignupCtrl as signup' 
       })
-      .state('tab.events', {
+      .state('events', {
         url: '/events',
-        views: {
-          'tab-events': {
-            templateUrl: eventsTemplateUrl,
-            controller: 'EventsCtrl as events'
-          }
-        }
+        templateUrl: eventsTemplateUrl,
+        controller: 'EventsCtrl as events'
       })
-      .state('tab.profile', {
+      .state('profile', {
         url: '/profile',
-        views: {
-          'tab-profile': {
-            templateUrl: profileTemplateUrl,
-            controller: 'ProfileCtrl as profile'
-          }
-        }
+          templateUrl: profileTemplateUrl,
+          controller: 'ProfileCtrl as profile'
       })
-      .state('tab.buyCredits', {
+      .state('buyCredits', {
         url: '/buyCredits',
-        views: {
-          'tab-profile': {
-            templateUrl: buyCreditsTemplateUrl,
-            controller: 'BuyCreditsCtrl as buyCredits'
-            }
-          }
+          templateUrl: buyCreditsTemplateUrl,
+          controller: 'BuyCreditsCtrl as buyCredits'
       })
-      .state('tab.eventCredits', {
+      .state('eventCredits', {
         url: '/eventCredits',
-        views: {
-          'tab-events': {
-            templateUrl: buyCreditsTemplateUrl,
-            controller: 'BuyCreditsCtrl as buyCredits'
-            }
-          }
+          templateUrl: buyCreditsTemplateUrl,
+          controller: 'BuyCreditsCtrl as buyCredits'
       })
-      .state('tab.completeProfile', {
+      .state('completeProfile', {
         url: '/completeProfile',
-        views: {
-          'tab-events': {
-            templateUrl: completeProfileTemplateUrl,
-            controller: 'CompleteProfileCtrl as completeProfile'
-            }
-          }
+          templateUrl: completeProfileTemplateUrl,
+          controller: 'CompleteProfileCtrl as completeProfile',
       })
-      .state('tab.editProfile', {
+      .state('editProfile', {
         url: '/editProfile',
-        views: {
-          'tab-profile': {
-            templateUrl: editProfileTemplateUrl,
-            controller: 'EditProfileCtrl as editProfile'
-            }
-          }
+          templateUrl: editProfileTemplateUrl,
+          controller: 'EditProfileCtrl as editProfile'
       })
-      .state('tab.newCard', {
+      .state('newCard', {
         url: '/newCard',
-        views: {
-          'tab-profile': {
-            templateUrl: newCardTemplateUrl,
-            controller: 'NewCardCtrl as newCard'
-            }
-          }
+          templateUrl: newCardTemplateUrl,
+          controller: 'NewCardCtrl as newCard'
       });
  
     this.$urlRouterProvider.otherwise('login'); //Default state

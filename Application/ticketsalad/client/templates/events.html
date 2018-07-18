@@ -17,7 +17,7 @@
                                 <div class="eventPicture"><img src = {{event.picture}} alt = "pic"></div>
                                 <div class="eventDescription">
                                     <div class="aboutHeading"><p>ABOUT</p></div>
-                                    <div class="aboutDescription"><p>{{events.index}}</p></div>
+                                    <div class="aboutDescription"><p></p></div>
                                 </div>
                                 <div class="eventInfo">
                                     <div class="eventLocation">
@@ -64,14 +64,14 @@
                         <div class="picLef"><div class = "leftShoulder"></div></div>
                         <div class="picRight"><div class = "rightShoulder"></div></div>
                     </div>
-                    <div class="menuName"><p>{{events.user.profile.name}}</p></div>
+                    <div class="menuName"><p>@{{events.user.username}}</p></div>
                     <div class="blank"></div>
                 </div>
                 <div class="bottom">
-                    <div class="homeButton"><div class = "myButton" href = "#/tab/events" ng-click="events.goTo('events')"><p>Home</p></div></div>
-                    <div class="activityButton"><div class = "myButton" href = "#/tab/events" ng-click="events.goTo('events')"><p>Activity</p></div></div>
-                    <div class="profileButton"><div class = "myButton" href = "#/tab/profile" ng-click="events.goTo('profile')"><p>Profile</p></div></div>
-                    <div class="searchButton"><div class = "myButton" href = "#/tab/events" ng-click="events.goTo('events')"><p>Search</p></div></div>
+                    <div class="homeButton"><div class = "myButton" href = "#/events" ng-click="events.goTo('events')"><p>Home</p></div></div>
+                    <div class="activityButton"><div class = "myButton" href = "#/events" ng-click="events.goTo('events')"><p>Activity</p></div></div>
+                    <div class="profileButton"><div class = "myButton" href = "#/profile" ng-click="events.goTo('profile')"><p>Profile</p></div></div>
+                    <div class="searchButton"><div class = "myButton" href = "#/events" ng-click="events.goTo('events')"><p>Search</p></div></div>
                     <div class="exitArea">
                         <div class="exitButton"><img src = "/img/exit.png" alt = "exit" ng-click="events.closeMenu()"></div>
                         <div class="exitLeft"></div>

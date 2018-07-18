@@ -45,7 +45,7 @@ export default class ProfileCtrl extends Controller {
 
   edit() // change view to the editProfile screen
   {
-    this.$state.go('tab.editProfile');
+    this.$state.go('editProfile');
   }
 
   check() //Enforces authorised user
