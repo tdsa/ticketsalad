@@ -5,31 +5,47 @@ export default class CompleteProfileCtrl extends Controller {
 
     constructor() {
         super(...arguments);
-        console.log(user.profile.firstname);
+    }
+
+    back()
+    {
+        this.$state.go('signup');
     }
 
     signUp()
     {
-        user.email = this.email;
-        user.profile.dob = this.dob;
-        user.profile.gender = this.gender;
-        user.profile.completed = true;
+        var id = Meteor.userId();
+        var emailTemp = this.email;
 
-        Accounts.createUser({
-            username: user.username,
-            password: '1234',
-            email: user.email,
-            profile: 
-            {
-                firstname: user.first,
-                lastname: user.last,
-                completed: user.completed,
-                credits: 0,
-                dob: user.dob,
-                gender: user.gender
-            }
-            });
+        if(emailTemp != null)
+        {
+            //Meteor.call('addNewEmail', emailTemp);
+        }
+        else
+        {
+            return;
+        }
 
+        if(this.dob != null)
+        {
+            Meteor.users.update(id, {$set: {"profile.dob": this.dob}});
+        }
+        else
+        {
+            return;
+        }
+
+        if(this.gender != null)
+        {
+            Meteor.users.update(id, {$set: {"profile.gender": this.gender}});
+        }
+        else
+        {
+            return;
+        }
+
+        Meteor.users.update(id, {$set: {"profile.completed": true}});
+        
         this.$state.go('login');
     }
 }

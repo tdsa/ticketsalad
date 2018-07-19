@@ -33,6 +33,7 @@ class RoutesConfig extends Config {
   {
     super(...arguments);
     user = null;
+    id = null;
   }
 
   configure() //Creates the templates as states

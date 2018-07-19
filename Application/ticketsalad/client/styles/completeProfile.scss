@@ -15,11 +15,33 @@
   }
   
   .completeProfileHeaderTitle {
+    display: grid;
     grid-area: completeProfileHeaderTitle;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 100%;
+    grid-template-areas: "completeProfileHeaderTitleWord completeProfileHeaderBack";
+    
+  }
+
+  .completeProfileHeaderTitleWord {
+    grid-area: completeProfileHeaderTitleWord;
     position: relative;
   }
+
+  .completeProfileHeaderBack {
+    grid-area: completeProfileHeaderBack;
+    position: relative;
+  }
+
+  .completeProfileHeaderBack img
+  {
+    position: absolute;
+    width: 27%;
+    bottom: 20%;
+    left: 36.5%;
+  }
   
-  .completeProfileHeaderTitle p
+  .completeProfileHeaderTitleWord p
   {
     position: absolute;
     bottom: 2.5%;

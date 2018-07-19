@@ -10,6 +10,7 @@
                 </div>
             </div>
             <div class="eventsCards">
+                <div class = "greenWin"><p>Congartulations! We are delighted to inform you that you have won {{events.data[currentIndex].tickets}} tickets to {{events.data[currentIndex].name}}</p></div>
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide card" ng-repeat = "event in events.data">
@@ -17,7 +18,7 @@
                                 <div class="eventPicture"><img src = {{event.picture}} alt = "pic"></div>
                                 <div class="eventDescription">
                                     <div class="aboutHeading"><p>ABOUT</p></div>
-                                    <div class="aboutDescription"><p></p></div>
+                                    <div class="aboutDescription"><p>{{event.about}}</p></div>
                                 </div>
                                 <div class="eventInfo">
                                     <div class="eventLocation">
@@ -43,16 +44,17 @@
                     </div>
                 </div>
             </div>
-            <div class="eventsMsg"><p>Enter a unique code...</p></div>
+            <div class="eventsMsg"><p class = "instruction">Enter a unique code...</p></div>
             <div class="eventsCode">
-                <div class="d1"><div class = "digit"><div class = "innerDigit"></div></div></div>
-                <div class="d2"><div class = "digit"><div class = "innerDigit"></div></div></div>
-                <div class="d3"><div class = "digit"><div class = "innerDigit"></div></div></div>
-                <div class="d4"><div class = "digit"><div class = "innerDigit"></div></div></div>
-                <div class="d5"><div class = "digit"><div class = "innerDigit"></div></div></div>
-                <div class="d6"><div class = "digit"><div class = "innerDigit"></div></div></div>
+                <input class = "overlay" type = "text" ng-model="events.code" maxlength="6">
+                <div class="d1"><div class = "digit dg1"><div class = "innerDigit idg1"></div><p class = "digitOverLay">{{events.code[0]}}</p></div></div>
+                <div class="d2"><div class = "digit dg2"><div class = "innerDigit idg2"></div><p class = "digitOverLay">{{events.code[1]}}</p></div></div>
+                <div class="d3"><div class = "digit dg3"><div class = "innerDigit idg3"></div><p class = "digitOverLay">{{events.code[2]}}</p></div></div>
+                <div class="d4"><div class = "digit dg4"><div class = "innerDigit idg4"></div><p class = "digitOverLay">{{events.code[3]}}</p></div></div>
+                <div class="d5"><div class = "digit dg5"><div class = "innerDigit idg5"></div><p class = "digitOverLay">{{events.code[4]}}</p></div></div>
+                <div class="d6"><div class = "digit dg6"><div class = "innerDigit idg6"></div><p class = "digitOverLay">{{events.code[5]}}</p></div></div>
             </div>
-            <div class="eventsClaimBtn"><p>Claim</p></div>
+            <div class="eventsClaimBtn" ng-click="events.claim()"><p>Claim</p></div>
         </div>
 
         <div class="ui modal fullscreen basic" style="background-color: transparent">
@@ -80,8 +82,7 @@
                 </div>
             </div>
         </div>
-
-
+        
     </ion-content>
     <script src="../dist/js/swiper.min.js"></script>
 </ion-view>

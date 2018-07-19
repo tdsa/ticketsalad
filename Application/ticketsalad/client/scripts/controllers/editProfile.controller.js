@@ -15,60 +15,36 @@ export default class EditProfileCtrl extends Controller {
 
   constructor() {
     super(...arguments);
+
     this.helpers({
       getUser(){
-        console.log("Current loaded");
-        console.log(this.user);
-        console.log("Current logged");
-        console.log(Meteor.user());
         this.user = Meteor.user();
-        console.log("New loaded");
         console.log(this.user);
       }
     });
 
     }
 
-    done()
+  save()
   {
-    if(this.name != null)
+    if(this.username != null)
     {
-      Meteor.users.update(Meteor.userId(), {$set: {"profile.name": this.name}});
-    }
-    if(this.surname != null)
-    {
-      Meteor.users.update(Meteor.userId(), {$set: {"profile.surname": this.surname}});
+      Accounts.setUsername(this.user.userId, this.username);
     }
     if(this.email != null)
     {
+      var email = this.email;
+      //Meteor.methods(addNewEmail(this.user.userId, email));
     }
-    if(this.cell != null)
+    if(this.passNew1 != null && this.passNew2 != null && this.passOld != null)
     {
-      Meteor.users.update(Meteor.userId(), {$set: {"profile.cell": this.cell}});
+      if(this.passNew1 == this.passNew2)
+      {
+        Accounts.changePassword(this.passOld, this.passNew1, console.log(Error));
+      }
     }
-
-    this.name = this.surname = this.email = this.cell = null;
-    this.$state.go('tab.profile');
+    this.$state.go('profile');
   }
-
-  updatePicture () {
-    MeteorCameraUI.getPicture({ width: 60, height: 60 }, (err, data) => {
-      if (err) return this.handleError(err);
- 
-      this.$ionicLoading.show({
-        template: 'Updating picture...'
-      });
- 
-      this.callMethod('updatePicture', data, (err) => {
-        this.$ionicLoading.hide();
-        this.handleError(err);
-      });
-    });
-  }
-
-  handleError(err) {
-    if (err.error == 'cancel') return;
-}
 }
  
 EditProfileCtrl.$name = 'EditProfileCtrl'; //To refer to the controller in scope

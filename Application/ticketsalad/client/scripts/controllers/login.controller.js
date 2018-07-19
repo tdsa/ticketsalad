@@ -23,24 +23,17 @@ export default class LoginCtrl extends Controller
     }
     if (_.isEmpty(this.pass)) return;
  
-    Meteor.loginWithPassword(this.username, this.pass, function (err) {
+    Meteor.loginWithPassword(this.username, this.pass, function (err) 
+    {
       if (!err) {
           console.log('I was called because authentication was a success');
           return;
       } else {
           console.log(err);
       }
-      })
+    })
 
-      if(Meteor.user())
-      {
-        this.view();
-      }     
-  }
-
-  view()
-  {
-    this.$state.go('events');
+      this.$state.go('events');   
   }
 
   create()
