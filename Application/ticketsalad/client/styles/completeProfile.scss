@@ -217,6 +217,15 @@
   .terms {
     grid-area: terms;
     position: relative;
+    padding: 10%;
+  }
+
+  .terms p {
+    text-align: right;
+  }
+
+  .check {
+    transform: scale(1.7);
   }
   
   .buttonNext {
@@ -226,6 +235,7 @@
     background-color: rgb(99, 200, 242);
     border-radius: 10px;
     left: 7.5%;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
   }
   
   .buttonNext p {

@@ -14,39 +14,41 @@ export default class CompleteProfileCtrl extends Controller {
 
     signUp()
     {
+        this.agree = $(".check").is(':checked');
+
+        if(this.email == null || this.dob == null || this.gender == null)
+        {
+            console.log("Missing details");
+            $(".completeInstructions").text("Please enter all your details!").css("color", "red");
+            return;
+        }
+
+        if(this.agree == false)
+        {
+            console.log("Not checked");
+            $(".completeInstructions").text("Please agree to the Terms & Conditions!").css("color", "red");
+            return;
+        }
+
         var id = Meteor.userId();
-        var emailTemp = this.email;
 
-        if(emailTemp != null)
-        {
-            //Meteor.call('addNewEmail', emailTemp);
-        }
-        else
-        {
-            return;
-        }
-
-        if(this.dob != null)
-        {
-            Meteor.users.update(id, {$set: {"profile.dob": this.dob}});
-        }
-        else
-        {
-            return;
-        }
-
-        if(this.gender != null)
-        {
-            Meteor.users.update(id, {$set: {"profile.gender": this.gender}});
-        }
-        else
-        {
-            return;
-        }
+        Meteor.users.update(id, {$set: {"profile.dob": this.dob}});
+        Meteor.users.update(id, {$set: {"profile.gender": this.gender}});
 
         Meteor.users.update(id, {$set: {"profile.completed": true}});
         
-        this.$state.go('login');
+        this.resetAll();
+        this.$state.go('events');
+    }
+    
+    resetAll()
+    {
+        $(".completeInstructions").text("Create an account to continue").css("color", "rgb(150, 196, 239)");
+    }
+
+    terms()
+    {
+        this.$state.go('termsConditions');
     }
 }
 

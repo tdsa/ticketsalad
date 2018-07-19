@@ -6,11 +6,11 @@
                 <div class="eventTitle"><p id = "hTitle">{{events.data[events.mySwiper.realIndex].name}} - {{events.data[events.mySwiper.realIndex].country}} {{events.data[events.mySwiper.realIndex].year}}</p></div>
                 <div class="eventsBurger">
                     <div class="eventsBlank"></div>
-                    <div class="eventsMenuIcon"><img src = "/img/menu.png" alt = "menu" onclick="$('.ui.modal').modal({blurring: true}).modal('setting', 'transition', 'fade up').modal('show');"></div>
+                    <div class="eventsMenuIcon"><img src = "/img/menu.png" alt = "menu" onclick= "$('.eventsMenu').modal({blurring: true}).modal('setting', 'transition', 'fade up').modal('show');"></div>
                 </div>
             </div>
             <div class="eventsCards">
-                <div class = "greenWin"><p>Congartulations! We are delighted to inform you that you have won {{events.data[currentIndex].tickets}} tickets to {{events.data[currentIndex].name}}</p></div>
+                <div class = "greenWin"><p>Congartulations! We are delighted to inform you that you have won <b>{{events.data[events.currentIndex].tickets}}</b> tickets to <b>{{events.data[events.currentIndex].name}} - {{events.data[events.currentIndex].country}} {{events.data[events.currentIndex].year}}</b>. All the details will be sent to your email address.</p></div>
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide card" ng-repeat = "event in events.data">
@@ -54,10 +54,10 @@
                 <div class="d5"><div class = "digit dg5"><div class = "innerDigit idg5"></div><p class = "digitOverLay">{{events.code[4]}}</p></div></div>
                 <div class="d6"><div class = "digit dg6"><div class = "innerDigit idg6"></div><p class = "digitOverLay">{{events.code[5]}}</p></div></div>
             </div>
-            <div class="eventsClaimBtn" ng-click="events.claim()"><p>Claim</p></div>
+            <div class="eventsClaimBtn" ng-click="events.claim()"><p class = "claimBtnText">Claim</p></div>
         </div>
 
-        <div class="ui modal fullscreen basic" style="background-color: transparent">
+        <div class="ui modal fullscreen basic eventsMenu" style="background-color: transparent">
             <div class="containerMenu">
                 <div class="top">
                     <span class = "roundedBorder"></span>
@@ -71,7 +71,7 @@
                 </div>
                 <div class="bottom">
                     <div class="homeButton"><div class = "myButton" href = "#/events" ng-click="events.goTo('events')"><p>Home</p></div></div>
-                    <div class="activityButton"><div class = "myButton" href = "#/events" ng-click="events.goTo('events')"><p>Activity</p></div></div>
+                    <div class="activityButton"><div class = "myButton" href = "#/activity" ng-click="events.goTo('activity')"><p>Activity</p></div></div>
                     <div class="profileButton"><div class = "myButton" href = "#/profile" ng-click="events.goTo('profile')"><p>Profile</p></div></div>
                     <div class="searchButton"><div class = "myButton" href = "#/events" ng-click="events.goTo('events')"><p>Search</p></div></div>
                     <div class="exitArea">

@@ -4,11 +4,29 @@ import { Controller } from 'angular-ecmascript/module-helpers';
 export default class SignupCtrl extends Controller {
   
   next() {
-    if (_.isEmpty(this.username)) return;
-    if (_.isEmpty(this.pass1)) return;
-    if (_.isEmpty(this.pass2)) return;
-    if (_.isEmpty(this.first)) return;
-    if (_.isEmpty(this.last)) return;
+
+    if(this.username == null || this.pass1 == null || this.pass2 == null || this.first == null || this.last == null)
+    {
+      console.log("Missing details");
+      $(".instructions").text("Please enter all your details!").css("color", "red");
+      return;
+    }
+
+    if(Meteor.users.findOne({username: this.username}) != null)
+    {
+      console.log("Username taken");
+      $(".usr").css("color", "red");
+      $(".instructions").text("Username taken!").css("color", "red");
+      return;
+    }
+
+    if(this.pass1 != this.pass2)
+    {
+      console.log("Passwords do not match");
+      $(".pass").css("color", "red");
+      $(".instructions").text("Passwords do not match!").css("color", "red");
+      return;
+    }
 
     Accounts.createUser({
       username: this.username,
@@ -34,11 +52,12 @@ export default class SignupCtrl extends Controller {
     Meteor.loginWithPassword(this.username, this.pass1, function (err) {
       if (!err) {
           console.log('I was called because authentication was a success');
-          return;
       } else {
           console.log(err);
       }
     })
+
+    this.resetAll();
 
     this.$state.go('completeProfile');
   }
@@ -47,7 +66,13 @@ export default class SignupCtrl extends Controller {
   {
     this.$state.go('login');
   }
-
+  
+  resetAll()
+  {
+    $(".usr").css("color", "black");
+    $(".pass").css("color", "black");
+    $(".instructions").text("Create an account to continue").css("color", "rgb(150, 196, 239)");
+  }
 
   gotoTC()
   {
