@@ -67,7 +67,7 @@ export default class LoginCtrl extends Controller
 
   resetAll()
   {
-    $(".loginInstructions").text("Create an account to continue").css("color", "rgb(150, 196, 239)");
+    $(".loginInstructions").text("Sign in to continue").css("color", "rgb(150, 196, 239)");
   }
 }
  
