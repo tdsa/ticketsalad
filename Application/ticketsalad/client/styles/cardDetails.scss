@@ -1,29 +1,25 @@
-.grid-containerBuyCredits {
+.grid-containerPayment {
     display: grid;
     height: 100%;
     grid-template-columns: 100%;
     grid-template-rows: 15% 85%;
-    grid-template-areas: "buyCreditsHeader" "buyCreditsBody";
+    grid-template-areas: "paymentHeader" "paymentBody";
 }
 
-<<<<<<< HEAD
-.fit
-=======
-.buyCreditsHeader {
+.paymentHeader {
     display: grid;
-    grid-area: buyCreditsHeader;
+    grid-area: paymentHeader;
     grid-template-columns: 75% 25%;
     grid-template-rows: 100%;
-    grid-template-areas: "buyCreditsHeading buyCreditsExit";
+    grid-template-areas: "paymentHeading paymentExit";
 }
 
-.buyCreditsHeading {
-    grid-area: buyCreditsHeading;
+.paymentHeading {
+    grid-area: paymentHeading;
     position: relative;
 }
 
-.buyCreditsHeader p
->>>>>>> feature/Latest_UI_Update
+.paymentHeader p
 {
     position: absolute;
     top: 29%;
@@ -34,12 +30,12 @@
     color: rgb(64, 64, 64);
 }
   
-.buyCreditsExit {
-    grid-area: buyCreditsExit;
+.paymentExit {
+    grid-area: paymentExit;
     position: relative;
 }
 
-.buyCreditsExit img {
+.paymentExit img {
     position: absolute;
     width: 20%;
     top: 35%;
@@ -47,12 +43,12 @@
 
 }
 
-.buyCreditsBody {
-    grid-area: buyCreditsBody;
+.paymentBody {
+    grid-area: paymentBody;
     position: relative;
 }
 
-.buyCreditsBody p {
+.paymentBody p {
     position: absolute;
     width: 80%;
     left: 10%;

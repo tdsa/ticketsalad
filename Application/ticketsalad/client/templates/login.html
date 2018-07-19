@@ -3,16 +3,16 @@
         <div class="grid-containerLogIn">
             <div class="loginHeader">
                 <div class="loginHeaderTitle"><p>Welcome Back!</p></div>
-                <div class="loginHeaderMsg"><p>Sign in to continue</p></div>
+                <div class="loginHeaderMsg"><p class = "loginInstructions">Sign in to continue</p></div>
             </div>
             <div class="loginDetails">
                 <div class="loginUser">
                     <div class="loginUserName"><p>Username</p></div>
-                    <div class="loginUserInput"><input placeholder = "@ Enter your username" type="user" ng-model="login.username"></div>
+                    <div class="loginUserInput"><input placeholder = "@ Enter your username" type="user" ng-model="login.username" ng-click = "login.resetAll()"></div>
                 </div>
                 <div class="loginPass">
                     <div class="loginPassword"><p>Password</p></div>
-                    <div class="loginPassInput"><input placeholder = "Enter your password" type="password" ng-model="login.pass"></div>
+                    <div class="loginPassInput"><input placeholder = "Enter your password" type="password" ng-model="login.pass" ng-click = "login.resetAll()"></div>
                 </div>
                 <div class="loginDetailsBlank"></div>
                 <div class="loginInButton"><div class = "buttonLogIn" ng-click="login.login()"><p>Sign In</p></div></div>

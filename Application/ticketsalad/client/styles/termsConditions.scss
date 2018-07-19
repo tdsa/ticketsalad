@@ -1,32 +1,28 @@
-.grid-containerBuyCredits {
+.grid-containerTerms {
     display: grid;
     height: 100%;
     grid-template-columns: 100%;
     grid-template-rows: 15% 85%;
-    grid-template-areas: "buyCreditsHeader" "buyCreditsBody";
+    grid-template-areas: "termsHeader" "termsBody";
 }
 
-<<<<<<< HEAD
-.fit
-=======
-.buyCreditsHeader {
+.termsHeader {
     display: grid;
-    grid-area: buyCreditsHeader;
+    grid-area: termsHeader;
     grid-template-columns: 75% 25%;
     grid-template-rows: 100%;
-    grid-template-areas: "buyCreditsHeading buyCreditsExit";
+    grid-template-areas: "termsHeading termsExit";
 }
 
-.buyCreditsHeading {
-    grid-area: buyCreditsHeading;
+.termsHeading {
+    grid-area: termsHeading;
     position: relative;
 }
 
-.buyCreditsHeader p
->>>>>>> feature/Latest_UI_Update
+.termsHeader p
 {
     position: absolute;
-    top: 29%;
+    top: 20%;
     left: 7.5%;
     font-size: 8vw;
     font-weight: bold;
@@ -34,12 +30,12 @@
     color: rgb(64, 64, 64);
 }
   
-.buyCreditsExit {
-    grid-area: buyCreditsExit;
+.termsExit {
+    grid-area: termsExit;
     position: relative;
 }
 
-.buyCreditsExit img {
+.termsExit img {
     position: absolute;
     width: 20%;
     top: 35%;
@@ -47,12 +43,12 @@
 
 }
 
-.buyCreditsBody {
-    grid-area: buyCreditsBody;
+.termsBody {
+    grid-area: termsBody;
     position: relative;
 }
 
-.buyCreditsBody p {
+.termsBody p {
     position: absolute;
     width: 80%;
     left: 10%;
@@ -60,3 +56,7 @@
     text-align: justify;
     overflow-y: scroll;
 }
+
+.-webkit-scrollbar * {
+    background:transparent; // manage scrollbar background color here
+  }

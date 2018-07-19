@@ -39,6 +39,7 @@ export default class EventsCtrl extends Controller
         });
 
         this.currentIndex = 0;
+        this.claimed = false;
         
         this.helpers({
           data() {
@@ -75,13 +76,13 @@ export default class EventsCtrl extends Controller
 
     goTo(destination)
     {
-      $(".modal").modal("hide");
+      $(".eventsMenu").modal("hide");
       this.$state.go(destination);
     }
 
     closeMenu()
     {
-      $(".modal").modal("hide");
+      $(".eventsMenu").modal("hide");
     }
 
     check()
@@ -107,6 +108,12 @@ export default class EventsCtrl extends Controller
 
     claim()
     {
+      if(this.claimed == true)
+      {
+        this.reset();
+        return;
+      }
+
       Meteor.users.update(this.user._id, {$set: {"profile.credits": 5}});
       var eventFocus = this.data[this.mySwiper.realIndex];
       var userClaims = this.user.profile.credits;
@@ -154,7 +161,6 @@ export default class EventsCtrl extends Controller
       $(".instruction").text("Yep, that's the one. Well done!");
       
       Events.update(this.data[this.mySwiper.realIndex]._id,{$set: {"claimed": 1, "winner": this.user}});
-      this.resetCode();
       this.currentIndex = this.mySwiper.realIndex;
       this.win();
       console.log("Congratulations! you won, your balance is now " + userClaims);
@@ -162,106 +168,32 @@ export default class EventsCtrl extends Controller
 
     win()
     {
+      for(i = 1; i <= 6; i++)
+      {
+        $(".dg" + i).css("background-color", "rgb(182, 234, 130)");
+        $(".idg" + i).css("background-color", "transparent");
+      }
       $(".greenWin").css("background-color", "rgb(182, 234, 130)");
       $(".filler").css("background-color", "rgb(182, 234, 130)");
       $(".eventsHeader").css("background-color", "rgb(182, 234, 130)");
-      $(".eventTitle").css("color", "white");
+      $("#hTitle").css("color", "white");
       $(".greenWin").css("z-index", 3);
+      $(".claimBtnText").text("Great, Got It");
+      this.claimed = true;
     }
 
-    /*showClaimModal()
+    reset()
     {
-      if(Meteor.user().profile.completed)
-      {
-        if(Meteor.user().profile.credits >= this.focusevent.credits)
-        {
-          $('#claim').modal(
-            {
-              onHide: function()
-              {
-                console.log('hidden');
-                $('#success_modal, #failure_modal').addClass('hidden')
-              }
-            }).modal('show');
-        }else
-        {
-          this.topUpAlert();
-        }
-      }else
-      {
-        console.log(this);
-        this.completeProfile();
-      }
-      
+      $(".greenWin").css("background-color", "white");
+      $(".filler").css("background-color", "white");
+      $(".eventsHeader").css("background-color", "white");
+      $("#hTitle").css("color", "rgb(64, 64, 64)");
+      $(".greenWin").css("z-index", 1);
+      $(".claimBtnText").text("Claim");
+      this.claimed = false;
+      this.resetCode();
+      return;
     }
-
-    topUpAlert()
-    {
-      $('#insufficient').modal("show");
-    }
-
-    buyClaims()
-    {
-      $(".modal").modal("hide");
-      this.$state.go('tab.eventCredits');
-    }
-
-    focusEvent(event)
-    {
-      console.log(event);
-      this.focusevent = event;
-    }
-
-    claimEvent()
-    {
-      console.log("Completed");
-      console.log(Meteor.user().profile.completed);
-      $("#success_modal, #failure_modal").addClass("hidden");
-      if(typeof this.focusevent !== 'undefined')
-      {
-        console.log("Claim: ");
-        console.log(this.focusevent);
-        console.log("Code: " + this.claimCode);
-        Meteor.users.update(Meteor.userId(), {$inc: {"profile.credits": 0-this.focusevent.credits}});
-        var claimEvent = this.focusevent;
-        if(claimEvent.code == this.claimCode)
-        {
-          console.log(Meteor.user());
-          var user = Meteor.user();
-          Events.update(
-            claimEvent._id,
-            {
-              $set: {"claimed": 1, "winner": user}
-            }
-          );
-          console.log("New Event list:");
-          console.log(Events.find());
-          $("#success_modal").removeClass("hidden");
-
-        }else
-        {
-          Events.update(
-            claimEvent._id,
-            {
-              $inc: {"claims": 1}
-            }
-          );
-          $("#failure_modal").removeClass("hidden");
-        }
-      }
-    }
-    
-    completeProfile()
-    {
-      $(".modal").modal("hide");
-      this.$state.go('tab.completeProfile');
-    }
-    openClaim(event)
-    {
-      console.log("openclaim");
-      this.focusEvent(event);
-      this.showClaimModal();
-    }*/
   }
 
 
