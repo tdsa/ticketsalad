@@ -33,19 +33,14 @@ export default class ProfileCtrl extends Controller {
   logout() //logs the user out (makes meteor.user = null)
   {
     Meteor.logout();
-
-    if(!Meteor.user()) // checks if the user is logged out
-    {
-      
-      this.user = null;
-      this.$state.go('login');
-    }
     
+    this.user = null;
+    this.$state.go('login');
   }
 
-  edit() // change view to the editProfile screen
+  editProfile() // change view to the editProfile screen
   {
-    this.$state.go('tab.editProfile');
+    this.$state.go('editProfile');
   }
 
   check() //Enforces authorised user
@@ -59,7 +54,18 @@ export default class ProfileCtrl extends Controller {
   
   buyCredits() // change view to the buyCrdits screen
   {
-    this.$state.go('tab.buyCredits');
+    this.$state.go('buyCredits');
+  }
+
+  goTo(destination)
+  {
+    $(".profileModal").modal("hide");
+    this.$state.go(destination);
+  }
+
+  closeMenu()
+  {
+    $(".profileModal").modal("hide");
   }
 
 }
