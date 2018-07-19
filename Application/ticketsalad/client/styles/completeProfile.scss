@@ -217,6 +217,15 @@
   .terms {
     grid-area: terms;
     position: relative;
+    padding: 10%;
+  }
+
+  .terms p {
+    text-align: right;
+  }
+
+  .check {
+    transform: scale(1.7);
   }
   
   .buttonNext {

@@ -18,13 +18,13 @@ import eventsTemplateUrl from '../templates/events.html';
 import profileTemplateUrl from '../templates/profile.html';
 import buyCreditsTemplateUrl from '../templates/buyCredits.html';
 
-//import termsConditionsTemplateUrl from '../templates/termsConditions.html';
 import completeProfileTemplateUrl from '../templates/completeProfile.html';
 import newCardTemplateUrl from '../templates/newCard.html';
 import editProfileTemplateUrl from '../templates/editProfile.html';
 import loginTemplateUrl from '../templates/login.html';
 import signupTemplateUrl from '../templates/signup.html';
 import forgotPasswordTemplateUrl from '../templates/forgotPassword.html';
+import termsConditionsTemplateUrl from '../templates/termsConditions.html';
 import tabsTemplateUrl from '../templates/tabs.html';
  
 class RoutesConfig extends Config {
@@ -49,11 +49,6 @@ class RoutesConfig extends Config {
         templateUrl: forgotPasswordTemplateUrl,
         controller: 'ForgotPasswordCtrl as forgotPassword' 
       })
-      /*.state('termsConditions', {
-        url: '/termsConditions',
-        templateUrl: termsConditionsTemplateUrl,
-        controller: 'termsConditionsCtrl as termsConditions' 
-      })*/
       .state('login', {
         url: '/login',
         templateUrl: loginTemplateUrl,
@@ -93,6 +88,11 @@ class RoutesConfig extends Config {
         url: '/editProfile',
           templateUrl: editProfileTemplateUrl,
           controller: 'EditProfileCtrl as editProfile'
+      })
+      .state('termsConditions', {
+        url: '/termsConditions',
+          templateUrl: termsConditionsTemplateUrl,
+          controller: 'TermsConditionsCtrl as termsConditions'
       })
       .state('newCard', {
         url: '/newCard',
