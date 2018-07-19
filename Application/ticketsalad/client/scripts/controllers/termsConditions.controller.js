@@ -17,6 +17,10 @@ export default class TermsConditionsCtrl extends Controller {
       super(...arguments);
    }
 
+   exit()
+   {
+     this.$state.go('completeProfile');
+   }
 }
  
 TermsConditionsCtrl.$name = 'TermsConditionsCtrl'; //To refer to the controller in scope

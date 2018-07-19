@@ -12,7 +12,14 @@ import { _ } from 'meteor/underscore';
 import { Controller } from 'angular-ecmascript/module-helpers';
  
 export default class ForgotPasswordCtrl extends Controller {
+    constructor() {
+        super(...arguments);
+    }
 
+    exit()
+    {
+        this.$state.go('login');
+    }
 }
  
 ForgotPasswordCtrl.$name = 'ForgotPasswordCtrl'; //To refer to the controller in scope

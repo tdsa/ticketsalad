@@ -29,7 +29,7 @@ export default class EditProfileCtrl extends Controller {
   {
     if(this.username != null)
     {
-      Accounts.setUsername(this.user.userId, this.username);
+      //Accounts.setUsername(this.user.userId, this.username);
     }
     if(this.email != null)
     {
