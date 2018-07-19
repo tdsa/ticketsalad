@@ -13,7 +13,8 @@
             "base": "develop"
         },
         {
-            "name": "feature/EmailRegistration",
+
+            "name": "feature/Documentation",
             "base": "develop"
         },
         {
