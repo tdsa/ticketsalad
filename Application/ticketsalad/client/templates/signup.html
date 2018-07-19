@@ -3,28 +3,28 @@
         <div class="grid-containerSignUp">
             <div class="signUpHeader">
                 <div class="signUpHeaderTitle"><p>Welcome!</p></div>
-                <div class="signUpHeaderMsg"><p>Create an account to continue</p></div>
+                <div class="signUpHeaderMsg"><p class = "instructions" >Create an account to continue</p></div>
             </div>
             <div class="signUpDetails">
                 <div class="signUpUser">
                     <div class="signUpUserName"><p class = "inputTitleP">Username</p></div>
-                    <div class="signUpUserInput"><input class = "inputP" placeholder = "@ Enter your username" type="user" ng-model="signup.username"></div>
+                    <div class="signUpUserInput"><input class = "inputP usr" placeholder = "@ Enter your username" type="user" ng-model="signup.username" ng-click = "signup.resetAll()"></div>
                 </div>
                 <div class="signUpFirst">
                     <div class="signUpFirstName"><p class = "inputTitleP">First Name</p></div>
-                    <div class="signUpFirstInput"><input class = "inputP" placeholder = "Enter your name" type="text" ng-model="signup.first"></div>
+                    <div class="signUpFirstInput"><input class = "inputP" placeholder = "Enter your name" type="text" ng-model="signup.first" ng-click = "signup.resetAll()"></div>
                 </div>
                 <div class="signUpLast">
                     <div class="signUpLastName"><p class = "inputTitleP">Last Name</p></div>
-                    <div class="signUpLastInput"><input class = "inputP" placeholder = "Enter your last name" type="text" ng-model="signup.last"></div>
+                    <div class="signUpLastInput"><input class = "inputP" placeholder = "Enter your last name" type="text" ng-model="signup.last" ng-click = "signup.resetAll()"></div>
                 </div>
                 <div class="signUpPass">
                     <div class="signUpPassword"><p class = "inputTitleP">Password</p></div>
-                    <div class="signUpPassInput"><input class = "inputP" placeholder = "Enter your password" type="password" ng-model="signup.pass1"></div>
+                    <div class="signUpPassInput"><input class = "inputP pass" placeholder = "Enter your password" type="password" ng-model="signup.pass1" ng-click = "signup.resetAll()"></div>
                 </div>
                 <div class="signUpConfirmPass">
                     <div class="signUpConfirmPassword"><p class = "inputTitleP">Confirm Password</p></div>
-                    <div class="signUpConfirmPassInput"><input class = "inputP" placeholder = "Confirm your password" type="password" ng-model="signup.pass2"></div>
+                    <div class="signUpConfirmPassInput"><input class = "inputP pass" placeholder = "Confirm your password" type="password" ng-model="signup.pass2" ng-click = "signup.resetAll()"></div>
                 </div>
                 <div class="signUpDetailsBlank"></div>
                 <div class="nextButton"><div class = "buttonNext" ng-click="signup.next()" href="#/completeProfile"><p>Next</p></div></div>
