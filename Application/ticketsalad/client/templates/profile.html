@@ -1,87 +1,57 @@
 <ion-view title="Profile" ng-load="profile.reload()">
-{{profile.getUser}}
-  <ion-content scroll="false">
-    {{profile.getUser}}
-    <div class="grid-container">
-        <div data-area="picture">
-          <img class="ui centered small circular image" src="/img/user.png">
-        </div>
-        <div data-area="name" >
-          <b style="margin: auto">{{profile.user.profile.name}} {{profile.user.profile.surname}}</b>
-        </div>
-        <div data-area="credits">
-          <b style="margin: auto">Credits</b><br/><b>{{profile.user.profile.credits}}</b>
-        </div>
-        <div data-area="about">
-          <div class="header">
-            About Ticket Salad
-          </div>
-          <div style = "padding-top: 2%">
-            <p>Ticket Salad is everyone's ticket winning solution<br/>Check out <a href = "http://www.ticketsalad.com"><b>ticketsalad.com</b></a> for more info!</p>
-          </div>
-        </div>
-        <div data-area="buttons">
-          <button class="ui blue button" ng-click = "profile.buyCredits()" href="#/buyCredits">Buy Credits</button>
-          <button class="ui red button" ng-click = "profile.logout()" href="#/login">Log Out</button>
-        </div>
-    </div>
+<ion-content scroll = "false">
+  {{profile.getUser}}
 
     <div class="grid-containerProfile">
       <div class="profileHeader">
-        <div class="profileTitle">
-          Profile
-        </div>
-        <div class="menuIcon">
-          <i class="times"></i>
-        </div>
+        <div class = "profileTitle"><p>Profile</p></div>
+        <div class = "menuIcon"><img src = "/img/menu.png" alt = "menu" onclick="$('.profileModal').modal({blurring: true}).modal('setting', 'transition', 'fade up').modal('show');"></div>
       </div>
       <div class="profileInfo">
         <div class="profileText">
-          <div class="profileName">
-              {{profile.user.profile.name}} {{profile.user.profile.surname}}
-          </div>
-          <div class="profileUsrName">
-            @username
-          </div>
-          <div class="profileBalance">
-              {{profile.user.profile.credits}}
-          </div>
-          <div class="profileRemaining">
-            claims remaining
-          </div>
+          <div class="profileName"><p>{{profile.user.profile.firstname}} {{profile.user.profile.lastname}}</p></div>
+          <div class="profileUsrName"><p>@{{profile.user.username}}</p></div>
+          <div class="profileBalance"><p>{{profile.user.profile.credits}}</p></div>
+          <div class="profileRemaining"><p>CLAIMS REMAINING</p></div>
         </div>
         <div class="profileImgBtn">
-          <div class="profilePictre">
-
-            <img class ="imgProfile" alt="profileImage" src="/img/user.png">
-
-          </div>
-          <div class="buyClaimsBtn">
-              <div  class="ClaimsBtn">Buy Claims</div>
-          </div>
+          <div class="profilePictre"><div class = "profileImgContainer"><img class="ui medium circular image" src="/img/avatar.png"></div></div>
+          <div class="buyClaimsBtn"><div class = "claimsBtn"><p>Buy Claims</p></div></div>
         </div>
       </div>
       <div class="profileButtons">
-        <div class="button1">
-
-          <div class="profileBtn">How It Works</div>
-
-        </div>
-
-        <div class="button2">
-            <div class="profileBtn">Edit Profile</div>
-        </div>
-
-        <div class="button3">
-            <div class="profileBtn">Contact Us</div>
-        </div>
-
-        <div class="button4">
-            <div class="profileBtn">Log Out</div>
-        </div>
+        <div class="button1"><div class="profileBtn"><p>How It Works</p></div></div>
+        <div class="button2"><div class="profileBtn" ng-click = "profile.editProfile()" href = "#/editProfile"><p>Edit Profile</p></div></div>
+        <div class="button3"><div class="profileBtn"><p>Contact Us</p></div></div>
+        <div class="button4"><div class="profileBtn" ng-click = "profile.logout()" href = "#/login"><p>Log Out</p></div></div>
       </div>
     </div>
 
+    <div class="ui modal fullscreen basic profileModal" style="background-color: transparent">
+      <div class="containerMenu">
+        <div class="top">
+          <span class = "roundedBorder"></span>
+          <div class="profilePicture">
+              <div class="circlePic" id = "picThing" ><img class="ui medium circular image" src="/img/avatar.png"></div>
+              <div class="picLef"><div class = "leftShoulder"></div></div>
+              <div class="picRight"><div class = "rightShoulder"></div></div>
+          </div>
+          <div class="menuName"><p>@{{profile.user.username}}</p></div>
+          <div class="blank"></div>
+        </div>
+        <div class="bottom">
+          <div class="homeButton"><div class = "myButton" href = "#/events" ng-click="profile.goTo('events')"><p>Home</p></div></div>
+          <div class="activityButton"><div class = "myButton" href = "#/events" ng-click="profile.goTo('events')"><p>Activity</p></div></div>
+          <div class="profileButton"><div class = "myButton" href = "#/profile" ng-click="profile.goTo('profile')"><p>Profile</p></div></div>
+          <div class="searchButton"><div class = "myButton" href = "#/events" ng-click="profile.goTo('events')"><p>Search</p></div></div>
+          <div class="exitArea">
+              <div class="exitButton"><img src = "/img/exit.png" alt = "exit" ng-click="profile.closeMenu()"></div>
+              <div class="exitLeft"></div>
+              <div class="exitRight"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </ion-content>
 </ion-view>

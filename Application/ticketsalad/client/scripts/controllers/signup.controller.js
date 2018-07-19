@@ -10,22 +10,37 @@ export default class SignupCtrl extends Controller {
     if (_.isEmpty(this.first)) return;
     if (_.isEmpty(this.last)) return;
 
-    user = {
+    Accounts.createUser({
       username: this.username,
       password: this.pass1,
-      email: null,
       profile: 
       {
         firstname: this.first,
         lastname: this.last,
         completed: false,
         credits: 0,
-        dob: null,
-        gender: null
       }
-    }
+    }, function (err) {
+      if (!err) {
+          console.log('I was called because creation was a success');
+          return;
+      } else {
+          console.log(err);
+      }
+    });
 
-      this.$state.go('completeProfile');
+    console.log(this.username + " " + this.pass1);
+
+    Meteor.loginWithPassword(this.username, this.pass1, function (err) {
+      if (!err) {
+          console.log('I was called because authentication was a success');
+          return;
+      } else {
+          console.log(err);
+      }
+    })
+
+    this.$state.go('completeProfile');
   }
 
   login()
