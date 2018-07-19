@@ -1,28 +1,28 @@
-.grid-containerTerms {
+.grid-containerPayment {
     display: grid;
     height: 100%;
     grid-template-columns: 100%;
     grid-template-rows: 15% 85%;
-    grid-template-areas: "termsHeader" "termsBody";
+    grid-template-areas: "paymentHeader" "paymentBody";
 }
 
-.termsHeader {
+.paymentHeader {
     display: grid;
-    grid-area: termsHeader;
+    grid-area: paymentHeader;
     grid-template-columns: 75% 25%;
     grid-template-rows: 100%;
-    grid-template-areas: "termsHeading termsExit";
+    grid-template-areas: "paymentHeading paymentExit";
 }
 
-.termsHeading {
-    grid-area: termsHeading;
+.paymentHeading {
+    grid-area: paymentHeading;
     position: relative;
 }
 
-.termsHeader p
+.paymentHeader p
 {
     position: absolute;
-    top: 20%;
+    top: 29%;
     left: 7.5%;
     font-size: 8vw;
     font-weight: bold;
@@ -30,12 +30,12 @@
     color: rgb(64, 64, 64);
 }
   
-.termsExit {
-    grid-area: termsExit;
+.paymentExit {
+    grid-area: paymentExit;
     position: relative;
 }
 
-.termsExit img {
+.paymentExit img {
     position: absolute;
     width: 20%;
     top: 35%;
@@ -43,12 +43,12 @@
 
 }
 
-.termsBody {
-    grid-area: termsBody;
+.paymentBody {
+    grid-area: paymentBody;
     position: relative;
 }
 
-.termsBody p {
+.paymentBody p {
     position: absolute;
     width: 80%;
     left: 10%;
@@ -56,7 +56,3 @@
     text-align: justify;
     overflow-y: scroll;
 }
-
-.-webkit-scrollbar * {
-    background:transparent; // manage scrollbar background color here
-  }

@@ -19,7 +19,8 @@ import profileTemplateUrl from '../templates/profile.html';
 import buyCreditsTemplateUrl from '../templates/buyCredits.html';
 
 import completeProfileTemplateUrl from '../templates/completeProfile.html';
-import newCardTemplateUrl from '../templates/newCard.html';
+import cardDetailsTemplateUrl from '../templates/cardDetails.html';
+import activityTemplateUrl from '../templates/activity.html';
 import editProfileTemplateUrl from '../templates/editProfile.html';
 import loginTemplateUrl from '../templates/login.html';
 import signupTemplateUrl from '../templates/signup.html';
@@ -94,11 +95,16 @@ class RoutesConfig extends Config {
           templateUrl: termsConditionsTemplateUrl,
           controller: 'TermsConditionsCtrl as termsConditions'
       })
-      .state('newCard', {
-        url: '/newCard',
-          templateUrl: newCardTemplateUrl,
-          controller: 'NewCardCtrl as newCard'
-      });
+      .state('cardDetails', {
+        url: '/cardDetails',
+          templateUrl: cardDetailsTemplateUrl,
+          controller: 'CardDetailsCtrl as cardDetails'
+      })
+      .state('activity', {
+        url: '/activity',
+          templateUrl: activityTemplateUrl,
+          controller: 'ActivityCtrl as activity'
+      })
  
     this.$urlRouterProvider.otherwise('login'); //Default state
   }
