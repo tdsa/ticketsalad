@@ -1,0 +1,49 @@
+<ion-view view-title="Add a New Card">
+    <ion-content>
+        <div class="container" style = "padding-top: 5%">
+            <form class="ui form">
+                <h4 class="ui dividing header">Card Details</h4>
+                <div class="field">
+                  <label>Owner</label>
+                    <div class="field">
+                      <input type="text" name="shipping[first-name]" placeholder="First Name" ng-model="newCard.name">
+                    </div>                 
+                </div>                 
+                  <div class="seven wide field">
+                    <label>Card Number</label>
+                    <input type="text" name="card[number]" maxlength="16" placeholder="Card #" ng-model="newCard.acc"> 
+                  </div>
+                  <div class="three wide field">
+                    <label>CVC</label>
+                    <input type="text" name="card[cvc]" maxlength="3" placeholder="CVC" ng-model="newCard.cvv">
+                  </div>
+                  <div class="six wide field">
+                    <label>Expiration</label>
+                    <div class="two fields">
+                      <div class="field">
+                        <select class="ui fluid search dropdown" name="card[expire-month]" ng-model="newCard.month">
+                          <option value="">Month</option>
+                          <option value="1">January</option>
+                          <option value="2">February</option>
+                          <option value="3">March</option>
+                          <option value="4">April</option>
+                          <option value="5">May</option>
+                          <option value="6">June</option>
+                          <option value="7">July</option>
+                          <option value="8">August</option>
+                          <option value="9">September</option>
+                          <option value="10">October</option>
+                          <option value="11">November</option>
+                          <option value="12">December</option>
+                        </select>
+                      </div>
+                      <div class="field">
+                        <input type="text" name="card[expire-year]" maxlength="4" placeholder="Year" ng-model="newCard.year">
+                      </div>
+                  </div>
+                </div>
+                <center><div class="ui button" tabindex="0" ng-click="newCard.done()">Add</div></center>
+              </form>
+              </div>
+    </ion-content>
+</ion-view>
