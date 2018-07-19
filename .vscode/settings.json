@@ -19,6 +19,18 @@
         {
             "name": "feature/CreditsLowAlert",
             "base": "develop"
+        },
+        {
+            "name": "feature/EmailVerification",
+            "base": "develop"
+        },
+        {
+            "name": "feature/CreditHandling",
+            "base": "develop"
+        },
+        {
+            "name": "feature/Admin_Panel",
+            "base": "develop"
         }
     ]
 }

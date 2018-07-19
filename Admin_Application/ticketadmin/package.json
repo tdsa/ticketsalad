@@ -1,0 +1,25 @@
+{
+  "name": "whatsapp",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.0.0-beta.53",
+    "angular": "^1.7.2",
+    "angular-animate": "^1.7.2",
+    "angular-ecmascript": "0.0.3",
+    "angular-meteor": "^1.3.12",
+    "angular-sanitize": "^1.7.2",
+    "angular-ui-router": "^0.3.2",
+    "github": "^14.0.0",
+    "gulp-concat-filenames": "^1.2.0",
+    "gulp-debug": "^4.0.0",
+    "gulp-git": "^2.7.0",
+    "gulp-tap": "^1.0.1",
+    "ionic-scripts": "^1.3.5",
+    "meteor-node-stubs": "^0.2.11",
+    "moment": "^2.22.2",
+    "semantic-ui": "^2.3.3"
+  }
+}
