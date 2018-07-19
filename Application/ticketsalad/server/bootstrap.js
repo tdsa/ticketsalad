@@ -19,7 +19,7 @@ Meteor.startup(function()
     function generateCode()
     {
         var code = "";
-        for (var index = 0; index < 5; index++) 
+        for (var index = 0; index < 6; index++) 
         {
             var digit = Math.floor((Math.random() * 10));
             code += digit + "";
@@ -35,45 +35,55 @@ Meteor.startup(function()
         city: 'Boom',
         country: 'Belgium',
         picture: 'img/TL.jpg',
-        from: 'Jul 21, 2018',
+        year: '2018',
+        from: '21 July 2018',
         to: 'Jul 29, 2018',
         webpage: 'https://www.tomorrowland.com/en/festival/welcome',
         credits: '15',
         description: '',
-        claims: 75,
+        claims: 1,
         code: generateCode(),
         claimed: 0,
-        winner: null
+        winner: null,
+        tickets: 2,
+        about: "Tomorrowland is an electronic dance music festival held in Boom, Belgium. Tomorrowland was first held in 2005, and has since become one of the world's largest and most notable music festivals. It now stretches over 2 weekends and usually sells out in minutes."
+        
     },
     {
         name: 'Rocking The Daisies',
         city: 'New York',
         country: 'America',
         picture: 'img/RTD.jpg',
-        from: 'Oct 5, 2018',
+        year: '2018',
+        from: '5 Oct 2018',
         to: 'Oct 7, 2018',
         webpage: 'https://rockingthedaisies.com/',
         credits: '5',
         description: '',
-        claims: 52,
+        claims: 1,
         code: generateCode(),
         claimed: 0,
-        winner: null
+        winner: null,
+        tickets: 4,
+        about: "Rocking the Daisies is Cape Town's biggest outdoor gathering, and it's become one of the highlights of the festival calendar. The event takes place on the stunning Cloof Wine Estate, just outside Darling, about an hour's drive from Cape Town."
     },
     {
         name: 'In The City',
         city: 'Moscow',
         country: 'Russia',
         picture: 'img/ITC.png',
-        from: 'Oct 7, 2018',
+        year: '2018',
+        from: '7 Oct 2018',
         to: 'Oct 9, 2018',
         webpage: 'http://inthecityjhb.co.za/',
         credits: '5',
         description: '',
-        claims: 35,
+        claims: 1,
         code: generateCode(),
         claimed: 0,
-        winner: null
+        winner: null,
+        tickets: 1,
+        about: "In The City was started in 2012 by Seed Experiences, the same company responsible for the Cape Town festival Rocking The Daisies. As such, both of the festivals have shared headlining acts since In The City's inception in 2012 and the first year's edition hosted Bloc Party as its international headlining act."
     }];
 
     events.forEach((event) => {

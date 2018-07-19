@@ -1,114 +1,89 @@
 <ion-view view-title="Events" onload="events.check()">
-    <ion-content>
-        <div class="ui fluid search" style = "padding-bottom: 5%; padding-top: 2%; margin: 0 auto; width: 95%">
-            <input id = "search" class="prompt" type="text" placeholder="Search events..." ng-model="search">
-        </div>
-        <div class="ui link stackable cards" id = "scroll">
-
-            <div class="card" ng-repeat = "event in events.data | filter:search " ng-if="event.claimed == 0" onclick="$('#display').modal('show');" ng-click="events.focusEvent(event)">
-
-                <div class="image">
-                    <img ng-src = "{{event.picture}}">
-                </div>
-                <div class="content">
-                    <div class="header">{{event.name}}</div>
-                    <div class="meta">
-                    <a>{{event.from}}</a>
-                    </div>
-                </div>
-                <div class="extra content">
-                    <span>
-                    <i class="user icon"></i>
-                    {{event.claims}}
-                    </span>
-                </div>
-                <button class="ui bottom attached button" ng-click="events.openClaim(event)">
-                    Claim
-                </button>
-            </div>
-        </div>
-
-
-        <div class="ui modal" id="display">
-            <div class="header" ng-style="{'background-image':'url(' + events.focusevent.picture + ')'}">{{events.focusevent.name}}</div>
-            <div class="content ui grid">
-                <div class="row">
-                    <div class="left floated eight wide column">
-                        <div class="row">
-                            <h3>{{events.focusevent.city}}, {{events.focusevent.country}}</h3>
-                        </div>
-                        <div class="row">
-                            <a href="{{events.focusevent.webpage}}" class="ui button">Visit Webpage</a>
-                        </div>
-                    </div>
-                    <div class="right floated eight wide column">
-                        <div class="row">
-                            <h3>From {{events.focusevent.from}}</h3>
-                        </div>
-                        <div class="row">
-                            <h3>To {{events.focusevent.to}}</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="eight wide column"></div>
-                    <div class="eight wide column">
-                        <div class="row">
-                            <b>CREDITS PER CLAIM</b>
-                        </div>
-                        <div class="row">
-                            <h3>{{events.focusevent.credits}} credits</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="row center aligned">
-                    <h4>More About The Event</h4>
-                    <p>{{events.focusevent.description}}</p>
-                </div>
-                <button class="ui button" ng-click="events.showClaimModal()">Claim Now</button>
-            </div>
-        </div>
-        <div class="ui modal" id="claim">
-            <div class="header">Claim {{events.focusevent.name}}</div>
-            <div class="content ui grid" ng-init="events.claimCode='00000'">
-                <input type="text" ng-bind="events.claimCode" ng-model="events.claimCode">
-                <button ng-click="events.claimEvent()" class="ui button">Claim {{events.focusevent.name}}</button>
-            </div>
-            <div class="ui icon message hidden" id="success_modal">
-                <i class="trophy icon"></i>
-                <div class="content">
-                    <div class="header">
-                        Congratulations!!!
-                    </div>
-                    <p>You have won the {{events.focusevent.name}} ticket claim!</p>
+    <ion-content scroll="false">  
+        <div class="grid-containerEvents">
+            <div class = "filler"></div>
+            <div class="eventsHeader">
+                <div class="eventTitle"><p id = "hTitle">{{events.data[events.mySwiper.realIndex].name}} - {{events.data[events.mySwiper.realIndex].country}} {{events.data[events.mySwiper.realIndex].year}}</p></div>
+                <div class="eventsBurger">
+                    <div class="eventsBlank"></div>
+                    <div class="eventsMenuIcon"><img src = "/img/menu.png" alt = "menu" onclick="$('.ui.modal').modal({blurring: true}).modal('setting', 'transition', 'fade up').modal('show');"></div>
                 </div>
             </div>
-            <div class="ui icon message hidden" id="failure_modal">
-                <i class="thumbs down icon"></i>
-                <div class="content">
-                    <div class="header">
-                        Better Luck Next Time
-                    </div>
-                    <p>Your selected code just wasn't the one. Feel free to try again!</p>
-                </div>
-            </div>
-        </div>
-        <div class="ui modal" id="insufficient">
-            <div class="header">Insufficient credits</div>
-            <div class="content ui">
-                    <div class="ui icon message warning">
-                        <i class="exclamation triangle icon"></i>
-                        <div class="content">
-                            <div class="header">
-                            You have insufficient credits to claim on this event
+            <div class="eventsCards">
+                <div class = "greenWin"><p>Congartulations! We are delighted to inform you that you have won {{events.data[currentIndex].tickets}} tickets to {{events.data[currentIndex].name}}</p></div>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide card" ng-repeat = "event in events.data">
+                            <div class="grid-containerCard">
+                                <div class="eventPicture"><img src = {{event.picture}} alt = "pic"></div>
+                                <div class="eventDescription">
+                                    <div class="aboutHeading"><p>ABOUT</p></div>
+                                    <div class="aboutDescription"><p>{{event.about}}</p></div>
+                                </div>
+                                <div class="eventInfo">
+                                    <div class="eventLocation">
+                                        <div class="locationTitle"><p class = "infoText">LOCATION</p></div>
+                                        <div class="locationInfo"><p class = "infoDetail">{{event.city}}, {{event.country}}</p></div>
+                                    </div>
+                                    <div class="eventDt">
+                                        <div class="dateTitle"><p class = "infoText">DATE</p></div>
+                                        <div class="dateInfo"><p class = "infoDetail">{{event.from}}</p></div>
+                                    </div>
+                                    <div class="eventCredits">
+                                        <div class="creditsTitle"><p class = "infoText">CREDITS</p></div>
+                                        <div class="creditsInfo"><p class = "infoDetail">{{event.claims}}/Claim</p></div>
+                                    </div>
+                                    <div class="eventTickets">
+                                        <div class="ticketsTitle"><p class = "infoText">TICKETS</p></div>
+                                        <div class="ticketsInfo"><p class = "infoDetail">{{event.tickets}} Tickets</p></div>
+                                    </div>
+                                </div>
+                                <div class="eventBlankSpace"></div>
                             </div>
-                            <button class="ui button" ng-click="events.buyClaims()">Buy more Claims</button>
                         </div>
                     </div>
+                </div>
             </div>
+            <div class="eventsMsg"><p class = "instruction">Enter a unique code...</p></div>
+            <div class="eventsCode">
+                <input class = "overlay" type = "text" ng-model="events.code" maxlength="6">
+                <div class="d1"><div class = "digit dg1"><div class = "innerDigit idg1"></div><p class = "digitOverLay">{{events.code[0]}}</p></div></div>
+                <div class="d2"><div class = "digit dg2"><div class = "innerDigit idg2"></div><p class = "digitOverLay">{{events.code[1]}}</p></div></div>
+                <div class="d3"><div class = "digit dg3"><div class = "innerDigit idg3"></div><p class = "digitOverLay">{{events.code[2]}}</p></div></div>
+                <div class="d4"><div class = "digit dg4"><div class = "innerDigit idg4"></div><p class = "digitOverLay">{{events.code[3]}}</p></div></div>
+                <div class="d5"><div class = "digit dg5"><div class = "innerDigit idg5"></div><p class = "digitOverLay">{{events.code[4]}}</p></div></div>
+                <div class="d6"><div class = "digit dg6"><div class = "innerDigit idg6"></div><p class = "digitOverLay">{{events.code[5]}}</p></div></div>
+            </div>
+            <div class="eventsClaimBtn" ng-click="events.claim()"><p>Claim</p></div>
         </div>
 
-
+        <div class="ui modal fullscreen basic" style="background-color: transparent">
+            <div class="containerMenu">
+                <div class="top">
+                    <span class = "roundedBorder"></span>
+                    <div class="profilePicture">
+                        <div class="circlePic" id = "picThing" ><img class="ui medium circular image" src="/img/avatar.png"></div>
+                        <div class="picLef"><div class = "leftShoulder"></div></div>
+                        <div class="picRight"><div class = "rightShoulder"></div></div>
+                    </div>
+                    <div class="menuName"><p>@{{events.user.username}}</p></div>
+                    <div class="blank"></div>
+                </div>
+                <div class="bottom">
+                    <div class="homeButton"><div class = "myButton" href = "#/events" ng-click="events.goTo('events')"><p>Home</p></div></div>
+                    <div class="activityButton"><div class = "myButton" href = "#/events" ng-click="events.goTo('events')"><p>Activity</p></div></div>
+                    <div class="profileButton"><div class = "myButton" href = "#/profile" ng-click="events.goTo('profile')"><p>Profile</p></div></div>
+                    <div class="searchButton"><div class = "myButton" href = "#/events" ng-click="events.goTo('events')"><p>Search</p></div></div>
+                    <div class="exitArea">
+                        <div class="exitButton"><img src = "/img/exit.png" alt = "exit" ng-click="events.closeMenu()"></div>
+                        <div class="exitLeft"></div>
+                        <div class="exitRight"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </ion-content>
+    <script src="../dist/js/swiper.min.js"></script>
 </ion-view>
 

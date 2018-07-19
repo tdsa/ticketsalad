@@ -1,5 +1,298 @@
-.container
+.grid-containerSignUp {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 100%;
+  grid-template-rows: 20% 70% 10%;
+  grid-template-areas: "signUpHeader" "signUpDetails" "signUpActions";
+}
+
+.signUpHeader {
+  display: grid;
+  grid-area: signUpHeader;
+  grid-template-columns: 100%;
+  grid-template-rows: 40% 60%;
+  grid-template-areas: "signUpHeaderTitle" "signUpHeaderMsg";
+}
+
+.signUpHeaderTitle {
+  grid-area: signUpHeaderTitle;
+  position: relative;
+}
+
+.signUpHeaderTitle p
 {
-  width: 90%;
-  margin: 0 auto;
+  position: absolute;
+  bottom: 2.5%;
+  left: 7.5%;
+  font-size: 8vw;
+  font-weight: bold;
+  color: rgb(64, 64, 64);
+}
+
+.signUpHeaderMsg {
+  grid-area: signUpHeaderMsg;
+  position: relative;
+}
+
+.signUpHeaderMsg p {
+  position: absolute;
+  top: 7.5%;
+  left: 7.5%;
+  font-size: 5.5vw;
+  color: rgb(150, 196, 239);
+}
+
+.signUpDetails {
+  display: grid;
+  grid-area: signUpDetails;
+  grid-template-columns: 100%;
+  grid-template-rows: 14.28% 14.28% 14.28% 14.28% 14.28% 8% 20.6%;
+  grid-template-areas: "signUpUser" "signUpFirst" "signUpLast" "signUpPass" "signUpConfirmPass" "signUpDetailsBlank" "nextButton";
+}
+
+.signUpUser {
+  display: grid;
+  grid-area: signUpUser;
+  grid-template-columns: 100%;
+  grid-template-rows: 30% 70%;
+  grid-template-areas: "signUpUserName" "signUpUserInput";
+}
+
+.signUpUserName {
+  grid-area: signUpUserName;
+  position: relative;
+}
+
+.signUpUserInput {
+  grid-area: signUpUserInput;
+  position: relative;
+}
+
+.signUpFirst {
+  grid-area: signUpFirst;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 30% 70%;
+  grid-template-areas: "signUpFirstName" "signUpFirstInput";
+}
+
+.signUpFirstName {
+  grid-area: signUpFirstName;
+  position: relative;
+}
+
+.signUpFirstInput {
+  grid-area: signUpFirstInput;
+  position: relative;
+}
+
+.signUpFirstName p {
+  position: absolute;
+  color: rgb(216, 216, 216);
+  font-size: 4.3vw;
+  left: 9%;
+}
+
+.signUpFirstInput input {
+  position: absolute;
+  color: black;
+  font-size: 4.3vw;
+  left: 9%;
+  width: 82%;
+  border-bottom: solid 1.5px rgb(150, 196, 239);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  top: 3%;
+  padding-bottom: 2%;
+  height: 80%;
+}
+
+.signUpLast {
+  grid-area: signUpLast;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 30% 70%;
+  grid-template-areas: "signUpLastName" "signUpLastInput";
+}
+
+.signUpLastName {
+  grid-area: signUpLastName;
+  position: relative;
+}
+
+.signUpLastInput {
+  grid-area: signUpLastInput;
+  position: relative;
+}
+
+.signUpPass {
+  display: grid;
+  grid-area: signUpPass;
+  grid-template-columns: 100%;
+  grid-template-rows: 30% 70%;
+  grid-template-areas: "signUpPassword" "signUpPassInput";
+}
+
+.signUpLastName p {
+  position: absolute;
+  color: rgb(216, 216, 216);
+  font-size: 4.3vw;
+  left: 9%;
+}
+
+.signUpLastInput input {
+  position: absolute;
+  color: black;
+  font-size: 4.3vw;
+  left: 9%;
+  width: 82%;
+  border-bottom: solid 1.5px rgb(150, 196, 239);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  top: 3%;
+  padding-bottom: 2%;
+  height: 80%;
+}
+
+.signUpPassword {
+  grid-area: signUpPassword;
+  position: relative;
+}
+
+.signUpPassword p {
+  position: absolute;
+  color: rgb(216, 216, 216);
+  font-size: 4.3vw;
+  left: 9%;
+}
+
+.signUpPassInput {
+  grid-area: signUpPassInput;
+  position: relative;
+}
+
+.signUpPassInput input {
+  position: absolute;
+  color: black;
+  font-size: 4.3vw;
+  left: 9%;
+  width: 82%;
+  border-bottom: solid 1.5px rgb(150, 196, 239);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  top: 3%;
+  padding-bottom: 2%;
+  height: 80%;
+}
+
+.signUpConfirmPass {
+  display: grid;
+  grid-area: signUpConfirmPass;
+  grid-template-columns: 100%;
+  grid-template-rows: 30% 70%;
+  grid-template-areas: "signUpConfirmPassword" "signUpConfirmPassInput";
+}
+
+.signUpConfirmPassword {
+  grid-area: signUpConfirmPassword;
+  position: relative;
+}
+
+.signUpConfirmPassword p {
+  position: absolute;
+  color: rgb(216, 216, 216);
+  font-size: 4.3vw;
+  left: 9%;
+}
+
+.signUpConfirmPassInput {
+  grid-area: signUpConfirmPassInput;
+  position: relative;
+}
+
+.signUpConfirmPassInput input {
+  position: absolute;
+  color: black;
+  font-size: 4.3vw;
+  left: 9%;
+  width: 82%;
+  border-bottom: solid 1.5px rgb(150, 196, 239);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  top: 3%;
+  padding-bottom: 2%;
+  height: 80%;
+}
+
+.inputTitleP {
+  position: absolute;
+  color: rgb(216, 216, 216);
+  font-size: 4.3vw;
+  left: 9%;
+}
+
+.inputP {
+  position: absolute;
+  color: black;
+  font-size: 4.3vw;
+  left: 9%;
+  width: 82%;
+  border-bottom: solid 1.5px rgb(150, 196, 239);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  top: 3%;
+  padding-bottom: 2%;
+  height: 80%;
+}
+
+.signUpDetailsBlank {
+  grid-area: signUpDetailsBlank;
+}
+
+.nextButton {
+  grid-area: nextButton;
+  position: relative;
+}
+
+.buttonNext {
+  position: absolute;
+  width: 45%;
+  height: 15vw;
+  background-color: rgb(99, 200, 242);
+  border-radius: 10px;
+  left: 7.5%;
+  top: 15%;
+}
+
+.buttonNext p {
+  position: absolute;
+  color: white;
+  height: 50%;
+  width: 100%;
+  text-align: center;
+  top: 25%;
+  font-size: 5.5vw;
+}
+
+.signUpActions {
+  grid-area: signUpActions;
+  position: relative;
+}
+
+.link {
+  text-align: center;
+  font-size: 4.3vw;
+  font-weight: bold;
+  color: rgb(150, 196, 239);
+}
+
+.linkText {
+  text-align: center;
+  font-size: 4.3vw;
+  color: rgb(102, 102, 102);
 }
