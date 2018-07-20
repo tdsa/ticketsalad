@@ -24,7 +24,7 @@
     });
       
       this.When(/^I enter my email "([^"]*)" and password "([^"]*)"$/, function (email, password) {
-        return this.client.
+       // return this.client.
           //setValue("[name='email']", email).
           //setValue("[name='password']", password);
 	      
