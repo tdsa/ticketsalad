@@ -1,46 +1,42 @@
-<ion-view view-title="Buy Credits">
-    <ion-content scroll="false">
-            <div class="swiper-container">
-                <div class="swiper-wrapper" >
-                    <div class="swiper-slide" ng-repeat="card in buyCredits.data">
-                        <div class = "fit">
-                            <div class = "row center">
-                                {{card.acc}}
-                            </div>
-                            <div class = "row center">
-                                {{card.name}}
-                                {{card.year}}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
+<ion-view>
+    {{buyCredits.getUser}}
+    <ion-content scroll = "false">
+        <div class="grid-containerBuyClaims">
+            <div class="claimsHeader">
+                <div class="claimsTitle"><p>Buy Claims</p></div>
+                <div class="claimsExit"><img src = "/img/exit.png" alt = "exit" ng-click="buyCredits.exit()" href = "#/profile"></div>
             </div>
-        <center>
-            <div class="ui submit button" ng-click="buyCredits.addCard()">Add A New Card</div>
-            <div class="ui submit button" ng-click="buyCredits.editCard()">Edit This Card</div>
-        </center>
-    
-        <script src="../dist/js/swiper.min.js"></script>
-
-        <div class="container" style = "padding-top: 5%; width: 80%">
-            <form class="ui form clearing segment">
-                    <div class="field row ">
-                        <label>Enter Amount: </label>
-                        <div >
-                            <input type="text" name="amountRands" placeholder="0" ng-model="buyCredits.amount" ng-change="buyCredits.updateClaims()">
-                        </div>
-                    </div>
-                    <div class="field row">
-                        <label>Claims Amount: </label>
-                        <div>
-                            <input type="text" name="amountClaims" placeholder="0" ng-model="buyCredits.claims" ng-change="buyCredits.updateRands()">
-                        </div>
-                    </div>                 
-            </form>
-            <center style="padding-top: 20px">
-                    <div class="ui submit button" ng-click="buyCredits.buyMore()">Buy More Claims</div>
-            </center>                                 
+            <div class="claimsActions">
+                <div class="claimsAmount">
+                    <div class="claimsLess"><img src = "/img/minus.png" alt = "minus" class = "addMinus" ng-click="buyCredits.minus()"></div>
+                    <div class="claimsNumber"><p>{{buyCredits.amount}}</p></div>
+                    <div class="claimsMore"><img src = "/img/add.png" alt = "add" class = "addMinus" ng-click="buyCredits.add()"></div>
+                </div>
+                <div class="claimsWord"><p>CLAIMS</p></div>
+                <div class="claimsOptions">
+                    <div class="claimsO1"><div class = "amountOption" ng-click="buyCredits.option(100)"><p>100</p></div></div>
+                    <div class="claimsO2"><div class = "amountOption" ng-click="buyCredits.option(250)"><p>250</p></div></div>
+                    <div class="claimsO3"><div class = "amountOption" ng-click="buyCredits.option(500)"><p>500</p></div></div>
+                    <div class="claimsO4"><div class = "amountOption" ng-click="buyCredits.option(1000)"><p>1000</p></div></div>
+                </div>
+            </div>
+            <div class="claimsMoney">
+                <div class="claimsSubtotal"><p class = "totalWords">SUBTOTAL</p></div>
+                <div class="claimsTotal"><p class = "totalWords">TOTAL</p></div>
+                <div class="claimsCost"><p>R{{2*buyCredits.amount | number: 2}}</p></div>
+                <div class="claimsPrice">
+                    <div class="priceCost"><p class = "priceAmounts">R{{2*buyCredits.amount - (2*buyCredits.amount*0.15) | number: 2}}</p></div>
+                    <div class="priceWord"><p class = "priceWords">PRICE</p></div>
+                </div>
+                <div class="claimsVat">
+                    <div class="vatCost"><p class = "priceAmounts">R{{2*buyCredits.amount*0.15 | number: 2}}</p></div>
+                    <div class="vatWord"><p class = "priceWords">VAT (15%)</p></div>
+                </div>
+            </div>
+            <div class="claimsButton">
+                <div class="claimsPayWith"><p>PAY WITH</p></div>
+                <div class = "claimsCreditButton"><div class = "creditCardButton" ng-click="buyCredits.pay()"><p>Credit Card</p></div></div>
+            </div>
         </div>
     </ion-content>
-    </ion-view>
+</ion-view>
