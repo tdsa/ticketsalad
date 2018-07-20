@@ -16,6 +16,8 @@ import { Events } from '../lib/collections';
 Meteor.startup(function() 
 {
 
+    //MONGO_URL="mongodb://ticketsalad:sSwXJYsx5WskVpAeaEeU6eYBxEH2N7aDBjxlvpD0l6ksbDsIfIysu2YOkeWIZzhhK6FSQd395Y8oEfs60cOMhQ==@ticketsalad.documents.azure.com:10255/?ssl=true&replicaSet=globaldb";
+
     function generateCode()
     {
         var code = "";
