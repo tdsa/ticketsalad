@@ -50,6 +50,20 @@ export default class EventsCtrl extends Controller
           {
             this.user = Meteor.user();
           },
+
+          check()
+          {
+            console.log("Checking if a user is logged in");
+
+            if(!Meteor.user())
+            {
+              console.log("User is not logged in, sending to login");
+              window.location.href = '#/login';
+              this.$state.go('login');
+            }
+
+            console.log(Meteor.user().profile.name + " is logged in");
+          }
         });
 
         this.mySwiper.on('slideChange', function() {$(".instruction").text("Enter a unique code...");});
@@ -85,15 +99,7 @@ export default class EventsCtrl extends Controller
       $(".eventsMenu").modal("hide");
     }
 
-    check()
-    {
-      if(!Meteor.user())
-      {
-        window.location.href = '#/login';
-        this.$state.go('login');
-      }
-
-    }
+    
 
     resetCode()
     {
@@ -113,8 +119,7 @@ export default class EventsCtrl extends Controller
         this.reset();
         return;
       }
-
-      Meteor.users.update(this.user._id, {$set: {"profile.credits": 5}});
+      
       var eventFocus = this.data[this.mySwiper.realIndex];
       var userClaims = this.user.profile.credits;
       var eventCost = eventFocus.claims;
@@ -129,7 +134,7 @@ export default class EventsCtrl extends Controller
 
       if(this.code == null)
       {
-        console.log("Please enter a code");
+        console.log("No code entered");
         $(".instruction").text("Enter a code to claim!");
         return;
       }
@@ -144,26 +149,34 @@ export default class EventsCtrl extends Controller
         return;
       }
 
-      console.log("Enough");
+      console.log("User has enough");
 
       userClaims = userClaims - eventCost;
       Meteor.users.update(this.user._id, {$set: {"profile.credits": userClaims}});
       userClaims = this.user.profile.credits;
       var dbCode = this.data[this.mySwiper.realIndex].code;
 
+      console.log("Debiting users claims balance by " + eventCost);
+      console.log("Users new balance: " + userClaims);
+
       if(dbCode != this.code)
       {
-        console.log("Incorrect code, try again!");
+        console.log("Incorrect code");
         $(".instruction").text("Nope, that's not the one. Try again!");
         this.resetCode();
         return;
       }
+
+      console.log("Correct code");
+
       $(".instruction").text("Yep, that's the one. Well done!");
       
       Events.update(this.data[this.mySwiper.realIndex]._id,{$set: {"claimed": 1, "winner": this.user}});
       this.currentIndex = this.mySwiper.realIndex;
       this.win();
-      console.log("Congratulations! you won, your balance is now " + userClaims);
+
+      console.log("Correct code");
+      console.log(Meteor.user().profile.name + " has won the package");
     }
 
     win()
