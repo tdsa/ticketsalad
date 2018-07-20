@@ -49,6 +49,8 @@ export default class LoginCtrl extends Controller
     }
     else
     {
+      this.username = null;
+      this.pass = null;
       this.resetAll();
       this.$state.go('events');
     }
@@ -56,11 +58,17 @@ export default class LoginCtrl extends Controller
 
   create()
   {
+    this.username = null;
+    this.pass = null;
+    this.resetAll();
     this.$state.go('signup');
   }
 
   forgot()
   {
+    this.username = null;
+    this.pass = null;
+    this.resetAll();
     this.$state.go('forgotPassword');
   }
 

@@ -21,6 +21,7 @@ import Loader from 'angular-ecmascript/module-loader';
 import { Meteor } from 'meteor/meteor';
  
 // Modules
+import LaunchCtrl from '../controllers/launch.controller';
 import EventsCtrl from '../controllers/events.controller';
 import ProfileCtrl from '../controllers/profile.controller';
 import EditProfileCtrl from '../controllers/editProfile.controller';
@@ -45,6 +46,7 @@ Angular.module(App, [
 
 //Loads controllers to be used
 new Loader(App)
+.load(LaunchCtrl)
 .load(EventsCtrl)
 .load(ProfileCtrl)
 .load(CompleteProfileCtrl)

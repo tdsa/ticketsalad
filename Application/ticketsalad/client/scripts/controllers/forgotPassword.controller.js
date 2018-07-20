@@ -20,6 +20,11 @@ export default class ForgotPasswordCtrl extends Controller {
     {
         this.$state.go('login');
     }
+
+    reset() 
+    {
+        this.$state.go('login');
+    }
 }
  
 ForgotPasswordCtrl.$name = 'ForgotPasswordCtrl'; //To refer to the controller in scope

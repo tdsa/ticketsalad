@@ -3,8 +3,8 @@ import { Controller } from 'angular-ecmascript/module-helpers';
  
 export default class SignupCtrl extends Controller {
   
-  next() {
-
+  next() 
+  {
     if(this.username == null || this.pass1 == null || this.pass2 == null || this.first == null || this.last == null)
     {
       console.log("Missing details");
@@ -37,21 +37,22 @@ export default class SignupCtrl extends Controller {
         lastname: this.last,
         completed: false,
         credits: 0,
+        tickets: null,
       }
     }, function (err) {
       if (!err) {
-          console.log('I was called because creation was a success');
+          console.log('User ' + this.username + ' successful');
           return;
       } else {
           console.log(err);
       }
     });
 
-    console.log(this.username + " " + this.pass1);
-
     Meteor.loginWithPassword(this.username, this.pass1, function (err) {
       if (!err) {
-          console.log('I was called because authentication was a success');
+          console.log('User logged in successfully');
+          console.log('Current User: ');
+          console.log(Meteor.user());
       } else {
           console.log(err);
       }
@@ -65,6 +66,12 @@ export default class SignupCtrl extends Controller {
   login()
   {
     this.$state.go('login');
+    this.username = null;
+    this.first = null;
+    this.last = null;
+    this.pass1 = null;
+    this.pass2 = null;
+    this.resetAll();
   }
   
   resetAll()
