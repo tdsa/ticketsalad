@@ -22,7 +22,6 @@ export default class ProfileCtrl extends Controller {
         this.user = Meteor.user();
         console.log("New loaded");
         console.log(this.user);
-        
       }
     });
 
