@@ -1,89 +1,107 @@
 <ion-view view-title="Events" onload="events.check()">
-    <ion-content scroll="false">  
-        <div class="grid-containerEvents">
-            <div class = "filler"></div>
-            <div class="eventsHeader">
-                <div class="eventTitle"><p id = "hTitle">{{events.data[events.mySwiper.realIndex].name}} - {{events.data[events.mySwiper.realIndex].country}} {{events.data[events.mySwiper.realIndex].year}}</p></div>
-                <div class="eventsBurger">
-                    <div class="eventsBlank"></div>
-                    <div class="eventsMenuIcon"><img src = "/img/menu.png" alt = "menu" onclick= "$('.eventsMenu').modal({blurring: true}).modal('setting', 'transition', 'fade up').modal('show');"></div>
+        <ion-content scroll="false">  
+            <div class="grid-containerEvents">
+                <div class = "filler"></div>
+                <div class="eventsHeader">
+                    <div class="eventTitle"><p id = "hTitle">{{events.data[events.mySwiper.realIndex].name}} - {{events.data[events.mySwiper.realIndex].country}} {{events.data[events.mySwiper.realIndex].year}}</p></div>
+                    <div class="eventsBurger">
+                        <div class="eventsBlank"></div>
+                        <div class="eventsMenuIcon"><img src = "/img/menu.png" alt = "menu" onclick= "$('.eventsMenu').modal({blurring: true}).modal('setting', 'transition', 'fade up').modal('show');"></div>
+                    </div>
                 </div>
-            </div>
-            <div class="eventsCards">
-                <div class = "greenWin"><p>Congartulations! We are delighted to inform you that you have won <b>{{events.data[events.currentIndex].tickets}}</b> tickets to <b>{{events.data[events.currentIndex].name}} - {{events.data[events.currentIndex].country}} {{events.data[events.currentIndex].year}}</b>. All the details will be sent to your email address.</p></div>
-                <div class="swiper-container">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide card" ng-repeat = "event in events.data">
-                            <div class="grid-containerCard">
-                                <div class="eventPicture"><img src = {{event.picture}} alt = "pic"></div>
-                                <div class="eventDescription">
-                                    <div class="aboutHeading"><p>ABOUT</p></div>
-                                    <div class="aboutDescription"><p>{{event.about}}</p></div>
+                <div class="eventsCards">
+                    <div class = "greenWin"><p>Congartulations! We are delighted to inform you that you have won <b>{{events.data[events.currentIndex].tickets}}</b> tickets to <b>{{events.data[events.currentIndex].name}} - {{events.data[events.currentIndex].country}} {{events.data[events.currentIndex].year}}</b>. All the details will be sent to your email address.</p></div>
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide card" ng-repeat = "event in events.data">
+                                <div class="grid-containerCard">
+                                    <div class="eventPicture"><img src = {{event.picture}} alt = "pic"></div>
+                                    <div class="eventDescription">
+                                        <div class="aboutHeading"><p>ABOUT</p></div>
+                                        <div class="aboutDescription"><p>{{event.about}}</p></div>
+                                    </div>
+                                    <div class="eventInfo">
+                                        <div class="eventLocation">
+                                            <div class="locationTitle"><p class = "infoText">LOCATION</p></div>
+                                            <div class="locationInfo"><p class = "infoDetail">{{event.city}}, {{event.country}}</p></div>
+                                        </div>
+                                        <div class="eventDt">
+                                            <div class="dateTitle"><p class = "infoText">DATE</p></div>
+                                            <div class="dateInfo"><p class = "infoDetail">{{event.from}}</p></div>
+                                        </div>
+                                        <div class="eventCredits">
+                                            <div class="creditsTitle"><p class = "infoText">CREDITS</p></div>
+                                            <div class="creditsInfo"><p class = "infoDetail">{{event.claims}}/Claim</p></div>
+                                        </div>
+                                        <div class="eventTickets">
+                                            <div class="ticketsTitle"><p class = "infoText">TICKETS</p></div>
+                                            <div class="ticketsInfo"><p class = "infoDetail">{{event.tickets}} Tickets</p></div>
+                                        </div>
+                                    </div>
+                                    <div class="eventBlankSpace"></div>
                                 </div>
-                                <div class="eventInfo">
-                                    <div class="eventLocation">
-                                        <div class="locationTitle"><p class = "infoText">LOCATION</p></div>
-                                        <div class="locationInfo"><p class = "infoDetail">{{event.city}}, {{event.country}}</p></div>
-                                    </div>
-                                    <div class="eventDt">
-                                        <div class="dateTitle"><p class = "infoText">DATE</p></div>
-                                        <div class="dateInfo"><p class = "infoDetail">{{event.from}}</p></div>
-                                    </div>
-                                    <div class="eventCredits">
-                                        <div class="creditsTitle"><p class = "infoText">CREDITS</p></div>
-                                        <div class="creditsInfo"><p class = "infoDetail">{{event.claims}}/Claim</p></div>
-                                    </div>
-                                    <div class="eventTickets">
-                                        <div class="ticketsTitle"><p class = "infoText">TICKETS</p></div>
-                                        <div class="ticketsInfo"><p class = "infoDetail">{{event.tickets}} Tickets</p></div>
-                                    </div>
-                                </div>
-                                <div class="eventBlankSpace"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="eventsMsg"><p class = "instruction">Enter a unique code...</p></div>
-            <div class="eventsCode">
-                <input class = "overlay" type = "text" ng-model="events.code" maxlength="6">
-                <div class="d1"><div class = "digit dg1"><div class = "innerDigit idg1"></div><p class = "digitOverLay">{{events.code[0]}}</p></div></div>
-                <div class="d2"><div class = "digit dg2"><div class = "innerDigit idg2"></div><p class = "digitOverLay">{{events.code[1]}}</p></div></div>
-                <div class="d3"><div class = "digit dg3"><div class = "innerDigit idg3"></div><p class = "digitOverLay">{{events.code[2]}}</p></div></div>
-                <div class="d4"><div class = "digit dg4"><div class = "innerDigit idg4"></div><p class = "digitOverLay">{{events.code[3]}}</p></div></div>
-                <div class="d5"><div class = "digit dg5"><div class = "innerDigit idg5"></div><p class = "digitOverLay">{{events.code[4]}}</p></div></div>
-                <div class="d6"><div class = "digit dg6"><div class = "innerDigit idg6"></div><p class = "digitOverLay">{{events.code[5]}}</p></div></div>
-            </div>
-            <div class="eventsClaimBtn" ng-click="events.claim()"><p class = "claimBtnText">Claim</p></div>
-        </div>
-
-        <div class="ui modal fullscreen basic eventsMenu" style="background-color: transparent">
-            <div class="containerMenu">
-                <div class="top">
-                    <span class = "roundedBorder"></span>
-                    <div class="profilePicture">
-                        <div class="circlePic" id = "picThing" ><img class="ui medium circular image" src="/img/avatar.png"></div>
-                        <div class="picLef"><div class = "leftShoulder"></div></div>
-                        <div class="picRight"><div class = "rightShoulder"></div></div>
-                    </div>
-                    <div class="menuName"><p>@{{events.user.username}}</p></div>
-                    <div class="blank"></div>
+                <div class="eventsMsg"><p class = "instruction">Enter a unique code...</p></div>
+                <div class="eventsCode">
+                    <input class = "overlay" type = "text" ng-model="events.code" maxlength="6">
+                    <div class="d1"><div class = "digit dg1"><div class = "innerDigit idg1"></div><p class = "digitOverLay">{{events.code[0]}}</p></div></div>
+                    <div class="d2"><div class = "digit dg2"><div class = "innerDigit idg2"></div><p class = "digitOverLay">{{events.code[1]}}</p></div></div>
+                    <div class="d3"><div class = "digit dg3"><div class = "innerDigit idg3"></div><p class = "digitOverLay">{{events.code[2]}}</p></div></div>
+                    <div class="d4"><div class = "digit dg4"><div class = "innerDigit idg4"></div><p class = "digitOverLay">{{events.code[3]}}</p></div></div>
+                    <div class="d5"><div class = "digit dg5"><div class = "innerDigit idg5"></div><p class = "digitOverLay">{{events.code[4]}}</p></div></div>
+                    <div class="d6"><div class = "digit dg6"><div class = "innerDigit idg6"></div><p class = "digitOverLay">{{events.code[5]}}</p></div></div>
                 </div>
-                <div class="bottom">
-                    <div class="homeButton"><div class = "myButton" href = "#/events" ng-click="events.goTo('events')"><p>Home</p></div></div>
-                    <div class="activityButton"><div class = "myButton" href = "#/activity" ng-click="events.goTo('activity')"><p>Activity</p></div></div>
-                    <div class="profileButton"><div class = "myButton" href = "#/profile" ng-click="events.goTo('profile')"><p>Profile</p></div></div>
-                    <div class="searchButton"><div class = "myButton" href = "#/events" ng-click="events.goTo('events')"><p>Search</p></div></div>
-                    <div class="exitArea">
-                        <div class="exitButton"><img src = "/img/exit.png" alt = "exit" ng-click="events.closeMenu()"></div>
-                        <div class="exitLeft"></div>
-                        <div class="exitRight"></div>
+                <div class="eventsClaimBtn" ng-click="events.claim()"><p class = "claimBtnText">Claim</p></div>
+            </div>
+    
+            <div class="ui modal fullscreen basic eventsMenu" style="background-color: transparent">
+                <div class="containerMenu">
+                    <div class="top">
+                        <span class = "roundedBorder"></span>
+                        <div class="profilePicture">
+                            <div class="circlePic" id = "picThing" ><img class="ui medium circular image" src="/img/avatar.png"></div>
+                            <div class="picLef"><div class = "leftShoulder"></div></div>
+                            <div class="picRight"><div class = "rightShoulder"></div></div>
+                        </div>
+                        <div class="menuName"><p>@{{events.user.username}}</p></div>
+                        <div class="blank"></div>
+                    </div>
+                    <div class="bottom">
+                        <div class="homeButton"><div class = "myButton" href = "#/events" ng-click="events.goTo('events')"><p>Home</p></div></div>
+                        <div class="activityButton"><div class = "myButton" href = "#/activity" ng-click="events.goTo('activity')"><p>Activity</p></div></div>
+                        <div class="profileButton"><div class = "myButton" href = "#/profile" ng-click="events.goTo('profile')"><p>Profile</p></div></div>
+                        <div class="searchButton"><div class = "myButton" ng-click = "events.openSearch()"><p>Search</p></div></div>
+                        <div class="exitArea">
+                            <div class="exitButton"><img src = "/img/exit.png" alt = "exit" ng-click="events.closeMenu()"></div>
+                            <div class="exitLeft"></div>
+                            <div class="exitRight"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-    </ion-content>
-    <script src="../dist/js/swiper.min.js"></script>
-</ion-view>
-
+    
+            <div class="ui modal fullscreen basic eventsSearch">
+                <div class="grid-containerSearch">
+                    <div class="searchHeader">
+                        <div class="searchHeading"><p>Search</p></div>
+                        <div class="searchExit"><img src = "/img/exit.png" alt = "exit" ng-click="events.closeSearch()"></div>
+                    </div>
+                    <div class = "searchBox"><input type="text" placeholder="Start typing here..." ng-model="events.searchTerm"></div>
+                    <div class="searchBody">
+                        <ion-content class = "searchList">
+                            <div class="item" ng-repeat="event in events.data | filter: events.searchTerm" ng-click="events.findItem($index)">
+                                <b>{{event.name}} - {{event.year}}</b> <br> {{event.city}}, {{event.country}}
+                            </div>    
+                        </ion-content>
+                    </div>
+                </div>
+            </div>
+            
+        </ion-content>
+        <script src="../dist/js/swiper.min.js"></script>
+    </ion-view>
+    
+    
