@@ -9,6 +9,10 @@ export default class CompleteProfileCtrl extends Controller {
 
     back()
     {
+        this.email = null;
+        this.dob = null;
+        this.gender = null;
+        this.resetAll();
         this.$state.go('signup');
     }
 

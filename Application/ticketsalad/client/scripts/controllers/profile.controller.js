@@ -32,7 +32,7 @@ export default class ProfileCtrl extends Controller {
     Meteor.logout();
     
     this.user = null;
-    this.$state.go('login');
+    this.$state.go('launch');
   }
 
   editProfile() // change view to the editProfile screen
@@ -44,8 +44,8 @@ export default class ProfileCtrl extends Controller {
   {
     if(!Meteor.user())
     {
-      window.location.href = '#/login';
-      this.$state.go('login');
+      window.location.href = '#/launch';
+      this.$state.go('launch');
     }
   }
   

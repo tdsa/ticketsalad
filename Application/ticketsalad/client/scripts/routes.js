@@ -14,10 +14,10 @@ import { _ } from 'meteor/underscore';
 import { Config, Runner } from 'angular-ecmascript/module-helpers';
 
 //Templates
+import launchTemplateUrl from '../templates/launch.html';
 import eventsTemplateUrl from '../templates/events.html';
 import profileTemplateUrl from '../templates/profile.html';
 import buyCreditsTemplateUrl from '../templates/buyCredits.html';
-
 import completeProfileTemplateUrl from '../templates/completeProfile.html';
 import cardDetailsTemplateUrl from '../templates/cardDetails.html';
 import activityTemplateUrl from '../templates/activity.html';
@@ -44,6 +44,11 @@ class RoutesConfig extends Config {
         url: '/tab',
         abstract: true,
         templateUrl: tabsTemplateUrl
+      })
+      .state('launch', {
+        url: '/launch',
+        templateUrl: launchTemplateUrl,
+        controller: 'LaunchCtrl as launch' 
       })
       .state('forgotPassword', {
         url: '/forgotpassword',
@@ -106,7 +111,7 @@ class RoutesConfig extends Config {
           controller: 'ActivityCtrl as activity'
       })
  
-    this.$urlRouterProvider.otherwise('login'); //Default state
+    this.$urlRouterProvider.otherwise('launch'); //Default state
   }
 }
  
