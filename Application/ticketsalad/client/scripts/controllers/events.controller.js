@@ -45,24 +45,14 @@ export default class EventsCtrl extends Controller
           data() {
             return Events.find();
           },
-
-          getUser()
-          {
+          getUser(){
+            console.log("Current loaded");
+            console.log(this.user);
+            console.log("Current logged");
+            console.log(Meteor.user());
             this.user = Meteor.user();
-          },
-
-          check()
-          {
-            console.log("Checking if a user is logged in");
-
-            if(!Meteor.user())
-            {
-              console.log("User is not logged in, sending to login");
-              window.location.href = '#/login';
-              this.$state.go('login');
-            }
-
-            console.log(Meteor.user().profile.name + " is logged in");
+            console.log("New loaded");
+            console.log(this.user);
           }
         });
 
@@ -98,8 +88,6 @@ export default class EventsCtrl extends Controller
     {
       $(".eventsMenu").modal("hide");
     }
-
-    
 
     resetCode()
     {
@@ -172,6 +160,7 @@ export default class EventsCtrl extends Controller
       $(".instruction").text("Yep, that's the one. Well done!");
       
       Events.update(this.data[this.mySwiper.realIndex]._id,{$set: {"claimed": 1, "winner": this.user}});
+      Meteor.users.update(this.user._id, {$set: {"profile.tickets": this.data[this.mySwiper.realIndex]._id}});
       this.currentIndex = this.mySwiper.realIndex;
       this.win();
 
