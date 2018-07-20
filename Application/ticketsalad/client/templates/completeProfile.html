@@ -1,61 +1,38 @@
 <ion-view view-title="Complete Your Profile">
-    <ion-content>
-        <div class="container" style = "padding-top: 5%">
-            <form class="ui form">
-                <div class="field">
-                    <label>Name</label>
-                    <input type="text" name="first-name" placeholder="Name" size="14" ng-model="completeProfile.name">
-                </div>            
-                <div class="field">
-                    <label>Surname</label>
-                    <input type="text" name="surname" placeholder="Surname" ng-model="completeProfile.surname">
+    <ion-content scroll = "false">
+        <div class="grid-containerCompleteProfile">
+            <div class="completeProfileHeader">
+                <div class="completeProfileHeaderTitle">
+                    <div class="completeProfileHeaderTitleWord"><p>Welcome!</p></div>
+                    <div class="completeProfileHeaderBack"><img src = "/img/back.png" alt = "back" ng-click="completeProfile.back()" href = "#/signUp"></div>
                 </div>
-                <div class="field">
-                    <label>Mobile Number</label>
-                    <input type="text" name="mobile-number" placeholder="Mobile number" ng-model="completeProfile.number">
+                <div class="completeProfileHeaderMsg"><p class = "completeInstructions">Create an account to continue</p></div>
+            </div>
+            <div class="completeProfileDetails">
+                <div class="completeProfileUser">
+                    <div class="completeProfileUserName"><p class = "inputTitleP">Email</p></div>
+                    <div class="completeProfileUserInput"><input class = "inputP" placeholder = "Enter your email address" type="email" ng-model="completeProfile.email" required = "true" ng-click = "completeProfile.resetAll()"></div>
                 </div>
-                <div class="field">
-                    <label>Gender</label>     
-                    <div class="ui form">
-                        <div class="grouped fields">
-                            <div class="field">
-                                <div class="ui radio checkbox">
-                                    <input name="gen" checked="checked" type="radio" ng-model="completeProfile.genderM">
-                                    <label>Male</label>
-                                </div>
-                                <div class="ui radio checkbox">
-                                    <input name="gen" type="radio" ng-model="completeProfile.genderF">
-                                    <label>Female</label>
-                                </div>
-                            </div>
-                        </div>
+                <div class="completeProfileFirst">
+                    <div class="completeProfileFirstName"><p class = "inputTitleP">Date of Birth</p></div>
+                    <div class="completeProfileFirstInput"><input class = "inputP" placeholder = "Select your date of birth" type="date" ng-model="completeProfile.dob" required = "true" ng-click = "completeProfile.resetAll()"></div>
+                </div>
+                <div class="completeProfileLast">
+                    <div class="completeProfileLastName"><p class = "inputTitleP">Gender</p></div>
+                    <div class="completeProfileLastInput">
+                        <select class = "inputP" style="background-color: transparent; border-radius: 0%" ng-model="completeProfile.gender" required = "true" ng-click = "completeProfile.resetAll()">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                            <option value="notSay">Prefer not to say</option>
+                        </select>
                     </div>
                 </div>
-                <div class="field">
-                    <label>Type of ID</label>     
-                    <div class="ui form">
-                        <div class="grouped fields">
-                            <div class="field">
-                                <div class="ui radio checkbox">
-                                    <input name="example2" checked="checked" type="radio" ng-model="completeProfile.idRadio">
-                                    <label>RSA ID</label>
-                                </div>
-                                <div class="ui radio checkbox">
-                                    <input name="example2" type="radio" ng-model="completeProfile.passportRadio">
-                                    <label>Passport</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="field">
-                    <label>ID</label>
-                    <input type="text" name="id" placeholder="ID" ng-model="completeProfile.id">
-                </div>
-                <center>
-                    <div class="ui submit button" ng-click="completeProfile.update()" >Submit</div>
-                </center>
-            </form>
+                <div class="terms"><center><input class = "check" style = "display: inline" type = "checkbox" required = "true" ><p style = "display: inline" ng-click="completeProfile.terms()" href = "#/termsConditions.html">&emsp; I agree that I have read and understood the <b>Terms &amp; Conditions</b></p></center></div>
+            </div>
+            <div class="completeProfileActions">
+                <div class = "buttonNext" ng-click="completeProfile.signUp()" href="#/login"><p>Sign Up</p></div>
+            </div>
         </div>
     </ion-content>
 </ion-view>

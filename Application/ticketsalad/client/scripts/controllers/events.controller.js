@@ -16,115 +16,196 @@ export default class EventsCtrl extends Controller
     constructor() 
     {
         super(...arguments);
+
+        this.mySwiper = new Swiper ('.swiper-container', {
+          // Optional parameters
+          direction: 'horizontal',
+          slidesPerView: '1.4',
+          centeredSlides: true,
+          spaceBetween: 25,
+          effect: 'coverflow',
+      
+          // If we need pagination
+          pagination: {
+            el: '.swiper-pagination',
+          },
+
+          coverflowEffect: {
+            rotate: 30,
+            slideShadows: false,
+          },
+  
+          observer: true
+        });
+
+        this.currentIndex = 0;
+        this.claimed = false;
         
         this.helpers({
           data() {
             return Events.find();
+          },
+
+          getUser()
+          {
+            this.user = Meteor.user();
+          },
+
+          check()
+          {
+            console.log("Checking if a user is logged in");
+
+            if(!Meteor.user())
+            {
+              console.log("User is not logged in, sending to login");
+              window.location.href = '#/login';
+              this.$state.go('login');
+            }
+
+            console.log(Meteor.user().profile.name + " is logged in");
           }
         });
+
+        this.mySwiper.on('slideChange', function() {$(".instruction").text("Enter a unique code...");});
+
+        $("input").keyup(function()
+        {
+          var tempCode = $(".overlay").val();
+
+          for(i = 1; i <= 6; i++)
+          {
+            if(tempCode[i - 1] != null)
+            {
+              $(".dg" + i).css("background-color", "rgb(230, 148, 115)");
+              $(".idg" + i).css("background-color", "transparent");
+            }
+            else
+            {
+              $(".dg" + i).css("background-color", "rgb(235, 235, 235)");
+              $(".idg" + i).css("background-color", "rgb(180, 182, 185)");
+            }
+          }
+      });
     }
 
-    showClaimModal()
+    goTo(destination)
     {
-      if(Meteor.user().profile.completed)
+      $(".eventsMenu").modal("hide");
+      this.$state.go(destination);
+    }
+
+    closeMenu()
+    {
+      $(".eventsMenu").modal("hide");
+    }
+
+    
+
+    resetCode()
+    {
+      this.code = null;
+
+      for(i = 1; i <= 6; i++)
       {
-        if(Meteor.user().profile.credits >= this.focusevent.credits)
-        {
-          $('#claim').modal(
-            {
-              onHide: function()
-              {
-                console.log('hidden');
-                $('#success_modal, #failure_modal').addClass('hidden')
-              }
-            }).modal('show');
-        }else
-        {
-          this.topUpAlert();
-        }
-      }else
+        $(".dg" + i).css("background-color", "rgb(235, 235, 235)");
+        $(".idg" + i).css("background-color", "rgb(180, 182, 185)");
+      }
+    }
+
+    claim()
+    {
+      if(this.claimed == true)
       {
-        console.log(this);
-        this.completeProfile();
+        this.reset();
+        return;
       }
       
-    }
+      var eventFocus = this.data[this.mySwiper.realIndex];
+      var userClaims = this.user.profile.credits;
+      var eventCost = eventFocus.claims;
 
-    topUpAlert()
-    {
-      $('#insufficient').modal("show");
-    }
-
-    buyClaims()
-    {
-      $(".modal").modal("hide");
-      this.$state.go('tab.eventCredits');
-    }
-
-    focusEvent(event)
-    {
-      console.log(event);
-      this.focusevent = event;
-    }
-
-    claimEvent()
-    {
-      console.log("Completed");
-      console.log(Meteor.user().profile.completed);
-      $("#success_modal, #failure_modal").addClass("hidden");
-      if(typeof this.focusevent !== 'undefined')
+      if(eventFocus.claimed == 1)
       {
-        console.log("Claim: ");
-        console.log(this.focusevent);
-        console.log("Code: " + this.claimCode);
-        Meteor.users.update(Meteor.userId(), {$inc: {"profile.credits": 0-this.focusevent.credits}});
-        var claimEvent = this.focusevent;
-        if(claimEvent.code == this.claimCode)
-        {
-          console.log(Meteor.user());
-          var user = Meteor.user();
-          Events.update(
-            claimEvent._id,
-            {
-              $set: {"claimed": 1, "winner": user}
-            }
-          );
-          console.log("New Event list:");
-          console.log(Events.find());
-          $("#success_modal").removeClass("hidden");
-
-        }else
-        {
-          Events.update(
-            claimEvent._id,
-            {
-              $inc: {"claims": 1}
-            }
-          );
-          $("#failure_modal").removeClass("hidden");
-        }
-      }
-    }
-
-    check()
-    {
-      if(!Meteor.user())
-      {
-        window.location.href = '#/login';
-        this.$state.go('login');
+        console.log("Event already claimed");
+        $(".instruction").text("This package has already been claimed!");
+        this.resetCode();
+        return;
       }
 
+      if(this.code == null)
+      {
+        console.log("No code entered");
+        $(".instruction").text("Enter a code to claim!");
+        return;
+      }
+
+      console.log("Users balance: " + userClaims);
+
+      if(eventCost > userClaims)
+      {
+        console.log("Insufficient funds");
+        $(".instruction").text("You don't have enough claims!");
+        this.resetCode();
+        return;
+      }
+
+      console.log("User has enough");
+
+      userClaims = userClaims - eventCost;
+      Meteor.users.update(this.user._id, {$set: {"profile.credits": userClaims}});
+      userClaims = this.user.profile.credits;
+      var dbCode = this.data[this.mySwiper.realIndex].code;
+
+      console.log("Debiting users claims balance by " + eventCost);
+      console.log("Users new balance: " + userClaims);
+
+      if(dbCode != this.code)
+      {
+        console.log("Incorrect code");
+        $(".instruction").text("Nope, that's not the one. Try again!");
+        this.resetCode();
+        return;
+      }
+
+      console.log("Correct code");
+
+      $(".instruction").text("Yep, that's the one. Well done!");
+      
+      Events.update(this.data[this.mySwiper.realIndex]._id,{$set: {"claimed": 1, "winner": this.user}});
+      this.currentIndex = this.mySwiper.realIndex;
+      this.win();
+
+      console.log("Correct code");
+      console.log(Meteor.user().profile.name + " has won the package");
     }
-    completeProfile()
+
+    win()
     {
-      $(".modal").modal("hide");
-      this.$state.go('tab.completeProfile');
+      for(i = 1; i <= 6; i++)
+      {
+        $(".dg" + i).css("background-color", "rgb(182, 234, 130)");
+        $(".idg" + i).css("background-color", "transparent");
+      }
+      $(".greenWin").css("background-color", "rgb(182, 234, 130)");
+      $(".filler").css("background-color", "rgb(182, 234, 130)");
+      $(".eventsHeader").css("background-color", "rgb(182, 234, 130)");
+      $("#hTitle").css("color", "white");
+      $(".greenWin").css("z-index", 3);
+      $(".claimBtnText").text("Great, Got It");
+      this.claimed = true;
     }
-    openClaim(event)
+
+    reset()
     {
-      console.log("openclaim");
-      this.focusEvent(event);
-      this.showClaimModal();
+      $(".greenWin").css("background-color", "white");
+      $(".filler").css("background-color", "white");
+      $(".eventsHeader").css("background-color", "white");
+      $("#hTitle").css("color", "rgb(64, 64, 64)");
+      $(".greenWin").css("z-index", 1);
+      $(".claimBtnText").text("Claim");
+      this.claimed = false;
+      this.resetCode();
+      return;
     }
   }
 
