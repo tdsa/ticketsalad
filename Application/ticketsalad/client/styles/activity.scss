@@ -1,0 +1,58 @@
+.grid-containerActivity {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 100%;
+    grid-template-rows: 15% 85%;
+    grid-template-areas: "activityHeader" "activityBody";
+}
+
+.activityHeader {
+    display: grid;
+    grid-area: activityHeader;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 100%;
+    grid-template-areas: "activityHeading activityExit";
+}
+
+.activityHeading {
+    grid-area: activityHeading;
+    position: relative;
+}
+
+.activityHeader p
+{
+    position: absolute;
+    top: 29%;
+    left: 7.5%;
+    font-size: 8vw;
+    font-weight: bold;
+    line-height: 1;
+    color: rgb(64, 64, 64);
+}
+  
+.activityExit {
+    grid-area: activityExit;
+    position: relative;
+}
+
+.activityExit img {
+    position: absolute;
+    width: 20%;
+    top: 35%;
+    left: 36.5%;
+
+}
+
+.activityBody {
+    grid-area: activityBody;
+    position: relative;
+}
+
+.activityBody p {
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    height: 100%;
+    text-align: justify;
+    overflow-y: scroll;
+}

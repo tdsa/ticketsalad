@@ -13,56 +13,57 @@ import { Controller } from 'angular-ecmascript/module-helpers';
  
 export default class BuyCreditsCtrl extends Controller {
 
-    constructor()
+    constructor() 
     {
       super(...arguments);
 
-      this.mySwiper = new Swiper ('.swiper-container', {
-        // Optional parameters
-        direction: 'horizontal',
-        slidesPerView: 'auto',
-        centeredSlides: true,
-        spaceBetween: 10,
-    
-        // If we need pagination
-        pagination: {
-          el: '.swiper-pagination',
-        },
-
-        observer: true
-      });
-
       this.helpers({
-        data() {
-          return Meteor.user().profile.cards;
-        },
+        getUser()
+        {
+          console.log("Current loaded");
+          console.log(this.user);
+          console.log("Current logged");
+          console.log(Meteor.user());
+          this.user = Meteor.user();
+          console.log("New loaded");
+          console.log(this.user);
+          
+        }
       });
+
+      this.amount = 0;
     }
 
-    buyMore()
+    exit()
     {
-      if(this.claims != 0)
-      {
-        Meteor.users.update(Meteor.userId(), {$inc: {"profile.credits": parseInt(this.claims)}});
-      }
+        this.$state.go('profile');
     }
 
-    addCard() //Takes a user back to their profile page
+    option(add)
     {
-      this.$state.go('tab.newCard');
-        
+      console.log("Current amount: " + this.amount);
+      console.log("Amount to add: " + add);
+      console.log("Expected result: " + this.amount + add);
+      this.amount = this.amount + add;
+      console.log("Actual result: " + this.amount);
     }
 
-    updateClaims()
+    pay()
     {
-     
-      this.claims = this.amount*5;
-      
+      this.total = 2*this.amount;
+      var userClaims = this.user.profile.credits;
+      var userClaims = userClaims + this.amount;
+      Meteor.users.update(this.user._id, {$set: {"profile.credits": userClaims}});
     }
 
-    updateRands()
-    {    
-      this.amount = this.claims/5;
+    minus()
+    {
+      this.amount = this.amount - 10;
+    }
+
+    add()
+    {
+      this.amount = this.amount + 10;
     }
   }
  

@@ -1,0 +1,16 @@
+{
+  "meteor-azure": {
+    "siteName": "ticketsalad",
+    "resourceGroup": "Hash_cats",
+    "subscriptionId": "db44ef66-e6a1-4455-914c-64c3195d156b",
+    "tenantId": "honiballthomasgmail.onmicrosoft.com",
+    "deploymentCreds": {
+      "username": "tomorrowtribus",
+      "password": "Twib3CT2Odo"
+    },
+    "envVariables": {
+      "ROOT_URL": "https://ticketsalad.azurewebsites.net",
+      "MONGO_URL": "https://ticketsalad.documents.azure.com:443/"
+    }
+  }
+}

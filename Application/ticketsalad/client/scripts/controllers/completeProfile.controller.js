@@ -6,78 +6,50 @@ export default class CompleteProfileCtrl extends Controller {
     constructor() {
         super(...arguments);
     }
-    update()
+
+    back()
     {
-        var completedProfile = true;
-        if(this.name != null)
-        {
-            Meteor.users.update(Meteor.userId(), {$set: {"profile.name": this.name}});
-        }else
-        {
-            console.log("no name");
-            completedProfile = false;
-        }
-        if(this.surname != null)
-        {
-            Meteor.users.update(Meteor.userId(), {$set: {"profile.surname": this.surname}});
-        }else
-        {
-            console.log("no surname");
-            completedProfile = false;
-        }
-        if(this.number != null)
-        {
-            Meteor.users.update(Meteor.userId(), {$set: {"profile.cell": this.number}});
-        }else
-        {
-            console.log("no number");
-            completedProfile = false;
-        }
-
-        if(this.genderM === true)
-        {
-            Meteor.users.update(Meteor.userId(), {$set: {"profile.gender": "Male"}});
-        }
-        if(this.genderF === true)
-        {
-            Meteor.users.update(Meteor.userId(), {$set: {"profile.gender": "Female"}});
-        }
-
-        if(this.genderF === null && this.genderM === null)
-        {
-            console.log("no gender");
-            completedProfile = false;
-        }
-
-        if(this.idRadio === true)
-        {
-            Meteor.users.update(Meteor.userId(), {$set: {"profile.idType": "ID"}});
-        }
-        if(this.passportRadio === true)
-        {
-            Meteor.users.update(Meteor.userId(), {$set: {"profile.idType": "Passport"}});
-        }
-
-        if(this.idRadio === null && this.passportRadio === null)
-        {
-            console.log("no idtype");
-            completedProfile = false;
-        }
-
-        if(this.id != false)
-        {
-            Meteor.users.update(Meteor.userId(), {$set: {"profile.id": this.id}});
-        }else
-        {
-            console.log("no id");
-            completedProfile = false;
-        }
-        
-        Meteor.users.update(Meteor.userId(), {$set: {"profile.completed": completedProfile}});
-        this.$state.go("tab.events");
+        this.$state.go('signup');
     }
 
+    signUp()
+    {
+        this.agree = $(".check").is(':checked');
 
+        if(this.email == null || this.dob == null || this.gender == null)
+        {
+            console.log("Missing details");
+            $(".completeInstructions").text("Please enter all your details!").css("color", "red");
+            return;
+        }
+
+        if(this.agree == false)
+        {
+            console.log("Not checked");
+            $(".completeInstructions").text("Please agree to the Terms & Conditions!").css("color", "red");
+            return;
+        }
+
+        var id = Meteor.userId();
+
+        Meteor.users.update(id, {$set: {"profile.dob": this.dob}});
+        Meteor.users.update(id, {$set: {"profile.gender": this.gender}});
+
+        Meteor.users.update(id, {$set: {"profile.completed": true}});
+        
+        this.resetAll();
+        this.$state.go('events');
+    }
+    
+    resetAll()
+    {
+        $(".completeInstructions").text("Create an account to continue").css("color", "rgb(150, 196, 239)");
+    }
+
+    terms()
+    {
+        this.$state.go('termsConditions');
+    }
 }
 
 CompleteProfileCtrl.$name = 'CompleteProfileCtrl'; //To refer to the controller in scope
