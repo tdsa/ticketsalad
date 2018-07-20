@@ -37,12 +37,12 @@ export default class BuyCreditsCtrl extends Controller {
     exit()
     {
         this.$state.go('profile');
+        this.amount = 0;
     }
 
     option(add)
     {
       console.log("Current amount: " + this.amount);
-      console.log("Amount to add: " + add);
       console.log("Expected result: " + this.amount + add);
       this.amount = this.amount + add;
       console.log("Actual result: " + this.amount);
@@ -54,6 +54,7 @@ export default class BuyCreditsCtrl extends Controller {
       var userClaims = this.user.profile.credits;
       var userClaims = userClaims + this.amount;
       Meteor.users.update(this.user._id, {$set: {"profile.credits": userClaims}});
+      this.amount = 0;
     }
 
     minus()
