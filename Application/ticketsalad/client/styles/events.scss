@@ -585,3 +585,88 @@
   height: 50%;
   top: 25%;
 }
+
+.grid-containerSearch {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 100%;
+  grid-template-rows: 10% 5% 85%;
+  grid-template-areas: "searchHeader" "searchBox" "searchBody";
+}
+
+.searchHeader {
+  display: grid;
+  grid-area: searchHeader;
+  grid-template-columns: 75% 25%;
+  grid-template-rows: 100%;
+  grid-template-areas: "searchHeading searchExit";
+}
+
+.searchHeading {
+  grid-area: searchHeading;
+  position: relative;
+}
+
+.searchHeader p
+{
+  position: absolute;
+  top: 29%;
+  left: 7.5%;
+  font-size: 8vw;
+  font-weight: bold;
+  line-height: 1;
+  color: rgb(64, 64, 64);
+}
+
+.searchExit {
+  grid-area: searchExit;
+  position: relative;
+}
+
+.searchExit img {
+  position: absolute;
+  width: 20%;
+  top: 35%;
+  left: 36.5%;
+
+}
+
+.searchBox {
+  grid-area: searchBox;
+  position: relative;
+}
+
+.searchBox input {
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  background-color: transparent;
+  font-size: 8vw;
+  color: rgb(203, 203, 203);
+}
+
+.searchBody {
+  grid-area: searchBody;
+  position: relative;
+}
+
+.searchBody p {
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  height: 100%;
+  text-align: justify;
+  overflow-y: scroll;
+}
+
+.item {
+  border-left: none;
+  border-right: none;
+  background-color: transparent
+}
+
+.searchList {
+  width: 90%;
+  left: 5%;
+  padding-top: 5%;
+}
