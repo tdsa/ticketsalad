@@ -31,7 +31,7 @@ export default class EditEventCtrl extends Controller {
             to: this.event.to,
             webpage: this.event.webpage,
             credits: this.event.credits,
-            description: this.event.description
+            about: this.event.about
         }
   
       });
