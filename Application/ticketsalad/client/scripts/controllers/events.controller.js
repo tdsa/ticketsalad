@@ -40,15 +40,11 @@ export default class EventsCtrl extends Controller
 
         this.currentIndex = 0;
         this.claimed = false;
+        this.user = Meteor.user();
         
         this.helpers({
           data() {
             return Events.find();
-          },
-
-          getUser()
-          {
-            this.user = Meteor.user();
           },
 
           check()
@@ -62,7 +58,7 @@ export default class EventsCtrl extends Controller
               this.$state.go('login');
             }
 
-            console.log(Meteor.user().profile.name + " is logged in");
+            console.log(this.user.profile.name + " is logged in");
           }
         });
 
