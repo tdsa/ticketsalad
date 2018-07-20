@@ -196,6 +196,23 @@ export default class EventsCtrl extends Controller
       this.resetCode();
       return;
     }
+
+    openSearch()
+    {
+      $(".eventsMenu").modal("hide");
+      $('.eventsSearch').modal({inverted: true}).modal('setting', 'transition', 'fade up').modal('show');
+    }
+
+    closeSearch()
+    {
+      $(".eventsSearch").modal("hide");
+    }
+
+    findItem(index)
+    {
+      $(".eventsSearch").modal("hide");
+      this.mySwiper.slideTo(index);
+    }
   }
 
 
