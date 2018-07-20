@@ -36,11 +36,7 @@ nolimits4web:swiper
 twbs:bootstrap
 meteortesting:mocha
 
-<<<<<<< HEAD
-underscore@1.0.10
-=======
 cryptoquick:stylus-multi
 accounts-ui
 accounts-google
 xolvio:cucumber
->>>>>>> 6f6dbbb8dfc5dcc12510130531cd4ca850ed415a
