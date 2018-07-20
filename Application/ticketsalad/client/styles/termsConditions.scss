@@ -48,15 +48,12 @@
     position: relative;
 }
 
-.termsBody p {
-    position: absolute;
+.termsContent {
     width: 80%;
     left: 10%;
     height: 100%;
-    text-align: justify;
-    overflow-y: scroll;
 }
 
-.-webkit-scrollbar * {
-    background:transparent; // manage scrollbar background color here
-  }
+.termsContent p {
+    text-align: justify;
+}
