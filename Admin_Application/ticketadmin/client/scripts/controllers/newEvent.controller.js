@@ -37,7 +37,7 @@ export default class NewEventCtrl extends Controller {
       to: this.to,
       webpage: this.webpage,
       credits: this.credits,
-      description: this.description,
+      about: this.about,
       claims: 0,
       code: this.generateCode(),
       claimed: 0,

@@ -23,11 +23,6 @@
           </div>
 
           <div class="field">
-            <label>Ending date</label>
-            <input type="text" name="to" ng-model="newEvent.to">
-          </div>
-
-          <div class="field">
             <label>Webpage</label>
             <input type="text" name="webpage" ng-model="newEvent.webpage">
           </div>
@@ -38,8 +33,13 @@
           </div>
 
           <div class="field">
-            <label>Description</label>
-            <input type="textarea" name="description" ng-model="newEvent.description">
+            <label>Tickets</label>
+            <input type="number" name="tickets" ng-model="newEvent.tickets">
+          </div>
+
+          <div class="field">
+            <label>About</label>
+            <input type="textarea" name="about" ng-model="newEvent.about">
           </div>
           
           <button class="ui button" ng-click = "newEvent.done()">Save</button>
