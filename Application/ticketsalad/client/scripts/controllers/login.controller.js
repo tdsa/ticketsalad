@@ -15,32 +15,44 @@ import { Controller } from 'angular-ecmascript/module-helpers';
  
 export default class LoginCtrl extends Controller 
 {
-  
-  login() {
-    if (_.isEmpty(this.email))
-    {
-      return;
-    }
-    if (_.isEmpty(this.pass)) return;
- 
-    Meteor.loginWithPassword(this.email, this.pass, function (err) {
-      if (!err) {
-          console.log('I was called because authentication was a success');
-          return;
-      } else {
-          console.log(err);
-      }
-      })
-
-      if(Meteor.user())
-      {
-        this.view();
-      }     
+  constructor() 
+  {
+    super(...arguments);
+    Meteor.logout();
+    console.log(Meteor.user());
   }
 
-  view()
+  login() 
   {
-    this.$state.go('tab.events');
+    if(this.username == null || this.pass == null)
+    {
+      console.log("Missing details");
+      $(".loginInstructions").text("Please enter your details!").css("color", "red");
+      return;
+    }
+
+    console.log(Meteor.user());
+ 
+    if(Meteor.user() == null)
+    {
+      Meteor.loginWithPassword(this.username, this.pass, function (err) 
+      {
+        if (!err) {
+            console.log('I was called because authentication was a success');
+            
+        } else {
+            console.log(err);
+            $(".loginInstructions").text(err).css("color", "red");
+        }
+      })
+    }
+    else
+    {
+      this.resetAll();
+      this.$state.go('events');
+    }
+
+    console.log(Meteor.user());
   }
 
   create()
@@ -51,6 +63,11 @@ export default class LoginCtrl extends Controller
   forgot()
   {
     this.$state.go('forgotPassword');
+  }
+
+  resetAll()
+  {
+    $(".loginInstructions").text("Sign in to continue").css("color", "rgb(150, 196, 239)");
   }
 }
  

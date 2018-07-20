@@ -2,6 +2,7 @@
 \newcommand\tab[1][1cm]{\hspace*{#1}}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{hyperref}
 
 \begin{document}
 	\title{Ticket Salad Testing Policy}
@@ -34,6 +35,39 @@
 		\subitem Required data not entered
 	\end{enumerate}
 	\section{Tools}
+		\subsection{Functional Testing}
+		\subsection{Nonfunctional Testing}
+			\begin{enumerate}
+				\item Mongoaudit (\url{ https://mongoaud.it/}) to test a collection of test cases for Mongo DB security
+			\end{enumerate}
 	\section{Test Cases}
+		\subsection{Functional Testing}
+		\subsection{Nonfunctional Testing}
+			\begin{enumerate}
+				\item MongoDB automated test cases
+					\subitem MongoDB listens on a port different to default one
+					\subitem Server only accepts connections from whitelisted hosts / networks
+					\subitem MongoDB HTTP status interface is not accessible on port 28017
+					\subitem MongoDB is not exposing its version number
+					\subitem MongoDB version is newer than 2.4
+					\subitem TLS/SSL encryption is enabled
+					\subitem Authentication is enabled
+					\subitem SCRAM-SHA-1 authentication method is enabled
+					\subitem Server-side Javascript is forbidden *
+					\subitem Roles granted to the user only permit CRUD operations *
+					\subitem The user has permissions over a single database *
+					\subitem Security bug CVE-2015-7882
+					\subitem Security bug CVE-2015-2705
+					\subitem Security bug CVE-2014-8964
+					\subitem Security bug CVE-2015-1609
+					\subitem Security bug CVE-2014-3971
+					\subitem Security bug CVE-2014-2917
+					\subitem Security bug CVE-2013-4650
+					\subitem Security bug CVE-2013-3969
+					\subitem Security bug CVE-2012-6619
+					\subitem Security bug CVE-2013-1892
+					\subitem Security bug CVE-2013-2132
+				\end{enumerate}
+		
 	\section{History}
 \end{document}

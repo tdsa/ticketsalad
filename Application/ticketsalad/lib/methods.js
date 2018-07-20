@@ -11,5 +11,12 @@ Meteor.methods({
         check(data, String);
      
         return Meteor.users.update(this.userId, { $set: { 'profile.picture': data } });
+    },
+
+    addNewEmail: function(email) {
+        'use strict';
+        Accounts.addEmail(Meteor.userId(), email);
+        Accounts.sendVerificationEmail(Meteor.userId(), email);
+        return true;
     }
 });

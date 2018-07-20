@@ -1,0 +1,49 @@
+<ion-view view-title="Create New Event">
+    <ion-content>
+      <div class = "ui center aligned segment">
+        <form class="ui form" style="padding-top: 5%">
+          <div class="field">
+            <label>Event Name</label>
+            <input type="text" name="name" ng-model="newEvent.name">
+          </div>
+
+          <div class="field">
+            <label>City</label>
+            <input type="text" name="city" ng-model="newEvent.city">
+          </div>
+
+          <div class="field">
+            <label>Country</label>
+            <input type="text" name="country" ng-model="newEvent.country">
+          </div>
+
+          <div class="field">
+            <label>Starting date</label>
+            <input type="text" name="from" ng-model="newEvent.from">
+          </div>
+
+          <div class="field">
+            <label>Webpage</label>
+            <input type="text" name="webpage" ng-model="newEvent.webpage">
+          </div>
+
+          <div class="field">
+            <label>Cost per claim</label>
+            <input type="number" name="credits" ng-model="newEvent.credits">
+          </div>
+
+          <div class="field">
+            <label>Tickets</label>
+            <input type="number" name="tickets" ng-model="newEvent.tickets">
+          </div>
+
+          <div class="field">
+            <label>About</label>
+            <input type="textarea" name="about" ng-model="newEvent.about">
+          </div>
+          
+          <button class="ui button" ng-click = "newEvent.done()">Save</button>
+        </form>
+      </div>
+    </ion-content>
+  </ion-view>
