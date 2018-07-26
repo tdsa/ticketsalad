@@ -23,18 +23,18 @@ export default class EditProfileCtrl extends Controller {
       }
     });
 
+      this.email = this.callMethod('getEmail');
     }
 
   save()
   {
     if(this.username != null)
     {
-      //Accounts.setUsername(this.user.userId, this.username);
+      this.callMethod('updateUsername', this.username);
     }
     if(this.email != null)
     {
-      var email = this.email;
-      //Meteor.methods(addNewEmail(this.user.userId, email));
+      this.callMethod('updateEmail', this.email);
     }
     if(this.passNew1 != null && this.passNew2 != null && this.passOld != null)
     {

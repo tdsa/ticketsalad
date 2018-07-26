@@ -9,6 +9,7 @@
 all javascript functions along with the state controllers are placed here.
 */
 import { Controller } from 'angular-ecmascript/module-helpers';
+import { MeteorCameraUI } from 'meteor/okland:camera-ui';
  
 export default class ProfileCtrl extends Controller {
   constructor() {
@@ -65,7 +66,26 @@ export default class ProfileCtrl extends Controller {
     $(".profileModal").modal("hide");
   }
 
+  updatePicture () 
+  {
+    MeteorCameraUI.getPicture({ width: 60, height: 60 }, (err, data) => {
+      if (err) return this.handleError(err);
+ 
+      this.$ionicLoading.show({
+        template: 'Updating picture...'
+      });
+ 
+      this.callMethod('updatePicture', data, (err) => {
+        this.$ionicLoading.hide();
+        this.handleError(err);
+      });
+    });
+  }
+
+  handleError(err) {
+    if (err.error == 'cancel') return;
+  }
 }
  
 ProfileCtrl.$name = 'ProfileCtrl'; //To refer to the controller in scope
-ProfileCtrl.$inject = ['$state', '$ionicPopup', '$log']; // Adds the controller to the routes config
+ProfileCtrl.$inject = ['$state', '$ionicLoading', '$ionicPopup', '$log']; // Adds the controller to the routes config
