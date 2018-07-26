@@ -46,13 +46,15 @@ export default class EventsCtrl extends Controller
             return Events.find();
           },
           getUser(){
-            console.log("Current loaded");
-            console.log(this.user);
-            console.log("Current logged");
-            console.log(Meteor.user());
             this.user = Meteor.user();
-            console.log("New loaded");
-            console.log(this.user);
+          },
+          checkUser()
+          {
+              if(Meteor.user() == null)
+              {
+                  console.log("No user logged in!");
+                  this.$state.go('login');
+              }
           }
         });
 

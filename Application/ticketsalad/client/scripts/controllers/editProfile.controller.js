@@ -20,6 +20,14 @@ export default class EditProfileCtrl extends Controller {
       getUser(){
         this.user = Meteor.user();
         console.log(this.user);
+      },
+      checkUser()
+      {
+          if(Meteor.user() == null)
+          {
+              console.log("No user logged in!");
+              this.$state.go('login');
+          }
       }
     });
 

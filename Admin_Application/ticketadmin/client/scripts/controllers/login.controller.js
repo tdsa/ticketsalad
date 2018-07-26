@@ -44,11 +44,19 @@ export default class LoginCtrl extends Controller
  
     if(Meteor.user() == null)
     {
-      if(Accounts.findUserByUsername(this.username).profile.isAdmin == 0)
+      /*if(this.callMethod('userIsAdmin', this.username) == false);
+      {
+        console.log("User does not have admin permissions!");
+        return;
+      }*/
+
+      if(Meteor.users.findOne({ "username" : this.username}).profile.isAdmin == 0)
       {
         console.log("User does not have admin permissions!");
         return;
       }
+
+      console.log("User is admin!");
 
       Meteor.loginWithPassword(this.username, this.pass, function (err) 
       {

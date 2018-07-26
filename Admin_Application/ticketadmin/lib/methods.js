@@ -18,5 +18,15 @@ Meteor.methods({
         Accounts.addEmail(Meteor.userId(), email);
         Accounts.sendVerificationEmail(Meteor.userId(), email);
         return true;
+    },
+
+    userIsAdmin: function(username) {
+        if(Accounts.findUserByUsername(username).profile.isAdmin == 1)
+        {
+            console.log("User is admin!");
+            return true;
+        }
+
+        return false;
     }
 });

@@ -23,6 +23,14 @@ export default class EventsCtrl extends Controller
             },
             getUser() {
                 this.user = Meteor.user();
+            },
+            checkUser()
+            {
+                if(Meteor.user() == null)
+                {
+                    console.log("No user logged in!");
+                    this.$state.go('login');
+                }
             }
           });
           
@@ -106,6 +114,13 @@ export default class EventsCtrl extends Controller
             code += digit + "";
         }
         return code;
+    }
+
+    logout()
+    {
+        Meteor.logout();
+        this.user = null;
+        this.$state.go('login');
     }
   }
 

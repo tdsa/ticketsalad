@@ -6,7 +6,7 @@
                 <input class="prompt" type="text" placeholder="Search events..." ng-model="events.searchTerm">
                 <i class="search link icon"></i>
             </div>
-            <img src = "/img/user.png" alt = "userPic">
+            <img src = "/img/user.png" alt = "userPic" ng-click = "events.logout()">
             <p>@{{events.user.username}}</p>
             <a ng-click = "events.addEvent()">Add Event</a>
         </div>

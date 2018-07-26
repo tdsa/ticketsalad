@@ -16,13 +16,15 @@ export default class ProfileCtrl extends Controller {
     super(...arguments);
     this.helpers({
       getUser(){
-        console.log("Current loaded");
-        console.log(this.user);
-        console.log("Current logged");
-        console.log(Meteor.user());
         this.user = Meteor.user();
-        console.log("New loaded");
-        console.log(this.user);
+      },
+      checkUser()
+      {
+        if(Meteor.user() == null)
+        {
+            console.log("No user logged in!");
+            this.$state.go('login');
+        }
       }
     });
 
@@ -58,6 +60,12 @@ export default class ProfileCtrl extends Controller {
   goTo(destination)
   {
     $(".profileModal").modal("hide");
+
+    if(destination == "search")
+    {
+      $('.eventsSearch').modal({inverted: true}).modal('setting', 'transition', 'fade up').modal('show');
+      destination = "events";
+    }
     this.$state.go(destination);
   }
 

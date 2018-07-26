@@ -13,6 +13,26 @@ import { Controller } from 'angular-ecmascript/module-helpers';
  
 export default class CardDetailsCtrl extends Controller {
 
+    constructor() 
+    {
+        super(...arguments);
+
+        this.helpers({
+        getUser()
+        {
+            this.user = Meteor.user();          
+        },
+        checkUser()
+        {
+            if(Meteor.user() == null)
+            {
+                console.log("No user logged in!");
+                this.$state.go('login');
+            }
+        }
+        });
+    }
+
     return()
     {
         this.$state.go('buyCredits');

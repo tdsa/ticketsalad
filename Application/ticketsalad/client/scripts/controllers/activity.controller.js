@@ -15,6 +15,21 @@ export default class ActivityCtrl extends Controller {
     
     constructor() {
         super(...arguments);
+
+        this.helpers({
+        getUser()
+        {
+            this.user = Meteor.user();          
+        },
+        checkUser()
+        {
+            if(Meteor.user() == null)
+            {
+                console.log("No user logged in!");
+                this.$state.go('login');
+            }
+        }
+        });
     }
 
     exit()
