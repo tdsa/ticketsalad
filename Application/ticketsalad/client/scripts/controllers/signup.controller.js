@@ -38,6 +38,7 @@ export default class SignupCtrl extends Controller {
         completed: false,
         credits: 0,
         tickets: null,
+        isAdmin: 0
       }
     }, function (err) {
       if (!err) {
