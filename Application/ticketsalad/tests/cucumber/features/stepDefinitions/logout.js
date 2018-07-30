@@ -29,7 +29,7 @@
       });
   
       this.If(/^I press buy credits after logout /, function () {
-		if(browser.click('input[class="ui blue button"]')
+		if(browser.click('input[class="ui blue button"]'))
 		{
 			console.log("You need to log in first");
 		}
