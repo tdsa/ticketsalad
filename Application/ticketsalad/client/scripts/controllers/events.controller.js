@@ -9,7 +9,7 @@
 all javascript functions along with the state controllers are placed here.
 */
 import { Controller } from 'angular-ecmascript/module-helpers';
-import { Events } from '../../../lib/collections';
+import { Events, Notifications } from '../../../lib/collections';
 
 export default class EventsCtrl extends Controller 
 {
@@ -104,6 +104,8 @@ export default class EventsCtrl extends Controller
 
     claim()
     {
+      var claimIndex = this.mySwiper.realIndex;
+
       if(this.claimed == true)
       {
         this.reset();
@@ -144,10 +146,15 @@ export default class EventsCtrl extends Controller
       userClaims = userClaims - eventCost;
       Meteor.users.update(this.user._id, {$set: {"profile.credits": userClaims}});
       userClaims = this.user.profile.credits;
-      var dbCode = this.data[this.mySwiper.realIndex].code;
+      var dbCode = this.data[claimIndex].code;
 
       console.log("Debiting users claims balance by " + eventCost);
       console.log("Users new balance: " + userClaims);
+
+      if(!this.data[claimIndex].subscribedUsers.includes(this.user.username))
+      {
+        Events.update(this.data[claimIndex]._id, {$push: {"subscribedUsers": this.user.username}});
+      }
 
       if(dbCode != this.code)
       {
@@ -161,13 +168,15 @@ export default class EventsCtrl extends Controller
 
       $(".instruction").text("Yep, that's the one. Well done!");
       
-      Events.update(this.data[this.mySwiper.realIndex]._id,{$set: {"claimed": 1, "winner": this.user}});
-      Meteor.users.update(this.user._id, {$set: {"profile.tickets": this.data[this.mySwiper.realIndex]._id}});
-      this.currentIndex = this.mySwiper.realIndex;
+      Events.update(this.data[claimIndex]._id,{$set: {"claimed": 1, "winner": this.user}});
+      Meteor.users.update(this.user._id, {$push: {"profile.tickets": this.data[claimIndex]._id}});
+      this.currentIndex = claimIndex;
       this.win();
 
       console.log("Correct code");
       console.log(Meteor.user().profile.name + " has won the package");
+
+      this.notify();
     }
 
     win()
@@ -184,6 +193,31 @@ export default class EventsCtrl extends Controller
       $(".greenWin").css("z-index", 3);
       $(".claimBtnText").text("Great, Got It");
       this.claimed = true;
+    }
+
+    notify()
+    {
+      var tempIndex = this.mySwiper.realIndex;
+
+      Notifications.insert(
+        {
+          type: 'Personal',
+          description: 'You won ' + this.data[tempIndex].tickets + ' tickets to ' + this.data[tempIndex].name + ' - ' + this.data[tempIndex].country + ' ' + this.data[tempIndex].year + '. \n Congratulations!',
+          picture: this.user.profile.picture,
+          eventID: this.data[tempIndex]._id,
+          subscribedUsers: [this.user.username],
+        }
+      );
+
+      Notifications.insert(
+        {
+          type: 'Global',
+          description: '@' + this.user.username + ' just took home ' + this.data[tempIndex].tickets + ' tickets to ' + this.data[tempIndex].name + ' - ' + this.data[tempIndex].country + ' ' + this.data[tempIndex].year + '.',
+          picture: this.user.profile.picture,
+          eventID: this.data[tempIndex]._id,
+          subscribedUsers: this.data[tempIndex].subscribedUsers,
+        }
+      )
     }
 
     reset()

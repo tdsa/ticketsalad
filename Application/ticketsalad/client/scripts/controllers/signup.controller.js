@@ -35,10 +35,13 @@ export default class SignupCtrl extends Controller {
       {
         firstname: this.first,
         lastname: this.last,
+        picture: 'img/user.png',
         completed: false,
         credits: 0,
-        tickets: null,
-        isAdmin: 0
+        tickets: [],
+        isAdmin: 0,
+        subscribedEvents: [],
+        notifications: [],
       }
     }, function (err) {
       if (!err) {

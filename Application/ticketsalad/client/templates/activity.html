@@ -5,7 +5,14 @@
                 <div class="activityHeading"><p>Activity</p></div>
                 <div class="activityExit"><img src = "/img/exit.png" alt = "exit" ng-click="activity.exit()" href = "#/events"></div>
             </div>
-            <div class="activityBody"></div>
+            <div class="activityBody">
+                <ion-content class = "activityScrollContent">
+                    <div class = "notification" ng-repeat="notification in activity.updateNotifications">
+                        <img src= {{notification.picture}}>
+                        <p ng-style = "activity.getColor(notification)">{{notification.description}}</p>
+                    </div>
+                </ion-content>
+            </div>
         </div>
     </ion-content>
 </ion-view>
