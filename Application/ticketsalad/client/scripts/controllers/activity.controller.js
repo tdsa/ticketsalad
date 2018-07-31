@@ -11,6 +11,7 @@ all javascript functions along with the state controllers are placed here.
 import { _ } from 'meteor/underscore';
 import { Controller } from 'angular-ecmascript/module-helpers';
 import { Events, Notifications } from '../../../lib/collections';
+import Moment from 'moment';
  
 export default class ActivityCtrl extends Controller {
     
@@ -35,7 +36,7 @@ export default class ActivityCtrl extends Controller {
             },
             updateNotifications()
             {
-                return Notifications.find({'subscribedUsers': Meteor.user().username});
+                return Notifications.find({$or: [{'subscribedUsers': Meteor.user().username}, {'type': 'Event Added'}]});
             },
         });
     }

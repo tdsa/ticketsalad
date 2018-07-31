@@ -23,7 +23,6 @@ import { Meteor } from 'meteor/meteor';
 // Modules
 import EventsCtrl from '../controllers/events.controller';
 import LoginCtrl from '../controllers/login.controller';
-import Section1Ctrl from '../controllers/section1.controller';
 import Routes from '../routes';
 
 const App = 'TicketAdmin';
@@ -38,7 +37,6 @@ Angular.module(App, [
 //Loads controllers to be used
 new Loader(App)
 .load(EventsCtrl)
-.load(Section1Ctrl)
 .load(LoginCtrl)
 .load(Routes);
 

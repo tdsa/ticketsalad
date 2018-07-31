@@ -72,15 +72,32 @@
                           <label>Name</label>
                           <input type="text" name="name" placeholder="Name" ng-model="events.name">
                         </div>
-                        <div class="field">
-                            <label>Date</label>
-                            <div class="two fields">
-                                <div class="field">
-                                    <input type="date" name="dateFrom" placeholder="From" ng-model="events.dateFrom">
-                                </div>
-                                <div class="field">
-                                    <input type="date" name="dateTo" placeholder="To" ng-model="events.dateTo">
-                                </div>
+                        <div class="fields">
+                            <div class="field">
+                              <label>Date From</label>
+                              <input type="number" placeholder="Day" ng-model="events.dayFrom">
+                            </div>
+                            <div class="field">
+                                <label></label>
+                                <input type="number" placeholder="Month" ng-model="events.monthFrom">
+                            </div>
+                            <div class="field">
+                                <label></label>
+                                <input type="number" placeholder="Year" ng-model="events.yearFrom">
+                            </div>
+                        </div>
+                        <div class="fields">
+                            <div class="field">
+                                <label>Date To</label>
+                                <input type="number" placeholder="Day" ng-model="events.dayTo">
+                            </div>
+                            <div class="field">
+                                <label></label>
+                                <input type="number" placeholder="Month" ng-model="events.monthTo">
+                            </div>
+                            <div class="field">
+                                <label></label>
+                                <input type="number" placeholder="Year" ng-model="events.yearTo">
                             </div>
                         </div>
                         <div class="field">

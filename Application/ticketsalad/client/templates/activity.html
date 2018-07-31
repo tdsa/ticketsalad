@@ -7,7 +7,7 @@
             </div>
             <div class="activityBody">
                 <ion-content class = "activityScrollContent">
-                    <div class = "notification" ng-repeat="notification in activity.updateNotifications">
+                    <div class = "notification" ng-repeat="notification in activity.updateNotifications | orderBy: '-timestamp'">
                         <img src= {{notification.picture}}>
                         <p ng-style = "activity.getColor(notification)">{{notification.description}}</p>
                     </div>

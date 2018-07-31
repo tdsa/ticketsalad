@@ -9,7 +9,8 @@
 all javascript functions along with the state controllers are placed here.
 */
 import { Controller } from 'angular-ecmascript/module-helpers';
-import { Events } from '../../../lib/collections';
+import { Events, Notifications } from '../../../lib/collections';
+import Moment from 'moment';
 
 export default class EventsCtrl extends Controller 
 {
@@ -73,27 +74,36 @@ export default class EventsCtrl extends Controller
 
     addNewEvent()
     {
-        this.year = this.dateFrom.toString().substr(11, 14);
-        this.start = this.dateFrom.toString().substr(4, 14);
-        this.end = this.dateTo.toString().substr(4, 14);
+        Events.insert(
+            {
+                name: this.name,
+                city: this.city,
+                country: this.country,
+                picture: 'img/TL.jpg',
+                year: this.yearFrom,
+                from: this.dayFrom.toString() + ' ' + this.monthFrom.toString() + ' ' + this.yearFrom.toString(),
+                to: this.dayTo.toString() + ' ' + this.monthTo.toString() + ' ' + this.yearTo.toString(),
+                claims: this.claims,
+                code: this.generateCode(),
+                claimed: 0,
+                winner: null,
+                tickets: this.tickets,
+                about: this.about,
+                subscribedUsers: [], 
+            }
+        );
 
-        this.tempEvent = {
-            name: this.name,
-            city: this.city,
-            country: this.country,
-            picture: 'img/TL.jpg',
-            year: this.year,
-            from: this.start,
-            to: this.end,
-            claims: this.claims,
-            code: this.generateCode(),
-            claimed: 0,
-            winner: null,
-            tickets: this.tickets,
-            about: this.about  
-        };
+        Notifications.insert(
+            {
+                type: 'Event Added',
+                description: 'New event available now. \n\n' + this.name + ' - ' + this.country + ' ' + this.yearFrom,
+                picture: 'img/TL.jpg',
+                eventID: null,
+                subscribedUsers: [],
+                timestamp: Moment().toDate(),
+            }
+        );
 
-        Events.insert(this.tempEvent);
         this.name = null;
         this.city = null;
         this.country = null;

@@ -52,7 +52,7 @@
     "amazon": false,
     "basic": true,
     "bookish": false,
-    "bootstrap3": false,
+    "bootstrap3": true,
     "chubby": false,
     "classic": false,
     "colored": false,

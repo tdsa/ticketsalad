@@ -10,6 +10,7 @@ all javascript functions along with the state controllers are placed here.
 */
 import { Controller } from 'angular-ecmascript/module-helpers';
 import { Events, Notifications } from '../../../lib/collections';
+import Moment from 'moment';
 
 export default class EventsCtrl extends Controller 
 {
@@ -206,6 +207,7 @@ export default class EventsCtrl extends Controller
           picture: this.user.profile.picture,
           eventID: this.data[tempIndex]._id,
           subscribedUsers: [this.user.username],
+          timestamp: Moment().toDate(),
         }
       );
 
@@ -216,6 +218,7 @@ export default class EventsCtrl extends Controller
           picture: this.user.profile.picture,
           eventID: this.data[tempIndex]._id,
           subscribedUsers: this.data[tempIndex].subscribedUsers,
+          timestamp: Moment().toDate(),
         }
       )
     }
