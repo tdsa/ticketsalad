@@ -10,6 +10,8 @@ all javascript functions along with the state controllers are placed here.
 */
 import { _ } from 'meteor/underscore';
 import { Controller } from 'angular-ecmascript/module-helpers';
+import { Events, Notifications } from '../../../lib/collections';
+import Moment from 'moment';
  
 export default class BuyCreditsCtrl extends Controller {
 
@@ -20,14 +22,15 @@ export default class BuyCreditsCtrl extends Controller {
       this.helpers({
         getUser()
         {
-          console.log("Current loaded");
-          console.log(this.user);
-          console.log("Current logged");
-          console.log(Meteor.user());
-          this.user = Meteor.user();
-          console.log("New loaded");
-          console.log(this.user);
-          
+          this.user = Meteor.user();          
+        },
+        checkUser()
+        {
+            if(Meteor.user() == null)
+            {
+                console.log("No user logged in!");
+                this.$state.go('launch');
+            }
         }
       });
 
@@ -54,6 +57,18 @@ export default class BuyCreditsCtrl extends Controller {
       var userClaims = this.user.profile.credits;
       var userClaims = userClaims + this.amount;
       Meteor.users.update(this.user._id, {$set: {"profile.credits": userClaims}});
+      
+      Notifications.insert(
+        {
+          type: 'Personal',
+          description: 'You have successfully purchased ' + this.amount + ' claims. Good luck!',
+          picture: this.user.profile.picture,
+          eventID: null,
+          subscribedUsers: [this.user.username],
+          timestamp: Moment().toDate(),
+        }
+      );
+
       this.amount = 0;
     }
 

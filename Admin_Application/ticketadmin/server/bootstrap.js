@@ -11,6 +11,7 @@
 //libs
 import Moment from 'moment';
 import { Meteor } from 'meteor/meteor';
+<<<<<<< HEAD
 import { Events } from '../lib/collections';
  
 Meteor.startup(function() 
@@ -28,3 +29,22 @@ Meteor.startup(function()
         return code;
     }
 });
+=======
+ 
+Meteor.startup(function() 
+{
+    if(Meteor.users.findOne({ "username" : "TristanJules"}) == null)
+    {
+        Accounts.createUser({
+            username: "TristanJules",
+            email: "tristan.jules@gmail.com",
+            password: "1009703Troy",
+            profile: {
+                firstname: "Tristan",
+                lastname: "Jules",
+                isAdmin: 1
+            }
+        });
+    }
+});
+>>>>>>> feature/iOS_Platform

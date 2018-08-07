@@ -23,6 +23,7 @@ export default class ForgotPasswordCtrl extends Controller {
 
     reset() 
     {
+        //Accounts.forgotPassword(this.email);
         this.$state.go('login');
     }
 }

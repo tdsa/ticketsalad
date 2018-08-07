@@ -19,41 +19,34 @@ export default class LoginCtrl extends Controller
   {
     super(...arguments);
     Meteor.logout();
-    console.log("User should be logged out");
-    console.log("Current user: " + Meteor.user());
   }
 
   login() 
   {
+    let ang = this;
     if(this.username == null || this.pass == null)
     {
       console.log("Missing details, don't allow log in");
       $(".loginInstructions").text("Please enter your details!").css("color", "red");
       return;
     }
+
+    firebase.auth().signInWithEmailAndPassword("john@email.com", "123456").catch(function(error) {
+      // Handle Errors here.
+      var errorMessage = error.message;
+      console.log(errorMessage);
+    });
  
-    if(Meteor.user() == null)
+    Meteor.loginWithPassword(this.username, this.pass, function (err) 
     {
-      Meteor.loginWithPassword(this.username, this.pass, function (err) 
-      {
-        if (!err) {
-            console.log('Authentication successs');
-            console.log('User should be logged in now');
-            console.log("Current user: ");
-            console.log(Meteor.user())
-        } else {
-            console.log(err);
-            $(".loginInstructions").text(err).css("color", "red");
-        }
-      })
-    }
-    else
-    {
-      this.username = null;
-      this.pass = null;
-      this.resetAll();
-      this.$state.go('events');
-    }
+      if (!err) {
+          ang.resetAll();
+          ang.$state.go('events');
+      } else {
+          console.log(err);
+          $(".loginInstructions").text(err).css("color", "red");
+      }
+    })
   }
 
   create()

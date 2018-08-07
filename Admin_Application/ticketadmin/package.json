@@ -1,10 +1,15 @@
 {
+<<<<<<< HEAD
   "name": "whatsapp",
+=======
+  "name": "ticketsalad",
+>>>>>>> feature/iOS_Platform
   "private": true,
   "scripts": {
     "start": "meteor run"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@babel/runtime": "^7.0.0-beta.53",
     "angular": "^1.7.2",
     "angular-animate": "^1.7.2",
@@ -21,5 +26,34 @@
     "meteor-node-stubs": "^0.2.11",
     "moment": "^2.22.2",
     "semantic-ui": "^2.3.3"
+=======
+    "@babel/runtime": "^7.0.0-beta.42",
+    "angular": "^1.6.9",
+    "angular-animate": "^1.6.9",
+    "angular-ecmascript": "0.0.3",
+    "angular-meteor": "^1.3.12",
+    "angular-meteor-auth": "^1.1.1",
+    "angular-sanitize": "^1.6.9",
+    "angular-ui-router": "^0.3.2",
+    "babel-runtime": "^6.26.0",
+    "bcrypt": "^2.0.1",
+    "express": "^4.16.3",
+    "ionic-scripts": "^1.3.5",
+    "meteor-node-stubs": "^0.3.2",
+    "moment": "^2.22.0",
+    "multer": "^1.3.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.1"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {
+        "browsers": [
+          "last 2 versions"
+        ]
+      }
+    }
+>>>>>>> feature/iOS_Platform
   }
 }

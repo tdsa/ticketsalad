@@ -20,21 +20,29 @@ export default class EditProfileCtrl extends Controller {
       getUser(){
         this.user = Meteor.user();
         console.log(this.user);
+      },
+      checkUser()
+      {
+          if(Meteor.user() == null)
+          {
+              console.log("No user logged in!");
+              this.$state.go('launch');
+          }
       }
     });
 
+      this.email = this.callMethod('getEmail');
     }
 
   save()
   {
     if(this.username != null)
     {
-      //Accounts.setUsername(this.user.userId, this.username);
+      this.callMethod('updateUsername', this.username);
     }
     if(this.email != null)
     {
-      var email = this.email;
-      //Meteor.methods(addNewEmail(this.user.userId, email));
+      this.callMethod('updateEmail', this.email);
     }
     if(this.passNew1 != null && this.passNew2 != null && this.passOld != null)
     {

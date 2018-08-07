@@ -40,7 +40,10 @@ export default class CompleteProfileCtrl extends Controller {
         Meteor.users.update(id, {$set: {"profile.gender": this.gender}});
 
         Meteor.users.update(id, {$set: {"profile.completed": true}});
-        
+
+        this.callMethod('updateEmail', this.email);
+
+        this.callMethod('verifyEmailAddress', id);        
         this.resetAll();
         this.$state.go('events');
     }

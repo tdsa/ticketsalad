@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <ion-view view-title="Manage Events">
   <ion-content>
     <ion-list>
@@ -14,3 +15,146 @@
     </ion-list>
   </ion-content>
 </ion-view>
+=======
+<ion-view view-title="Events">
+    {{events.getUser}}
+    <ion-content scroll = false>
+        <div class = "eventsMenu">
+            <div class="ui transparent icon input fixedMenu">
+                <input class="prompt" type="text" placeholder="Search events..." ng-model="events.searchTerm">
+                <i class="search link icon"></i>
+            </div>
+            <img src = "/img/user.png" alt = "userPic" ng-click = "events.logout()">
+            <p>@{{events.user.username}}</p>
+            <a ng-click = "events.addEvent()">Add Event</a>
+        </div>
+        <ion-content class = "contentView">
+            <div class="ui four stackable cards link cardContainer" style = "padding-top: 10px; padding-left: 10px; padding-right: 10px;">
+                <div class="card raised" ng-repeat="event in events.data | filter: events.searchTerm" ng-click= "events.viewEvent($index)">
+                    <div class="image">
+                        <img src= {{event.picture}}>
+                    </div>
+                    <div class="content">
+                        <a class="header">{{event.name}}</a>
+                        <div class="meta">
+                        <span class="date">{{event.year}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ion-content>
+        <div class="ui longer fullscreen modal" id = "viewEvent">
+            <i class="close icon"></i>
+            <div class="header">
+                {{events.focusEvent.name}}
+            </div>
+            <div class="image scrolling content">
+                <div class="ui medium image">
+                    <img src = {{events.focusEvent.picture}}>
+                </div>
+                <div class="description" style = "width: 50%">
+                    <div class="ui header">Location</div>
+                    <p>{{events.focusEvent.city}}, {{events.focusEvent.country}}</p>
+                    <div class="ui header">Date</div>
+                    <p>{{events.focusEvent.from}}, {{events.focusEvent.to}}</p>
+                    <div class="ui header">Claims</div>
+                    <p>{{events.focusEvent.claims}}</p>
+                    <div class="ui header">Tickets</div>
+                    <p>{{events.focusEvent.tickets}}</p>
+                    <div class="ui header">Winner</div>
+                    <p>{{events.focusEvent.winner.profile.firstname}} {{events.focusEvent.winner.profile.lastname}} <br> @{{events.focusEvent.winner.username}}</p>
+                    <div class="ui header">Description</div>
+                    <p>{{events.focusEvent.about}}</p>
+                </div>
+            </div>
+            <div class="actions">
+                <div class="ui right labeled icon button">
+                    Edit
+                    <i class="edit outline icon"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui longer fullscreen modal" id = "addEvent">
+            <i class="close icon"></i>
+            <div class="header">
+                New Event
+            </div>
+            <div class="image scrolling content">
+                <div class="ui medium image">
+                    <img src = "/img/oppi.png" ng-click="events.uploadImage()">
+                </div>
+                <div class="description">
+                    <form class="ui form" style = "height: 100%; top: 0; width: 100%">
+                        <div class="field">
+                          <label>Name</label>
+                          <input type="text" name="name" placeholder="Name" ng-model="events.name">
+                        </div>
+                        <label>Date From</label>
+                        <div class="fields">
+                            <div class="field">
+                              <label>Day</label>
+                              <input type="number" placeholder="Day" ng-model="events.dayFrom">
+                            </div>
+                            <div class="field">
+                                <label>Month</label>
+                                <input type="number" placeholder="Month" ng-model="events.monthFrom">
+                            </div>
+                            <div class="field">
+                                <label>Year</label>
+                                <input type="number" placeholder="Year" ng-model="events.yearFrom">
+                            </div>
+                        </div>
+                        <label>Date To</label>
+                        <div class="fields">
+                            <div class="field">
+                                <label>Day</label>
+                                <input type="number" placeholder="Day" ng-model="events.dayTo">
+                            </div>
+                            <div class="field">
+                                <label>Month</label>
+                                <input type="number" placeholder="Month" ng-model="events.monthTo">
+                            </div>
+                            <div class="field">
+                                <label>Year</label>
+                                <input type="number" placeholder="Year" ng-model="events.yearTo">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>Location</label>
+                            <div class="two fields">
+                                <div class="field">
+                                    <input type="text" name="city" placeholder="City" ng-model="events.city">
+                                </div>
+                                <div class="field">
+                                    <input type="text" name="country" placeholder="Country" ng-model="events.country">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>Claims Cost</label>
+                            <input type="number" name="claims" placeholder="Claims" ng-model="events.claims">
+                        </div>
+                        <div class="field">
+                            <label>Tickets</label>
+                            <input type="number" name="tickets" placeholder="Tickets" ng-model="events.tickets">
+                        </div>
+                        <div class="field">
+                            <label>About</label>
+                            <textarea placeholder="Short description" ng-model="events.about"></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="actions">
+                <div class="ui right positive labeled icon button" ng-click = "events.addNewEvent()">
+                    Add
+                    <i class="plus icon"></i>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+    
+    
+>>>>>>> feature/iOS_Platform

@@ -36,7 +36,11 @@ nolimits4web:swiper
 twbs:bootstrap
 meteortesting:mocha
 
+<<<<<<< HEAD
 cryptoquick:stylus-multi
 accounts-ui
 accounts-google
 xolvio:cucumber
+=======
+underscore@1.0.10
+>>>>>>> feature/iOS_Platform

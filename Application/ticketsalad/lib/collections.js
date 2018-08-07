@@ -10,3 +10,4 @@
 import { Mongo } from 'meteor/mongo';
  
 export const Events = new Mongo.Collection('events');
+export const Notifications = new Mongo.Collection('notifications');

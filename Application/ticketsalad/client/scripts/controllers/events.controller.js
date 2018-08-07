@@ -9,13 +9,16 @@
 all javascript functions along with the state controllers are placed here.
 */
 import { Controller } from 'angular-ecmascript/module-helpers';
-import { Events } from '../../../lib/collections';
+import { Events, Notifications } from '../../../lib/collections';
+import Moment from 'moment';
+import { throws } from 'assert';
 
 export default class EventsCtrl extends Controller 
 {
     constructor() 
     {
         super(...arguments);
+        let ang = this;
 
         this.mySwiper = new Swiper ('.swiper-container', {
           // Optional parameters
@@ -46,17 +49,21 @@ export default class EventsCtrl extends Controller
             return Events.find();
           },
           getUser(){
-            console.log("Current loaded");
-            console.log(this.user);
-            console.log("Current logged");
-            console.log(Meteor.user());
             this.user = Meteor.user();
-            console.log("New loaded");
-            console.log(this.user);
+          },
+          checkUser()
+          {
+              if(Meteor.user() == null)
+              {
+                  console.log("No user logged in!");
+                  this.$state.go('launch');
+              }
           }
         });
 
-        this.mySwiper.on('slideChange', function() {$(".instruction").text("Enter a unique code...");});
+        this.mySwiper.on('slideChange', function() {
+          $(".instruction").text("Enter a unique code...");}
+        );
 
         $("input").keyup(function()
         {
@@ -102,6 +109,8 @@ export default class EventsCtrl extends Controller
 
     claim()
     {
+      var claimIndex = this.mySwiper.realIndex;
+
       if(this.claimed == true)
       {
         this.reset();
@@ -142,10 +151,15 @@ export default class EventsCtrl extends Controller
       userClaims = userClaims - eventCost;
       Meteor.users.update(this.user._id, {$set: {"profile.credits": userClaims}});
       userClaims = this.user.profile.credits;
-      var dbCode = this.data[this.mySwiper.realIndex].code;
+      var dbCode = this.data[claimIndex].code;
 
       console.log("Debiting users claims balance by " + eventCost);
       console.log("Users new balance: " + userClaims);
+
+      if(!this.data[claimIndex].subscribedUsers.includes(this.user.username))
+      {
+        Events.update(this.data[claimIndex]._id, {$push: {"subscribedUsers": this.user.username}});
+      }
 
       if(dbCode != this.code)
       {
@@ -159,13 +173,15 @@ export default class EventsCtrl extends Controller
 
       $(".instruction").text("Yep, that's the one. Well done!");
       
-      Events.update(this.data[this.mySwiper.realIndex]._id,{$set: {"claimed": 1, "winner": this.user}});
-      Meteor.users.update(this.user._id, {$set: {"profile.tickets": this.data[this.mySwiper.realIndex]._id}});
-      this.currentIndex = this.mySwiper.realIndex;
+      Events.update(this.data[claimIndex]._id,{$set: {"claimed": 1, "winner": this.user}});
+      Meteor.users.update(this.user._id, {$push: {"profile.tickets": this.data[claimIndex]._id}});
+      this.currentIndex = claimIndex;
       this.win();
 
       console.log("Correct code");
       console.log(Meteor.user().profile.name + " has won the package");
+
+      this.notify();
     }
 
     win()
@@ -184,6 +200,33 @@ export default class EventsCtrl extends Controller
       this.claimed = true;
     }
 
+    notify()
+    {
+      var tempIndex = this.mySwiper.realIndex;
+
+      Notifications.insert(
+        {
+          type: 'Personal',
+          description: 'You won ' + this.data[tempIndex].tickets + ' tickets to ' + this.data[tempIndex].name + ' - ' + this.data[tempIndex].country + ' ' + this.data[tempIndex].year + '. \n Congratulations!',
+          picture: this.user.profile.picture,
+          eventID: this.data[tempIndex]._id,
+          subscribedUsers: [this.user.username],
+          timestamp: Moment().toDate(),
+        }
+      );
+
+      Notifications.insert(
+        {
+          type: 'Global',
+          description: '@' + this.user.username + ' just took home ' + this.data[tempIndex].tickets + ' tickets to ' + this.data[tempIndex].name + ' - ' + this.data[tempIndex].country + ' ' + this.data[tempIndex].year + '.',
+          picture: this.user.profile.picture,
+          eventID: this.data[tempIndex]._id,
+          subscribedUsers: this.data[tempIndex].subscribedUsers,
+          timestamp: Moment().toDate(),
+        }
+      )
+    }
+
     reset()
     {
       $(".greenWin").css("background-color", "white");
@@ -195,6 +238,23 @@ export default class EventsCtrl extends Controller
       this.claimed = false;
       this.resetCode();
       return;
+    }
+
+    openSearch()
+    {
+      $(".eventsMenu").modal("hide");
+      $('.eventsSearch').modal({inverted: true}).modal('setting', 'transition', 'fade up').modal('show');
+    }
+
+    closeSearch()
+    {
+      $(".eventsSearch").modal("hide");
+    }
+
+    findItem(index)
+    {
+      $(".eventsSearch").modal("hide");
+      this.mySwiper.slideTo(index);
     }
   }
 
