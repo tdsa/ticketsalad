@@ -36,3 +36,5 @@ nolimits4web:swiper
 twbs:bootstrap
 meteortesting:mocha
 
+cfs:standard-packages
+cfs:filesystem

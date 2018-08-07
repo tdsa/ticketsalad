@@ -19,12 +19,11 @@ export default class LoginCtrl extends Controller
   {
     super(...arguments);
     Meteor.logout();
-    console.log("User should be logged out");
-    console.log("Current user: " + Meteor.user());
   }
 
   login() 
   {
+    let ang = this;
     if(this.username == null || this.pass == null)
     {
       console.log("Missing details, don't allow log in");
@@ -32,28 +31,16 @@ export default class LoginCtrl extends Controller
       return;
     }
  
-    if(Meteor.user() == null)
+    Meteor.loginWithPassword(this.username, this.pass, function (err) 
     {
-      Meteor.loginWithPassword(this.username, this.pass, function (err) 
-      {
-        if (!err) {
-            console.log('Authentication successs');
-            console.log('User should be logged in now');
-            console.log("Current user: ");
-            console.log(Meteor.user())
-        } else {
-            console.log(err);
-            $(".loginInstructions").text(err).css("color", "red");
-        }
-      })
-    }
-    else
-    {
-      this.username = null;
-      this.pass = null;
-      this.resetAll();
-      this.$state.go('events');
-    }
+      if (!err) {
+          ang.resetAll();
+          ang.$state.go('events');
+      } else {
+          console.log(err);
+          $(".loginInstructions").text(err).css("color", "red");
+      }
+    })
   }
 
   create()

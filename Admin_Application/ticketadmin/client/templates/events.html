@@ -64,7 +64,7 @@
             </div>
             <div class="image scrolling content">
                 <div class="ui medium image">
-                    <img src = "/img/oppi.png">
+                    <img src = "/img/oppi.png" ng-click="events.uploadImage()">
                 </div>
                 <div class="description">
                     <form class="ui form" style = "height: 100%; top: 0; width: 100%">
@@ -72,31 +72,33 @@
                           <label>Name</label>
                           <input type="text" name="name" placeholder="Name" ng-model="events.name">
                         </div>
+                        <label>Date From</label>
                         <div class="fields">
                             <div class="field">
-                              <label>Date From</label>
+                              <label>Day</label>
                               <input type="number" placeholder="Day" ng-model="events.dayFrom">
                             </div>
                             <div class="field">
-                                <label></label>
+                                <label>Month</label>
                                 <input type="number" placeholder="Month" ng-model="events.monthFrom">
                             </div>
                             <div class="field">
-                                <label></label>
+                                <label>Year</label>
                                 <input type="number" placeholder="Year" ng-model="events.yearFrom">
                             </div>
                         </div>
+                        <label>Date To</label>
                         <div class="fields">
                             <div class="field">
-                                <label>Date To</label>
+                                <label>Day</label>
                                 <input type="number" placeholder="Day" ng-model="events.dayTo">
                             </div>
                             <div class="field">
-                                <label></label>
+                                <label>Month</label>
                                 <input type="number" placeholder="Month" ng-model="events.monthTo">
                             </div>
                             <div class="field">
-                                <label></label>
+                                <label>Year</label>
                                 <input type="number" placeholder="Year" ng-model="events.yearTo">
                             </div>
                         </div>

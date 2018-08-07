@@ -31,7 +31,7 @@ export default class ActivityCtrl extends Controller {
                 if(Meteor.user() == null)
                 {
                     console.log("No user logged in!");
-                    this.$state.go('login');
+                    this.$state.go('launch');
                 }
             },
             updateNotifications()

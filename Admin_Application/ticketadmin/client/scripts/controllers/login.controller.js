@@ -25,6 +25,8 @@ export default class LoginCtrl extends Controller
 
   login() 
   {
+    let ang = this;
+
     if(this.username == null || this.pass == null)
     {
       console.log("Missing details, don't allow log in");
@@ -42,42 +44,24 @@ export default class LoginCtrl extends Controller
       return;
     }
  
-    if(Meteor.user() == null)
+    if(Meteor.users.findOne({ "username" : this.username}).profile.isAdmin == 0)
     {
-      /*if(this.callMethod('userIsAdmin', this.username) == false);
-      {
-        console.log("User does not have admin permissions!");
-        return;
-      }*/
+      console.log("User does not have admin permissions!");
+      return;
+    }
 
-      if(Meteor.users.findOne({ "username" : this.username}).profile.isAdmin == 0)
-      {
-        console.log("User does not have admin permissions!");
-        return;
+    console.log("User is admin!");
+
+    Meteor.loginWithPassword(this.username, this.pass, function (err) 
+    {
+      if (!err) {
+          ang.resetAll();
+          ang.$state.go('events');
+      } else {
+          console.log(err);
+          $(".loginInstructions").text(err).css("color", "red");
       }
-
-      console.log("User is admin!");
-
-      Meteor.loginWithPassword(this.username, this.pass, function (err) 
-      {
-        if (!err) {
-            console.log('Authentication successs');
-            console.log('User should be logged in now');
-            console.log("Current user: ");
-            console.log(Meteor.user())
-        } else {
-            console.log(err);
-            $(".loginInstructions").text(err).css("color", "red");
-        }
-      })
-    }
-    else
-    {
-      this.username = null;
-      this.pass = null;
-      this.resetAll();
-      this.$state.go('events');
-    }
+    })
   }
 
   resetAll()

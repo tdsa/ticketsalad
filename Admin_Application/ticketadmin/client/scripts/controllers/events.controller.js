@@ -40,6 +40,11 @@ export default class EventsCtrl extends Controller
         this.user = Meteor.user();
     }
 
+    uploadImage()
+    {
+      
+    }
+
     openNav() 
     {
         if(this.open == 0)

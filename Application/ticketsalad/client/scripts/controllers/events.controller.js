@@ -11,12 +11,14 @@ all javascript functions along with the state controllers are placed here.
 import { Controller } from 'angular-ecmascript/module-helpers';
 import { Events, Notifications } from '../../../lib/collections';
 import Moment from 'moment';
+import { throws } from 'assert';
 
 export default class EventsCtrl extends Controller 
 {
     constructor() 
     {
         super(...arguments);
+        let ang = this;
 
         this.mySwiper = new Swiper ('.swiper-container', {
           // Optional parameters
@@ -54,12 +56,14 @@ export default class EventsCtrl extends Controller
               if(Meteor.user() == null)
               {
                   console.log("No user logged in!");
-                  this.$state.go('login');
+                  this.$state.go('launch');
               }
           }
         });
 
-        this.mySwiper.on('slideChange', function() {$(".instruction").text("Enter a unique code...");});
+        this.mySwiper.on('slideChange', function() {
+          $(".instruction").text("Enter a unique code...");}
+        );
 
         $("input").keyup(function()
         {

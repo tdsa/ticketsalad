@@ -14,6 +14,7 @@ import { MeteorCameraUI } from 'meteor/okland:camera-ui';
 export default class ProfileCtrl extends Controller {
   constructor() {
     super(...arguments);
+    
     this.helpers({
       getUser(){
         this.user = Meteor.user();
@@ -23,7 +24,7 @@ export default class ProfileCtrl extends Controller {
         if(Meteor.user() == null)
         {
             console.log("No user logged in!");
-            this.$state.go('login');
+            this.$state.go('launch');
         }
       }
     });
