@@ -43,6 +43,10 @@
         {
             "name": "feature/iOS_Platform",
             "base": "feature/New_new"
+        },
+        {
+            "name": "feature/Migrate_to_Firebase",
+            "base": "feature/iOS_Platform"
         }
     ]
 }

@@ -16,6 +16,7 @@
     "babel-runtime": "^6.26.0",
     "bcrypt": "^2.0.1",
     "cordova": "^8.0.0",
+    "firebase": "^5.3.1",
     "ionic-scripts": "^1.3.5",
     "meteor-node-stubs": "^0.3.2",
     "moment": "^2.22.0",
