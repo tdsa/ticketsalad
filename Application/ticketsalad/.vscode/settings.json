@@ -39,6 +39,10 @@
         {
             "name": "feature/New_new",
             "base": "feature/Latest_UI_Update"
+        },
+        {
+            "name": "feature/iOS_Platform",
+            "base": "feature/New_new"
         }
     ]
 }
