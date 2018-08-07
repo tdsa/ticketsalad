@@ -19,15 +19,15 @@ autopublish@1.0.7             # Publish all data to the clients (for prototyping
 insecure@1.0.7                # Allow all DB writes from clients (for prototyping)
 angular-templates
 dab0mb:ionic-assets
-mobile-status-bar
-launch-screen
+mobile-status-bar@1.0.14
+launch-screen@1.1.1
 fourseven:scss
 semantic:ui
 juliancwirko:postcss
-less
-jquery
-accounts-base
-accounts-password
+less@2.7.11
+jquery@1.11.10
+accounts-base@1.4.2
+accounts-password@1.5.0
 lawshe:full-page
 
 okland:camera-ui
@@ -36,3 +36,4 @@ nolimits4web:swiper
 twbs:bootstrap
 meteortesting:mocha
 
+underscore
