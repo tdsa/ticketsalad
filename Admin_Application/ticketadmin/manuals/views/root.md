@@ -1,1 +1,0 @@
-/Users/dotansimha/Dev/Ionic-MeteorCLI-WhatsApp/README.md
