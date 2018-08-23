@@ -1,0 +1,52 @@
+{
+    "gitflow4code.features": [
+        {
+            "name": "feature/Search",
+            "base": "develop"
+        },
+        {
+            "name": "feature/Authentication",
+            "base": "develop"
+        },
+        {
+            "name": "feature/Authentication + Signup",
+            "base": "feature/Authentication"
+        },
+        {
+            "name": "feature/EditCard",
+            "base": "master"
+        },
+        {
+            "name": "feature/grid",
+            "base": "develop"
+        },
+        {
+            "name": "feature/New_UI",
+            "base": "develop"
+        },
+        {
+            "name": "feature/Latest_UI_Update",
+            "base": "feature/grid"
+        },
+        {
+            "name": "feature/Branch_off_to_test_mergin_of_Master_with_UI_Update",
+            "base": "master"
+        },
+        {
+            "name": "feature/New_test_branch",
+            "base": "feature/Branch_off_to_test_mergin_of_Master_with_UI_Update"
+        },
+        {
+            "name": "feature/New_new",
+            "base": "feature/Latest_UI_Update"
+        },
+        {
+            "name": "feature/iOS_Platform",
+            "base": "feature/New_new"
+        },
+        {
+            "name": "feature/Migrate_to_Firebase",
+            "base": "feature/iOS_Platform"
+        }
+    ]
+}

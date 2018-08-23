@@ -1,0 +1,58 @@
+.grid-containerPayment {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 100%;
+    grid-template-rows: 15% 85%;
+    grid-template-areas: "paymentHeader" "paymentBody";
+}
+
+.paymentHeader {
+    display: grid;
+    grid-area: paymentHeader;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 100%;
+    grid-template-areas: "paymentHeading paymentExit";
+}
+
+.paymentHeading {
+    grid-area: paymentHeading;
+    position: relative;
+}
+
+.paymentHeader p
+{
+    position: absolute;
+    top: 29%;
+    left: 7.5%;
+    font-size: 8vw;
+    font-weight: bold;
+    line-height: 1;
+    color: rgb(64, 64, 64);
+}
+  
+.paymentExit {
+    grid-area: paymentExit;
+    position: relative;
+}
+
+.paymentExit img {
+    position: absolute;
+    width: 20%;
+    top: 35%;
+    left: 36.5%;
+
+}
+
+.paymentBody {
+    grid-area: paymentBody;
+    position: relative;
+}
+
+.paymentBody p {
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    height: 100%;
+    text-align: justify;
+    overflow-y: scroll;
+}

@@ -1,0 +1,27 @@
+<ion-view view-title="Log In">
+    <ion-content scroll="false">
+        <div class="grid-containerLogIn">
+            <div class="loginHeader">
+                <div class="loginHeaderTitle"><p>Welcome Back!</p></div>
+                <div class="loginHeaderMsg"><p class = "loginInstructions">Sign in to continue</p></div>
+            </div>
+            <div class="loginDetails">
+                <div class="loginUser">
+                    <div class="loginUserName"><p>Username</p></div>
+                    <div class="loginUserInput"><input placeholder = "@ Enter your username" type="user" ng-model="login.username" ng-click = "login.resetAll()"></div>
+                </div>
+                <div class="loginPass">
+                    <div class="loginPassword"><p>Password</p></div>
+                    <div class="loginPassInput"><input placeholder = "Enter your password" type="password" ng-model="login.pass" ng-click = "login.resetAll()"></div>
+                </div>
+                <div class="loginDetailsBlank"></div>
+                <div class="loginInButton"><div class = "buttonLogIn" ng-click="login.login()"><p>Sign In</p></div></div>
+            </div>
+            <div class="loginActions">
+                <div class="loginActionsBlank"></div>
+                <div class="loginActionsForgot"><center><span class = "linkText">Forgot your password? &emsp;</span><span class = "link" ng-click="login.forgot()" href="#/forgotPassword">Reset It</span></center></div>
+                <div class="loginActionsCreate"><center><span class = "linkText">Don't have an account? &emsp;</span><span class = "link" ng-click = "login.create()" href="#/signup">Sign Up</span></center></div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
