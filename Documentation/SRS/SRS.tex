@@ -1,0 +1,113 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\bibliographystyle{plain}
+
+\begin{document}
+	\title{Ticket Salad System Requirements and Design document}
+	\author{Hackermen}
+	\date{}
+	\maketitle
+	\newpage
+	\tableofcontents
+	\newpage
+	\section{System Overview}
+	\subsection{Purpose}
+	The purpose of the TicketSalad application is to provide users with a platform which they are able to spend a minimal amount of money in order to stand a chance to win a ticket valued at a significant amount with ease.
+	\subsection{Project Scope}
+	The TicketSalad system is a lottery based ticket platform. A user registers their email and credentials, they then purchase credits. Using these credits, user's can 'bid' on events displayed to them. When the user bids on an event they are required to input a 6 digit number. If the 6 digit number they input is the same number that the application randomly generated, the user wins the ticket.
+	\subsection{Definitions, acronyms and abbreviations}
+	\begin{itemize}
+		\item UML - Unified Modeling Language 
+		\item CRUD - Create Update Delete
+		\item Credits - Credits is a form of currency in the TicketSalad application used to bid on tickets. Credits are purchased using credit cards.
+	\end{itemize}
+	
+	\subsection{UML Domain Model}
+	\textbf{NEEDS TO BE DONE}
+	\section{Functional Requirements}
+	\subsection{Users}
+	The TicketSalad application will have two users, namely a regular user and then an admin.
+	The system should allow regular users to do the following:
+	\begin{itemize}
+		\item Register or log into the system.
+		\item Edit/Update their info
+		\item Purchase credits
+		\item Bid for events
+		\item View information on events.
+	\end{itemize} 
+	The system should allow the admin user to do the following:
+	\begin{itemize}
+		\item Perform CRUD operations on all the available events.
+		\item View statistics and data on all events
+	\end{itemize}
+	\subsection{Sub Systems}
+	The TicketSalad System can be broken into 2 subsystems, namely the application user subsystem and admin subsystem. 
+
+	The application user subsystem can then be further broken down into 3 subsystems, the events subsubsystem, the user subsubsystem and the notification subsubsystem.
+	\begin{itemize}
+		\item Admin subsystem - This subsystem is responsible for admins being able to modify and add events.
+		\item Application user subsystem - This subsystem is the application that regular users will use.
+		\item User subsubsystem - This subsubsystem is responsible for the users details credentials, and credits.
+		\item Events subsubsystem - This subsubsystem is responsible for all actions performed on/by events by regular users.
+		\item Notification subsubsystem - This subsubsystem is responsible for creating and handling notifications.
+	\end{itemize}
+	\textbf{UML COMPONENT DIAGRAM NEEDS TO BE DONE}
+	\subsection{Specific Requirements}
+	\textbf{Admin subsystem}
+	\newline
+	R1.1 The admin portal must allow an admin to log in.
+	\newline
+	R1.2 The admin portal must allow an admin to log out.
+	\newline
+	R1.3 The admin portal must allow an admin to add an event.
+	\newline
+	R1.4 The admin portal must allow an admin to update an event.
+	\newline
+	R1.5 The admin portal must allow an admin to delete an event.
+	\newline
+	R1.6 The admin portal must allow an admin to view which user has won an event.
+	\newline
+	\newline
+	\textbf{User subsubsystem}
+	\newline
+	R2.1.1 The TicketSalad application must allow a user to register.
+	\newline
+	R2.1.2 The TicketSalad application must allow a user to log in.
+	\newline
+	R2.1.3 The TicketSalad application must allow a user to log out.
+	\newline
+	R2.1.4 The TicketSalad application must allow a user to edit their information.
+	\newline
+	R2.1.5 The TicketSalad application must allow a user to view their information.
+	\newline
+	R2.1.6 The TicketSalad application must allow a user to enter their card or online banking details.
+	\newline 
+	R2.1.7 The TicketSalad application must allow a user to view how many credits they have remaining.
+	\newline
+	R2.1.8 The TicketSalad system must allow a user to purchase more credits.
+	\newline
+	\newline
+	\textbf{Events subsubsystem}
+	\newline
+	R2.2.1 The TicketSalad application must allow a user to view all of the current events.
+	\newline
+	R2.2.2 The TicketSalad application must allow a user to search for specific events.
+	\newline
+	R2.2.3 The TicketSalad application must allow a user to bid on an event.
+	\newline 
+	R2.2.4 The TicketSalad application must decrease a users credits once they have made a bid on an event.
+	\newline
+	\newline
+	\textbf{Notification subsubsystem}
+	\newline
+	R2.3.1 The TicketSalad application must subscribe a user to an event once they have made a bid.
+	\newline
+	R2.3.2 The TicketSalad application must notify a user if they have won an event.
+	\newline
+	R2.3.3 The TicketSalad application must notify a user on all details relating to their subscribed events.
+	\newline
+	\textbf{A ton of diagrams need to be done here}	
+	
+\end{document}
