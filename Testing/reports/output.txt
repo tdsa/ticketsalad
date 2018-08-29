@@ -1,0 +1,57 @@
+[1;35mStarting selenium server... [0m[1;35mstarted - PID: [0m 5283
+
+[0;36m[Login Page Test] Test Suite[0m
+[0;35m================================[0m
+
+Running:  [0;32mPrepare Browser Window[0m
+[0;32mNo assertions ran.[0m
+
+Running:  [0;32mNavigate to Login[0m
+ [0;32m✔[0m Element <body> was visible after 266 milliseconds.
+ [0;32m✔[0m Testing if the page title equals "Log In".
+ [0;32m✔[0m Element <.loginDetails> was visible after 50 milliseconds.
+
+[0;32mOK.[0m [0;32m3[0m assertions passed. (6.296s)
+
+Running:  [0;32mEmpty Login[0m
+ [0;32m✔[0m Testing if element <.loginInstructions> contains text: "Please enter your details!".
+
+[0;32mOK.[0m [0;32m1[0m assertions passed. (1.398s)
+
+Running:  [0;32mNo Pass Login[0m
+ [0;32m✔[0m Testing if element <.loginInstructions> contains text: "Please enter your details!".
+
+[0;32mOK.[0m [0;32m1[0m assertions passed. (1.503s)
+
+Running:  [0;32mNo User Login[0m
+ [0;32m✔[0m Testing if element <.loginInstructions> contains text: "User not found".
+
+[0;32mOK.[0m [0;32m1[0m assertions passed. (1.548s)
+
+Running:  [0;32mIncorrect Login[0m
+ [0;32m✔[0m Expected element <.loginInstructions> to have css property "color" which equals: "rgba(255, 0, 0, 1)"
+
+[0;32mOK.[0m [0;32m1[0m assertions passed. (1.655s)
+
+Running:  [0;32mNavigate To Sign Up[0m
+ [0;32m✔[0m Testing if the page title equals "Sign Up".
+ [0;32m✔[0m Testing if element <.instructions> contains text: "Create an account".
+
+[0;32mOK.[0m [0;32m2[0m assertions passed. (1.698s)
+
+Running:  [0;32mForgot my Password[0m
+ [0;32m✔[0m Element <span[href="#/forgotPassword"]> was visible after 78 milliseconds.
+ [0;32m✔[0m Testing if the page title equals "Reset Password".
+ [0;32m✔[0m Testing if element <.forgotPasswordHeaderMsg> contains text: "Enter your email to continue".
+
+[0;32mOK.[0m [0;32m3[0m assertions passed. (1.836s)
+
+Running:  [0;32mValid Login Attempt[0m
+ [0;32m✔[0m Testing if the page title equals "Events".
+
+[0;32mOK.[0m [0;32m1[0m assertions passed. (2.906s)
+
+Running:  [0;32mFinished[0m
+[0;32mNo assertions ran.[0m
+
+[0;32mOK. 13  total assertions passed.[0m (27.42s)
