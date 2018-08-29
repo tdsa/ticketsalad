@@ -1,14 +1,4 @@
-module.exports = {
-    'Prepare Browser Window' : function (browser)
-    {
-      browser
-        .resizeWindow(375, 700)
-        .pause(100)
-        .resizeWindow(375, 700)
-        .pause(100)
-        .setWindowPosition(700,200)
-        .pause(100);
-    },
+test = {
     'Navigate to Login' : function (browser) 
     {
       browser
@@ -89,10 +79,8 @@ module.exports = {
       .pause(100)
       .click('.buttonLogIn')
       //.click('.buttonLogIn')
-      .pause(2000)
-      .assert.title("Events");
-    },
-    'Finished' : function(browser){
-      browser.end();
+      .pause(5000)
+      .assert.title("Events")
+      .pause(3000);
     }
   };
