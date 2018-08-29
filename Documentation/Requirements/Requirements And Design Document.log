@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2018.4.13)  13 APR 2018 16:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2018.4.13)  12 JUL 2018 15:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -151,80 +151,373 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 LaTeX Warning: No \author given.
 
-(./Requirements And Design Document.toc)
+(./Requirements And Design Document.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 3.
+)
 \tf@toc=\write3
 \openout3 = `"Requirements And Design Document.toc"'.
 
  [1
 
 {/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}]
+<Architecture.jpg, id=10, 974.64125pt x 332.24126pt>
+File: Architecture.jpg Graphic file (type jpg)
+ <use Architecture.jpg>
+Package pdftex.def Info: Architecture.jpg used on input line 16.
+(pdftex.def)             Requested size: 389.8496pt x 132.89413pt.
+
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.17 	\caption
+              {Figure 1: }{A high-level overview of the software architectur...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+\caption ... \endcsname \fi \fi \@dblarg {\@tempf 
+                                                  \@captype }
+l.17 	\caption
+              {Figure 1: }{A high-level overview of the software architectur...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\caption ...e \fi \fi \@dblarg {\@tempf \@captype 
+                                                  }
+l.17 	\caption
+              {Figure 1: }{A high-level overview of the software architectur...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (46.8496pt too wide) in paragraph at lines 16--18
+[][]
+ []
+
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ” in font cmr10!
+[2 <./Architecture.jpg>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 35.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 35.
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--54
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--54
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 56--68
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 56--68
+
+ []
+
+[3]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.74 	\newline
+              
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.75 	\newline
+              
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--94
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--94
+
+ []
+
+
+Overfull \hbox (35.11179pt too wide) in paragraph at lines 96--98
+[]\OT1/cmr/m/n/10.95 A de-ploy-ment with-out sin-gle points fail-ure Rapid de-p
+loy-ment of new/changing
+ []
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.99 	\newline
+              
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.100 	\newline
+               
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--105
+
+ []
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.110 	\newline
+               
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.111 	\newline
+               
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 112--116
+
+ []
+
+[4]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.122 	\newline
+               
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.123 	\newline
+               
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 124--128
+
+ []
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.136 	\newline
+               
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.137 	\newline
+               
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 138--141
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 138--141
+
+ []
+
+[5]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 14--44
+Underfull \hbox (badness 10000) in paragraph at lines 173--203
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 14--44
+Underfull \hbox (badness 10000) in paragraph at lines 173--203
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 14--44
+Underfull \hbox (badness 10000) in paragraph at lines 173--203
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 14--44
+Underfull \hbox (badness 10000) in paragraph at lines 173--203
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 14--44
+Underfull \hbox (badness 10000) in paragraph at lines 173--203
 
  []
 
-[2] <Domain.png, id=13, 933.4875pt x 398.48875pt>
+[6] <Domain.png, id=28, 933.4875pt x 398.48875pt>
 File: Domain.png Graphic file (type png)
  <use Domain.png>
-Package pdftex.def Info: Domain.png used on input line 45.
+Package pdftex.def Info: Domain.png used on input line 204.
 (pdftex.def)             Requested size: 373.38838pt x 159.39267pt.
 
-Overfull \hbox (13.38838pt too wide) in paragraph at lines 45--46
+Overfull \hbox (13.38838pt too wide) in paragraph at lines 204--205
 [] 
  []
 
-<Architecture.jpg, id=15, 974.64125pt x 332.24126pt>
 File: Architecture.jpg Graphic file (type jpg)
- <use Architecture.jpg>
-Package pdftex.def Info: Architecture.jpg used on input line 47.
+<use Architecture.jpg>
+Package pdftex.def Info: Architecture.jpg used on input line 206.
 (pdftex.def)             Requested size: 389.8496pt x 132.89413pt.
 
-Overfull \hbox (29.8496pt too wide) in paragraph at lines 47--50
+Overfull \hbox (29.8496pt too wide) in paragraph at lines 206--209
 [] 
  []
 
-[3 <./Domain.png> <./Architecture.jpg>] (./Requirements And Design Document.aux
-) ) 
+<Login.jpg, id=30, 563.10374pt x 573.14125pt>
+File: Login.jpg Graphic file (type jpg)
+ <use Login.jpg>
+Package pdftex.def Info: Login.jpg used on input line 213.
+(pdftex.def)             Requested size: 450.48361pt x 458.51363pt.
+
+Overfull \hbox (90.48361pt too wide) in paragraph at lines 213--214
+[] 
+ []
+
+[7 <./Domain.png>] <Display.jpg, id=36, 563.10374pt x 573.14125pt>
+File: Display.jpg Graphic file (type jpg)
+
+<use Display.jpg>
+Package pdftex.def Info: Display.jpg used on input line 215.
+(pdftex.def)             Requested size: 450.48361pt x 458.51363pt.
+
+Overfull \hbox (90.48361pt too wide) in paragraph at lines 215--216
+[] 
+ []
+
+[8 <./Login.jpg>] <Bid.jpg, id=40, 563.10374pt x 663.47874pt>
+File: Bid.jpg Graphic file (type jpg)
+ <use Bid.jpg>
+Package pdftex.def Info: Bid.jpg used on input line 217.
+(pdftex.def)             Requested size: 450.48361pt x 530.7837pt.
+
+Overfull \hbox (90.48361pt too wide) in paragraph at lines 217--218
+[] 
+ []
+
+[9 <./Display.jpg>]
+Overfull \vbox (10.78864pt too high) has occurred while \output is active []
+
+
+[10 <./Bid.jpg>] (./Requirements And Design Document.aux) ) 
 Here is how much of TeX's memory you used:
- 1560 strings out of 494946
- 22443 string characters out of 6180981
- 77177 words of memory out of 5000000
- 4853 multiletter control sequences out of 15000+600000
- 7888 words of font info for 28 fonts, out of 8000000 for 9000
+ 1598 strings out of 494946
+ 23023 string characters out of 6180981
+ 78177 words of memory out of 5000000
+ 4884 multiletter control sequences out of 15000+600000
+ 9157 words of font info for 32 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  38i,6n,23p,344b,195s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on "Requirements And Design Document.pdf" (3 pages, 128906 bytes
-).
+</usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmti10.pfb>
+Output written on "Requirements And Design Document.pdf" (10 pages, 300619 byte
+s).
 PDF statistics:
- 34 PDF objects out of 1000 (max. 8388607)
- 21 compressed objects within 1 object stream
+ 68 PDF objects out of 1000 (max. 8388607)
+ 43 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

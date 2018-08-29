@@ -6,6 +6,7 @@
 	\title{Ticket Salad Coding Standards}
 	\date{}
 	\maketitle
+	\newpage
 	\tableofcontents
 	\newpage
 	
@@ -15,111 +16,65 @@
 	engineering department so that reading, checking, and maintaining code written by different persons
 	becomes easier. The intent of these standards is to define a natural style and consistency, yet leave
 	to the authors of the engineering department source code, the freedom to practice their craft without
-	unnecessary burden
+	unnecessary burden.
+	
+	
+	\textbf{This document contains the coding standards that will be used in the TicketSalad system by the Hackermen team}
 	\subsection{Scope}
-	This document describes general software coding standards for code written in HTML, SCSS, Javascript and Mongo.
-	\subsection{Terms used in this document}
-	\textbf{Element: }Element refers to a structure or some data that is used in an HTML file, e.g: <h1>
-	\section{HTML Guidelines}
-	\subsection{Naming requirements}
-	Naming conventions form a major part of coding standards as it makes code more readable by other developers thus increasing the scalability of the software.
-	\subsubsection{File names}
-	HTMl files names are short, preferably one word names based directly on the html pages direct purpose.
-	\textbf{e.g} A login page will be named 'LogIn.html'. 
-	\subsubsection{Class names and ID names}
-	Classes are applied to many different elements in the HTML, therefore they are not very unique and describe a general purpose or layout preference for that element.
-	ID attributes are uniquely applied to different elements. Therefore they are unique and describe what is unique about that element. 
-	\textbf{e.g} A class that is used for icons on the webpage will have a class: 'icon. A element that serves a unique role such as a login button will be have id: 'login'
-	\subsection{Formatting requirements}
+	This document describes general software coding standards for code written by the Hackermen software team. It contains a class diagram and guidelines relating to different conventions and practices when coding.
+	\section{System Design}
+	\includegraphics[scale=0.5]{Domain.png}
+	\caption{\textbf{Figure 1:} A UML class diagram of the TicketSalad System}
+	\section{Coding conventions}
+	\subsection{Ensuring flexibility, reliability and efficiency}
+	\subsubsection{Flexibility}
+	The Hackermen team achieves flexible code, by writing code that is easily understood so that it can be easily modified. We achieved this by using identical naming and commenting conventions throughout all the software artefacts of the system thus ensuring a mutual understanding amongst the team of what functionality the code has and what it represents.
+	\subsubsection{Reliability}
+	The Hackermen team achieves reliable code, by writing code that does not allow for unexpected errors to produced while using the app, thus making the code reliable to use. We achieved this by ensuring that loops, start, end and iterate correctly, ensuring that no if statements are always true or always false ect.
+	\subsubsection{Efficiency}
+	The Hackermen team achieves efficient code by applying a modular practice to the code, thus making code more reusable and memory efficient. We achieve this by encapsulating different pieces of code with different functionalities allowing for the reuse of functions throughout all the code. 
+	\subsection{Naming conventions}
+	Naming conventions form a major part of coding standards as it makes code more readable by other developers thus increasing the scalability of the software.\textbf{The following file naming conventions will be used by the Hackerman team in the TicketSalad system}. "CamelCasing" us used for all naming scenarios.
+	\subsubsection{File Names}
+	Hackermen uses short file concise file names that describe the exact purpose of the file. E.g. The login html page will be called "Login.html".
+	\subsubsection{Class Names}
+	Hackermen uses short class names that are descriptive of the object that the class represent. E.g. A class representing the user will be called "User".
+	\subsubsection{Function Names}
+	Hackermen uses descriptive function names that describe the purpose of the code in the function. E.g. A function that contains the code to validate a password would be called "ValidatePassword".
+	\subsubsection{Variable Names}
+	Hackerman uses descriptive variable names that describe what information that the variable will store. E.g. A variable that stores a user's username would be called "userName".
+	\subsection{Commenting practices}
+	Commenting code eases the ability to understand complex code as there is a short description of the purpose of the code or any other information that needs to be noted. \textbf{Hackermen uses the following commenting practices in the TicketSalad System}
+	
+	Comments are only written on code that is not easy to interpret and understand by just reading the code. Comments will be written on functions that have more than one purpose and cannot be described entirely by the function name. E.g A function to login in the user will have a comment saying "Checks user input compare to database and returns a boolean". 
+	
+	Comments will also be used to describe complex algorithms and variables that are used in the code. 
+	\subsection{Style conventions}
 	The layout of code plays a large part in the ability for someone else to read the code as it allows for the readers ability to "flow" through the code to be improved because there is a logical layout.
-	\begin{itemize}
-		\item Sub-elements are indented by one space to the right compared to their parent element.
-		\item White lines are used to break up large amounts of code into more understandable subsections of the HTML page.
-		\item There is no unnecessary whitespace in the HTML document.
-		\item Every element is on a new line.
-	\end{itemize}
-	\subsection{In-code comment requirements}
-	Comments are crucial to the ability to understand code because if another developer cannot identify the purpose of the specific section of code they can address the comments.
 	
-	In HTML comments are not as necessary compared to other languages, however is required in some cases. However over commenting a file is avoided.
-	\begin{itemize}
-		\item Comments are not made on elements that can be identified using their classes and ID's
-		\item Comments are made when the page calls any javascript functions, this comment will describe the function that is being called.
-		\item Comments are made if the purpose of an element is not visible.
-		\item Comments are made to describe the purpose of a large segment of code.
-	\end{itemize}
-	\section{CSS Guidelines}
-	\subsection{Naming requirements}
-	Naming conventions form a major part of coding standards as it makes code more readable by other developers thus increasing the scalability of the software.
-	\subsubsection{File names}
-	CSS files are named according to HTML file they relate to. \textbf{e.g} A CSS file used to style the login page will be called 'login.css'
-	\subsubsection{Class names and ID names}
-	Class and id names relate directly to the class and id names defined in the html.
-	\subsection{Formatting requirements}
-	The layout of code plays a large part in the ability for someone else to read the code as it allows for the readers ability to "flow" through the code to be improved because there is a logical layout.
-	\begin{itemize}
-		\item White lines are used to break up large amounts of code into more understandable subsections of the css page.
-		\item There is no unnecessary whitespace in the CSS document.
-		\item Every statement is on a new line.
-	\end{itemize}
-	\subsection{In-code comment requirements}
-	Comments are crucial to the ability to understand code because if another developer cannot identify the purpose of the specific section of code they can address the comments.
 	
-	In CSS, comments are not used as the class names and id names are descriptive therefore comments are not needed.
-	
-	\section{Javascript Guidelines}
-	\subsection{Naming requirements}
-	Naming conventions form a major part of coding standards as it makes code more readable by other developers thus increasing the scalability of the software.
-	\subsubsection{File names}
-	Javascript files are named according to the HTML page the script will be applied to followed by '.controller'.\textbf{e.g} The javascript file for the login page will be called 'login.controller.js'
-	
-	Javascript files that are applied to many pages and serve a more general purpose, are named according to their purpose.
-	\subsubsection{Variable names}
-	Variable names form a crucial part of coding standards in javascript as all variables serve a specific purpose.
+	\textbf{The following style conventions will be used  by the Hackermen team in the TicketSalad system}
+	\newpage
 	\begin{itemize}
-		\item Variable names describe what data will be stored by a variable\textbf{e.g} A variable used to store a users id will be named id.
-		\item Variable names are short and descriptive
-		\item Variable names use a camelCasing style.
-		\item 'Magic numbers' are not used and instead are assigned to predefined constants.
-		\item Predefined constants are uppercase.
-		\item Variable names are consistent throughout all the Javascript files if they store the same data. 
+		\item Braces are each on a new line and the code inside the brace is indented to the right.
+		\item Every statement is a new line.
+		\item White blank lines will be used to break up large amounts of code into more easily understandable sections.
+		\item There is no unnecessary white space.
 	\end{itemize}
-	\subsubsection{Function names}
-	Function names are used to call that function's code in other parts of the document and other files. If function names are random and non-descriptive the purpose of that function will not be easily identifiable.
+	\section{File structure}
+	{The following file structure will be used  by the Hackermen team in the TicketSalad system}
 	\begin{itemize}
-		\item Function names are short and descriptive. \textbf{e.g} A function that is used to calculate a users credits will be called 'calculateCredits()'.
-		\item Function names follow the camelCasing style.
+		\item All Javascript (.js) files are stored in the controllers folder. JavaScript files are used to manipulate and change elements and values in HTML files and also manipulate the database.
+		\item All CSS (.css) files are stored in the styles folder. CSS files are used to style the HTML files making.
+		\item All HTML (.html) files are stored in the templates folder. HTML files contain the code for the interface that the user will be exposed to.
+		\item All documentation (.pdf) files are stored in the documentation folder.
+		
+		\includegraphics[scale=0.4]{tree}
+		
+		\caption{    \textbf{Figure 2:} A tree diagram of the TicketSalad file structure}
 	\end{itemize}
-	\subsection{Formatting requirements}
-	The layout of code plays a large part in the ability for someone else to read the code as it allows for the readers ability to "flow" through the code to be improved because there is a logical layout.
-	\begin{itemize}
-		\item Each statement of code is on a new line.
-		\item White lines are used to break up large amounts of code into more understandable subsections of the javascript page.
-		\item There is no unnecessary whitespace in the javascript document.
-		\item Every curly brace is on a new line
-		\item Code blocks are indented by a tab to the left compared to the parent structure.
-	\end{itemize}
-	\subsection{In-code comment requirements}
-	Comments are crucial to the ability to understand code because if another developer cannot identify the purpose of the specific section of code they can address the comments.
-	
-	In javascript comments are essential as not all javascript code effectively describes the purpose of that code.
-	\begin{itemize}
-		\item Comments are not made on variables that have a descriptive name
-		\item Comments are made on all functions except very simple ones, describing the purpose of the function.
-		\item Comments are made if the purpose of an block of code is not visible.
-		\item Comments are made to describe the purpose of a large segment of code.
-	\end{itemize}
-	\subsection{File Headers}
-	File headers are included in all the javascript files describing the following aspects.
-	\begin{itemize}
-		\item File name
-		\item Version
-		\item Organization name
-		\item Project name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
-		\item Functional description
-	\end{itemize}
-	
-	\section{Rules and requirement}
+	\newpage
+	\section{Code Review practice}
 	\subsection{Review Method}
 	Upon creation of the Coding Standards the entire development team reviews the coding standards and present them to the stakeholders. If there is a concern it is raised and there is a discussion and if everyone agrees on the change a change is made.
 	
@@ -128,18 +83,7 @@
 	\subsection{Application of coding standards}
 	All files will have to comply to the coding standards including the testing files and structure.
 	
-	\newpage
 	
-	\section{GIT file structure}
-	\begin{itemize}
-		\item All .js files are stored in the controllers folder.
-		\item All .css files are stored in the styles folder.
-		\item All .html files are stored in the templates folder.
-		\item All documentation is stored in the documentation folder.
-	\end{itemize}
-	\begin{figure}[H]
-	\includegraphics[scale=0.5]{tree}
-	\end{figure}
 	
 
 	
