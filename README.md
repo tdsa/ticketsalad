@@ -1,4 +1,4 @@
-![Logo of the project](https://github.com/tdsa/ticketsalad/blob/master/Screen%20Shot%202018-05-11%20at%2010.49.20.png)
+![Logo of the project](https://github.com/tdsa/ticketsalad/blob/master/logo.png)
 
 # ticketsalad
 

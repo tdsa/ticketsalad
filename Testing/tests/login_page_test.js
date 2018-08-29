@@ -88,8 +88,8 @@ module.exports = {
       .setValue('input[type=password]', browser.globals.password)
       .pause(100)
       .click('.buttonLogIn')
-      .click('.buttonLogIn')
-      .pause(1000)
+      //.click('.buttonLogIn')
+      .pause(2000)
       .assert.title("Events");
     },
     'Finished' : function(browser){
