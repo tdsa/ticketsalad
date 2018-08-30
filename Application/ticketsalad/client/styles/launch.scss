@@ -71,6 +71,13 @@ font-family: 'Lato', sans-serif;
     position: relative;
 }
 
+.launchLogo img {
+    position: absolute;
+    width: 50%;
+    left: 25%;
+   
+}
+
 .launchSignIn {
     grid-area: launchSignIn;
     position: relative;
