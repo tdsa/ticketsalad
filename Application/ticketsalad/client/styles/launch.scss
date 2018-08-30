@@ -4,6 +4,7 @@ height: 100%;
 grid-template-columns: 100%;
 grid-template-rows: 8% 7.5% 7.5% 10% 40% 10% 10% 5%;
 grid-template-areas: "launchWelcome" "launchTitle1" "launchTitle2" "launchAbout" "launchLogo" "launchSignIn" "launchSignUp" "launchInfo";
+font-family: 'Lato', sans-serif;
 }
 
 .launchWelcome {

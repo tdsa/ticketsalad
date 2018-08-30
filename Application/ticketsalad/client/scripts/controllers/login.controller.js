@@ -30,12 +30,6 @@ export default class LoginCtrl extends Controller
       $(".loginInstructions").text("Please enter your details!").css("color", "red");
       return;
     }
-
-    firebase.auth().signInWithEmailAndPassword("john@email.com", "123456").catch(function(error) {
-      // Handle Errors here.
-      var errorMessage = error.message;
-      console.log(errorMessage);
-    });
  
     Meteor.loginWithPassword(this.username, this.pass, function (err) 
     {

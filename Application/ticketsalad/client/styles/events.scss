@@ -13,6 +13,7 @@
   grid-template-columns: 100%;
   grid-template-rows: 30% 30% 30% 10%;
   grid-template-areas: "eventPicture" "eventDescription" "eventInfo" "eventBlankSpace";
+  font-family: 'Lato', sans-serif;
 }
 
 .eventPicture {
@@ -204,7 +205,8 @@
   height: 100%;
   grid-template-columns: 100%;
   grid-template-rows: 2% 10% 58% 10% 7.5% 12.5%;
-  grid-template-areas: "filler" "eventsHeader" "eventsCards" "eventsMsg" "eventsCode" "eventsClaimBtn"
+  grid-template-areas: "filler" "eventsHeader" "eventsCards" "eventsMsg" "eventsCode" "eventsClaimBtn";
+  font-family: 'Lato', sans-serif;
 }
 
 .filler
@@ -372,6 +374,7 @@
   z-index: 3;
   font-weight: bold;
   font-size: 7vw;
+  font-family: 'Lato', sans-serif;
 }
 
 .digit
@@ -422,6 +425,7 @@
   grid-template-columns: 100%;
   grid-template-rows: 28.57% 71.43%;
   grid-template-areas: "top" "bottom";
+  font-family: 'Lato', sans-serif;
 }
 
 .top {
