@@ -85,17 +85,6 @@ export default class EventsCtrl extends Controller
       });
     }
 
-    goTo(destination)
-    {
-      $(".eventsMenu").modal("hide");
-      this.$state.go(destination);
-    }
-
-    closeMenu()
-    {
-      $(".eventsMenu").modal("hide");
-    }
-
     resetCode()
     {
       this.code = null;
@@ -262,20 +251,50 @@ export default class EventsCtrl extends Controller
       return;
     }
 
+    goTo(destination)
+    {
+      this.closeMenu()
+      this.$state.go(destination);
+    }
+
+    openMenu()
+    {
+      $('#eventMenuSlide').addClass('slideUpMenuHide');
+      $('#eventsContainer').addClass('blur');
+    }
+
+    closeMenu()
+    {
+      $('#eventMenuSlide').removeClass('slideUpMenuHide');
+      $('#eventsContainer').removeClass('blur');
+    }
+
     openSearch()
     {
-      $(".eventsMenu").modal("hide");
-      $('.eventsSearch').modal({inverted: true}).modal('setting', 'transition', 'fade up').modal('show');
+      this.closeMenu();
+      $('#eventsSearchModal').addClass('slideUpMenuHide');
     }
 
     closeSearch()
     {
-      $(".eventsSearch").modal("hide");
+      $('#eventsSearchModal').removeClass('slideUpMenuHide');
     }
 
-    findItem(index)
+    findItem(event)
     {
-      $(".eventsSearch").modal("hide");
+      $("#eventMenuSlide").removeClass('slideUpMenuHide');
+      $("#eventsSearchModal").removeClass('slideUpMenuHide');
+
+      var index = null;
+
+      for(var i = 0; i < this.data.length; i++)
+      {
+        if(this.data[i]._id == event._id)
+        {
+            index = i;
+        }
+      }
+
       this.mySwiper.slideTo(index);
     }
   }
