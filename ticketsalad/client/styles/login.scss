@@ -1,0 +1,204 @@
+input[type='text'],input[type='user'],input[type='email'],input[type='password'] {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+.grid-containerLogIn {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 100%;
+  grid-template-rows: 30% 40% 30%;
+  grid-template-areas: "loginHeader" "loginDetails" "loginActions";
+}
+
+.loginHeader {
+  display: grid;
+  grid-area: loginHeader;
+  grid-template-columns: 100%;
+  grid-template-rows: 40% 60%;
+  grid-template-areas: "loginHeaderTitle" "loginHeaderMsg";
+}
+
+.loginHeaderTitle {
+  grid-area: loginHeaderTitle;
+  position: relative;
+}
+
+.loginHeaderTitle p
+{
+  position: absolute;
+  bottom: 2.5%;
+  left: 7.5%;
+  font-size: 8vw;
+  font-weight: bold;
+  color: rgb(64, 64, 64);
+}
+
+.loginHeaderMsg {
+  grid-area: loginHeaderMsg;
+  position: relative;
+}
+
+.loginHeaderMsg p {
+  position: absolute;
+  top: 7.5%;
+  left: 7.5%;
+  font-size: 5.5vw;
+  color: rgb(150, 196, 239);
+}
+
+.loginDetails {
+  display: grid;
+  grid-area: loginDetails;
+  grid-template-columns: 100%;
+  grid-template-rows: 25% 25% 25% 25%;
+  grid-template-areas: "loginUser" "loginPass" "loginDetailsBlank" "loginInButton";
+}
+
+.loginUser {
+  display: grid;
+  grid-area: loginUser;
+  grid-template-columns: 100%;
+  grid-template-rows: 30% 70%;
+  grid-template-areas: "loginUserName" "loginUserInput";
+}
+
+.loginUserName {
+  grid-area: loginUserName;
+  position: relative;
+}
+
+.loginUserName p {
+  position: absolute;
+  color: rgb(216, 216, 216);
+  font-size: 4.3vw;
+  left: 9%;
+}
+
+.loginUserInput {
+  grid-area: loginUserInput;
+  position: relative;
+}
+
+.loginUserInput input {
+  position: absolute;
+  color: black;
+  font-size: 4.3vw;
+  left: 9%;
+  width: 82%;
+  border-bottom: solid 1.5px rgb(150, 196, 239);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  top: 3%;
+  padding-bottom: 2%;
+  height: 80%;
+}
+
+.loginPass {
+  display: grid;
+  grid-area: loginPass;
+  grid-template-columns: 100%;
+  grid-template-rows: 30% 70%;
+  grid-template-areas: "loginPassword" "loginPassInput";
+}
+
+.loginPassword {
+  grid-area: loginPassword;
+  position: relative;
+}
+
+.loginPassword p {
+  position: absolute;
+  color: rgb(216, 216, 216);
+  font-size: 4.5vw;
+  left: 9%;
+}
+
+.loginPassInput {
+  grid-area: loginPassInput;
+  position: relative;
+}
+
+.loginPassInput input {
+  position: absolute;
+  color: black;
+  font-size: 4.3vw;
+  left: 9%;
+  width: 82%;
+  border-bottom: solid 1.5px rgb(150, 196, 239);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  top: 3%;
+  padding-bottom: 2%;
+  height: 80%;
+}
+
+.loginDetailsBlank {
+  grid-area: loginDetailsBlank;
+}
+
+.loginInButton {
+  grid-area: loginInButton;
+  position: relative;
+}
+
+.buttonLogIn {
+  position: absolute;
+  width: 45%;
+  height: 15vw;
+  background-color: rgb(99, 200, 242);
+  border-radius: 10px;
+  left: 7.5%;
+  top: 15%;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.buttonLogIn:active {
+  background-color: rgb(5, 104, 146);
+}
+
+.buttonLogIn p {
+  position: absolute;
+  color: white;
+  height: 50%;
+  width: 100%;
+  text-align: center;
+  top: 25%;
+  font-size: 5.5vw;
+}
+
+.loginActions {
+  display: grid;
+  grid-area: loginActions;
+  grid-template-columns: 100%;
+  grid-template-rows: 40% 20% 40%;
+  grid-template-areas: "loginActionsBlank" "loginActionsForgot" "loginActionsCreate";
+}
+
+.loginActionsBlank {
+  grid-area: loginActionsBlank;
+}
+
+.loginActionsForgot {
+  grid-area: loginActionsForgot;
+  position: relative;
+}
+
+.link {
+  text-align: center;
+  font-size: 4.3vw;
+  font-weight: bold;
+  color: rgb(150, 196, 239);
+}
+
+.linkText {
+  text-align: center;
+  font-size: 4.3vw;
+  color: rgb(102, 102, 102);
+}
+
+.loginActionsCreate {
+  grid-area: loginActionsCreate;
+}
