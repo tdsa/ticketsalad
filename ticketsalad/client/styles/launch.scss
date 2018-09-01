@@ -1,0 +1,148 @@
+.grid-containerLaunch {
+display: grid;
+height: 100%;
+grid-template-columns: 100%;
+grid-template-rows: 8% 7.5% 7.5% 10% 40% 10% 10% 5%;
+grid-template-areas: "launchWelcome" "launchTitle1" "launchTitle2" "launchAbout" "launchLogo" "launchSignIn" "launchSignUp" "launchInfo";
+font-family: 'Lato', sans-serif;
+}
+
+.launchWelcome {
+    grid-area: launchWelcome;
+    position: relative;
+}
+
+.launchWelcome p {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 6vw;
+    bottom: 0;
+}
+
+.launchTitle1 {
+    grid-area: launchTitle1;
+    position: relative;
+}
+
+.launchTitle1 p {
+    position: absolute;
+    width: 100%;
+    text-align: left;
+    left: 15%;
+    font-size: 14vw;
+    color: rgb(99, 200, 242);
+    font-weight: bold;
+    top: 0;
+}
+
+.launchTitle2 {
+    grid-area: launchTitle2;
+    position: relative;
+}
+
+.launchTitle2 p {
+    position: absolute;
+    width: 100%;
+    text-align: right;
+    right: 15%;
+    font-size: 14vw;
+    color: rgb(99, 200, 242);
+    font-weight: bold;
+    top: 0;
+}
+
+.launchAbout {
+    grid-area: launchAbout;
+    position: relative;
+}
+
+.launchAbout p {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 5vw;
+    color: rgb(203, 202, 201);
+    top: 15%;
+}
+
+.launchLogo {
+    grid-area: launchLogo;
+    position: relative;
+}
+
+.launchLogo img {
+    position: absolute;
+    width: 50%;
+    left: 25%;
+   
+}
+
+.launchSignIn {
+    grid-area: launchSignIn;
+    position: relative;
+}
+
+.launchSignUp {
+    grid-area: launchSignUp;
+    position: relative;
+}
+
+.launchButton {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    left: 10%;
+    top: 10%;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.launchButton:active {
+    background-color: rgb(5, 104, 146);
+  }
+
+.launchButton p {
+    position: relative;
+    font-weight: thin;
+    width: 100%;
+    text-align: center;
+    height: 50%;
+    top: 25%;
+    font-size: 5.5vw;
+}
+
+.in 
+{
+    background-color: rgb(99, 200, 242); 
+}
+
+.in p 
+{
+    color: white;
+}
+
+.up 
+{
+    background-color: white;
+}
+
+.up p 
+{
+    color: rgb(99, 200, 242);
+}
+
+.launchInfo {
+    grid-area: launchInfo;
+    position: relative;
+}
+
+.launchInfo p {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 3vw;
+    color: rgb(99, 200, 242);
+    top: 15%;
+    font-weight: bold;
+}

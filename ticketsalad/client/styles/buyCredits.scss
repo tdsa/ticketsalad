@@ -1,0 +1,315 @@
+.grid-containerBuyClaims {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 35% 35% 20%;
+    grid-template-areas: "claimsTitle" "claimsActions" "claimsMoney" "claimsButton";
+    font-family: 'Lato', sans-serif;
+}
+
+.claimsHeader {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 100%;
+    grid-template-areas: "claimsTitle claimsExit";
+}
+
+.claimsTitle {
+    grid-area: claimsTitle;
+    position: relative;
+}
+
+.claimsTitle p
+{
+    position: absolute;
+    top: 29%;
+    left: 7.5%;
+    font-size: 8vw;
+    font-weight: bold;
+    line-height: 1;
+    color: rgb(64, 64, 64);
+}
+
+.claimsExit {
+    grid-area: claimsExit;
+    position: relative;
+}
+
+.claimsExit img {
+    position: absolute;
+    width: 20%;
+    top: 35%;
+    left: 36.5%;
+}
+
+.claimsActions {
+    display: grid;
+    grid-area: claimsActions;
+    grid-template-columns: 100%;
+    grid-template-rows: 40% 10% 30% 20%;
+    grid-template-areas: "claimsAmount" "claimsWord" "claimsOptions" ".";
+}
+
+.claimsAmount {
+    display: grid;
+    grid-area: claimsAmount;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 100%;
+    grid-template-areas: "claimsLess claimsNumber claimsMore";
+}
+
+.claimsNumber {
+    grid-area: claimsNumber;
+    position: relative;
+}
+
+#inputNumber {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    height: 100%;
+    color: rgb(64, 64, 64);
+    font-size: 20vw;
+    caret-color: transparent;
+}
+
+.claimsLess {
+    grid-area: claimsLess;
+    position: relative;
+}
+
+.claimsMore {
+    grid-area: claimsMore;
+    position: relative;
+}
+
+.addMinus {
+    position: absolute;
+    width: 20%;
+    top: 45%;
+    left: 40%;
+}
+
+.claimsWord {
+    grid-area: claimsWord;
+    position: relative;
+}
+
+.claimsWord p {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    font-size: 3.5vw;
+    color: rgb(64, 64, 64);
+    top: 0;
+}
+
+.claimsOptions {
+    display: grid;
+    grid-area: claimsOptions;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 100%;
+    grid-template-areas: "claimsO1 claimsO2 claimsO3 claimsO4";
+}
+
+.claimsO1 {
+    grid-area: claimsO1;
+    position: relative;
+}
+
+.claimsO2 {
+    grid-area: claimsO2;
+    position: relative;
+}
+
+.claimsO3 {
+    grid-area: claimsO3;
+    position: relative;
+}
+
+.claimsO4 {
+    grid-area: claimsO4;
+    position: relative;
+}
+
+.amountOption {
+    position: absolute;
+    width: 70%;
+    height: 12.5vw;
+    top: 20%;
+    left: 12.5%;
+    border-radius: 12.5px;
+    background-color: rgb(99, 200, 242);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.amountOption:active {
+    background-color: rgb(5, 104, 146);
+}
+
+.amountOption p {
+    position: absolute;
+    color: white;
+    font-weight: thin;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    top: 25%;
+    font-size: 5vw;
+}
+
+.claimsMoney {
+    display: grid;
+    grid-area: claimsMoney;
+    grid-template-columns: 100%;
+    grid-template-rows: 14% 19% 19% 14% 19% 15%;
+    grid-template-areas: "claimsSubtotal" "claimsPrice" "claimsVat" "claimsTotal" "claimsCost" ".";
+}
+
+.claimsSubtotal {
+    grid-area: claimsSubtotal;
+    position: relative;
+}
+
+.claimsTotal {
+    grid-area: claimsTotal;
+    position: relative;
+}
+
+.totalWords {
+    position: absolute;
+    text-align: left;
+    width: 80%;
+    left: 10%;
+    font-size: 3.5vw;
+    font-weight: bold;
+    color: rgb(166, 166, 166);
+    top: 0;
+}
+
+.claimsCost {
+    grid-area: claimsCost;
+    position: relative;
+}
+
+.claimsCost p {
+    position: absolute;
+    text-align: left;
+    width: 100%;
+    left: 10%;
+    font-size: 10vw;
+    font-weight: bold;
+    color: rgb(64, 64, 64);
+    top: 0;
+}
+
+.claimsPrice {
+    display: grid;
+    grid-area: claimsPrice;
+    grid-template-columns: 45% 55%;
+    grid-template-rows: 100%;
+    grid-template-areas: "priceCost priceWord";
+}
+
+.priceCost {
+    grid-area: priceCost;
+    position: relative;
+}
+
+.priceWord {
+    grid-area: priceWord;
+    position: relative;
+}
+
+.claimsVat {
+    display: grid;
+    grid-area: claimsVat;
+    grid-template-columns: 45% 55%;
+    grid-template-rows: 100%;
+    grid-template-areas: "vatCost vatWord";
+}
+
+.vatCost {
+    grid-area: vatCost;
+    position: relative;
+}
+
+.vatWord {
+    grid-area: vatWord;
+    position: relative;
+}
+
+.priceWords {
+    position: absolute;
+    text-align: left;
+    width: 100%;
+    font-size: 3.5vw;
+    font-weight: bold;
+    color: rgb(64, 64, 64);
+    top: 15%;
+}
+
+.priceAmounts {
+    position: absolute;
+    text-align: left;
+    width: 100%;
+    left: 22.5%;
+    font-size: 6vw;
+    font-weight: bold;
+    color: rgb(64, 64, 64);
+    top: 0;
+}
+
+.claimsButton {
+    display: grid;
+    grid-area: claimsButton;
+    grid-template-columns: 100%;
+    grid-template-rows: 25% 50% 25%;
+    grid-template-areas: "claimsPayWith" "claimsCreditButton" ".";
+}
+
+.claimsPayWith {
+    grid-area: claimsPayWith;
+    position: relative;
+}
+
+.claimsPayWith p {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    font-size: 3.5vw;
+    font-weight: bold;
+    color: rgb(166, 166, 166);
+    top: 0;
+}
+
+.claimsCreditButton {
+    grid-area: claimsCreditButton;
+    position: relative;
+}
+
+.creditCardButton {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    left: 10%;
+    top: 10%;
+    border-radius: 15px;
+    background-color: rgb(99, 200, 242);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.creditCardButton:active {
+    background-color: rgb(5, 104, 146);
+  }
+
+.creditCardButton p {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    top: 25%;
+    text-align: center;
+    color: white;
+    font-weight: thin;
+    font-size: 6vw;
+}

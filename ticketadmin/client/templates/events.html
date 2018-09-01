@@ -1,0 +1,135 @@
+<ion-view view-title="Events">
+    <ion-content scroll = false>
+        <div class = "eventsMenu">
+            <div class="ui transparent icon input fixedMenu">
+                <input class="prompt" type="text" placeholder="Search events..." ng-model="events.searchTerm">
+                <i class="search link icon"></i>
+            </div>
+            <img src = "/img/logout.png" alt = "userPic" ng-click = "events.logout()">
+            <a ng-click = "events.addEvent()">Add Event</a>
+        </div>
+        <ion-content class = "contentView">
+            <div class="ui four stackable cards link cardContainer" style = "padding-top: 10px; padding-left: 10px; padding-right: 10px;">
+                <div class="card raised" ng-repeat="event in events.data | filter: events.searchTerm" ng-click= "events.viewEvent($index)">
+                    <div class="image">
+                        <img src= {{event.picture}}>
+                    </div>
+                    <div class="content">
+                        <a class="header">{{event.name}}</a>
+                        <div class="meta">
+                        <span class="date">{{event.year}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ion-content>
+        <div class="ui longer modal" id = "viewEvent">
+            <i class="close icon"></i>
+            <div class="header">
+                {{events.focusEvent.name}}
+            </div>
+            <div class="image scrolling content">
+                <div class="ui medium image">
+                    <img src = {{events.focusEvent.picture}}>
+                </div>
+                <div class="description" style = "width: 50%">
+                    <div class="ui header">Location</div>
+                    <p>{{events.focusEvent.city}}, {{events.focusEvent.country}}</p>
+                    <div class="ui header">Date</div>
+                    <p>{{events.focusEvent.from}}, {{events.focusEvent.to}}</p>
+                    <div class="ui header">Claims</div>
+                    <p>{{events.focusEvent.claims}}</p>
+                    <div class="ui header">Tickets</div>
+                    <p>{{events.focusEvent.tickets}}</p>
+                    <div class="ui header">Winner</div>
+                    <p>{{events.focusEvent.winner.profile.firstname}} {{events.focusEvent.winner.profile.lastname}} <br> @{{events.focusEvent.winner.username}}</p>
+                    <div class="ui header">Description</div>
+                    <p>{{events.focusEvent.about}}</p>
+                </div>
+            </div>
+            <div class="actions">
+              <div class="ui button">Edit</div>
+              <div class="ui button" ng-click = "events.deleteEvent(events.focusEvent._id)">Delete</div>
+            </div>
+        </div>
+
+        <div class="ui longer modal" id = "addEvent">
+            <i class="close icon"></i>
+            <div class="header">
+                New Event
+            </div>
+            <div class="image scrolling content">
+                <div class="ui medium image">
+                    <img src = "/img/placeholder.png" id = "uploadImage">
+                    <br><br>
+                    <input type="file" id = "fileInput">
+                </div>
+                <div class="description">
+                    <form class="ui form" style = "height: 100%; top: 0; width: 100%">
+                        <div class="field" id = "name">
+                          <label>Name</label>
+                          <input type="text" name="name" placeholder="Name" ng-model="events.name" onclick = "$('#name').removeClass('error');">
+                        </div>
+                        <label>Date From</label>
+                        <div class="fields">
+                            <div class="field" id = "df">
+                              <label>Day</label>
+                              <input type="number" placeholder="Day" ng-model="events.dayFrom" onclick = "$('#df').removeClass('error');">
+                            </div>
+                            <div class="field" id = "mf">
+                                <label>Month</label>
+                                <input type="number" placeholder="Month" ng-model="events.monthFrom" onclick = "$('#mf').removeClass('error');">
+                            </div>
+                            <div class="field" id = "yf">
+                                <label>Year</label>
+                                <input type="number" placeholder="Year" ng-model="events.yearFrom" onclick = "$('#yf').removeClass('error');">
+                            </div>
+                        </div>
+                        <label>Date To</label>
+                        <div class="fields">
+                            <div class="field" id = "dt">
+                                <label>Day</label>
+                                <input type="number" placeholder="Day" ng-model="events.dayTo" onclick = "$('#dt').removeClass('error');">
+                            </div>
+                            <div class="field" id = "mt">
+                                <label>Month</label>
+                                <input type="number" placeholder="Month" ng-model="events.monthTo" onclick = "$('#mt').removeClass('error');">
+                            </div>
+                            <div class="field" id = "yt">
+                                <label>Year</label>
+                                <input type="number" placeholder="Year" ng-model="events.yearTo" onclick = "$('#yt').removeClass('error');">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>Location</label>
+                            <div class="two fields">
+                                <div class="field" id = "city">
+                                    <input type="text" name="city" placeholder="City" ng-model="events.city" onclick = "$('#city').removeClass('error');">
+                                </div>
+                                <div class="field" id = "country">
+                                    <input type="text" name="country" placeholder="Country" ng-model="events.country" onclick = "$('#country').removeClass('error');">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field" id = "cost">
+                            <label>Claims Cost</label>
+                            <input type="number" name="claims" placeholder="Claims" ng-model="events.claims" onclick = "$('#cost').removeClass('error');">
+                        </div>
+                        <div class="field" id = "tickets">
+                            <label>Tickets</label>
+                            <input type="number" name="tickets" placeholder="Tickets" ng-model="events.tickets" onclick = "$('#tickets').removeClass('error');">
+                        </div>
+                        <div class="field" id = "about">
+                            <label>About</label>
+                            <textarea placeholder="Short description" ng-model="events.about" maxlength = "250" onclick = "$('#about').removeClass('error');"></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="actions">
+              <div class="ui button" ng-click = "events.addNewEvent()">Add</div>
+              <div class="ui cancel button">Cancel</div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
