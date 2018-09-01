@@ -2,10 +2,10 @@
 <ion-content scroll = "false">
   {{profile.getUser}}
 
-    <div class="grid-containerProfile">
+    <div class="grid-containerProfile" id = "profileContainer">
       <div class="profileHeader">
         <div class = "profileTitle"><p>Profile</p></div>
-        <div class = "menuIcon"><img src = "/img/menu.png" alt = "menu" onclick="$('.profileModal').modal({blurring: true}).modal('setting', 'transition', 'fade up').modal('show');"></div>
+        <div class = "menuIcon"><img src = "/img/menu.png" alt = "menu" ng-click = "profile.openMenu()"></div>
       </div>
       <div class="profileInfo">
         <div class="profileText">
@@ -27,29 +27,29 @@
       </div>
     </div>
 
-    <div class="ui modal fullscreen basic profileModal" style="background-color: transparent">
+    <div class = "slideUpMenu" id = "profileMenu">
       <div class="containerMenu">
-        <div class="top">
-          <span class = "roundedBorder"></span>
-          <div class="profilePicture">
-              <div class="circlePic" id = "picThing" ><img src= {{profile.user.profile.picture}}></div>
-              <div class="picLef"><div class = "leftShoulder"></div></div>
-              <div class="picRight"><div class = "rightShoulder"></div></div>
+        <div class = "halfCover"></div>
+          <div class="top">
+              <div class="profilePicture">
+                  <div class="circlePic" id = "picThing" ><img src= {{profile.user.profile.picture}}></div>
+                  <div class="picLef"><div class = "leftShoulder"></div></div>
+                  <div class="picRight"><div class = "rightShoulder"></div></div>
+              </div>
+              <div class="menuName"><p>@{{profile.user.username}}</p></div>
+              <div class="blank"></div>
           </div>
-          <div class="menuName"><p>@{{profile.user.username}}</p></div>
-          <div class="blank"></div>
-        </div>
-        <div class="bottom">
-          <div class="homeButton"><div class = "myButton" href = "#/events" ng-click="profile.goTo('events')"><p>Home</p></div></div>
-          <div class="activityButton"><div class = "myButton" href = "#/activity" ng-click="profile.goTo('activity')"><p>Activity</p></div></div>
-          <div class="profileButton"><div class = "myButton" href = "#/profile" ng-click="profile.goTo('profile')"><p>Profile</p></div></div>
-          <div class="searchButton"><div class = "myButton" href = "#/events" ng-click="profile.goTo('search')"><p>Search</p></div></div>
-          <div class="exitArea">
-              <div class="exitButton"><img src = "/img/exit.png" alt = "exit" ng-click="profile.closeMenu()"></div>
-              <div class="exitLeft"></div>
-              <div class="exitRight"></div>
+          <div class="bottom">
+              <div class="homeButton"><div class = "myButton" href = "#/events" ng-click="profile.goTo('events')"><p>Home</p></div></div>
+              <div class="activityButton"><div class = "myButton" href = "#/activity" ng-click="profile.goTo('activity')"><p>Activity</p></div></div>
+              <div class="profileButton"><div class = "myButton" href = "#/profile" ng-click="profile.goTo('profile')"><p>Profile</p></div></div>
+              <div class="searchButton"><div class = "myButton" ng-click = "profile.goTo('search')"><p>Search</p></div></div>
+              <div class="exitArea">
+                  <div class="exitButton"><img src = "/img/exit.png" alt = "exit" ng-click = "profile.closeMenu()"></div>
+                  <div class="exitLeft"></div>
+                  <div class="exitRight"></div>
+              </div>
           </div>
-        </div>
       </div>
     </div>
 

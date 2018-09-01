@@ -5,6 +5,7 @@
   grid-template-rows: 2% 10% 40% 45%;
   grid-template-areas: "." "profileHeader" "profileInfo" "profileButtons";
   font-family: 'Lato', sans-serif;
+  transition: all 0.4s ease-in-out;
 }
 
 .profileHeader {

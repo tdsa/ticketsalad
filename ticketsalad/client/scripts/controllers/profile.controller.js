@@ -10,11 +10,11 @@ all javascript functions along with the state controllers are placed here.
 */
 import { Controller } from 'angular-ecmascript/module-helpers';
 import { MeteorCameraUI } from 'meteor/okland:camera-ui';
- 
+
 export default class ProfileCtrl extends Controller {
   constructor() {
     super(...arguments);
-    
+
     this.helpers({
       getUser(){
         this.user = Meteor.user();
@@ -34,7 +34,7 @@ export default class ProfileCtrl extends Controller {
   logout() //logs the user out (makes meteor.user = null)
   {
     Meteor.logout();
-    
+
     this.user = null;
     this.$state.go('launch');
   }
@@ -52,7 +52,7 @@ export default class ProfileCtrl extends Controller {
       this.$state.go('launch');
     }
   }
-  
+
   buyCredits() // change view to the buyCrdits screen
   {
     this.$state.go('buyCredits');
@@ -60,26 +60,34 @@ export default class ProfileCtrl extends Controller {
 
   goTo(destination)
   {
-    $(".profileModal").modal("hide");
+    this.closeMenu()
 
     if(destination == "search")
     {
-      $('.eventsSearch').modal({inverted: true}).modal('setting', 'transition', 'fade up').modal('show');
+      $('eventsSearchModal').addClass('slideUpMenuHide');
       destination = "events";
     }
+
     this.$state.go(destination);
+  }
+
+  openMenu()
+  {
+    $('#profileMenu').addClass('slideUpMenuHide');
+    $('#profileContainer').addClass('blur');
   }
 
   closeMenu()
   {
-    $(".profileModal").modal("hide");
+    $('#profileMenu').removeClass('slideUpMenuHide');
+    $('#profileContainer').removeClass('blur');
   }
 
-  updatePicture () 
+  updatePicture ()
   {
     MeteorCameraUI.getPicture({ width: 300, height: 300 }, (err, data) => {
       if (err) return this.handleError(err);
- 
+
       this.callMethod('updatePicture', data, (err) => {
         //this.handleError(err);
       });
@@ -90,6 +98,6 @@ export default class ProfileCtrl extends Controller {
     if (err.error == 'cancel') return;
   }
 }
- 
+
 ProfileCtrl.$name = 'ProfileCtrl'; //To refer to the controller in scope
 ProfileCtrl.$inject = ['$state', '$ionicLoading', '$ionicPopup', '$log']; // Adds the controller to the routes config
