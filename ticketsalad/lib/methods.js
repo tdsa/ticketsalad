@@ -1,10 +1,10 @@
 import { Meteor } from 'meteor/meteor';
-import { Events, Notifications } from '../lib/collections';
+import { Events, Notifications, Cards } from '../lib/collections';
 import { Email } from 'meteor/email'
 import { Accounts } from 'meteor/accounts-base'
 
 Meteor.methods({
-  
+
     updatePicture(data)
     {
         if (!this.userId) {
