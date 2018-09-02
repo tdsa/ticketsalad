@@ -180,6 +180,7 @@ export default class EventsCtrl extends Controller
         $(".dg" + i).css("background-color", "rgb(182, 234, 130)");
         $(".idg" + i).css("background-color", "transparent");
       }
+      
       $(".greenWin").css("background-color", "rgb(182, 234, 130)");
       $(".filler").css("background-color", "rgb(182, 234, 130)");
       $(".eventsHeader").css("background-color", "rgb(182, 234, 130)");

@@ -39,6 +39,7 @@ export default class BuyCreditsCtrl extends Controller {
       });
 
       this.amount = 0;
+      this.inProgress = false;
     }
 
     exit()
@@ -55,9 +56,10 @@ export default class BuyCreditsCtrl extends Controller {
       console.log("Actual result: " + parseInt(this.amount));
     }
 
-    chooseCard()
+    showCreditCards()
     {
       $('#creditCardsModal').addClass('slideUpMenuHide');
+      this.inProgress = true;
     }
 
     exitCreditCards()
@@ -65,9 +67,80 @@ export default class BuyCreditsCtrl extends Controller {
       $('#creditCardsModal').removeClass('slideUpMenuHide');
     }
 
-    addCard()
+    addNewCard()
     {
       $('#addCardModal').addClass('slideUpMenuHide');
+    }
+
+    exitAddNewCard()
+    {
+      $('#addCardModal').removeClass('slideUpMenuHide');
+    }
+
+    finishAddCard()
+    {
+      if(this.cardNumber == null)
+      {
+        console.log("Error, no account number");
+        return;
+      }
+      if(this.name == null)
+      {
+        console.log("Error, no name");
+        return;
+      }
+      if(this.expiry == null)
+      {
+        console.log("Error, no expiry date given");
+        return;
+      }
+      if(this.cvc == null)
+      {
+        console.log("Error, no cvc");
+        return;
+      }
+
+      var cardType = null;
+      var cardPic = null;
+
+      if(this.cardNumber.substr(0) == '4')
+      {
+        cardType = "visa";
+        cardPic = "img/visa.png";
+      }
+      else if(parseInt(this.cardNumber.substr(0,1)) >= 51 || parseInt(this.cardNumber.substr(0,1)) <= 55)
+      {
+        cardType = "master"
+        cardPic = "img/master.png";
+      }
+      else
+      {
+        console.log("Error, card number incorrect");
+        return;
+      }
+
+      Cards.insert(
+      {
+        name: this.name,
+        number: this.cardNumber,
+        date: this.expiry,
+        cvc: this.cvc,
+        type: cardType,
+        picture: cardPic,
+      });
+
+      this.exitAddNewCard()
+    }
+
+    completePurchase()
+    {
+      if(this.inProgress == true)
+      {
+        this.pay();
+      }
+
+      this.inProgress = false;
+      this.exitCreditCards();
     }
 
     pay()
