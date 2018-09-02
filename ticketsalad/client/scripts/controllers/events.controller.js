@@ -98,6 +98,12 @@ export default class EventsCtrl extends Controller
 
     claim()
     {
+      if(this.user.profile.completed == 0)
+      {
+        console.log("User has not completed profile!");
+        $('.modal').modal({blurring: true}).modal('setting', 'transition', 'fade').modal('show');
+        return;
+      }
       var claimIndex = this.mySwiper.realIndex;
 
       if(this.claimed == true)
@@ -180,7 +186,7 @@ export default class EventsCtrl extends Controller
         $(".dg" + i).css("background-color", "rgb(182, 234, 130)");
         $(".idg" + i).css("background-color", "transparent");
       }
-      
+
       $(".greenWin").css("background-color", "rgb(182, 234, 130)");
       $(".filler").css("background-color", "rgb(182, 234, 130)");
       $(".eventsHeader").css("background-color", "rgb(182, 234, 130)");

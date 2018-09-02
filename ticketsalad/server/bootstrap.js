@@ -25,7 +25,6 @@ Meteor.startup(function()
             var digit = Math.floor((Math.random() * 10));
             code += digit + "";
         }
-        //Console.log(code);
         return code;
     }
 
@@ -131,30 +130,5 @@ Meteor.startup(function()
 
     events.forEach((event) => {
         const eventId = Events.insert(event); //Inserts into collections
-    });
-
-    Cards.remove({});
-
-    const cards = [
-    {
-        name: 'MR TJA JOSEPH',
-        number: "1234567812345678",
-        date: "08/2018",
-        cvc: "123",
-        type: "visa",
-        picture: "img/visa.png",
-    },
-    {
-        name: 'MISS L BURRELL',
-        number: "1234567812341123",
-        date: "06/2019",
-        cvc: "123",
-        type: "master",
-        picture: "img/master.png",
-    }
-  ];
-
-    cards.forEach((card) => {
-        const cardId = Cards.insert(card); //Inserts into collections
     });
 });

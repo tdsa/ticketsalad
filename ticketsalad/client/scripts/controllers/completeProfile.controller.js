@@ -1,6 +1,6 @@
 import { _ } from 'meteor/underscore';
 import { Controller } from 'angular-ecmascript/module-helpers';
- 
+
 export default class CompleteProfileCtrl extends Controller {
 
     constructor() {
@@ -38,16 +38,14 @@ export default class CompleteProfileCtrl extends Controller {
 
         Meteor.users.update(id, {$set: {"profile.dob": this.dob}});
         Meteor.users.update(id, {$set: {"profile.gender": this.gender}});
-
-        Meteor.users.update(id, {$set: {"profile.completed": true}});
+        Meteor.users.update(id, {$set: {"profile.completed": 1}});
 
         this.callMethod('updateEmail', this.email);
-
-        //this.callMethod('verifyEmailAddress', id);        
+        //this.callMethod('verifyEmailAddress');        
         this.resetAll();
         this.$state.go('events');
     }
-    
+
     resetAll()
     {
         $(".completeInstructions").text("Create an account to continue").css("color", "rgb(150, 196, 239)");
