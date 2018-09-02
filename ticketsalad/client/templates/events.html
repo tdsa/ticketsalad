@@ -46,7 +46,7 @@
               </div>
               <div class="eventsMsg"><p class = "instruction">Enter a unique code...</p></div>
               <div class="eventsCode">
-                  <input class = "overlay" type = "text" pattern="[0-9]*" ng-model="events.code" maxlength="6">
+                  <input class = "overlay" type = "text" pattern = "[0-9]*" ng-model="events.code" maxlength="6">
                   <div class="d1"><div class = "digit dg1"><div class = "innerDigit idg1"></div><p class = "digitOverLay">{{events.code[0]}}</p></div></div>
                   <div class="d2"><div class = "digit dg2"><div class = "innerDigit idg2"></div><p class = "digitOverLay">{{events.code[1]}}</p></div></div>
                   <div class="d3"><div class = "digit dg3"><div class = "innerDigit idg3"></div><p class = "digitOverLay">{{events.code[2]}}</p></div></div>
@@ -90,7 +90,7 @@
                 <div class = "searchBox"><input type="text" placeholder = "Start typing here..." ng-model = "events.searchTerm"></div>
                 <div class="searchBody">
                     <ion-content class = "searchList">
-                        <div class="item" ng-repeat="event in events.data | filter: events.searchTerm" ng-click = "events.findItem(event)">
+                        <div class = "item" ng-repeat = "event in events.data | filter: events.searchTerm" ng-click = "events.findItem(event)">
                             <b>{{event.name}} - {{event.year}}</b> <br> {{event.city}}, {{event.country}}
                         </div>
                     </ion-content>

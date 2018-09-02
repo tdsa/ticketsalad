@@ -10,7 +10,7 @@ all javascript functions along with the state controllers are placed here.
 */
 import { _ } from 'meteor/underscore';
 import { Controller } from 'angular-ecmascript/module-helpers';
-import { Events, Notifications } from '../../../lib/collections';
+import { Events, Notifications, Cards } from '../../../lib/collections';
 import Moment from 'moment';
 
 export default class BuyCreditsCtrl extends Controller {
@@ -31,6 +31,10 @@ export default class BuyCreditsCtrl extends Controller {
                 console.log("No user logged in!");
                 this.$state.go('launch');
             }
+        },
+        getCards()
+        {
+          return Cards.find();
         }
       });
 
@@ -45,17 +49,32 @@ export default class BuyCreditsCtrl extends Controller {
 
     option(add)
     {
-      console.log("Current amount: " + this.amount);
-      console.log("Expected result: " + parseInt(this.amount) + add);
-      this.amount = parseInt(this.amount) + add;
+      console.log("Current amount: " + parseInt(this.amount));
+      console.log("Expected result: " + (parseInt(this.amount) + parseInt(add)));
+      this.amount = parseInt(this.amount) + parseInt(add);
       console.log("Actual result: " + parseInt(this.amount));
+    }
+
+    chooseCard()
+    {
+      $('#creditCardsModal').addClass('slideUpMenuHide');
+    }
+
+    exitCreditCards()
+    {
+      $('#creditCardsModal').removeClass('slideUpMenuHide');
+    }
+
+    addCard()
+    {
+      $('#addCardModal').addClass('slideUpMenuHide');
     }
 
     pay()
     {
       this.total = 2*parseInt(this.amount);
       var userClaims = this.user.profile.credits;
-      var userClaims = userClaims + parseInt(this.amount);
+      var userClaims = parseInt(userClaims) + parseInt(this.amount);
       Meteor.users.update(this.user._id, {$set: {"profile.credits": userClaims}});
 
       var notificationID = Notifications.insert({
