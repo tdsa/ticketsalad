@@ -138,18 +138,18 @@ Meteor.startup(function()
     const cards = [
     {
         name: 'MR TJA JOSEPH',
-        number: "1234 5678 1234 5678",
+        number: "1234567812345678",
         date: "08/2018",
-        cvv: "123",
-        type: "VISA",
+        cvc: "123",
+        type: "visa",
         picture: "img/visa.png",
     },
     {
         name: 'MISS L BURRELL',
-        number: "1234 5678 1234 1123",
+        number: "1234567812341123",
         date: "06/2019",
-        cvv: "123",
-        type: "MASTER",
+        cvc: "123",
+        type: "master",
         picture: "img/master.png",
     }
   ];

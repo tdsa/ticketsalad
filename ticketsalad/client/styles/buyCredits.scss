@@ -1,3 +1,8 @@
+input[type = "date"] {
+-webkit-appearance: none;
+border-radius: 0;
+}
+
 .grid-containerBuyClaims {
     display: grid;
     height: 100%;
@@ -412,248 +417,246 @@
     display: grid;
     height: 100%;
     grid-template-columns: 100%;
-    grid-template-rows: 20% 65% 15%;
-    grid-template-areas: "addCardHeader" "addCardDetails" "addCardActions";
+    grid-template-rows: 10% 10% 65% 15%;
+    grid-template-areas: "addCardHeader" "." "addCardDetails" "addCardActions";
     font-family: 'Lato', sans-serif;
   }
 
-  .addCardHeader {
-    display: grid;
-    grid-area: addCardHeader;
-    grid-template-columns: 100%;
-    grid-template-rows: 40% 60%;
-    grid-template-areas: "addCardHeaderTitle" ".";
-  }
+.addCardHeader {
+  display: grid;
+  grid-area: addCardHeader;
+  grid-template-columns: 75% 25%;
+  grid-template-rows: 100%;
+  grid-template-areas: "addCardHeaderTitle addCardHeaderExit";
+}
 
-  .addCardHeaderTitle {
-    grid-area: addCardHeaderTitle;
-    position: relative;
-  }
+.addCardHeaderTitle {
+  grid-area: addCardHeaderTitle;
+  position: relative;
+}
 
-  .addCardHeaderTitle p
-  {
+.addCardHeaderTitle p
+{
+  position: absolute;
+  top: 29%;
+  left: 7.5%;
+  font-size: 8vw;
+  font-weight: bold;
+  line-height: 1;
+  color: rgb(64, 64, 64);
+}
+
+.addCardHeaderExit {
+  grid-area: addCardHeaderExit;
+  position: relative;
+}
+
+.addCardHeaderExit img {
     position: absolute;
-    bottom: 2.5%;
-    left: 7.5%;
-    font-size: 8vw;
-    font-weight: bold;
-    color: rgb(64, 64, 64);
-  }
+    width: 20%;
+    top: 35%;
+    left: 36.5%;
+}
 
-  .addCardDetails {
-    display: grid;
-    grid-area: addCardDetails;
-    grid-template-columns: 100%;
-    grid-template-rows: 14.28% 14.28% 14.28% 57.16%;
-    grid-template-areas: "addCardNumber" "addCardName" "addCardTwoInputs" "." "." "." ".";
-  }
+.addCardDetails {
+  display: grid;
+  grid-area: addCardDetails;
+  grid-template-columns: 100%;
+  grid-template-rows: 14.28% 14.28% 14.28% 57.16%;
+  grid-template-areas: "addCardNumber" "addCardName" "addCardTwoInputs" "." "." "." ".";
+}
 
-  .addCardNumber {
-    display: grid;
-    grid-area: addCardNumber;
-    grid-template-columns: 100%;
-    grid-template-rows: 30% 70%;
-    grid-template-areas: "addCardNumberTitle" "addCardNumberInput";
-  }
+.addCardNumber {
+  display: grid;
+  grid-area: addCardNumber;
+  grid-template-columns: 100%;
+  grid-template-rows: 30% 70%;
+  grid-template-areas: "addCardNumberTitle" "addCardNumberInput";
+}
 
-  .addCardNumberTitle {
-    grid-area: addCardNumberTitle;
-    position: relative;
-  }
+.addCardNumberTitle {
+  grid-area: addCardNumberTitle;
+  position: relative;
+}
 
-  .addCardNumberInput {
-    grid-area: editProfileUserInput;
-    position: relative;
-  }
+.addCardNumberInput {
+  grid-area: addCardNumberInput;
+  position: relative;
+}
 
-  .addCardNumberTitle p {
-    position: absolute;
-    color: rgb(216, 216, 216);
-    font-size: 4.3vw;
-    left: 9%;
-  }
+.addCardNumberTitle p {
+  position: absolute;
+  color: rgb(216, 216, 216);
+  font-size: 4.3vw;
+  left: 10%;
+}
 
-  .addCardNumberInput input {
-    position: absolute;
-    color: black;
-    font-size: 4.3vw;
-    left: 9%;
-    width: 82%;
-    border-bottom: solid 1.5px rgb(150, 196, 239);
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    top: 3%;
-    padding-bottom: 2%;
-    height: 80%;
-  }
+.addCardNumberInput input {
+  position: absolute;
+  color: black;
+  font-size: 4.3vw;
+  left: 10%;
+  width: 80%;
+  border-bottom: solid 1.5px rgb(150, 196, 239);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  top: 3%;
+  padding-bottom: 2%;
+  height: 80%;
+}
 
-  .addCardName {
-    grid-area: addCardName;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 30% 70%;
-    grid-template-areas: "addCardNameTitle" "addCardNameInput";
-  }
+.addCardName {
+  grid-area: addCardName;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 30% 70%;
+  grid-template-areas: "addCardNameTitle" "addCardNameInput";
+}
 
-  .addCardNameTitle {
-    grid-area: addCardNameTitle;
-    position: relative;
-  }
+.addCardNameTitle {
+  grid-area: addCardNameTitle;
+  position: relative;
+}
 
-  .addCardNameInput {
-    grid-area: addCardNameInput;
-    position: relative;
-  }
+.addCardNameInput {
+  grid-area: addCardNameInput;
+  position: relative;
+}
 
-  .addCardNameTitle p {
-    position: absolute;
-    color: rgb(216, 216, 216);
-    font-size: 4.3vw;
-    left: 9%;
-  }
+.addCardNameTitle p {
+  position: absolute;
+  color: rgb(216, 216, 216);
+  font-size: 4.3vw;
+  left: 10%;
+}
 
-  .addCardNameInput input {
-    position: absolute;
-    color: black;
-    font-size: 4.3vw;
-    left: 9%;
-    width: 82%;
-    border-bottom: solid 1.5px rgb(150, 196, 239);
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    top: 3%;
-    padding-bottom: 2%;
-    height: 80%;
-  }
+.addCardNameInput input {
+  position: absolute;
+  color: black;
+  font-size: 4.3vw;
+  left: 10%;
+  width: 80%;
+  border-bottom: solid 1.5px rgb(150, 196, 239);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  top: 3%;
+  padding-bottom: 2%;
+  height: 80%;
+}
 
-  .addCardTwoInputs {
-    grid-area: addCardTwoInputs;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    left: 9%;
-    width: 82%;
-    grid-template-rows: 100%;
-    grid-template-areas: "addCardExpiry addCardCVC";
-  }
+.addCardTwoInputs {
+  grid-area: addCardTwoInputs;
+  display: grid;
+  grid-template-columns: 10% 40% 40% 10%;
+  grid-template-rows: 100%;
+  grid-template-areas: ". addCardExpiry addCardCVC .";
+}
 
-  .addCardExpiry {
-    grid-area: addCardExpiry;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 30% 70%;
-    grid-template-areas: "addCardExpiryTitle" "addCardExpiryInput";
-  }
+.addCardExpiry {
+  grid-area: addCardExpiry;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 30% 70%;
+  grid-template-areas: "addCardExpiryTitle" "addCardExpiryInput";
+}
 
-  .addCardExpiryTitle {
-    grid-area: addCardExpiryTitle;
-    position: relative;
-  }
+.addCardExpiryTitle {
+  grid-area: addCardExpiryTitle;
+  position: relative;
+}
 
-  .addCardExpiryInput {
-    grid-area: addCardExpiryInput;
-    position: relative;
-  }
+.addCardExpiryInput {
+  grid-area: addCardExpiryInput;
+  position: relative;
+}
 
-  .addCardExpiryTitle p {
-    position: absolute;
-    color: rgb(216, 216, 216);
-    font-size: 4.3vw;
-    left: 9%;
-  }
+.addCardExpiryTitle p {
+  position: absolute;
+  color: rgb(216, 216, 216);
+  font-size: 4.3vw;
+}
 
-  .addCardExpiryInput input {
-    position: absolute;
-    color: black;
-    font-size: 4.3vw;
-    border-bottom: solid 1.5px rgb(150, 196, 239);
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    top: 3%;
-    padding-bottom: 2%;
-    height: 80%;
-  }
+.addCardExpiryInput input {
+  position: absolute;
+  color: black;
+  font-size: 4.3vw;
+  border-bottom: solid 1.5px rgb(150, 196, 239);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  top: 3%;
+  padding-bottom: 2%;
+  height: 80%;
+  width: 90%;
+  left: 0;
+}
 
-  .addCardCVC {
-    grid-area: addCardCVC;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 30% 70%;
-    grid-template-areas: "addCardCVCTitle" "addCardCVCInput";
-  }
+.addCardCVC {
+  grid-area: addCardCVC;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 30% 70%;
+  grid-template-areas: "addCardCVCTitle" "addCardCVCInput";
+}
 
-  .addCardCVCTitle {
-    grid-area: addCardCVCTitle;
-    position: relative;
-  }
+.addCardCVCTitle {
+  grid-area: addCardCVCTitle;
+  position: relative;
+}
 
-  .addCardCVCInput {
-    grid-area: addCardCVCInput;
-    position: relative;
-  }
+.addCardCVCInput {
+  grid-area: addCardCVCInput;
+  position: relative;
+}
 
-  .addCardCVCTitle p {
-    position: absolute;
-    color: rgb(216, 216, 216);
-    font-size: 4.3vw;
-    left: 9%;
-  }
+.addCardCVCTitle p {
+  position: absolute;
+  color: rgb(216, 216, 216);
+  font-size: 4.3vw;
+}
 
-  .addCardCVCInput input {
-    position: absolute;
-    color: black;
-    font-size: 4.3vw;
-    border-bottom: solid 1.5px rgb(150, 196, 239);
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    top: 3%;
-    padding-bottom: 2%;
-    height: 80%;
-  }
+.addCardCVCInput input {
+  position: absolute;
+  color: black;
+  font-size: 4.3vw;
+  border-bottom: solid 1.5px rgb(150, 196, 239);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  top: 3%;
+  padding-bottom: 2%;
+  height: 80%;
+  width: 90%;
+  left: 0;
+}
 
-  .inputP {
-    position: absolute;
-    color: black;
-    font-size: 4.3vw;
-    left: 9%;
-    width: 82%;
-    border-bottom: solid 1.5px rgb(150, 196, 239);
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    top: 3%;
-    padding-bottom: 2%;
-    height: 80%;
-  }
+.buttonAddCard {
+  position: absolute;
+  width: 80%;
+  height: 15vw;
+  background-color: rgb(99, 200, 242);
+  border-radius: 10px;
+  left: 10%;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+}
 
-  .buttonAddCard {
-    position: absolute;
-    width: 80%;
-    height: 15vw;
-    background-color: rgb(99, 200, 242);
-    border-radius: 10px;
-    left: 10%;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
-  }
+.buttonAddCard:active {
+  background-color: rgb(5, 104, 146);
+}
 
-  .buttonAddCard:active {
-    background-color: rgb(5, 104, 146);
-  }
+.buttonAddCard p {
+  position: absolute;
+  color: white;
+  height: 50%;
+  width: 100%;
+  text-align: center;
+  top: 25%;
+  font-size: 5.5vw;
+}
 
-  .buttonAddCard p {
-    position: absolute;
-    color: white;
-    height: 50%;
-    width: 100%;
-    text-align: center;
-    top: 25%;
-    font-size: 5.5vw;
-  }
-
-  .addCardActions {
-    grid-area: addCardActions;
-    position: relative;
-  }
+.addCardActions {
+  grid-area: addCardActions;
+  position: relative;
+}
