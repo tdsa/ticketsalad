@@ -1,7 +1,6 @@
 <ion-view title="Profile" ng-load="profile.reload()">
 <ion-content scroll = "false">
   {{profile.getUser}}
-
     <div class="grid-containerProfile" id = "profileContainer">
       <div class="profileHeader">
         <div class = "profileTitle"><p>Profile</p></div>
@@ -51,6 +50,16 @@
               </div>
           </div>
       </div>
+    </div>
+
+    <div class = "slideUpMenu flexCenter" id = "completeDetailsPopUpProfile">
+        <div class="grid-containerPopUp">
+            <div class="popUpMessage flexCenter"><p>You need to complete your profile information before you can buy claims!</p></div>
+            <div class="popUpActions">
+                <div class="popUpAction1 flexCenter" ng-click = "profile.closePopUp()"><p>Later</p></div>
+                <div class="popUpAction2 flexCenter" ng-click = "profile.completeDetails()"><p>Okay</p></div>
+            </div>
+        </div>
     </div>
 
   </ion-content>

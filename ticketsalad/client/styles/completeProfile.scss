@@ -15,7 +15,7 @@ input[type = "date"] {
     display: grid;
     grid-area: completeProfileHeader;
     grid-template-columns: 100%;
-    grid-template-rows: 40% 60%;
+    grid-template-rows: 60% 40%;
     grid-template-areas: "completeProfileHeaderTitle" "completeProfileHeaderMsg";
   }
 

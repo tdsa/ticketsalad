@@ -44,6 +44,7 @@ export default class SignupCtrl extends Controller {
         isAdmin: 0,
         subscribedEvents: [],
         notifications: [],
+        cards: [],
       }
     }, function (err) {
       if (!err) {

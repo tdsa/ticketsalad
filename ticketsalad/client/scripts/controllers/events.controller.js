@@ -101,7 +101,7 @@ export default class EventsCtrl extends Controller
       if(this.user.profile.completed == 0)
       {
         console.log("User has not completed profile!");
-        $('.modal').modal({blurring: true}).modal('setting', 'transition', 'fade').modal('show');
+        this.openPopUp()
         return;
       }
       var claimIndex = this.mySwiper.realIndex;
@@ -256,6 +256,24 @@ export default class EventsCtrl extends Controller
       this.claimed = false;
       this.resetCode();
       return;
+    }
+
+    openPopUp()
+    {
+      $('#completeDetailsPopUp').addClass('slideUpMenuHide');
+      $('#eventsContainer').addClass('blur');
+    }
+
+    closePopUp()
+    {
+      $('#completeDetailsPopUp').removeClass('slideUpMenuHide');
+      $('#eventsContainer').removeClass('blur');
+    }
+
+    completeDetails()
+    {
+      this.closePopUp();
+      this.$state.go("completeProfile");
     }
 
     goTo(destination)

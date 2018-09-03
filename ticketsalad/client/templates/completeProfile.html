@@ -3,10 +3,10 @@
         <div class="grid-containerCompleteProfile">
             <div class="completeProfileHeader">
                 <div class="completeProfileHeaderTitle">
-                    <div class="completeProfileHeaderTitleWord"><p>Welcome!</p></div>
-                    <div class="completeProfileHeaderBack"><img src = "/img/back.png" alt = "back" ng-click="completeProfile.back()" href = "#/signUp"></div>
+                    <div class="completeProfileHeaderTitleWord"><p>Complete Your Profile</p></div>
+                    <div class="completeProfileHeaderBack"><img src = "/img/back.png" alt = "back" ng-click="completeProfile.back()" href = "#/events"></div>
                 </div>
-                <div class="completeProfileHeaderMsg"><p class = "completeInstructions">Create an account to continue</p></div>
+                <div class="completeProfileHeaderMsg"><p class = "completeInstructions">Fill in your details to start claiming</p></div>
             </div>
             <div class="completeProfileDetails">
                 <div class="completeProfileUser">
@@ -31,7 +31,7 @@
                 <div class="terms"><center><input class = "check" style = "display: inline" type = "checkbox" required = "true" ><p style = "display: inline" ng-click="completeProfile.terms()" href = "#/termsConditions.html">&emsp; I agree that I have read and understood the <b>Terms &amp; Conditions</b></p></center></div>
             </div>
             <div class="completeProfileActions">
-                <div class = "buttonNext" ng-click="completeProfile.signUp()" href="#/login"><p>Sign Up</p></div>
+                <div class = "buttonNext" ng-click = "completeProfile.finish()" href = "#/events"><p>Sign Up</p></div>
             </div>
         </div>
     </ion-content>

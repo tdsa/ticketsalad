@@ -98,14 +98,14 @@
             </div>
           </div>
 
-          <div class="ui mini modal">
-            <div class="content">
-              <p>You need to complete your details before you can claim!</p>
-            </div>
-            <div class="actions">
-              <div class="ui approve button">Okay</div>
-              <div class="ui cancel button">Later</div>
-            </div>
+          <div class = "slideUpMenu flexCenter" id = "completeDetailsPopUp">
+              <div class="grid-containerPopUp">
+                  <div class="popUpMessage flexCenter"><p>You need to complete your profile information before you can claim!</p></div>
+                  <div class="popUpActions">
+                      <div class="popUpAction1 flexCenter" ng-click = "events.closePopUp()"><p>Later</p></div>
+                      <div class="popUpAction2 flexCenter" ng-click = "events.completeDetails()"><p>Okay</p></div>
+                  </div>
+              </div>
           </div>
 
       </ion-content>

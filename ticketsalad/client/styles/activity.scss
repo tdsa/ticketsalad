@@ -67,33 +67,53 @@
     padding-right: 5%;
 }
 
+.grid-containerNotification {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 100%;
+  grid-template-areas: "notificationPicture notificationMessage";
+}
+
+.notificationPicture {
+  grid-area: notificationPicture;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notificationPicture img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.notificationMessage {
+  grid-area: notificationMessage;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 15%;
+}
+
+.notificationMessage p {
+  font-weight: 900;
+  font-size: 15px;
+  color: rgb(177, 177, 177);
+  text-align: center;
+}
+
 .notification {
-    position: relative;
-    width: 100%;
-    min-height: 90px;
-    height: auto;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
-    display: block;
-    margin: 20px auto;
-    padding: 10px;
+  width: 100%;
+  height: 100px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  margin: 20px auto;
 }
 
-.notification img {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-.notification p {
-    position: absolute;
-    font-weight: bold;
-    text-align: center;
-    padding-left: 70px;
-    padding-right: 30px;
-    font-size: 15px;
-    color: rgb(177, 177, 177);
-    vertical-align: middle;
+.flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
