@@ -34,7 +34,7 @@ export default class BuyCreditsCtrl extends Controller {
         },
         getCards()
         {
-          return Cards.find();
+          return Cards.find({_id: {$in: Meteor.user().profile.cards}});
         }
       });
 
@@ -58,6 +58,11 @@ export default class BuyCreditsCtrl extends Controller {
 
     showCreditCards()
     {
+      if(this.total == 0.00)
+      {
+        return;
+      }
+
       $('#creditCardsModal').addClass('slideUpMenuHide');
       this.inProgress = true;
     }
@@ -119,7 +124,7 @@ export default class BuyCreditsCtrl extends Controller {
         return;
       }
 
-      Cards.insert(
+      var cardID = Cards.insert(
       {
         name: this.name,
         number: this.cardNumber,
@@ -128,6 +133,8 @@ export default class BuyCreditsCtrl extends Controller {
         type: cardType,
         picture: cardPic,
       });
+
+      Meteor.users.update(this.user._id, {$push: {"profile.cards": cardID}});
 
       this.exitAddNewCard()
     }

@@ -13,10 +13,10 @@ export default class CompleteProfileCtrl extends Controller {
         this.dob = null;
         this.gender = null;
         this.resetAll();
-        this.$state.go('signup');
+        this.$state.go('events');
     }
 
-    signUp()
+    finish()
     {
         this.agree = $(".check").is(':checked');
 
@@ -41,14 +41,14 @@ export default class CompleteProfileCtrl extends Controller {
         Meteor.users.update(id, {$set: {"profile.completed": 1}});
 
         this.callMethod('updateEmail', this.email);
-        //this.callMethod('verifyEmailAddress');        
+        //this.callMethod('verifyEmailAddress');
         this.resetAll();
         this.$state.go('events');
     }
 
     resetAll()
     {
-        $(".completeInstructions").text("Create an account to continue").css("color", "rgb(150, 196, 239)");
+        $(".completeInstructions").text("Fill in your details to start claiming").css("color", "rgb(150, 196, 239)");
     }
 
     terms()

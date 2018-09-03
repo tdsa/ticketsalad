@@ -44,17 +44,33 @@ export default class ProfileCtrl extends Controller {
     this.$state.go('editProfile');
   }
 
-  check() //Enforces authorised user
+  openPopUp()
   {
-    if(!Meteor.user())
-    {
-      window.location.href = '#/launch';
-      this.$state.go('launch');
-    }
+    $('#completeDetailsPopUpProfile').addClass('slideUpMenuHide');
+    $('#profileContainer').addClass('blur');
+  }
+
+  closePopUp()
+  {
+    $('#completeDetailsPopUpProfile').removeClass('slideUpMenuHide');
+    $('#profileContainer').removeClass('blur');
+  }
+
+  completeDetails()
+  {
+    this.closePopUp();
+    this.$state.go("completeProfile");
   }
 
   buyCredits() // change view to the buyCrdits screen
   {
+    if(this.user.profile.completed == 0)
+    {
+      console.log("User has not completed profile!");
+      this.openPopUp()
+      return;
+    }
+    
     this.$state.go('buyCredits');
   }
 

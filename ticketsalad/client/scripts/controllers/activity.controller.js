@@ -36,8 +36,6 @@ export default class ActivityCtrl extends Controller {
             },
             updateNotifications()
             {
-                //return Notifications.find({$or: [{'subscribedUsers': Meteor.user().username}, {'type': 'Event Added'}]});
-                //return Meteor.user().profile.notifications;
                 return Notifications.find({_id: {$in: Meteor.user().profile.notifications}});
             },
         });
