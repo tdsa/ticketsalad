@@ -19,9 +19,9 @@
         </div>
       </div>
       <div class="profileButtons">
-        <div class="button1"><div class="profileBtn"><p>How It Works</p></div></div>
+        <div class="button1"><div class="profileBtn" ng-click = "profile.openHowItWorks()"><p>How It Works</p></div></div>
         <div class="button2"><div class="profileBtn" ng-click = "profile.editProfile()" href = "#/editProfile"><p>Edit Profile</p></div></div>
-        <div class="button3"><div class="profileBtn"><p>Contact Us</p></div></div>
+        <div class="button3"><div class="profileBtn" ng-click = "profile.openContactUs()"><p>Contact Us</p></div></div>
         <div class="button4"><div class="profileBtn" ng-click = "profile.logout()" href = "#/login"><p>Log Out</p></div></div>
       </div>
     </div>
@@ -60,6 +60,36 @@
                 <div class="popUpAction2 flexCenter" ng-click = "profile.completeDetails()"><p>Okay</p></div>
             </div>
         </div>
+    </div>
+
+    <div class = "slideUpMenu" id = "howItWorksModal">
+      <div class="grid-containerHowItWorks">
+          <div class="howItWorksHeader">
+              <div class="howItWorksHeading"><p>How It Works</p></div>
+              <div class="howItWorksExit">
+                <img src = "/img/exit.png" alt = "exit" ng-click = "profile.closeHowItWorks()">
+              </div>
+          </div>
+          <div class="howItWorksBody">
+              <ion-content class = "howItWorksScrollContent">
+              </ion-content>
+          </div>
+      </div>
+    </div>
+
+    <div class = "slideUpMenu" id = "contactUsModal">
+      <div class="grid-containerContactUs">
+          <div class="contactUsHeader">
+              <div class="contactUsHeading"><p>Contact Us</p></div>
+              <div class="contactUsExit">
+                <img src = "/img/exit.png" alt = "exit" ng-click = "profile.closeContactUs()">
+              </div>
+          </div>
+          <div class="contactUsBody">
+              <ion-content class = "contactUsScrollContent">
+              </ion-content>
+          </div>
+      </div>
     </div>
 
   </ion-content>

@@ -70,7 +70,7 @@ export default class ProfileCtrl extends Controller {
       this.openPopUp()
       return;
     }
-    
+
     this.$state.go('buyCredits');
   }
 
@@ -97,6 +97,26 @@ export default class ProfileCtrl extends Controller {
   {
     $('#profileMenu').removeClass('slideUpMenuHide');
     $('#profileContainer').removeClass('blur');
+  }
+
+  openHowItWorks()
+  {
+    $('#howItWorksModal').addClass('slideUpMenuHide');
+  }
+
+  closeHowItWorks()
+  {
+    $('#howItWorksModal').removeClass('slideUpMenuHide');
+  }
+
+  openContactUs()
+  {
+    $('#contactUsModal').addClass('slideUpMenuHide');
+  }
+
+  closeContactUs()
+  {
+    $('#contactUsModal').removeClass('slideUpMenuHide');
   }
 
   updatePicture ()

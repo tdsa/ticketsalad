@@ -3,17 +3,17 @@
           <div class="grid-containerEvents" id = "eventsContainer">
               <div class = "filler"></div>
               <div class="eventsHeader">
-                  <div class="eventTitle"><p id = "hTitle">{{events.data[events.mySwiper.realIndex].name}} - {{events.data[events.mySwiper.realIndex].country}} {{events.data[events.mySwiper.realIndex].year}}</p></div>
+                  <div class="eventTitle"><p id = "hTitle"></p></div>
                   <div class="eventsBurger">
                       <div class="eventsBlank"></div>
                       <div class = "eventsMenuIcon"><img src = "/img/menu.png" alt = "menu" ng-click = "events.openMenu()"></div>
                   </div>
               </div>
               <div class="eventsCards">
-                  <div class = "greenWin"><p>Congartulations! We are delighted to inform you that you have won <b>{{events.data[events.currentIndex].tickets}}</b> tickets to <b>{{events.data[events.currentIndex].name}} - {{events.data[events.currentIndex].country}} {{events.data[events.currentIndex].year}}</b>. All the details will be sent to your email address.</p></div>
+                  <div class = "greenWin"><p>Congratulations! We are delighted to inform you that you have won <strong>{{events.data[events.currentIndex].tickets}}</strong> tickets to <strong>{{events.data[events.currentIndex].name}} - {{events.data[events.currentIndex].country}} {{events.data[events.currentIndex].year}}</strong>. All the details will be sent to your email address.</p></div>
                   <div class="swiper-container">
                       <div class="swiper-wrapper">
-                          <div class="swiper-slide card" ng-repeat = "event in events.data">
+                          <div class="swiper-slide" ng-repeat = "event in events.data" ng-click = "events.triggerCodeInput()">
                               <div class="grid-containerCard">
                                   <div class="eventPicture"><img src = {{event.picture}} alt = "pic"></div>
                                   <div class="eventDescription">
@@ -44,15 +44,15 @@
                       </div>
                   </div>
               </div>
-              <div class="eventsMsg"><p class = "instruction">Enter a unique code...</p></div>
+              <div class="eventsMsg flexCenter"><p class = "instruction">Enter a unique code...</p></div>
               <div class="eventsCode">
-                  <input class = "overlay" type = "text" pattern = "[0-9]*" ng-model="events.code" maxlength="6">
-                  <div class="d1"><div class = "digit dg1"><div class = "innerDigit idg1"></div><p class = "digitOverLay">{{events.code[0]}}</p></div></div>
-                  <div class="d2"><div class = "digit dg2"><div class = "innerDigit idg2"></div><p class = "digitOverLay">{{events.code[1]}}</p></div></div>
-                  <div class="d3"><div class = "digit dg3"><div class = "innerDigit idg3"></div><p class = "digitOverLay">{{events.code[2]}}</p></div></div>
-                  <div class="d4"><div class = "digit dg4"><div class = "innerDigit idg4"></div><p class = "digitOverLay">{{events.code[3]}}</p></div></div>
-                  <div class="d5"><div class = "digit dg5"><div class = "innerDigit idg5"></div><p class = "digitOverLay">{{events.code[4]}}</p></div></div>
-                  <div class="d6"><div class = "digit dg6"><div class = "innerDigit idg6"></div><p class = "digitOverLay">{{events.code[5]}}</p></div></div>
+                  <input class = "overlay" id = "codeInput" type = "text" pattern = "[0-9]*" ng-model="events.code" maxlength="6">
+                  <div class="d1 flexCenter"><div class = "digit dg1"><div class = "innerDigit idg1"></div><p class = "digitOverLay">{{events.code[0]}}</p></div></div>
+                  <div class="d2 flexCenter"><div class = "digit dg2"><div class = "innerDigit idg2"></div><p class = "digitOverLay">{{events.code[1]}}</p></div></div>
+                  <div class="d3 flexCenter"><div class = "digit dg3"><div class = "innerDigit idg3"></div><p class = "digitOverLay">{{events.code[2]}}</p></div></div>
+                  <div class="d4 flexCenter"><div class = "digit dg4"><div class = "innerDigit idg4"></div><p class = "digitOverLay">{{events.code[3]}}</p></div></div>
+                  <div class="d5 flexCenter"><div class = "digit dg5"><div class = "innerDigit idg5"></div><p class = "digitOverLay">{{events.code[4]}}</p></div></div>
+                  <div class="d6 flexCenter"><div class = "digit dg6"><div class = "innerDigit idg6"></div><p class = "digitOverLay">{{events.code[5]}}</p></div></div>
               </div>
               <div class="eventsClaimBtn" ng-click="events.claim()"><p class = "claimBtnText">Claim</p></div>
           </div>

@@ -5,22 +5,32 @@
 * Tribus Digita
 * Ticket Salad
 *
-* Functional description: Launch controller handles all javascript associated with the Launch html file. 
-all javascript functions along with the state controllers are placed here. Launch also handles the process of correctly 
+* Functional description: Launch controller handles all javascript associated with the Launch html file.
+all javascript functions along with the state controllers are placed here. Launch also handles the process of correctly
 logging a user into the app and letting all other views show.
 
 */
 import { _ } from 'meteor/underscore';
 import { Controller } from 'angular-ecmascript/module-helpers';
- 
-export default class LaunchCtrl extends Controller 
+
+export default class LaunchCtrl extends Controller
 {
-  constructor() 
+  constructor()
   {
     super(...arguments);
     Meteor.logout();
     console.log("User should be logged out");
     console.log("Current user: " + Meteor.user());
+  }
+
+  openHowItWorks()
+  {
+    $('#howItWorksModalLaunch').addClass('slideUpMenuHide');
+  }
+
+  closeHowItWorks()
+  {
+    $('#howItWorksModalLaunch').removeClass('slideUpMenuHide');
   }
 
   signIn()
@@ -33,6 +43,6 @@ export default class LaunchCtrl extends Controller
       this.$state.go('signup');
   }
 }
- 
+
 LaunchCtrl.$name = 'LaunchCtrl';//To refer to the controller in scope
 LaunchCtrl.$inject = ['$state', '$ionicPopup', '$log'];// Adds the controller to the routes config

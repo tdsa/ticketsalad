@@ -55,7 +55,7 @@
                         <div class="creditCardImage"><img src = {{card.picture}} alt = "cardType"></div>
                       </div>
                     </div>
-                    <div class = "item" ng-click = "buyCredits.addNewCard()" style = "border: none; text-align: center; color: rgb(99, 200, 242);">
+                    <div class = "item" ng-click = "buyCredits.addNewCard()" style = "border: none; text-align: center; color: rgb(90, 202, 249);">
                       <b>+ Add New Card</b>
                     </div>
                   </ion-content>
@@ -69,23 +69,26 @@
                   <div class = "addCardHeaderTitle"><p>Add Card</p></div>
                   <div class = "addCardHeaderExit"><img src = "/img/exit.png" alt = "exit" ng-click = "buyCredits.exitAddNewCard()"></div>
               </div>
+              <div class = "addCardMessage">
+                  <p class = "cardInstructions">Enter your details</p>
+              </div>
               <div class="addCardDetails">
                   <div class="addCardNumber">
                       <div class="addCardNumberTitle"><p>Card Number</p></div>
-                      <div class="addCardNumberInput"><input type = "text" pattern = "[0-9]*" maxlength = "16" ng-model = "buyCredits.cardNumber" required = "true"></div>
+                      <div class="addCardNumberInput"><input id = "cardNumber" type = "text" pattern = "[0-9]*" maxlength = "16" ng-model = "buyCredits.cardNumber" required = "true" ng-click = "buyCredits.resetCardFields()"></div>
                   </div>
                   <div class="addCardName">
                       <div class="addCardNameTitle"><p>Name on the card</p></div>
-                      <div class="addCardNameInput"><input type="text" ng-model = "buyCredits.name" required = "true"></div>
+                      <div class="addCardNameInput"><input type="text" ng-model = "buyCredits.name" required = "true" ng-click = "buyCredits.resetCardFields()"></div>
                   </div>
                   <div class="addCardTwoInputs">
                     <div class="addCardExpiry">
                         <div class="addCardExpiryTitle"><p>Expiry Date</p></div>
-                        <div class="addCardExpiryInput"><input type = "date" ng-model = "buyCredits.expiry" required = "true"></div>
+                        <div class="addCardExpiryInput"><input type = "month" ng-model = "buyCredits.expiry" required = "true" ng-click = "buyCredits.resetCardFields()"></div>
                     </div>
                     <div class="addCardCVC">
                         <div class="addCardCVCTitle"><p>CVC</p></div>
-                        <div class="addCardCVCInput"><input type = "string" maxlength = "3" pattern = "[0-9]*" ng-model = "buyCredits.cvc" required = "true"></div>
+                        <div class="addCardCVCInput"><input id = "cardCVC" type = "string" placeholder = "Enter 3 digits" maxlength = "3" pattern = "[0-9]*" ng-model = "buyCredits.cvc" required = "true" ng-click = "buyCredits.resetCardFields()"></div>
                     </div>
                   </div>
               </div>

@@ -76,6 +76,11 @@ export default class SignupCtrl extends Controller {
     this.resetAll();
   }
 
+  goToLogin()
+  {
+    this.$state.go('login');
+  }
+
   resetAll()
   {
     $(".usr").css("color", "black");

@@ -10,7 +10,23 @@
             </div>
             <div class="launchSignIn"><div class = "launchButton in" ng-click = "launch.signIn()" href ="#/login"><p>Sign In</p></div></div>
             <div class="launchSignUp"><div class = "launchButton up" ng-click = "launch.signUp()" href ="#/signup"><p>Sign Up</p></div></div>
-            <div class="launchInfo"><p>HOW IT WORKS</p></div>
+            <div class="launchInfo"><p ng-click = "launch.openHowItWorks()">HOW IT WORKS</p></div>
         </div>
+
+        <div class = "slideUpMenu" id = "howItWorksModalLaunch">
+          <div class="grid-containerHowItWorks">
+              <div class="howItWorksHeader">
+                  <div class="howItWorksHeading"><p>How It Works</p></div>
+                  <div class="howItWorksExit">
+                    <img src = "/img/exit.png" alt = "exit" ng-click = "launch.closeHowItWorks()">
+                  </div>
+              </div>
+              <div class="howItWorksBody">
+                  <ion-content class = "howItWorksScrollContent">
+                  </ion-content>
+              </div>
+          </div>
+        </div>
+
     </ion-content>
 </ion-view>

@@ -41,7 +41,7 @@ export default class EventsCtrl extends Controller
           observer: true
         });
 
-        this.currentIndex = 0;
+        this.titleIndex = 0;
         this.claimed = false;
 
         this.helpers({
@@ -61,8 +61,16 @@ export default class EventsCtrl extends Controller
           }
         });
 
-        this.mySwiper.on('slideChange', function() {
-          $(".instruction").text("Enter a unique code...");}
+        $("#hTitle").text(ang.data[0].name + ' - ' + ang.data[0].country + ' ' + ang.data[0].year);
+
+        this.mySwiper.on('slideChange',
+
+          function()
+          {
+            $("#hTitle").text(ang.data[this.realIndex].name + ' - ' + ang.data[this.realIndex].country + ' ' + ang.data[this.realIndex].year);
+            $(".instruction").text("Enter a unique code...");
+          }
+
         );
 
         $("input").keyup(function()
@@ -73,7 +81,7 @@ export default class EventsCtrl extends Controller
           {
             if(tempCode[i - 1] != null)
             {
-              $(".dg" + i).css("background-color", "rgb(230, 148, 115)");
+              $(".dg" + i).css("background-color", "rgb(255, 136, 120)");
               $(".idg" + i).css("background-color", "transparent");
             }
             else
@@ -94,6 +102,12 @@ export default class EventsCtrl extends Controller
         $(".dg" + i).css("background-color", "rgb(235, 235, 235)");
         $(".idg" + i).css("background-color", "rgb(180, 182, 185)");
       }
+    }
+
+    triggerCodeInput()
+    {
+      console.log("triggered");
+      $('#codeInput').trigger('select1');
     }
 
     claim()
@@ -183,13 +197,13 @@ export default class EventsCtrl extends Controller
     {
       for(var i = 1; i <= 6; i++)
       {
-        $(".dg" + i).css("background-color", "rgb(182, 234, 130)");
+        $(".dg" + i).css("background-color", "rgb(109, 249, 115)");
         $(".idg" + i).css("background-color", "transparent");
       }
 
-      $(".greenWin").css("background-color", "rgb(182, 234, 130)");
-      $(".filler").css("background-color", "rgb(182, 234, 130)");
-      $(".eventsHeader").css("background-color", "rgb(182, 234, 130)");
+      $(".greenWin").css("background-color", "rgb(109, 249, 115)");
+      $(".filler").css("background-color", "rgb(109, 249, 115)");
+      $(".eventsHeader").css("background-color", "rgb(109, 249, 115)");
       $("#hTitle").css("color", "white");
       $(".greenWin").css("z-index", 3);
       $(".claimBtnText").text("Great, Got It");
