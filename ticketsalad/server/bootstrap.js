@@ -131,4 +131,9 @@ Meteor.startup(function()
     events.forEach((event) => {
         const eventId = Events.insert(event); //Inserts into collections
     });
+
+    Accounts.config(
+    {
+      loginExpirationInDays: null
+    });
 });

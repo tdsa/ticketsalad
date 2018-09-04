@@ -44,21 +44,39 @@ export default class BuyCreditsCtrl extends Controller {
 
     exit()
     {
-        this.$state.go('profile');
+      this.amount = 0;
+      this.$state.go('profile');
+    }
+
+    setZero()
+    {
+      if(this.amount == null || this.amount == "")
+      {
         this.amount = 0;
+      }
     }
 
     option(add)
     {
-      console.log("Current amount: " + parseInt(this.amount));
-      console.log("Expected result: " + (parseInt(this.amount) + parseInt(add)));
+      this.setZero()
       this.amount = parseInt(this.amount) + parseInt(add);
-      console.log("Actual result: " + parseInt(this.amount));
+    }
+
+    minus()
+    {
+      this.setZero()
+      this.amount = parseInt(this.amount) - 10;
+    }
+
+    add()
+    {
+      this.setZero()
+      this.amount = parseInt(this.amount) + 10;
     }
 
     showCreditCards()
     {
-      if(this.total == 0.00 || parseInt(this.amount) == 0 || this.amount == null)
+      if(parseInt(this.amount) == 0 || this.amount == null || this.amount == "")
       {
         return;
       }
@@ -79,6 +97,10 @@ export default class BuyCreditsCtrl extends Controller {
 
     exitAddNewCard()
     {
+      this.name = null;
+      this.cardNumber = null;
+      this.date = null;
+      this.cvc = null;
       $('#addCardModal').removeClass('slideUpMenuHide');
     }
 
@@ -86,42 +108,57 @@ export default class BuyCreditsCtrl extends Controller {
     {
       if(this.cardNumber == null)
       {
-        console.log("Error, no account number");
+        $(".cardInstructions").text("Please enter your card number!").css("color", "red");
+        return;
+      }
+      if(this.cardNumber.length != 16)
+      {
+        $("#cardNumber").css("color", "red");
+        $(".cardInstructions").text("Your card number must be 16 digits!").css("color", "red");
         return;
       }
       if(this.name == null)
       {
-        console.log("Error, no name");
+        $(".cardInstructions").text("Please enter your name!").css("color", "red");
         return;
       }
       if(this.expiry == null)
       {
-        console.log("Error, no expiry date given");
+        $(".cardInstructions").text("Please enter the expiry date!").css("color", "red");
         return;
       }
       if(this.cvc == null)
       {
-        console.log("Error, no cvc");
+        $(".cardInstructions").text("Please enter your CVC number!").css("color", "red");
+        return;
+      }
+      if(this.cvc.length != 3)
+      {
+        $("#cardCVC").css("color", "red");
+        $(".cardInstructions").text("Your CVC must be 3 digits!").css("color", "red");
         return;
       }
 
       var cardType = null;
       var cardPic = null;
+      var first = parseInt(this.cardNumber.charAt(0));
+      var second = parseInt(this.cardNumber.charAt(0) + this.cardNumber.charAt(1));
 
-      if(this.cardNumber.substr(0) == '4')
+      if(first == 4)
       {
         cardType = "visa";
         cardPic = "img/visa.png";
       }
-      else if(parseInt(this.cardNumber.substr(0,1)) >= 51 && parseInt(this.cardNumber.substr(0,1)) <= 55)
+      else if(second >= 51 && second <= 55)
       {
         cardType = "master"
         cardPic = "img/master.png";
       }
       else
       {
-        console.log("Error, card number incorrect");
-        return;
+        $("#cardNumber").css("color", "red");
+        $(".cardInstructions").text("Your card number is incorrect!").css("color", "red");
+        return
       }
 
       var cardID = Cards.insert(
@@ -150,6 +187,13 @@ export default class BuyCreditsCtrl extends Controller {
       this.exitCreditCards();
     }
 
+    resetCardFields()
+    {
+      $("#cardCVC").css("color", "black");
+      $("#cardNumber").css("color", "black");
+      $(".cardInstructions").text("");
+    }
+
     pay()
     {
       this.total = 2*parseInt(this.amount);
@@ -170,16 +214,6 @@ export default class BuyCreditsCtrl extends Controller {
 
       this.amount = 0;
       notificationID = null;
-    }
-
-    minus()
-    {
-      this.amount = parseInt(this.amount) - 10;
-    }
-
-    add()
-    {
-      this.amount = parseInt(this.amount) + 10;
     }
   }
 

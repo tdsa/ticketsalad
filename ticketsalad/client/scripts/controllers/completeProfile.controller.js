@@ -5,6 +5,7 @@ export default class CompleteProfileCtrl extends Controller {
 
     constructor() {
         super(...arguments);
+        $(".completeDate").valueAsDate = new Date();
     }
 
     back()
@@ -13,6 +14,7 @@ export default class CompleteProfileCtrl extends Controller {
         this.dob = null;
         this.gender = null;
         this.resetAll();
+        $(".check").prop('checked', false);
         this.$state.go('events');
     }
 
@@ -26,6 +28,13 @@ export default class CompleteProfileCtrl extends Controller {
             $(".completeInstructions").text("Please enter all your details!").css("color", "red");
             return;
         }
+
+        /*if(this.callMethod('emailBelongsToUser', this.email) == true)
+        {
+            console.log("Email already in use");
+            $(".completeInstructions").text("This email address is already in use!").css("color", "red");
+            return;
+        }*/
 
         if(this.agree == false)
         {

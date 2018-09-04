@@ -15,12 +15,13 @@
                 </div>
                 <div class="completeProfileFirst">
                     <div class="completeProfileFirstName"><p class = "inputTitleP">Date of Birth</p></div>
-                    <div class="completeProfileFirstInput"><input class = "inputP" placeholder = "Select your date of birth" type="date" ng-model="completeProfile.dob" required = "true" ng-click = "completeProfile.resetAll()"></div>
+                    <div class="completeProfileFirstInput"><input class = "inputP" type = "date" ng-model="completeProfile.dob" required = "true" ng-click = "completeProfile.resetAll()"></div>
                 </div>
                 <div class="completeProfileLast">
                     <div class="completeProfileLastName"><p class = "inputTitleP">Gender</p></div>
                     <div class="completeProfileLastInput">
                         <select class = "inputP" style="background-color: transparent; border-radius: 0%" ng-model="completeProfile.gender" required = "true" ng-click = "completeProfile.resetAll()">
+                            <option value="" selected disabled hidden>Choose</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                             <option value="other">Other</option>

@@ -1,4 +1,4 @@
-input[type = "date"], input[type = "text"] {
+input[type = "date"] {
 -webkit-appearance: none;
 border-radius: 0;
 }
@@ -76,6 +76,8 @@ border-radius: 0;
     color: rgb(64, 64, 64);
     font-size: 20vw;
     caret-color: transparent;
+    top: 0;
+    left: 0;
 }
 
 .claimsLess {
@@ -144,7 +146,7 @@ border-radius: 0;
     top: 20%;
     left: 12.5%;
     border-radius: 12.5px;
-    background-color: rgb(99, 200, 242);
+    background-color: rgb(90, 202, 249);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -300,7 +302,7 @@ border-radius: 0;
     left: 10%;
     top: 10%;
     border-radius: 15px;
-    background-color: rgb(99, 200, 242);
+    background-color: rgb(90, 202, 249);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -418,8 +420,21 @@ border-radius: 0;
     height: 100%;
     grid-template-columns: 100%;
     grid-template-rows: 10% 10% 65% 15%;
-    grid-template-areas: "addCardHeader" "." "addCardDetails" "addCardActions";
+    grid-template-areas: "addCardHeader" "addCardMessage" "addCardDetails" "addCardActions";
     font-family: 'Lato', sans-serif;
+  }
+
+  .addCardMessage {
+    grid-area: addCardMessage;
+    position: relative;
+  }
+
+  .addCardMessage p {
+    position: absolute;
+    top: 7.5%;
+    left: 7.5%;
+    font-size: 5.5vw;
+    color: rgb(90, 202, 249);
   }
 
 .addCardHeader {
@@ -497,7 +512,7 @@ border-radius: 0;
   font-size: 4.3vw;
   left: 10%;
   width: 80%;
-  border-bottom: solid 1.5px rgb(150, 196, 239);
+  border-bottom: solid 1.5px rgb(90, 202, 249);
   border-top: none;
   border-left: none;
   border-right: none;
@@ -537,7 +552,7 @@ border-radius: 0;
   font-size: 4.3vw;
   left: 10%;
   width: 80%;
-  border-bottom: solid 1.5px rgb(150, 196, 239);
+  border-bottom: solid 1.5px rgb(90, 202, 249);
   border-top: none;
   border-left: none;
   border-right: none;
@@ -582,7 +597,7 @@ border-radius: 0;
   position: absolute;
   color: black;
   font-size: 4.3vw;
-  border-bottom: solid 1.5px rgb(150, 196, 239);
+  border-bottom: solid 1.5px rgb(90, 202, 249);
   border-top: none;
   border-left: none;
   border-right: none;
@@ -591,6 +606,7 @@ border-radius: 0;
   height: 80%;
   width: 90%;
   left: 0;
+  background-color: none;
 }
 
 .addCardCVC {
@@ -621,7 +637,7 @@ border-radius: 0;
   position: absolute;
   color: black;
   font-size: 4.3vw;
-  border-bottom: solid 1.5px rgb(150, 196, 239);
+  border-bottom: solid 1.5px rgb(90, 202, 249);
   border-top: none;
   border-left: none;
   border-right: none;
@@ -638,7 +654,7 @@ border-radius: 0;
   position: absolute;
   width: 80%;
   height: 15vw;
-  background-color: rgb(99, 200, 242);
+  background-color: rgb(90, 202, 249);
   border-radius: 10px;
   left: 10%;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
