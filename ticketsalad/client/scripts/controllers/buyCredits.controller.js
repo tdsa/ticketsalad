@@ -58,7 +58,7 @@ export default class BuyCreditsCtrl extends Controller {
 
     showCreditCards()
     {
-      if(this.total == 0.00)
+      if(this.total == 0.00 || parseInt(this.amount) == 0 || this.amount == null)
       {
         return;
       }
@@ -113,7 +113,7 @@ export default class BuyCreditsCtrl extends Controller {
         cardType = "visa";
         cardPic = "img/visa.png";
       }
-      else if(parseInt(this.cardNumber.substr(0,1)) >= 51 || parseInt(this.cardNumber.substr(0,1)) <= 55)
+      else if(parseInt(this.cardNumber.substr(0,1)) >= 51 && parseInt(this.cardNumber.substr(0,1)) <= 55)
       {
         cardType = "master"
         cardPic = "img/master.png";
