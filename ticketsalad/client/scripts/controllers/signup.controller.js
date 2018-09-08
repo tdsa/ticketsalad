@@ -1,10 +1,12 @@
 import { _ } from 'meteor/underscore';
 import { Controller } from 'angular-ecmascript/module-helpers';
- 
+
 export default class SignupCtrl extends Controller {
-  
-  next() 
+
+  next()
   {
+    let ang = this;
+
     if(this.username == null || this.pass1 == null || this.pass2 == null || this.first == null || this.last == null)
     {
       console.log("Missing details");
@@ -31,17 +33,18 @@ export default class SignupCtrl extends Controller {
     Accounts.createUser({
       username: this.username,
       password: this.pass1,
-      profile: 
+      profile:
       {
         firstname: this.first,
         lastname: this.last,
         picture: 'img/user.png',
-        completed: false,
+        completed: 0,
         credits: 0,
         tickets: [],
         isAdmin: 0,
         subscribedEvents: [],
         notifications: [],
+        cards: [],
       }
     }, function (err) {
       if (!err) {
@@ -54,22 +57,17 @@ export default class SignupCtrl extends Controller {
 
     Meteor.loginWithPassword(this.username, this.pass1, function (err) {
       if (!err) {
-          console.log('User logged in successfully');
-          console.log('Current User: ');
-          console.log(Meteor.user());
-      } else {
-          console.log(err);
+        ang.login();
+        ang.$state.go('events');
+      }
+      else {
+        console.log(err);
       }
     })
-
-    this.resetAll();
-
-    this.$state.go('completeProfile');
   }
 
   login()
   {
-    this.$state.go('login');
     this.username = null;
     this.first = null;
     this.last = null;
@@ -77,7 +75,12 @@ export default class SignupCtrl extends Controller {
     this.pass2 = null;
     this.resetAll();
   }
-  
+
+  goToLogin()
+  {
+    this.$state.go('login');
+  }
+
   resetAll()
   {
     $(".usr").css("color", "black");
@@ -91,6 +94,6 @@ export default class SignupCtrl extends Controller {
   }
 
 }
- 
+
 SignupCtrl.$name = 'SignupCtrl'; //To refer to the controller in scope
 SignupCtrl.$inject = ['$state', '$ionicPopup', '$log'];// Adds the controller to the routes config

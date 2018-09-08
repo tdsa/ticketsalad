@@ -10,7 +10,7 @@ all javascript functions along with the state controllers are placed here.
 */
 import { _ } from 'meteor/underscore';
 import { Controller } from 'angular-ecmascript/module-helpers';
- 
+
 export default class EditProfileCtrl extends Controller {
 
   constructor() {
@@ -50,9 +50,15 @@ export default class EditProfileCtrl extends Controller {
         Accounts.changePassword(this.passOld, this.passNew1, console.log(Error));
       }
     }
+
+    this.username = null;
+    this.email = null;
+    this.passOld = null;
+    this.passNew1 = null;
+    this.passNew2 = null;
     this.$state.go('profile');
   }
 }
- 
+
 EditProfileCtrl.$name = 'EditProfileCtrl'; //To refer to the controller in scope
 EditProfileCtrl.$inject = ['$state', '$ionicLoading', '$ionicPopup', '$log']; // Adds the controller to the routes config

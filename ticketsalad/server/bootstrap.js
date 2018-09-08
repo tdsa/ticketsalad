@@ -11,21 +11,20 @@
 //libs
 import Moment from 'moment';
 import { Meteor } from 'meteor/meteor';
-import { Events, Notifications } from '../lib/collections';
- 
-Meteor.startup(function() 
+import { Events, Notifications, Cards } from '../lib/collections';
+
+Meteor.startup(function()
 {
     process.env.MAIL_URL = 'smtp://tristan.jules:1009703Troy@smtp.gmail.com:587/'
-    
+
     function generateCode()
     {
         var code = "";
-        for (var index = 0; index < 6; index++) 
+        for (var index = 0; index < 6; index++)
         {
             var digit = Math.floor((Math.random() * 10));
             code += digit + "";
         }
-        //Console.log(code);
         return code;
     }
 
@@ -50,7 +49,7 @@ Meteor.startup(function()
         tickets: 2,
         about: "Tomorrowland is an electronic dance music festival held in Boom, Belgium. Tomorrowland was first held in 2005, and has since become one of the world's largest and most notable music festivals. It now stretches over 2 weekends and usually sells out in minutes.",
         subscribedUsers: [],
-        
+
     },
     {
         name: 'Rocking The Daisies',
@@ -131,5 +130,10 @@ Meteor.startup(function()
 
     events.forEach((event) => {
         const eventId = Events.insert(event); //Inserts into collections
+    });
+
+    Accounts.config(
+    {
+      loginExpirationInDays: null
     });
 });

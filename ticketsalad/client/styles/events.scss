@@ -1,11 +1,11 @@
-.card
-{
+.swiper-slide {
   width: 60%;
   height: 90%;
-  margin: 0 auto;
   top: 5%;
-  border-radius: 20px;
-  //border: none;
+  border-radius: 25px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+  background-color: white;
+  overflow: hidden;
 }
 
 .grid-containerCard {
@@ -107,9 +107,9 @@
   grid-template-columns: 100%;
   grid-template-rows: 50% 50%;
   grid-template-areas: "locationTitle" "locationInfo";
-  border-top: solid 0.5px rgb(235, 235, 235);
-  border-bottom: solid 0.5px rgb(235, 235, 235);
-  border-right: solid 0.5px rgb(235, 235, 235);
+  border-top: solid 0.5px rgb(246, 246, 246);
+  border-bottom: solid 0.5px rgb(246, 246, 246);
+  border-right: solid 0.5px rgb(246, 246, 246);
 }
 
 .locationTitle {
@@ -128,8 +128,8 @@
   grid-template-columns: 100%;
   grid-template-rows: 50% 50%;
   grid-template-areas: "dateTitle" "dateInfo";
-  border-top: solid 0.5px rgb(235, 235, 235);
-  border-bottom: solid 0.5px rgb(235, 235, 235);
+  border-top: solid 0.5px rgb(246, 246, 246);
+  border-bottom: solid 0.5px rgb(246, 246, 246);
 }
 
 .dateTitle {
@@ -148,8 +148,8 @@
   grid-template-columns: 100%;
   grid-template-rows: 50% 50%;
   grid-template-areas: "creditsTitle" "creditsInfo";
-  border-bottom: solid 0.5px rgb(235, 235, 235);
-  border-right: solid 0.5px rgb(235, 235, 235);
+  border-bottom: solid 0.5px rgb(246, 246, 246);
+  border-right: solid 0.5px rgb(246, 246, 246);
 }
 
 .creditsTitle {
@@ -168,7 +168,7 @@
   grid-template-columns: 100%;
   grid-template-rows: 50% 50%;
   grid-template-areas: "ticketsTitle" "ticketsInfo";
-  border-bottom: solid 0.5px rgb(235, 235, 235);
+  border-bottom: solid 0.5px rgb(246, 246, 246);
 }
 
 .ticketsTitle {
@@ -191,10 +191,6 @@
   margin: 0 auto;
 }
 
-.ui {
-  width: 100%;
-}
-
 .men
 {
   width: 100%;
@@ -205,9 +201,15 @@
   display: grid;
   height: 100%;
   grid-template-columns: 100%;
-  grid-template-rows: 2% 10% 58% 10% 7.5% 12.5%;
-  grid-template-areas: "filler" "eventsHeader" "eventsCards" "eventsMsg" "eventsCode" "eventsClaimBtn";
+  grid-template-rows: 2% 13% 57% 6% 8% 2% 12%;
+  grid-template-areas: "filler" "eventsHeader" "eventsCards" "eventsMsg" "eventsCode" "." "eventsClaimBtn";
   font-family: 'Lato', sans-serif;
+  transition: all 0.4s ease-in-out;
+}
+
+.blur {
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
 }
 
 .filler
@@ -233,6 +235,7 @@
   position: absolute;
   top: 0;
   left: 7.5%;
+  right: 7.5%;
   font-size: 8vw;
   font-weight: 1000;
   line-height: 1;
@@ -293,25 +296,20 @@
   font-size: 8vw;
 }
 
-.eventsCards .swiper-container
+.swiper-container
 {
   position: absolute;
   z-index: 2;
+  transition: all 0.1s linear;
 }
 
 .eventsMsg {
   grid-area: eventsMsg;
-  position: relative;
 }
 
 .eventsMsg p
 {
-  position: absolute;
-  text-align: center;
   color: rgb(108, 108, 108);
-  width: 100%;
-  height: 50%;
-  top: 25%;
   font-size: 5.5vw;
   font-weight: 400;
 }
@@ -329,9 +327,9 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: transparent;
+  background-color: blue;
   margin: 0 auto;
-  z-index: 2;
+  z-index: 10;
   border: none;
   opacity: 0;
   color: transparent;
@@ -341,78 +339,66 @@
 
 .d6 {
   grid-area: d6;
-  position: relative;
 }
 
 .d1 {
   grid-area: d1;
-  position: relative;
 }
 
 .d2 {
   grid-area: d2;
-  position: relative;
 }
 
 .d3 {
   grid-area: d3;
-  position: relative;
 }
 
 .d4 {
   grid-area: d4;
-  position: relative;
 }
 
 .d5 {
   grid-area: d5;
-  position: relative;
 }
 
 .digitOverLay {
-  position: absolute;
-  text-align: center;
   color: white;
-  width: 100%;
   z-index: 3;
   font-weight: bold;
   font-size: 7vw;
   font-family: 'Lato', sans-serif;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  text-align: center;
 }
 
 .digit
 {
   background-color: rgb(235, 235, 235);
-  width: 70%;
-  padding-bottom: 70%;
+  width: 12.5vw;
+  padding-bottom: 12.5vw;
   border-radius: 50%;
-  position: absolute;
-  left: 15%;
+  position: relative;
 }
 
 .innerDigit
 {
   background-color: rgb(180, 182, 185);
-  width: 15%;
-  height: 15%;
   border-radius: 50%;
-  position: absolute;
-  left: 42.5%;
-  top: 42.5%;
 }
 
 .eventsClaimBtn {
   position: relative;
   grid-area: eventsClaimBtn;
-  background-color: rgb(99, 200, 242);
+  background-color: rgb(90, 202, 249);
 }
 
 .eventsClaimBtn:active {
   background-color: rgb(5, 104, 146);
 }
 
-.eventsClaimBtn p
-{
+.eventsClaimBtn p {
   width: 100%;
   height: 50%;
   position: absolute;
@@ -420,16 +406,39 @@
   text-align: center;
   color: white;
   font-size: 8.5vw;
-  font-weight: 700;
+  font-weight: 400;
+}
+
+.slideUpMenu {
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  background-color: transparent;
+  position: absolute;;
+  bottom: -100%;
+  left: 0;
 }
 
 .containerMenu {
   display: grid;
   height: 100%;
   grid-template-columns: 100%;
-  grid-template-rows: 28.57% 71.43%;
+  grid-template-rows: 30% 70%;
   grid-template-areas: "top" "bottom";
   font-family: 'Lato', sans-serif;
+  position: relative;
+}
+
+.halfCover {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 85%;
+  background-color: white;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 .top {
@@ -438,16 +447,7 @@
   grid-template-columns: 100%;
   grid-template-rows: 25% 50% 25%;
   grid-template-areas: "blank" "profilePicture" "menuName";
-  background-color: rgba(255, 255, 255, 0);
   background-color: transparent;
-}
-
-.roundedBorder
-{
-  height: 50%;
-  width: 100%;
-  background-color: aqua;
-  z-index: 100;
 }
 
 .profilePicture {
@@ -455,7 +455,7 @@
   grid-area: profilePicture;
   grid-template-columns: 35% 30% 35%;
   grid-template-rows: 100%;
-  grid-template-areas: "picLef circlePic picRight";
+  grid-template-areas: ". circlePic .";
   background: transparent;
 }
 
@@ -465,6 +465,7 @@
   display: flex;
   align-content: center;
   align-items: center;
+  z-index: 10;
 }
 
 .circlePic img {
@@ -476,38 +477,11 @@
   margin: 0 auto;
 }
 
-.picLef {
-  grid-area: picLef;
-  position: relative;
-}
-
-.leftShoulder {
-  position: absolute;
-  width: 100%;
-  height: 50%;
-  bottom: 0;
-  border-top-left-radius: 50px;
-  background-color: white;
-}
-
-.picRight {
-  grid-area: picRight;
-  position: relative;
-}
-
-.rightShoulder {
-  position: absolute;
-  width: 100%;
-  height: 50%;
-  bottom: 0;
-  border-top-right-radius: 50px;
-  background-color: white;
-}
-
 .menuName {
   grid-area: menuName;
   position: relative;
   background-color: white;
+  border-top: solid white;
 }
 
 .menuName p
@@ -532,7 +506,7 @@
   grid-template-columns: 100%;
   grid-template-rows: 20% 20% 20% 20% 20%;
   grid-template-areas: "homeButton" "activityButton" "profileButton" "searchButton" "exitArea";
-  background-color: white;
+  background-color: transparent;
 }
 
 .homeButton {
@@ -578,18 +552,9 @@
   grid-area: exitRight;
 }
 
-.modal
-{
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
 .myButton
 {
-  background-color: rgb(99, 200, 242);
+  background-color: rgb(90, 202, 249);
   height: 70%;
   margin-left: 10%;
   top: 15%;
@@ -616,11 +581,22 @@
   top: 25%;
 }
 
+.menuIcon {
+  height: 40%;
+  top: 30%;
+  left: 0%;
+  position: absolute;
+}
+
+#eventsSearchModal {
+  background-color: white;
+}
+
 .grid-containerSearch {
   display: grid;
   height: 100%;
   grid-template-columns: 100%;
-  grid-template-rows: 10% 5% 85%;
+  grid-template-rows: 10% 10% 80%;
   grid-template-areas: "searchHeader" "searchBox" "searchBody";
 }
 
@@ -671,7 +647,7 @@
   width: 90%;
   left: 5%;
   background-color: transparent;
-  font-size: 8vw;
+  font-size: 7vw;
   color: rgb(203, 203, 203);
 }
 
@@ -699,4 +675,117 @@
   width: 90%;
   left: 5%;
   padding-top: 5%;
+}
+
+.grid-containerPopUp {
+  display: grid;
+  height: 200px;
+  width: 90%;
+  grid-template-columns: 100%;
+  grid-template-rows: 70% 30%;
+  grid-template-areas: "popUpMessage" "popUpActions";
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.grid-containerPopUp p {
+  font-size: 5.5vw;
+  font-weight: 400;
+}
+
+.popUpActions {
+  display: grid;
+  grid-area: popUpActions;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 100%;
+  grid-template-areas: "popUpAction1 popUpAction2";
+}
+
+.popUpMessage {
+  grid-area: popUpMessage;
+  border-bottom: 1px solid rgb(90, 202, 249);
+  color: rgb(108, 108, 108);
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.popUpAction1 {
+  grid-area: popUpAction1;
+  color: rgb(90, 202, 249);
+  border-bottom-left-radius: 20px;
+}
+
+.popUpAction2 {
+  grid-area: popUpAction2;
+  border-left: 1px solid rgb(90, 202, 249);
+  background-color: rgb(90, 202, 249);
+  color: white;
+  border-bottom-right-radius: 20px;
+}
+
+.popUpAction1:active {
+  background-color: rgb(5, 104, 146);
+}
+
+.popUpAction2:active {
+  background-color: rgb(5, 104, 146);
+}
+
+.flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.expandingEvent {
+  position: absolute;
+  width: 68%;
+  height: 51.3%;
+  z-index: 4;
+  display: none;
+  top: 17.90%;
+  left: 16%;
+  border-radius: 25px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.1s linear;
+  background-color: white;
+  overflow: hidden;
+}
+
+.expandCentre {
+  width: 50%;
+  height: 50%;
+  top: 25%;
+  left: 25%;
+  border-radius: 0px;
+}
+
+.squarePicture {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.grid-containerExpandedEvent {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 100%;
+  grid-template-rows: 30% 70%;
+  grid-template-areas: "expandedEventPicture" "expandedEventBody";
+  font-family: 'Lato', sans-serif;
+}
+
+.expandedEventPicture {
+  grid-area: expandedEventPicture;
+}
+
+.expandedEventPicture img
+{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.expandedEventBody {
+  grid-area: expandedEventBody;
 }

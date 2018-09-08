@@ -29,10 +29,10 @@ font-family: 'Lato', sans-serif;
     position: absolute;
     width: 100%;
     text-align: left;
-    left: 15%;
+    left: -115%;
     font-size: 14vw;
-    color: rgb(99, 200, 242);
-    font-weight: bold;
+    color: rgb(90, 202, 249);
+    font-weight: 900;
     top: 0;
 }
 
@@ -45,10 +45,10 @@ font-family: 'Lato', sans-serif;
     position: absolute;
     width: 100%;
     text-align: right;
-    right: 15%;
+    right: -115%;
     font-size: 14vw;
-    color: rgb(99, 200, 242);
-    font-weight: bold;
+    color: rgb(90, 202, 249);
+    font-weight: 900;
     top: 0;
 }
 
@@ -75,7 +75,7 @@ font-family: 'Lato', sans-serif;
     position: absolute;
     width: 50%;
     left: 25%;
-   
+
 }
 
 .launchSignIn {
@@ -112,24 +112,24 @@ font-family: 'Lato', sans-serif;
     font-size: 5.5vw;
 }
 
-.in 
+.in
 {
-    background-color: rgb(99, 200, 242); 
+    background-color: rgb(90, 202, 249);
 }
 
-.in p 
+.in p
 {
     color: white;
 }
 
-.up 
+.up
 {
     background-color: white;
 }
 
-.up p 
+.up p
 {
-    color: rgb(99, 200, 242);
+    color: rgb(90, 202, 249);
 }
 
 .launchInfo {
@@ -142,7 +142,11 @@ font-family: 'Lato', sans-serif;
     width: 100%;
     text-align: center;
     font-size: 3vw;
-    color: rgb(99, 200, 242);
+    color: rgb(90, 202, 249);
     top: 15%;
     font-weight: bold;
+}
+
+#howItWorksModalLaunch {
+  background-color: white;
 }

@@ -12,6 +12,7 @@ import { Controller } from 'angular-ecmascript/module-helpers';
 import { Events, Notifications } from '../../../lib/collections';
 import Moment from 'moment';
 import { throws } from 'assert';
+import anime from 'animejs'
 
 export default class EventsCtrl extends Controller
 {
@@ -41,8 +42,9 @@ export default class EventsCtrl extends Controller
           observer: true
         });
 
-        this.currentIndex = 0;
+        this.titleIndex = 0;
         this.claimed = false;
+        this.expanded = false;
 
         this.helpers({
           data() {
@@ -61,8 +63,16 @@ export default class EventsCtrl extends Controller
           }
         });
 
-        this.mySwiper.on('slideChange', function() {
-          $(".instruction").text("Enter a unique code...");}
+        $("#hTitle").text(ang.data[0].name + ' - ' + ang.data[0].country + ' ' + ang.data[0].year);
+
+        this.mySwiper.on('slideChange',
+
+          function()
+          {
+            $("#hTitle").text(ang.data[this.realIndex].name + ' - ' + ang.data[this.realIndex].country + ' ' + ang.data[this.realIndex].year);
+            $(".instruction").text("Enter a unique code...");
+          }
+
         );
 
         $("input").keyup(function()
@@ -73,7 +83,7 @@ export default class EventsCtrl extends Controller
           {
             if(tempCode[i - 1] != null)
             {
-              $(".dg" + i).css("background-color", "rgb(230, 148, 115)");
+              $(".dg" + i).css("background-color", "rgb(255, 136, 120)");
               $(".idg" + i).css("background-color", "transparent");
             }
             else
@@ -85,15 +95,27 @@ export default class EventsCtrl extends Controller
       });
     }
 
-    goTo(destination)
+    expandEvent()
     {
-      $(".eventsMenu").modal("hide");
-      this.$state.go(destination);
-    }
+      if(this.expanded == false)
+      {
+        var expPic = document.querySelector('#expandedPicture');
+        expPic.src = this.data[this.mySwiper.realIndex].picture;
+        $('#expandedEvent').fadeIn(100);
+        $('.swiper-container').fadeOut(100);
+        $('#expandedEvent').addClass('expandCentre');
+        anime({targets: '#expandedEvent',scale: 2,});
+        this.expanded = true;
+      }
+      else
+      {
+        anime({targets: '#expandedEvent',scale: 1,});
+        $('#expandedEvent').removeClass('expandCentre');
+        $('#expandedEvent').fadeOut(200);
+        $('.swiper-container').fadeIn(250);
 
-    closeMenu()
-    {
-      $(".eventsMenu").modal("hide");
+        this.expanded = false;
+      }
     }
 
     resetCode()
@@ -107,8 +129,20 @@ export default class EventsCtrl extends Controller
       }
     }
 
+    triggerCodeInput()
+    {
+      console.log("triggered");
+      $('#codeInput').trigger('select1');
+    }
+
     claim()
     {
+      if(this.user.profile.completed == 0)
+      {
+        console.log("User has not completed profile!");
+        this.openPopUp()
+        return;
+      }
       var claimIndex = this.mySwiper.realIndex;
 
       if(this.claimed == true)
@@ -188,12 +222,13 @@ export default class EventsCtrl extends Controller
     {
       for(var i = 1; i <= 6; i++)
       {
-        $(".dg" + i).css("background-color", "rgb(182, 234, 130)");
+        $(".dg" + i).css("background-color", "rgb(109, 249, 115)");
         $(".idg" + i).css("background-color", "transparent");
       }
-      $(".greenWin").css("background-color", "rgb(182, 234, 130)");
-      $(".filler").css("background-color", "rgb(182, 234, 130)");
-      $(".eventsHeader").css("background-color", "rgb(182, 234, 130)");
+
+      $(".greenWin").css("background-color", "rgb(109, 249, 115)");
+      $(".filler").css("background-color", "rgb(109, 249, 115)");
+      $(".eventsHeader").css("background-color", "rgb(109, 249, 115)");
       $("#hTitle").css("color", "white");
       $(".greenWin").css("z-index", 3);
       $(".claimBtnText").text("Great, Got It");
@@ -262,20 +297,68 @@ export default class EventsCtrl extends Controller
       return;
     }
 
+    openPopUp()
+    {
+      anime({targets: '#completeDetailsPopUp', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
+      $('#eventsContainer').addClass('blur');
+    }
+
+    closePopUp()
+    {
+      anime({targets: '#completeDetailsPopUp', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
+      $('#eventsContainer').removeClass('blur');
+    }
+
+    completeDetails()
+    {
+      this.closePopUp();
+      this.$state.go("completeProfile");
+    }
+
+    goTo(destination)
+    {
+      this.closeMenu()
+      this.$state.go(destination);
+    }
+
+    openMenu()
+    {
+      anime({targets: '#eventMenuSlide', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
+      $('#eventsContainer').addClass('blur');
+    }
+
+    closeMenu()
+    {
+      anime({targets: '#eventMenuSlide', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
+      $('#eventsContainer').removeClass('blur');
+    }
+
     openSearch()
     {
-      $(".eventsMenu").modal("hide");
-      $('.eventsSearch').modal({inverted: true}).modal('setting', 'transition', 'fade up').modal('show');
+      this.closeMenu();
+      anime({targets: '#eventsSearchModal', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
     }
 
     closeSearch()
     {
-      $(".eventsSearch").modal("hide");
+      anime({targets: '#eventsSearchModal', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
     }
 
-    findItem(index)
+    findItem(event)
     {
-      $(".eventsSearch").modal("hide");
+      this.closeSearch();
+      this.closeMenu();
+
+      var index = null;
+
+      for(var i = 0; i < this.data.length; i++)
+      {
+        if(this.data[i]._id == event._id)
+        {
+            index = i;
+        }
+      }
+
       this.mySwiper.slideTo(index);
     }
   }

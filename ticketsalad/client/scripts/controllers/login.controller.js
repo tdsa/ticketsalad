@@ -5,35 +5,36 @@
 * Tribus Digita
 * Ticket Salad
 *
-* Functional description: login controller handles all javascript associated with the login html file. 
-all javascript functions along with the state controllers are placed here. login also handles the process of correctly 
+* Functional description: login controller handles all javascript associated with the login html file.
+all javascript functions along with the state controllers are placed here. login also handles the process of correctly
 logging a user into the app and letting all other views show.
 
 */
 import { _ } from 'meteor/underscore';
 import { Controller } from 'angular-ecmascript/module-helpers';
- 
-export default class LoginCtrl extends Controller 
+
+export default class LoginCtrl extends Controller
 {
-  constructor() 
+  constructor()
   {
     super(...arguments);
-    Meteor.logout();
   }
 
-  login() 
+  login()
   {
     let ang = this;
+
     if(this.username == null || this.pass == null)
     {
       console.log("Missing details, don't allow log in");
       $(".loginInstructions").text("Please enter your details!").css("color", "red");
       return;
     }
- 
-    Meteor.loginWithPassword(this.username, this.pass, function (err) 
+
+    Meteor.loginWithPassword(this.username, this.pass, function (err)
     {
       if (!err) {
+          ang.clearInputs();
           ang.resetAll();
           ang.$state.go('events');
       } else {
@@ -45,18 +46,22 @@ export default class LoginCtrl extends Controller
 
   create()
   {
-    this.username = null;
-    this.pass = null;
+    this.clearInputs();
     this.resetAll();
     this.$state.go('signup');
   }
 
   forgot()
   {
-    this.username = null;
-    this.pass = null;
+    this.clearInputs();
     this.resetAll();
     this.$state.go('forgotPassword');
+  }
+
+  clearInputs()
+  {
+    this.username = null;
+    this.pass = null;
   }
 
   resetAll()
@@ -64,6 +69,6 @@ export default class LoginCtrl extends Controller
     $(".loginInstructions").text("Sign in to continue").css("color", "rgb(150, 196, 239)");
   }
 }
- 
+
 LoginCtrl.$name = 'LoginCtrl';//To refer to the controller in scope
 LoginCtrl.$inject = ['$state', '$ionicPopup', '$log'];// Adds the controller to the routes config

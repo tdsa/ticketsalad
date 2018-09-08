@@ -17,10 +17,12 @@
     "angular-moment": "^1.2.0",
     "angular-sanitize": "^1.7.3",
     "angular-ui-router": "^0.3.2",
+    "animejs": "^2.2.0",
     "babel-runtime": "^6.26.0",
     "ionic-scripts": "^1.3.5",
     "meteor-node-stubs": "^0.4.1",
     "moment": "^2.22.2",
+    "paypal-rest-sdk": "^1.8.1",
     "postcss": "^6.0.23",
     "postcss-load-config": "^1.2.0",
     "swiper": "^4.3.5"

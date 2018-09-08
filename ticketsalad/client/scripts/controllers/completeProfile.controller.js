@@ -1,10 +1,11 @@
 import { _ } from 'meteor/underscore';
 import { Controller } from 'angular-ecmascript/module-helpers';
- 
+
 export default class CompleteProfileCtrl extends Controller {
 
     constructor() {
         super(...arguments);
+        $(".completeDate").valueAsDate = new Date();
     }
 
     back()
@@ -13,10 +14,11 @@ export default class CompleteProfileCtrl extends Controller {
         this.dob = null;
         this.gender = null;
         this.resetAll();
-        this.$state.go('signup');
+        $(".check").prop('checked', false);
+        this.$state.go('events');
     }
 
-    signUp()
+    finish()
     {
         this.agree = $(".check").is(':checked');
 
@@ -26,6 +28,13 @@ export default class CompleteProfileCtrl extends Controller {
             $(".completeInstructions").text("Please enter all your details!").css("color", "red");
             return;
         }
+
+        /*if(this.callMethod('emailBelongsToUser', this.email) == true)
+        {
+            console.log("Email already in use");
+            $(".completeInstructions").text("This email address is already in use!").css("color", "red");
+            return;
+        }*/
 
         if(this.agree == false)
         {
@@ -38,19 +47,17 @@ export default class CompleteProfileCtrl extends Controller {
 
         Meteor.users.update(id, {$set: {"profile.dob": this.dob}});
         Meteor.users.update(id, {$set: {"profile.gender": this.gender}});
-
-        Meteor.users.update(id, {$set: {"profile.completed": true}});
+        Meteor.users.update(id, {$set: {"profile.completed": 1}});
 
         this.callMethod('updateEmail', this.email);
-
-        //this.callMethod('verifyEmailAddress', id);        
+        //this.callMethod('verifyEmailAddress');
         this.resetAll();
         this.$state.go('events');
     }
-    
+
     resetAll()
     {
-        $(".completeInstructions").text("Create an account to continue").css("color", "rgb(150, 196, 239)");
+        $(".completeInstructions").text("Fill in your details to start claiming").css("color", "rgb(150, 196, 239)");
     }
 
     terms()

@@ -19,7 +19,6 @@ import eventsTemplateUrl from '../templates/events.html';
 import profileTemplateUrl from '../templates/profile.html';
 import buyCreditsTemplateUrl from '../templates/buyCredits.html';
 import completeProfileTemplateUrl from '../templates/completeProfile.html';
-import cardDetailsTemplateUrl from '../templates/cardDetails.html';
 import activityTemplateUrl from '../templates/activity.html';
 import editProfileTemplateUrl from '../templates/editProfile.html';
 import loginTemplateUrl from '../templates/login.html';
@@ -99,11 +98,6 @@ class RoutesConfig extends Config {
         url: '/termsConditions',
           templateUrl: termsConditionsTemplateUrl,
           controller: 'TermsConditionsCtrl as termsConditions'
-      })
-      .state('cardDetails', {
-        url: '/cardDetails',
-          templateUrl: cardDetailsTemplateUrl,
-          controller: 'CardDetailsCtrl as cardDetails'
       })
       .state('activity', {
         url: '/activity',

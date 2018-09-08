@@ -6,7 +6,7 @@
     grid-template-areas: "editProfileHeader" "editProfileDetails" "editProfileActions";
     font-family: 'Lato', sans-serif;
   }
-  
+
   .editProfileHeader {
     display: grid;
     grid-area: editProfileHeader;
@@ -14,12 +14,12 @@
     grid-template-rows: 40% 60%;
     grid-template-areas: "editProfileHeaderTitle" "editProfileHeaderMsg";
   }
-  
+
   .editProfileHeaderTitle {
     grid-area: editProfileHeaderTitle;
     position: relative;
   }
-  
+
   .editProfileHeaderTitle p
   {
     position: absolute;
@@ -29,20 +29,20 @@
     font-weight: bold;
     color: rgb(64, 64, 64);
   }
-  
+
   .editProfileHeaderMsg {
     grid-area: editProfileHeaderMsg;
     position: relative;
   }
-  
+
   .editProfileHeaderMsg p {
     position: absolute;
     top: 7.5%;
     left: 7.5%;
     font-size: 5.5vw;
-    color: rgb(150, 196, 239);
+    color: rgb(90, 202, 249);
   }
-  
+
   .editProfileDetails {
     display: grid;
     grid-area: editProfileDetails;
@@ -50,7 +50,7 @@
     grid-template-rows: 14.28% 14.28% 14.28% 14.28% 14.28% 8% 20.6%;
     grid-template-areas: "editProfileUser" "editProfileFirst" "editOldPassword" "editNewPassword" "editConfirmNewPassword" "." "terms";
   }
-  
+
   .editProfileUser {
     display: grid;
     grid-area: editProfileUser;
@@ -58,12 +58,12 @@
     grid-template-rows: 30% 70%;
     grid-template-areas: "editProfileUserName" "editProfileUserInput";
   }
-  
+
   .editProfileUserName {
     grid-area: editProfileUserName;
     position: relative;
   }
-  
+
   .editProfileUserInput {
     grid-area: editProfileUserInput;
     position: relative;
@@ -75,14 +75,14 @@
     font-size: 4.3vw;
     left: 9%;
   }
-  
+
   .editProfileUserInput input {
     position: absolute;
     color: black;
     font-size: 4.3vw;
     left: 9%;
     width: 82%;
-    border-bottom: solid 1.5px rgb(150, 196, 239);
+    border-bottom: solid 1.5px rgb(90, 202, 249);
     border-top: none;
     border-left: none;
     border-right: none;
@@ -90,7 +90,7 @@
     padding-bottom: 2%;
     height: 80%;
   }
-  
+
   .editProfileFirst {
     grid-area: editProfileFirst;
     display: grid;
@@ -98,31 +98,31 @@
     grid-template-rows: 30% 70%;
     grid-template-areas: "editProfileFirstName" "editProfileFirstInput";
   }
-  
+
   .editProfileFirstName {
     grid-area: editProfileFirstName;
     position: relative;
   }
-  
+
   .editProfileFirstInput {
     grid-area: editProfileFirstInput;
     position: relative;
   }
-  
+
   .editProfileFirstName p {
     position: absolute;
     color: rgb(216, 216, 216);
     font-size: 4.3vw;
     left: 9%;
   }
-  
+
   .editProfileFirstInput input {
     position: absolute;
     color: black;
     font-size: 4.3vw;
     left: 9%;
     width: 82%;
-    border-bottom: solid 1.5px rgb(150, 196, 239);
+    border-bottom: solid 1.5px rgb(90, 202, 249);
     border-top: none;
     border-left: none;
     border-right: none;
@@ -130,7 +130,7 @@
     padding-bottom: 2%;
     height: 80%;
   }
-  
+
   .editOldPassword {
     grid-area: editOldPassword;
     display: grid;
@@ -138,12 +138,12 @@
     grid-template-rows: 30% 70%;
     grid-template-areas: "editOldPasswordName" "editOldPasswordInput";
   }
-  
+
   .editOldPasswordName {
     grid-area: editOldPasswordName;
     position: relative;
   }
-  
+
   .editOldPasswordInput {
     grid-area: editOldPasswordInput;
     position: relative;
@@ -155,14 +155,14 @@
     font-size: 4.3vw;
     left: 9%;
   }
-  
+
   .editOldPasswordInput input {
     position: absolute;
     color: black;
     font-size: 4.3vw;
     left: 9%;
     width: 82%;
-    border-bottom: solid 1.5px rgb(150, 196, 239);
+    border-bottom: solid 1.5px rgb(90, 202, 249);
     border-top: none;
     border-left: none;
     border-right: none;
@@ -178,12 +178,12 @@
     grid-template-rows: 30% 70%;
     grid-template-areas: "editNewPasswordName" "editNewPasswordInput";
   }
-  
+
   .editNewPasswordName {
     grid-area: editNewPasswordName;
     position: relative;
   }
-  
+
   .editNewPasswordInput {
     grid-area: editNewPasswordInput;
     position: relative;
@@ -195,14 +195,14 @@
     font-size: 4.3vw;
     left: 9%;
   }
-  
+
   .editNewPasswordInput input {
     position: absolute;
     color: black;
     font-size: 4.3vw;
     left: 9%;
     width: 82%;
-    border-bottom: solid 1.5px rgb(150, 196, 239);
+    border-bottom: solid 1.5px rgb(90, 202, 249);
     border-top: none;
     border-left: none;
     border-right: none;
@@ -218,12 +218,12 @@
     grid-template-rows: 30% 70%;
     grid-template-areas: "editConfirmNewPasswordName" "editConfirmNewPasswordInput";
   }
-  
+
   .editConfirmNewPasswordName {
     grid-area: editConfirmNewPasswordName;
     position: relative;
   }
-  
+
   .editConfirmNewPasswordInput {
     grid-area: editConfirmNewPasswordInput;
     position: relative;
@@ -235,14 +235,14 @@
     font-size: 4.3vw;
     left: 9%;
   }
-  
+
   .editConfirmNewPasswordInput input {
     position: absolute;
     color: black;
     font-size: 4.3vw;
     left: 9%;
     width: 82%;
-    border-bottom: solid 1.5px rgb(150, 196, 239);
+    border-bottom: solid 1.5px rgb(90, 202, 249);
     border-top: none;
     border-left: none;
     border-right: none;
@@ -257,14 +257,14 @@
     font-size: 4.3vw;
     left: 9%;
   }
-  
+
   .inputP {
     position: absolute;
     color: black;
     font-size: 4.3vw;
     left: 9%;
     width: 82%;
-    border-bottom: solid 1.5px rgb(150, 196, 239);
+    border-bottom: solid 1.5px rgb(90, 202, 249);
     border-top: none;
     border-left: none;
     border-right: none;
@@ -272,12 +272,12 @@
     padding-bottom: 2%;
     height: 80%;
   }
-  
+
   .terms {
     grid-area: terms;
     position: relative;
   }
-  
+
   .buttonNext {
     position: absolute;
     width: 45%;
@@ -291,7 +291,7 @@
   .buttonNext:active {
     background-color: rgb(5, 104, 146);
   }
-  
+
   .buttonNext p {
     position: absolute;
     color: white;
@@ -301,19 +301,19 @@
     top: 25%;
     font-size: 5.5vw;
   }
-  
+
   .editProfileActions {
     grid-area: editProfileActions;
     position: relative;
   }
-  
+
   .link {
     text-align: center;
     font-size: 4.3vw;
     font-weight: bold;
-    color: rgb(150, 196, 239);
+    color: rgb(90, 202, 249);
   }
-  
+
   .linkText {
     text-align: center;
     font-size: 4.3vw;

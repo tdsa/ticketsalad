@@ -1,5 +1,5 @@
-<ion-view view-title="Sign Up">
-    <ion-content scroll = "false">
+<ion-view view-title="Sign Up" can-swipe-back="false">
+    <ion-content scroll="false">
         <div class="grid-containerSignUp">
             <div class="signUpHeader">
                 <div class="signUpHeaderTitle"><p>Welcome!</p></div>
@@ -27,10 +27,10 @@
                     <div class="signUpConfirmPassInput"><input class = "inputP pass" placeholder = "Confirm your password" type="password" ng-model="signup.pass2" ng-click = "signup.resetAll()"></div>
                 </div>
                 <div class="signUpDetailsBlank"></div>
-                <div class="nextButton"><div class = "buttonNext" ng-click="signup.next()" href="#/completeProfile"><p>Next</p></div></div>
+                <div class="nextButton"><div class = "buttonNext" ng-click="signup.next()" href="#/completeProfile"><p>Sign Up</p></div></div>
             </div>
             <div class="signUpActions">
-                <center><span class = "linkText">Already have an account? &emsp;</span><span class = "link" ng-click="signup.login()" href="#/login">Sign In</span></center>
+                <center><span class = "linkText">Already have an account? &emsp;</span><span class = "link" ng-click = "signup.goToLogin()">Sign In</span></center>
             </div>
         </div>
     </ion-content>

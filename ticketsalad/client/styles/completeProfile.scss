@@ -1,3 +1,8 @@
+input[type = "date"] {
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+
 .grid-containerCompleteProfile {
     display: grid;
     height: 100%;
@@ -5,22 +10,22 @@
     grid-template-rows: 20% 65% 15%;
     grid-template-areas: "completeProfileHeader" "completeProfileDetails" "completeProfileActions";
   }
-  
+
   .completeProfileHeader {
     display: grid;
     grid-area: completeProfileHeader;
     grid-template-columns: 100%;
-    grid-template-rows: 40% 60%;
+    grid-template-rows: 60% 40%;
     grid-template-areas: "completeProfileHeaderTitle" "completeProfileHeaderMsg";
   }
-  
+
   .completeProfileHeaderTitle {
     display: grid;
     grid-area: completeProfileHeaderTitle;
     grid-template-columns: 75% 25%;
     grid-template-rows: 100%;
     grid-template-areas: "completeProfileHeaderTitleWord completeProfileHeaderBack";
-    
+
   }
 
   .completeProfileHeaderTitleWord {
@@ -40,7 +45,7 @@
     bottom: 20%;
     left: 36.5%;
   }
-  
+
   .completeProfileHeaderTitleWord p
   {
     position: absolute;
@@ -50,20 +55,20 @@
     font-weight: bold;
     color: rgb(64, 64, 64);
   }
-  
+
   .completeProfileHeaderMsg {
     grid-area: completeProfileHeaderMsg;
     position: relative;
   }
-  
+
   .completeProfileHeaderMsg p {
     position: absolute;
     top: 7.5%;
     left: 7.5%;
     font-size: 5.5vw;
-    color: rgb(150, 196, 239);
+    color: rgb(90, 202, 249);
   }
-  
+
   .completeProfileDetails {
     display: grid;
     grid-area: completeProfileDetails;
@@ -71,7 +76,7 @@
     grid-template-rows: 14.28% 14.28% 14.28% 14.28% 14.28% 8% 20.6%;
     grid-template-areas: "completeProfileUser" "completeProfileFirst" "completeProfileLast" "." "." "." "terms";
   }
-  
+
   .completeProfileUser {
     display: grid;
     grid-area: completeProfileUser;
@@ -79,12 +84,12 @@
     grid-template-rows: 30% 70%;
     grid-template-areas: "completeProfileUserName" "completeProfileUserInput";
   }
-  
+
   .completeProfileUserName {
     grid-area: completeProfileUserName;
     position: relative;
   }
-  
+
   .completeProfileUserInput {
     grid-area: completeProfileUserInput;
     position: relative;
@@ -96,14 +101,14 @@
     font-size: 4.3vw;
     left: 9%;
   }
-  
+
   .completeProfileUserInput input {
     position: absolute;
     color: black;
     font-size: 4.3vw;
     left: 9%;
     width: 82%;
-    border-bottom: solid 1.5px rgb(150, 196, 239);
+    border-bottom: solid 1.5px rgb(90, 202, 249);
     border-top: none;
     border-left: none;
     border-right: none;
@@ -111,7 +116,7 @@
     padding-bottom: 2%;
     height: 80%;
   }
-  
+
   .completeProfileFirst {
     grid-area: completeProfileFirst;
     display: grid;
@@ -119,31 +124,31 @@
     grid-template-rows: 30% 70%;
     grid-template-areas: "completeProfileFirstName" "completeProfileFirstInput";
   }
-  
+
   .completeProfileFirstName {
     grid-area: completeProfileFirstName;
     position: relative;
   }
-  
+
   .completeProfileFirstInput {
     grid-area: completeProfileFirstInput;
     position: relative;
   }
-  
+
   .completeProfileFirstName p {
     position: absolute;
     color: rgb(216, 216, 216);
     font-size: 4.3vw;
     left: 9%;
   }
-  
+
   .completeProfileFirstInput input {
     position: absolute;
     color: black;
     font-size: 4.3vw;
     left: 9%;
     width: 82%;
-    border-bottom: solid 1.5px rgb(150, 196, 239);
+    border-bottom: solid 1.5px rgb(90, 202, 249);
     border-top: none;
     border-left: none;
     border-right: none;
@@ -151,7 +156,7 @@
     padding-bottom: 2%;
     height: 80%;
   }
-  
+
   .completeProfileLast {
     grid-area: completeProfileLast;
     display: grid;
@@ -159,12 +164,12 @@
     grid-template-rows: 30% 70%;
     grid-template-areas: "completeProfileLastName" "completeProfileLastInput";
   }
-  
+
   .completeProfileLastName {
     grid-area: completeProfileLastName;
     position: relative;
   }
-  
+
   .completeProfileLastInput {
     grid-area: completeProfileLastInput;
     position: relative;
@@ -176,14 +181,14 @@
     font-size: 4.3vw;
     left: 9%;
   }
-  
+
   .completeProfileLastInput input {
     position: absolute;
     color: black;
     font-size: 4.3vw;
     left: 9%;
     width: 82%;
-    border-bottom: solid 1.5px rgb(150, 196, 239);
+    border-bottom: solid 1.5px rgb(90, 202, 249);
     border-top: none;
     border-left: none;
     border-right: none;
@@ -198,14 +203,14 @@
     font-size: 4.3vw;
     left: 9%;
   }
-  
+
   .inputP {
     position: absolute;
     color: black;
     font-size: 4.3vw;
     left: 9%;
     width: 82%;
-    border-bottom: solid 1.5px rgb(150, 196, 239);
+    border-bottom: solid 1.5px rgb(90, 202, 249);
     border-top: none;
     border-left: none;
     border-right: none;
@@ -213,7 +218,7 @@
     padding-bottom: 2%;
     height: 80%;
   }
-  
+
   .terms {
     grid-area: terms;
     position: relative;
@@ -227,12 +232,12 @@
   .check {
     transform: scale(1.7);
   }
-  
+
   .buttonNext {
     position: absolute;
     width: 45%;
     height: 15vw;
-    background-color: rgb(99, 200, 242);
+    background-color: rgb(90, 202, 249);
     border-radius: 10px;
     left: 7.5%;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
@@ -241,7 +246,7 @@
   .buttonNext:active {
     background-color: rgb(5, 104, 146);
   }
-  
+
   .buttonNext p {
     position: absolute;
     color: white;
@@ -251,19 +256,19 @@
     top: 25%;
     font-size: 5.5vw;
   }
-  
+
   .completeProfileActions {
     grid-area: completeProfileActions;
     position: relative;
   }
-  
+
   .link {
     text-align: center;
     font-size: 4.3vw;
     font-weight: bold;
-    color: rgb(150, 196, 239);
+    color: rgb(90, 202, 249);
   }
-  
+
   .linkText {
     text-align: center;
     font-size: 4.3vw;

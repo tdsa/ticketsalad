@@ -10,8 +10,9 @@ all javascript functions along with the state controllers are placed here.
 */
 import { _ } from 'meteor/underscore';
 import { Controller } from 'angular-ecmascript/module-helpers';
-import { Events, Notifications } from '../../../lib/collections';
+import { Events, Notifications, Cards } from '../../../lib/collections';
 import Moment from 'moment';
+import anime from 'animejs'
 
 export default class BuyCreditsCtrl extends Controller {
 
@@ -31,31 +32,175 @@ export default class BuyCreditsCtrl extends Controller {
                 console.log("No user logged in!");
                 this.$state.go('launch');
             }
+        },
+        getCards()
+        {
+          return Cards.find({_id: {$in: Meteor.user().profile.cards}});
         }
       });
 
       this.amount = 0;
+      this.inProgress = false;
     }
 
     exit()
     {
-        this.$state.go('profile');
+      this.amount = 0;
+      this.$state.go('profile');
+    }
+
+    setZero()
+    {
+      if(this.amount == null || this.amount == "")
+      {
         this.amount = 0;
+      }
     }
 
     option(add)
     {
-      console.log("Current amount: " + this.amount);
-      console.log("Expected result: " + parseInt(this.amount) + add);
-      this.amount = parseInt(this.amount) + add;
-      console.log("Actual result: " + parseInt(this.amount));
+      this.setZero()
+      this.amount = parseInt(this.amount) + parseInt(add);
+    }
+
+    minus()
+    {
+      this.setZero()
+      this.amount = parseInt(this.amount) - 10;
+    }
+
+    add()
+    {
+      this.setZero()
+      this.amount = parseInt(this.amount) + 10;
+    }
+
+    showCreditCards()
+    {
+      if(parseInt(this.amount) == 0 || this.amount == null || this.amount == "")
+      {
+        return;
+      }
+
+      anime({targets: '#creditCardsModal', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
+      this.inProgress = true;
+    }
+
+    exitCreditCards()
+    {
+      anime({targets: '#creditCardsModal', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
+    }
+
+    addNewCard()
+    {
+      anime({targets: '#addCardModal', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
+    }
+
+    exitAddNewCard()
+    {
+      this.name = null;
+      this.cardNumber = null;
+      this.date = null;
+      this.cvc = null;
+
+      anime({targets: '#addCardModal', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
+    }
+
+    finishAddCard()
+    {
+      if(this.cardNumber == null)
+      {
+        $(".cardInstructions").text("Please enter your card number!").css("color", "red");
+        return;
+      }
+      if(this.cardNumber.length != 16)
+      {
+        $("#cardNumber").css("color", "red");
+        $(".cardInstructions").text("Your card number must be 16 digits!").css("color", "red");
+        return;
+      }
+      if(this.name == null)
+      {
+        $(".cardInstructions").text("Please enter your name!").css("color", "red");
+        return;
+      }
+      if(this.expiry == null)
+      {
+        $(".cardInstructions").text("Please enter the expiry date!").css("color", "red");
+        return;
+      }
+      if(this.cvc == null)
+      {
+        $(".cardInstructions").text("Please enter your CVC number!").css("color", "red");
+        return;
+      }
+      if(this.cvc.length != 3)
+      {
+        $("#cardCVC").css("color", "red");
+        $(".cardInstructions").text("Your CVC must be 3 digits!").css("color", "red");
+        return;
+      }
+
+      var cardType = null;
+      var cardPic = null;
+      var first = parseInt(this.cardNumber.charAt(0));
+      var second = parseInt(this.cardNumber.charAt(0) + this.cardNumber.charAt(1));
+
+      if(first == 4)
+      {
+        cardType = "visa";
+        cardPic = "img/visa.png";
+      }
+      else if(second >= 51 && second <= 55)
+      {
+        cardType = "master"
+        cardPic = "img/master.png";
+      }
+      else
+      {
+        $("#cardNumber").css("color", "red");
+        $(".cardInstructions").text("Your card number is incorrect!").css("color", "red");
+        return
+      }
+
+      var cardID = Cards.insert(
+      {
+        name: this.name,
+        number: this.cardNumber,
+        date: this.expiry,
+        cvc: this.cvc,
+        type: cardType,
+        picture: cardPic,
+      });
+
+      Meteor.users.update(this.user._id, {$push: {"profile.cards": cardID}});
+
+      this.exitAddNewCard()
+    }
+
+    completePurchase()
+    {
+      if(this.inProgress == true)
+      {
+        this.pay();
+      }
+
+      this.inProgress = false;
+      this.exitCreditCards();
+    }
+
+    resetCardFields()
+    {
+      $("#cardCVC").css("color", "black");
+      $("#cardNumber").css("color", "black");
+      $(".cardInstructions").text("");
     }
 
     pay()
     {
       this.total = 2*parseInt(this.amount);
       var userClaims = this.user.profile.credits;
-      var userClaims = userClaims + parseInt(this.amount);
+      var userClaims = parseInt(userClaims) + parseInt(this.amount);
       Meteor.users.update(this.user._id, {$set: {"profile.credits": userClaims}});
 
       var notificationID = Notifications.insert({
@@ -71,16 +216,6 @@ export default class BuyCreditsCtrl extends Controller {
 
       this.amount = 0;
       notificationID = null;
-    }
-
-    minus()
-    {
-      this.amount = parseInt(this.amount) - 10;
-    }
-
-    add()
-    {
-      this.amount = parseInt(this.amount) + 10;
     }
   }
 

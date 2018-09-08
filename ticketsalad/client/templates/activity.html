@@ -1,4 +1,4 @@
-<ion-view>
+<ion-view can-swipe-back="false">
     <ion-content scroll = "false">
         <div class="grid-containerActivity">
             <div class="activityHeader">
@@ -10,9 +10,11 @@
             </div>
             <div class="activityBody">
                 <ion-content class = "activityScrollContent">
-                    <div class = "notification" ng-repeat="notification in activity.updateNotifications | orderBy: '-timestamp'">
-                        <img src= {{notification.picture}}>
-                        <p ng-style = "activity.getColor(notification)">{{notification.description}}</p>
+                    <div class = "notification" ng-repeat = "notification in activity.updateNotifications | orderBy: '-timestamp'">
+                        <div class = "grid-containerNotification">
+                            <div class = "notificationPicture flexCenter"><img src = {{notification.picture}}></div>
+                            <div class = "notificationMessage flexCenter"><p ng-style = "activity.getColor(notification)">{{notification.description}}</p></div>
+                        </div>
                     </div>
                 </ion-content>
             </div>
