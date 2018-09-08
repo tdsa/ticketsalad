@@ -12,6 +12,7 @@ import { _ } from 'meteor/underscore';
 import { Controller } from 'angular-ecmascript/module-helpers';
 import { Events, Notifications, Cards } from '../../../lib/collections';
 import Moment from 'moment';
+import anime from 'animejs'
 
 export default class BuyCreditsCtrl extends Controller {
 
@@ -81,18 +82,18 @@ export default class BuyCreditsCtrl extends Controller {
         return;
       }
 
-      $('#creditCardsModal').addClass('slideUpMenuHide');
+      anime({targets: '#creditCardsModal', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
       this.inProgress = true;
     }
 
     exitCreditCards()
     {
-      $('#creditCardsModal').removeClass('slideUpMenuHide');
+      anime({targets: '#creditCardsModal', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
     }
 
     addNewCard()
     {
-      $('#addCardModal').addClass('slideUpMenuHide');
+      anime({targets: '#addCardModal', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
     }
 
     exitAddNewCard()
@@ -101,7 +102,8 @@ export default class BuyCreditsCtrl extends Controller {
       this.cardNumber = null;
       this.date = null;
       this.cvc = null;
-      $('#addCardModal').removeClass('slideUpMenuHide');
+
+      anime({targets: '#addCardModal', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
     }
 
     finishAddCard()

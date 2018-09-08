@@ -1,5 +1,5 @@
-<ion-view view-title="Events" onload="events.check()">
-      <ion-content scroll="false">
+<ion-view view-title="Events" onload="events.check()" can-swipe-back="false">
+      <ion-content scroll = "false">
           <div class="grid-containerEvents" id = "eventsContainer">
               <div class = "filler"></div>
               <div class="eventsHeader">
@@ -13,7 +13,7 @@
                   <div class = "greenWin"><p>Congratulations! We are delighted to inform you that you have won <strong>{{events.data[events.currentIndex].tickets}}</strong> tickets to <strong>{{events.data[events.currentIndex].name}} - {{events.data[events.currentIndex].country}} {{events.data[events.currentIndex].year}}</strong>. All the details will be sent to your email address.</p></div>
                   <div class="swiper-container">
                       <div class="swiper-wrapper">
-                          <div class="swiper-slide" ng-repeat = "event in events.data" ng-click = "events.triggerCodeInput()">
+                          <div class="swiper-slide" ng-repeat = "event in events.data" ng-click = "events.expandEvent()" id = "card{{$index}}">
                               <div class="grid-containerCard">
                                   <div class="eventPicture"><img src = {{event.picture}} alt = "pic"></div>
                                   <div class="eventDescription">
@@ -57,56 +57,63 @@
               <div class="eventsClaimBtn" ng-click="events.claim()"><p class = "claimBtnText">Claim</p></div>
           </div>
 
-          <div class = "slideUpMenu" id = "eventMenuSlide">
-              <div class="containerMenu">
-                <div class = "halfCover"></div>
-                  <div class="top">
-                      <div class="profilePicture">
-                          <div class="circlePic" id = "picThing" ><img src= {{events.user.profile.picture}}></div>
-                      </div>
-                      <div class="menuName"><p>@{{events.user.username}}</p></div>
-                      <div class="blank"></div>
-                  </div>
-                  <div class="bottom">
-                      <div class="homeButton"><div class = "myButton" href = "#/events" ng-click="events.goTo('events')"><p>Home</p></div></div>
-                      <div class="activityButton"><div class = "myButton" href = "#/activity" ng-click="events.goTo('activity')"><p>Activity</p></div></div>
-                      <div class="profileButton"><div class = "myButton" href = "#/profile" ng-click="events.goTo('profile')"><p>Profile</p></div></div>
-                      <div class="searchButton"><div class = "myButton" ng-click = "events.openSearch()"><p>Search</p></div></div>
-                      <div class="exitArea">
-                          <div class="exitButton"><img src = "/img/exit.png" alt = "exit" ng-click = "events.closeMenu()"></div>
-                          <div class="exitLeft"></div>
-                          <div class="exitRight"></div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-
-          <div class = "slideUpMenu" id = "eventsSearchModal">
-            <div class="grid-containerSearch">
-                <div class="searchHeader">
-                    <div class="searchHeading"><p>Search</p></div>
-                    <div class="searchExit"><img src = "/img/exit.png" alt = "exit" ng-click = "events.closeSearch()"></div>
-                </div>
-                <div class = "searchBox"><input type="text" placeholder = "Start typing here..." ng-model = "events.searchTerm"></div>
-                <div class="searchBody">
-                    <ion-content class = "searchList">
-                        <div class = "item" ng-repeat = "event in events.data | filter: events.searchTerm" ng-click = "events.findItem(event)">
-                            <b>{{event.name}} - {{event.year}}</b> <br> {{event.city}}, {{event.country}}
-                        </div>
-                    </ion-content>
-                </div>
-            </div>
-          </div>
-
-          <div class = "slideUpMenu flexCenter" id = "completeDetailsPopUp">
-              <div class="grid-containerPopUp">
-                  <div class="popUpMessage flexCenter"><p>You need to complete your profile information before you can claim!</p></div>
-                  <div class="popUpActions">
-                      <div class="popUpAction1 flexCenter" ng-click = "events.closePopUp()"><p>Later</p></div>
-                      <div class="popUpAction2 flexCenter" ng-click = "events.completeDetails()"><p>Okay</p></div>
-                  </div>
-              </div>
-          </div>
-
       </ion-content>
+
+      <div class = "slideUpMenu" id = "eventMenuSlide">
+          <div class="containerMenu">
+            <div class = "halfCover"></div>
+              <div class="top">
+                  <div class="profilePicture">
+                      <div class="circlePic" id = "picThing" ><img src= {{events.user.profile.picture}}></div>
+                  </div>
+                  <div class="menuName"><p>@{{events.user.username}}</p></div>
+                  <div class="blank"></div>
+              </div>
+              <div class="bottom">
+                  <div class="homeButton"><div class = "myButton" href = "#/events" ng-click="events.goTo('events')"><p>Home</p></div></div>
+                  <div class="activityButton"><div class = "myButton" href = "#/activity" ng-click="events.goTo('activity')"><p>Activity</p></div></div>
+                  <div class="profileButton"><div class = "myButton" href = "#/profile" ng-click="events.goTo('profile')"><p>Profile</p></div></div>
+                  <div class="searchButton"><div class = "myButton" ng-click = "events.openSearch()"><p>Search</p></div></div>
+                  <div class="exitArea">
+                      <div class="exitButton"><img src = "/img/exit.png" alt = "exit" ng-click = "events.closeMenu()"></div>
+                      <div class="exitLeft"></div>
+                      <div class="exitRight"></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class = "slideUpMenu" id = "eventsSearchModal">
+        <div class="grid-containerSearch">
+            <div class="searchHeader">
+                <div class="searchHeading"><p>Search</p></div>
+                <div class="searchExit"><img src = "/img/exit.png" alt = "exit" ng-click = "events.closeSearch()"></div>
+            </div>
+            <div class = "searchBox"><input type="text" placeholder = "Start typing here..." ng-model = "events.searchTerm"></div>
+            <div class="searchBody">
+                <ion-content class = "searchList">
+                    <div class = "item" ng-repeat = "event in events.data | filter: events.searchTerm" ng-click = "events.findItem(event)">
+                        <b>{{event.name}} - {{event.year}}</b> <br> {{event.city}}, {{event.country}}
+                    </div>
+                </ion-content>
+            </div>
+        </div>
+      </div>
+
+      <div class = "slideUpMenu flexCenter" id = "completeDetailsPopUp">
+          <div class="grid-containerPopUp">
+              <div class="popUpMessage flexCenter"><p>You need to complete your profile information before you can claim!</p></div>
+              <div class="popUpActions">
+                  <div class="popUpAction1 flexCenter" ng-click = "events.closePopUp()"><p>Later</p></div>
+                  <div class="popUpAction2 flexCenter" ng-click = "events.completeDetails()"><p>Okay</p></div>
+              </div>
+          </div>
+      </div>
+
+      <div class = "expandingEvent" id = "expandedEvent" ng-click = "events.expandEvent()">
+          <div class="grid-containerExpandedEvent">
+              <div class="expandedEventPicture"><img id = "expandedPicture" src = "" alt = "pic"></div>
+              <div class="expandedEventBody"></div>
+          </div>
+      </div>
 </ion-view>

@@ -12,6 +12,7 @@ logging a user into the app and letting all other views show.
 */
 import { _ } from 'meteor/underscore';
 import { Controller } from 'angular-ecmascript/module-helpers';
+import anime from 'animejs'
 
 export default class LaunchCtrl extends Controller
 {
@@ -21,16 +22,18 @@ export default class LaunchCtrl extends Controller
     Meteor.logout();
     console.log("User should be logged out");
     console.log("Current user: " + Meteor.user());
+    anime({targets: '#titleTop', left: '15%', duration: 1000, easing: 'easeInOutQuad'});
+    anime({targets: '#titleBottom', right: '15%', duration: 500, delay: 500, easing: 'easeInOutQuad'});
   }
 
   openHowItWorks()
   {
-    $('#howItWorksModalLaunch').addClass('slideUpMenuHide');
+    anime({targets: '#howItWorksModalLaunch', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
   }
 
   closeHowItWorks()
   {
-    $('#howItWorksModalLaunch').removeClass('slideUpMenuHide');
+    anime({targets: '#howItWorksModalLaunch', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
   }
 
   signIn()

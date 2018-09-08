@@ -12,6 +12,7 @@ import { Controller } from 'angular-ecmascript/module-helpers';
 import { Events, Notifications } from '../../../lib/collections';
 import Moment from 'moment';
 import { throws } from 'assert';
+import anime from 'animejs'
 
 export default class EventsCtrl extends Controller
 {
@@ -43,6 +44,7 @@ export default class EventsCtrl extends Controller
 
         this.titleIndex = 0;
         this.claimed = false;
+        this.expanded = false;
 
         this.helpers({
           data() {
@@ -91,6 +93,29 @@ export default class EventsCtrl extends Controller
             }
           }
       });
+    }
+
+    expandEvent()
+    {
+      if(this.expanded == false)
+      {
+        var expPic = document.querySelector('#expandedPicture');
+        expPic.src = this.data[this.mySwiper.realIndex].picture;
+        $('#expandedEvent').fadeIn(100);
+        $('.swiper-container').fadeOut(100);
+        $('#expandedEvent').addClass('expandCentre');
+        anime({targets: '#expandedEvent',scale: 2,});
+        this.expanded = true;
+      }
+      else
+      {
+        anime({targets: '#expandedEvent',scale: 1,});
+        $('#expandedEvent').removeClass('expandCentre');
+        $('#expandedEvent').fadeOut(200);
+        $('.swiper-container').fadeIn(250);
+
+        this.expanded = false;
+      }
     }
 
     resetCode()
@@ -274,13 +299,13 @@ export default class EventsCtrl extends Controller
 
     openPopUp()
     {
-      $('#completeDetailsPopUp').addClass('slideUpMenuHide');
+      anime({targets: '#completeDetailsPopUp', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
       $('#eventsContainer').addClass('blur');
     }
 
     closePopUp()
     {
-      $('#completeDetailsPopUp').removeClass('slideUpMenuHide');
+      anime({targets: '#completeDetailsPopUp', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
       $('#eventsContainer').removeClass('blur');
     }
 
@@ -298,31 +323,31 @@ export default class EventsCtrl extends Controller
 
     openMenu()
     {
-      $('#eventMenuSlide').addClass('slideUpMenuHide');
+      anime({targets: '#eventMenuSlide', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
       $('#eventsContainer').addClass('blur');
     }
 
     closeMenu()
     {
-      $('#eventMenuSlide').removeClass('slideUpMenuHide');
+      anime({targets: '#eventMenuSlide', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
       $('#eventsContainer').removeClass('blur');
     }
 
     openSearch()
     {
       this.closeMenu();
-      $('#eventsSearchModal').addClass('slideUpMenuHide');
+      anime({targets: '#eventsSearchModal', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
     }
 
     closeSearch()
     {
-      $('#eventsSearchModal').removeClass('slideUpMenuHide');
+      anime({targets: '#eventsSearchModal', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
     }
 
     findItem(event)
     {
-      $("#eventMenuSlide").removeClass('slideUpMenuHide');
-      $("#eventsSearchModal").removeClass('slideUpMenuHide');
+      this.closeSearch();
+      this.closeMenu();
 
       var index = null;
 
