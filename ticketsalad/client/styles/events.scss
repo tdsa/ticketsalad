@@ -1,10 +1,11 @@
-.swiper-slide
-{
+.swiper-slide {
   width: 60%;
   height: 90%;
   top: 5%;
   border-radius: 25px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+  background-color: white;
+  overflow: hidden;
 }
 
 .grid-containerCard {
@@ -25,8 +26,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
 }
 
 .eventDescription {
@@ -297,10 +296,11 @@
   font-size: 8vw;
 }
 
-.eventsCards .swiper-container
+.swiper-container
 {
   position: absolute;
   z-index: 2;
+  transition: all 0.1s linear;
 }
 
 .eventsMsg {
@@ -417,11 +417,6 @@
   position: absolute;;
   bottom: -100%;
   left: 0;
-  transition: all 0.4s ease-in-out;
-}
-
-.slideUpMenuHide {
-  bottom: 0;
 }
 
 .containerMenu {
@@ -682,9 +677,6 @@
   padding-top: 5%;
 }
 
-#completeDetailsPopUp {
-}
-
 .grid-containerPopUp {
   display: grid;
   height: 200px;
@@ -744,4 +736,56 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.expandingEvent {
+  position: absolute;
+  width: 68%;
+  height: 51.3%;
+  z-index: 4;
+  display: none;
+  top: 17.90%;
+  left: 16%;
+  border-radius: 25px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.1s linear;
+  background-color: white;
+  overflow: hidden;
+}
+
+.expandCentre {
+  width: 50%;
+  height: 50%;
+  top: 25%;
+  left: 25%;
+  border-radius: 0px;
+}
+
+.squarePicture {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.grid-containerExpandedEvent {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 100%;
+  grid-template-rows: 30% 70%;
+  grid-template-areas: "expandedEventPicture" "expandedEventBody";
+  font-family: 'Lato', sans-serif;
+}
+
+.expandedEventPicture {
+  grid-area: expandedEventPicture;
+}
+
+.expandedEventPicture img
+{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.expandedEventBody {
+  grid-area: expandedEventBody;
 }

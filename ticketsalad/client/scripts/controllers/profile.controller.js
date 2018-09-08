@@ -10,6 +10,7 @@ all javascript functions along with the state controllers are placed here.
 */
 import { Controller } from 'angular-ecmascript/module-helpers';
 import { MeteorCameraUI } from 'meteor/okland:camera-ui';
+import anime from 'animejs'
 
 export default class ProfileCtrl extends Controller {
   constructor() {
@@ -46,13 +47,13 @@ export default class ProfileCtrl extends Controller {
 
   openPopUp()
   {
-    $('#completeDetailsPopUpProfile').addClass('slideUpMenuHide');
+    anime({targets: '#completeDetailsPopUpProfile', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
     $('#profileContainer').addClass('blur');
   }
 
   closePopUp()
   {
-    $('#completeDetailsPopUpProfile').removeClass('slideUpMenuHide');
+    anime({targets: '#completeDetailsPopUpProfile', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
     $('#profileContainer').removeClass('blur');
   }
 
@@ -89,34 +90,34 @@ export default class ProfileCtrl extends Controller {
 
   openMenu()
   {
-    $('#profileMenu').addClass('slideUpMenuHide');
+    anime({targets: '#profileMenu', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
     $('#profileContainer').addClass('blur');
   }
 
   closeMenu()
   {
-    $('#profileMenu').removeClass('slideUpMenuHide');
+    anime({targets: '#profileMenu', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
     $('#profileContainer').removeClass('blur');
   }
 
   openHowItWorks()
   {
-    $('#howItWorksModal').addClass('slideUpMenuHide');
+    anime({targets: '#howItWorksModal', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
   }
 
   closeHowItWorks()
   {
-    $('#howItWorksModal').removeClass('slideUpMenuHide');
+    anime({targets: '#howItWorksModal', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
   }
 
   openContactUs()
   {
-    $('#contactUsModal').addClass('slideUpMenuHide');
+    anime({targets: '#contactUsModal', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
   }
 
   closeContactUs()
   {
-    $('#contactUsModal').removeClass('slideUpMenuHide');
+    anime({targets: '#contactUsModal', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
   }
 
   updatePicture ()
