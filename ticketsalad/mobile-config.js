@@ -14,7 +14,7 @@ App.configurePlugin('cordova-plugin-file', {
 });
 
 App.appendToConfig(`
-  <splash src = "../../../public/splash/LaunchImage-1125@3x~iphoneX-portrait_1125x2436.png" width="1125" height="2436"/>
+  <splash src="../../../public/splash/Default@2x~universal~anyany.png"/>
 `);
 
 // Set up resources such as icons and launch screens.
