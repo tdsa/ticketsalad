@@ -144,18 +144,30 @@
 	\begin{itemize}
 		\item The system must respond to any input within 1 second.
 		\item The users data must be kept secure at all times.
+		\item The systems data and information must be available at all times.
 	\end{itemize}
 
 	\section{System Architecture}
 	\subsection{Interfaces}
 	\subsubsection{User interfaces}
+	\begin{itemize} 
+		\item \textbf{Splash screen} - The splash screen is the first screen that the user is exposed to this screen contains the TicketSalad Logo and an 'about us' section. The user then has the option to sign in or sign up.
+		\item \textbf{Sign Up screen} - The sign up screen contains the form that the user will use to enter their details in order to register an account for TicketSalad. 
+		\item \textbf{Sign In screen} - The sign in screen is where the user enters their details to sign into the TicketSalad System.
+		\item \textbf{Home screen} - The home screen is the main screen of the application, here the user is exposed to all the available events and they are able to claim on these events directly from the home screen.
+		\item \textbf{Profile Screen} - This is the screen that the user will use to view their profile, they can view their username, profile picture and remaining credits on this screen. The user can then select to buy more credits, edit their profile, go to the contact us screen, or log out.
+		\item \textbf{Edit Profile Screen} - Here the user can edit all their personal details on the system.
+		\item \textbf{Buy Credits screen} - This is the screen where the user is able to purchase more credits in order to bid on events.
+	\end{itemize}
 	\subsubsection{Hardware interfaces}
 	\subsubsection{Software interfaces}
 	\subsection{Architectural styles}
 	The entire TicketSalad system is based off a client-server model. However the client side of the system, uses an MVC model. The reason we have chosen these architectures is so that the data that will be presented to the user is stored on the client side thus making ensuring saftey and integrity of the data. With all the data stored on the client side this will allow only the admin to perform all CRUD operations on the data and still allow the user to access and view the data, thus allowing them to see events claim on them and possibly win them.
 	
 	\subsection{System configuration}
-	\
+	Refer to the System Configuration image in the user manual for a a deployment diagram on the TicketSalad System. 
+	
+	All of the system's data is stored on the client side on a mongoDb server, the server is then accessed and altered using a meteor web server, which is accessed by the user using a TCP/IP connection from their mobile device.
 	
 	
 \end{document}
