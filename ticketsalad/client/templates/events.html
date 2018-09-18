@@ -1,5 +1,5 @@
 <ion-view view-title="Events" onload="events.check()" can-swipe-back="false">
-      <ion-content scroll = "false">
+      <ion-content scroll = "false" style = "padding-top: env(safe-area-inset-top)">
           <div class="grid-containerEvents" id = "eventsContainer">
               <div class = "filler"></div>
               <div class="eventsHeader">
@@ -83,7 +83,7 @@
           </div>
       </div>
 
-      <div class = "slideUpMenu" id = "eventsSearchModal">
+      <div class = "slideUpMenu" id = "eventsSearchModal" style = "padding-top: env(safe-area-inset-top)">
         <div class="grid-containerSearch">
             <div class="searchHeader">
                 <div class="searchHeading"><p>Search</p></div>

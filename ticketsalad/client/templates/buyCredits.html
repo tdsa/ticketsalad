@@ -1,6 +1,6 @@
 <ion-view can-swipe-back="false">
     {{buyCredits.getUser}}
-    <ion-content scroll = "false">
+    <ion-content scroll = "false" style = "padding-top: env(safe-area-inset-top)">
         <div class="grid-containerBuyClaims">
             <div class="claimsHeader">
                 <div class="claimsTitle"><p>Buy Claims</p></div>
@@ -39,7 +39,7 @@
             </div>
         </div>
 
-        <div class = "slideUpMenu" id = "creditCardsModal">
+        <div class = "slideUpMenu" id = "creditCardsModal" style = "padding-top: env(safe-area-inset-top)">
           <div class="grid-containerCreditCards">
               <div class="creditCardsHeader">
                   <div class="creditCardsHeading"><p>My Cards</p></div>
@@ -63,7 +63,7 @@
           </div>
         </div>
 
-        <div class = "slideUpMenu" id = "addCardModal">
+        <div class = "slideUpMenu" id = "addCardModal" style = "padding-top: env(safe-area-inset-top)">
           <div class="grid-containerAddCard">
               <div class="addCardHeader">
                   <div class = "addCardHeaderTitle"><p>Add Card</p></div>

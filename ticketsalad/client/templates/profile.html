@@ -1,10 +1,10 @@
 <ion-view title="Profile" ng-load="profile.reload()" can-swipe-back="false">
-<ion-content scroll = "false">
+<ion-content scroll = "false" style = "padding-top: env(safe-area-inset-top)">
   {{profile.getUser}}
     <div class="grid-containerProfile" id = "profileContainer">
       <div class="profileHeader">
         <div class = "profileTitle"><p>Profile</p></div>
-        <div class = "menuIcon"><img src = "/img/menu.png" alt = "menu" ng-click = "profile.openMenu()"></div>
+        <div class = "profileMenuIcon"><img src = "/img/menu.png" alt = "menu" ng-click = "profile.openMenu()"></div>
       </div>
       <div class="profileInfo">
         <div class="profileText">
@@ -62,7 +62,7 @@
         </div>
     </div>
 
-    <div class = "slideUpMenu" id = "howItWorksModal">
+    <div class = "slideUpMenu" id = "howItWorksModal" style = "padding-top: env(safe-area-inset-top)">
       <div class="grid-containerHowItWorks">
           <div class="howItWorksHeader">
               <div class="howItWorksHeading"><p>How It Works</p></div>
@@ -77,7 +77,7 @@
       </div>
     </div>
 
-    <div class = "slideUpMenu" id = "contactUsModal">
+    <div class = "slideUpMenu" id = "contactUsModal" style = "padding-top: env(safe-area-inset-top)">
       <div class="grid-containerContactUs">
           <div class="contactUsHeader">
               <div class="contactUsHeading"><p>Contact Us</p></div>

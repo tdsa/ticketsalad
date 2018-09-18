@@ -6,8 +6,19 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
     <!-- includes jQuery -->
     <script src="http://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+
+    <style>
+      #app {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100vh;
+      }
+    </style>
+
 </head>
-<body style = "padding-top: 0; padding-bottom: 0; font-family: 'Lato'">
-    <ion-nav-view></ion-nav-view>
+<body style = "font-family: 'Lato';">
+    <ion-nav-view id = "app"></ion-nav-view>
     <script src="../dist/js/swiper.min.js"></script>
 </body>

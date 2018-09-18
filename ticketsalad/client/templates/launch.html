@@ -1,5 +1,5 @@
 <ion-view view-title="Welcome" can-swipe-back="false">
-    <ion-content scroll="false">
+    <ion-content scroll="false" style = "padding-top: env(safe-area-inset-top)">
         <div class="grid-containerLaunch">
             <div class="launchWelcome"><p>WELCOME TO</p></div>
             <div class="launchTitle1"><p id = "titleTop">TICKET</p></div>
@@ -13,7 +13,7 @@
             <div class="launchInfo"><p ng-click = "launch.openHowItWorks()">HOW IT WORKS</p></div>
         </div>
 
-        <div class = "slideUpMenu" id = "howItWorksModalLaunch">
+        <div class = "slideUpMenu" id = "howItWorksModalLaunch" style = "padding-top: env(safe-area-inset-top)">
           <div class="grid-containerHowItWorks">
               <div class="howItWorksHeader">
                   <div class="howItWorksHeading"><p>How It Works</p></div>

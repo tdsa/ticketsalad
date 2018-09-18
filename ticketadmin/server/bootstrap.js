@@ -11,8 +11,22 @@
 //libs
 import Moment from 'moment';
 import { Meteor } from 'meteor/meteor';
+import { Events, Notifications, Cards } from '../lib/collections';
 
 Meteor.startup(function()
 {
     process.env.MAIL_URL = 'smtp://tristan.jules:1009703Troy@smtp.gmail.com:587/'
+
+    function generateCode()
+    {
+        var code = "";
+        for (var index = 0; index < 6; index++)
+        {
+            var digit = Math.floor((Math.random() * 10));
+            code += digit + "";
+        }
+        return code;
+    }
+
+    Events.remove({}); //clears the collection
 });

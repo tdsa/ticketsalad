@@ -144,7 +144,7 @@ export default class EventsCtrl extends Controller
         {
             Meteor.users.update(tempUser._id, {$push: {"profile.notifications": notificationID}});
         }*/
-        
+
         this.name = null;
         this.city = null;
         this.country = null;
