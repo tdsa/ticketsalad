@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730 64-bit) (preloaded format=pdflatex 2018.3.23)  29 AUG 2018 13:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730 64-bit) (preloaded format=pdflatex 2018.3.23)  18 SEP 2018 11:19
 entering extended mode
 **./SRS.tex
 (SRS.tex
@@ -251,73 +251,82 @@ LaTeX Info: Redefining \nameref on input line 7.
 \openout3 = `SRS.out'.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 12.
+(Font)              <10.95> on input line 31.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 12.
+(Font)              <8> on input line 31.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 12.
+(Font)              <6> on input line 31.
+<logo.png, id=71, 318.18875pt x 185.69376pt>
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 40.
+(pdftex.def)             Requested size: 318.18796pt x 185.6933pt.
  [1
 
-{C:/Users/Brandon/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (SRS.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 2.
-)
+{C:/Users/Brandon/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./logo.pn
+g>] (SRS.toc)
 \tf@toc=\write4
 \openout4 = `SRS.toc'.
 
- [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 22.
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.45 	\newpage
+               [1]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 53.
 
 ("C:\Users\Brandon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 22.
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 58--112
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 53.
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 89--143
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--112
+Underfull \hbox (badness 10000) in paragraph at lines 89--143
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--112
+Underfull \hbox (badness 10000) in paragraph at lines 89--143
 
  []
 
-[4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 113.
+[3] [4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 161.
  [5]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 113.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 161.
  (SRS.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 113.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 113.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 161.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 161.
 Package rerunfilecheck Info: File `SRS.out' has not changed.
-(rerunfilecheck)             Checksum: 210A5BEF5AD507521D42A201BFFF8BCE;572.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 113.
+(rerunfilecheck)             Checksum: C9641257766CB89D46BC6A8E5EAA67B9;1131.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 161.
  ) 
 Here is how much of TeX's memory you used:
- 5112 strings out of 493305
- 77501 string characters out of 3128932
+ 5139 strings out of 493305
+ 77910 string characters out of 3128932
  161058 words of memory out of 3000000
- 8630 multiletter control sequences out of 15000+200000
- 8811 words of font info for 31 fonts, out of 3000000 for 9000
+ 8646 multiletter control sequences out of 15000+200000
+ 10054 words of font info for 35 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,6n,28p,408b,379s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 28i,4n,28p,564b,389s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Brandon/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfon
 ts/cm/cmbx10.pfb><C:/Users/Brandon/AppData/Local/Programs/MiKTeX 2.9/fonts/type
 1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Brandon/AppData/Local/Programs/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Brandon/AppData/Local/P
-rograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Brandon/A
-ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/U
-sers/Brandon/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-msy10.pfb>
-Output written on SRS.pdf (5 pages, 94404 bytes).
+ 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Brandon/AppData/Local
+/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Brandon
+/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:
+/Users/Brandon/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmsy10.pfb><C:/Users/Brandon/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmti12.pfb>
+Output written on SRS.pdf (6 pages, 386745 bytes).
 PDF statistics:
- 101 PDF objects out of 1000 (max. 8388607)
- 16 named destinations out of 1000 (max. 500000)
- 73 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 152 PDF objects out of 1000 (max. 8388607)
+ 24 named destinations out of 1000 (max. 500000)
+ 142 words of extra memory for PDF output out of 10000 (max. 10000000)
 

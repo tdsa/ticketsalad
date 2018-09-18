@@ -5,10 +5,41 @@
 \bibliographystyle{plain}
 
 \begin{document}
-	\title{Ticket Salad System Requirements and Design document}
-	\author{Hackermen}
-	\date{}
-	\maketitle
+	\begin{titlepage}
+		
+		\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} 
+		
+		\center 
+		
+		\textsc{\LARGE System Requirements and Design}\\[0.5cm] 
+		\textsc{\Large Team Hackermen}\\[0.5cm] 
+		
+		\HRule \\[0.4cm]
+		{ \huge \bfseries TicketSalad}\\[0.4cm] 
+		\HRule \\[1.5cm]
+		
+		\begin{minipage}{0.4\textwidth}
+			\begin{flushleft} \large
+				\emph{Team Members:}\\
+				John \textsc{Smith} \\% Your name
+				Thato \textsc{Mothusi}\\
+				Jarryd \textsc{Baillie}\\
+				Brandon \textsc{Texeira}\\
+				Thomas \textsc{Honiball}\\
+				Tristan \textsc{Joseph}\\
+			\end{flushleft}
+		\end{minipage}
+		
+		\begin{minipage}{0.4\textwidth}
+			\begin{flushright} \large
+				\emph{Client:} \\
+				Tribus Digita 
+			\end{flushright}
+		\end{minipage}\\[2cm]
+		
+		\includegraphics{logo.png}\\[1cm] 
+		
+	\end{titlepage}
 	\newpage
 	\tableofcontents
 	\newpage
@@ -109,5 +140,22 @@
 	R2.3.3 The TicketSalad application must notify a user on all details relating to their subscribed events.
 	\newline
 	\textbf{A ton of diagrams need to be done here}	
+	\section{Non-functional requirements}
+	\begin{itemize}
+		\item The system must respond to any input within 1 second.
+		\item The users data must be kept secure at all times.
+	\end{itemize}
+
+	\section{System Architecture}
+	\subsection{Interfaces}
+	\subsubsection{User interfaces}
+	\subsubsection{Hardware interfaces}
+	\subsubsection{Software interfaces}
+	\subsection{Architectural styles}
+	The entire TicketSalad system is based off a client-server model. However the client side of the system, uses an MVC model. The reason we have chosen these architectures is so that the data that will be presented to the user is stored on the client side thus making ensuring saftey and integrity of the data. With all the data stored on the client side this will allow only the admin to perform all CRUD operations on the data and still allow the user to access and view the data, thus allowing them to see events claim on them and possibly win them.
+	
+	\subsection{System configuration}
+	\
+	
 	
 \end{document}
