@@ -25,3 +25,4 @@ tests.forEach(element =>
     module.exports = extend(module.exports, test);
 });
 
+
