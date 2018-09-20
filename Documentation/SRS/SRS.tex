@@ -1,0 +1,173 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\bibliographystyle{plain}
+
+\begin{document}
+	\begin{titlepage}
+		
+		\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} 
+		
+		\center 
+		
+		\textsc{\LARGE System Requirements and Design}\\[0.5cm] 
+		\textsc{\Large Team Hackermen}\\[0.5cm] 
+		
+		\HRule \\[0.4cm]
+		{ \huge \bfseries TicketSalad}\\[0.4cm] 
+		\HRule \\[1.5cm]
+		
+		\begin{minipage}{0.4\textwidth}
+			\begin{flushleft} \large
+				\emph{Team Members:}\\
+				John \textsc{Smith} \\% Your name
+				Thato \textsc{Mothusi}\\
+				Jarryd \textsc{Baillie}\\
+				Brandon \textsc{Texeira}\\
+				Thomas \textsc{Honiball}\\
+				Tristan \textsc{Joseph}\\
+			\end{flushleft}
+		\end{minipage}
+		
+		\begin{minipage}{0.4\textwidth}
+			\begin{flushright} \large
+				\emph{Client:} \\
+				Tribus Digita 
+			\end{flushright}
+		\end{minipage}\\[2cm]
+		
+		\includegraphics{logo.png}\\[1cm] 
+		
+	\end{titlepage}
+	\newpage
+	\tableofcontents
+	\newpage
+	\section{System Overview}
+	\subsection{Purpose}
+	The purpose of the TicketSalad application is to provide users with a platform which they are able to spend a minimal amount of money in order to stand a chance to win a ticket valued at a significant amount with ease.
+	\subsection{Project Scope}
+	The TicketSalad system is a lottery based ticket platform. A user registers their email and credentials, they then purchase credits. Using these credits, user's can 'bid' on events displayed to them. When the user bids on an event they are required to input a 6 digit number. If the 6 digit number they input is the same number that the application randomly generated, the user wins the ticket.
+	\subsection{Definitions, acronyms and abbreviations}
+	\begin{itemize}
+		\item UML - Unified Modeling Language 
+		\item CRUD - Create Update Delete
+		\item Credits - Credits is a form of currency in the TicketSalad application used to bid on tickets. Credits are purchased using credit cards.
+	\end{itemize}
+	
+	\subsection{UML Domain Model}
+	\textbf{NEEDS TO BE DONE}
+	\section{Functional Requirements}
+	\subsection{Users}
+	The TicketSalad application will have two users, namely a regular user and then an admin.
+	The system should allow regular users to do the following:
+	\begin{itemize}
+		\item Register or log into the system.
+		\item Edit/Update their info
+		\item Purchase credits
+		\item Bid for events
+		\item View information on events.
+	\end{itemize} 
+	The system should allow the admin user to do the following:
+	\begin{itemize}
+		\item Perform CRUD operations on all the available events.
+		\item View statistics and data on all events
+	\end{itemize}
+	\subsection{Sub Systems}
+	The TicketSalad System can be broken into 2 subsystems, namely the application user subsystem and admin subsystem. 
+
+	The application user subsystem can then be further broken down into 3 subsystems, the events subsubsystem, the user subsubsystem and the notification subsubsystem.
+	\begin{itemize}
+		\item Admin subsystem - This subsystem is responsible for admins being able to modify and add events.
+		\item Application user subsystem - This subsystem is the application that regular users will use.
+		\item User subsubsystem - This subsubsystem is responsible for the users details credentials, and credits.
+		\item Events subsubsystem - This subsubsystem is responsible for all actions performed on/by events by regular users.
+		\item Notification subsubsystem - This subsubsystem is responsible for creating and handling notifications.
+	\end{itemize}
+	\textbf{UML COMPONENT DIAGRAM NEEDS TO BE DONE}
+	\subsection{Specific Requirements}
+	\textbf{Admin subsystem}
+	\newline
+	R1.1 The admin portal must allow an admin to log in.
+	\newline
+	R1.2 The admin portal must allow an admin to log out.
+	\newline
+	R1.3 The admin portal must allow an admin to add an event.
+	\newline
+	R1.4 The admin portal must allow an admin to update an event.
+	\newline
+	R1.5 The admin portal must allow an admin to delete an event.
+	\newline
+	R1.6 The admin portal must allow an admin to view which user has won an event.
+	\newline
+	\newline
+	\textbf{User subsubsystem}
+	\newline
+	R2.1.1 The TicketSalad application must allow a user to register.
+	\newline
+	R2.1.2 The TicketSalad application must allow a user to log in.
+	\newline
+	R2.1.3 The TicketSalad application must allow a user to log out.
+	\newline
+	R2.1.4 The TicketSalad application must allow a user to edit their information.
+	\newline
+	R2.1.5 The TicketSalad application must allow a user to view their information.
+	\newline
+	R2.1.6 The TicketSalad application must allow a user to enter their card or online banking details.
+	\newline 
+	R2.1.7 The TicketSalad application must allow a user to view how many credits they have remaining.
+	\newline
+	R2.1.8 The TicketSalad system must allow a user to purchase more credits.
+	\newline
+	\newline
+	\textbf{Events subsubsystem}
+	\newline
+	R2.2.1 The TicketSalad application must allow a user to view all of the current events.
+	\newline
+	R2.2.2 The TicketSalad application must allow a user to search for specific events.
+	\newline
+	R2.2.3 The TicketSalad application must allow a user to bid on an event.
+	\newline 
+	R2.2.4 The TicketSalad application must decrease a users credits once they have made a bid on an event.
+	\newline
+	\newline
+	\textbf{Notification subsubsystem}
+	\newline
+	R2.3.1 The TicketSalad application must subscribe a user to an event once they have made a bid.
+	\newline
+	R2.3.2 The TicketSalad application must notify a user if they have won an event.
+	\newline
+	R2.3.3 The TicketSalad application must notify a user on all details relating to their subscribed events.
+	\newline
+	\textbf{A ton of diagrams need to be done here}	
+	\section{Non-functional requirements}
+	\begin{itemize}
+		\item The system must respond to any input within 1 second.
+		\item The users data must be kept secure at all times.
+		\item The systems data and information must be available at all times.
+	\end{itemize}
+
+	\section{System Architecture}
+	\subsection{Interfaces}
+	\subsubsection{User interfaces}
+	\begin{itemize} 
+		\item \textbf{Splash screen} - The splash screen is the first screen that the user is exposed to this screen contains the TicketSalad Logo and an 'about us' section. The user then has the option to sign in or sign up.
+		\item \textbf{Sign Up screen} - The sign up screen contains the form that the user will use to enter their details in order to register an account for TicketSalad. 
+		\item \textbf{Sign In screen} - The sign in screen is where the user enters their details to sign into the TicketSalad System.
+		\item \textbf{Home screen} - The home screen is the main screen of the application, here the user is exposed to all the available events and they are able to claim on these events directly from the home screen.
+		\item \textbf{Profile Screen} - This is the screen that the user will use to view their profile, they can view their username, profile picture and remaining credits on this screen. The user can then select to buy more credits, edit their profile, go to the contact us screen, or log out.
+		\item \textbf{Edit Profile Screen} - Here the user can edit all their personal details on the system.
+		\item \textbf{Buy Credits screen} - This is the screen where the user is able to purchase more credits in order to bid on events.
+	\end{itemize}
+	\subsubsection{Hardware interfaces}
+	\subsubsection{Software interfaces}
+	\subsection{Architectural styles}
+	The entire TicketSalad system is based off a client-server model. However the client side of the system, uses an MVC model. The reason we have chosen these architectures is so that the data that will be presented to the user is stored on the client side thus making ensuring saftey and integrity of the data. With all the data stored on the client side this will allow only the admin to perform all CRUD operations on the data and still allow the user to access and view the data, thus allowing them to see events claim on them and possibly win them.
+	
+	\subsection{System configuration}
+	Refer to the System Configuration image in the user manual for a a deployment diagram on the TicketSalad System. 
+	
+	All of the system's data is stored on the client side on a mongoDb server, the server is then accessed and altered using a meteor web server, which is accessed by the user using a TCP/IP connection from their mobile device.
+	
+	
+\end{document}

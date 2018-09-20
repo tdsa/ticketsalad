@@ -1,0 +1,119 @@
+.grid-containerActivity {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 90%;
+    grid-template-areas: "activityHeader" "activityBody";
+    font-family: 'Lato', sans-serif;
+}
+
+.activityHeader {
+    display: grid;
+    grid-area: activityHeader;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 100%;
+    grid-template-areas: "activityHeading activityExit";
+}
+
+.activityHeading {
+    grid-area: activityHeading;
+    position: relative;
+}
+
+.activityHeader p
+{
+    position: absolute;
+    top: 29%;
+    left: 7.5%;
+    font-size: 8vw;
+    font-weight: bold;
+    line-height: 1;
+    color: rgb(64, 64, 64);
+}
+
+.activityExit {
+    grid-area: activityExit;
+    position: relative;
+}
+
+.activityExit img {
+    position: absolute;
+    width: 20%;
+    top: 35%;
+    left: 36.5%;
+}
+
+.clearAll {
+    position: absolute;
+    bottom: 2%;
+    right: 0;
+    width: 100%;
+    color: rgb(177, 177, 177);
+    text-align: center;
+    font-size: 12px;
+}
+
+.activityBody {
+    grid-area: activityBody;
+    position: relative;
+}
+
+.activityScrollContent {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.grid-containerNotification {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 100%;
+  grid-template-areas: "notificationPicture notificationMessage";
+}
+
+.notificationPicture {
+  grid-area: notificationPicture;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notificationPicture img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.notificationMessage {
+  grid-area: notificationMessage;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 15%;
+}
+
+.notificationMessage p {
+  font-weight: 900;
+  font-size: 15px;
+  color: rgb(177, 177, 177);
+  text-align: center;
+}
+
+.notification {
+  width: 100%;
+  height: 100px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  margin: 20px auto;
+}
+
+.flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

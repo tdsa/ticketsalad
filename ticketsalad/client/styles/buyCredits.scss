@@ -1,0 +1,680 @@
+input[type = "month"] {
+-webkit-appearance: none;
+border-radius: 0;
+}
+
+.grid-containerBuyClaims {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 35% 35% 20%;
+    grid-template-areas: "claimsTitle" "claimsActions" "claimsMoney" "claimsButton";
+    font-family: 'Lato', sans-serif;
+}
+
+.claimsHeader {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 100%;
+    grid-template-areas: "claimsTitle claimsExit";
+}
+
+.claimsTitle {
+    grid-area: claimsTitle;
+    position: relative;
+}
+
+.claimsTitle p
+{
+    position: absolute;
+    top: 29%;
+    left: 7.5%;
+    font-size: 8vw;
+    font-weight: bold;
+    line-height: 1;
+    color: rgb(64, 64, 64);
+}
+
+.claimsExit {
+    grid-area: claimsExit;
+    position: relative;
+}
+
+.claimsExit img {
+    position: absolute;
+    width: 20%;
+    top: 35%;
+    left: 36.5%;
+}
+
+.claimsActions {
+    display: grid;
+    grid-area: claimsActions;
+    grid-template-columns: 100%;
+    grid-template-rows: 40% 10% 30% 20%;
+    grid-template-areas: "claimsAmount" "claimsWord" "claimsOptions" ".";
+}
+
+.claimsAmount {
+    display: grid;
+    grid-area: claimsAmount;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 100%;
+    grid-template-areas: "claimsLess claimsNumber claimsMore";
+}
+
+.claimsNumber {
+    grid-area: claimsNumber;
+    position: relative;
+}
+
+#inputNumber {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    height: 100%;
+    color: rgb(64, 64, 64);
+    font-size: 20vw;
+    caret-color: transparent;
+    top: 0;
+    left: 0;
+}
+
+.claimsLess {
+    grid-area: claimsLess;
+    position: relative;
+}
+
+.claimsMore {
+    grid-area: claimsMore;
+    position: relative;
+}
+
+.addMinus {
+    position: absolute;
+    width: 25%;
+    top: 40%;
+    left: 32.5%;
+}
+
+.claimsWord {
+    grid-area: claimsWord;
+    position: relative;
+}
+
+.claimsWord p {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    font-size: 3.5vw;
+    color: rgb(64, 64, 64);
+    top: 0;
+}
+
+.claimsOptions {
+    display: grid;
+    grid-area: claimsOptions;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 100%;
+    grid-template-areas: "claimsO1 claimsO2 claimsO3 claimsO4";
+}
+
+.claimsO1 {
+    grid-area: claimsO1;
+    position: relative;
+}
+
+.claimsO2 {
+    grid-area: claimsO2;
+    position: relative;
+}
+
+.claimsO3 {
+    grid-area: claimsO3;
+    position: relative;
+}
+
+.claimsO4 {
+    grid-area: claimsO4;
+    position: relative;
+}
+
+.amountOption {
+    position: absolute;
+    width: 70%;
+    height: 12.5vw;
+    top: 20%;
+    left: 12.5%;
+    border-radius: 12.5px;
+    background-color: rgb(90, 202, 249);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.amountOption:active {
+    background-color: rgb(5, 104, 146);
+}
+
+.amountOption p {
+    position: absolute;
+    color: white;
+    font-weight: thin;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    top: 25%;
+    font-size: 5vw;
+}
+
+.claimsMoney {
+    display: grid;
+    grid-area: claimsMoney;
+    grid-template-columns: 100%;
+    grid-template-rows: 14% 19% 19% 14% 19% 15%;
+    grid-template-areas: "claimsSubtotal" "claimsPrice" "claimsVat" "claimsTotal" "claimsCost" ".";
+}
+
+.claimsSubtotal {
+    grid-area: claimsSubtotal;
+    position: relative;
+}
+
+.claimsTotal {
+    grid-area: claimsTotal;
+    position: relative;
+}
+
+.totalWords {
+    position: absolute;
+    text-align: left;
+    width: 80%;
+    left: 10%;
+    font-size: 3.5vw;
+    font-weight: bold;
+    color: rgb(166, 166, 166);
+    top: 0;
+}
+
+.claimsCost {
+    grid-area: claimsCost;
+    position: relative;
+}
+
+.claimsCost p {
+    position: absolute;
+    text-align: left;
+    width: 100%;
+    left: 10%;
+    font-size: 10vw;
+    font-weight: bold;
+    color: rgb(64, 64, 64);
+    top: 0;
+}
+
+.claimsPrice {
+    display: grid;
+    grid-area: claimsPrice;
+    grid-template-columns: 45% 55%;
+    grid-template-rows: 100%;
+    grid-template-areas: "priceCost priceWord";
+}
+
+.priceCost {
+    grid-area: priceCost;
+    position: relative;
+}
+
+.priceWord {
+    grid-area: priceWord;
+    position: relative;
+}
+
+.claimsVat {
+    display: grid;
+    grid-area: claimsVat;
+    grid-template-columns: 45% 55%;
+    grid-template-rows: 100%;
+    grid-template-areas: "vatCost vatWord";
+}
+
+.vatCost {
+    grid-area: vatCost;
+    position: relative;
+}
+
+.vatWord {
+    grid-area: vatWord;
+    position: relative;
+}
+
+.priceWords {
+    position: absolute;
+    text-align: left;
+    width: 100%;
+    font-size: 3.5vw;
+    font-weight: bold;
+    color: rgb(64, 64, 64);
+    top: 15%;
+}
+
+.priceAmounts {
+    position: absolute;
+    text-align: left;
+    width: 100%;
+    left: 22.5%;
+    font-size: 6vw;
+    font-weight: bold;
+    color: rgb(64, 64, 64);
+    top: 0;
+}
+
+.claimsButton {
+    display: grid;
+    grid-area: claimsButton;
+    grid-template-columns: 100%;
+    grid-template-rows: 25% 50% 25%;
+    grid-template-areas: "claimsPayWith" "claimsCreditButton" ".";
+}
+
+.claimsPayWith {
+    grid-area: claimsPayWith;
+    position: relative;
+}
+
+.claimsPayWith p {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    font-size: 3.5vw;
+    font-weight: bold;
+    color: rgb(166, 166, 166);
+    top: 0;
+}
+
+.claimsCreditButton {
+    grid-area: claimsCreditButton;
+    position: relative;
+}
+
+.creditCardButton {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    left: 10%;
+    top: 10%;
+    border-radius: 15px;
+    background-color: rgb(90, 202, 249);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.creditCardButton:active {
+    background-color: rgb(5, 104, 146);
+  }
+
+.creditCardButton p {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    top: 25%;
+    text-align: center;
+    color: white;
+    font-weight: thin;
+    font-size: 6vw;
+}
+
+#creditCardsModal {
+  background-color: white;
+}
+
+.grid-containerCreditCards {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 90%;
+    grid-template-areas: "creditCardsHeader" "creditCardsBody";
+    font-family: 'Lato', sans-serif;
+}
+
+.creditCardsHeader {
+    display: grid;
+    grid-area: creditCardsHeader;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 100%;
+    grid-template-areas: "creditCardsHeading creditCardsExit";
+}
+
+.creditCardsHeading {
+    grid-area: creditCardsHeading;
+    position: relative;
+}
+
+.creditCardsHeader p
+{
+    position: absolute;
+    top: 29%;
+    left: 7.5%;
+    font-size: 8vw;
+    font-weight: bold;
+    line-height: 1;
+    color: rgb(64, 64, 64);
+}
+
+.creditCardsExit {
+    grid-area: creditCardsExit;
+    position: relative;
+}
+
+.creditCardsExit img {
+    position: absolute;
+    width: 20%;
+    top: 35%;
+    left: 36.5%;
+}
+
+.creditCardsBody {
+    grid-area: creditCardsBody;
+    position: relative;
+}
+
+.creditCardsScrollContent {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.grid-cardItem {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 100%;
+  grid-template-areas: "creditCardImage creditCardInfo";
+}
+
+.creditCardInfo {
+  grid-area: creditCardInfo;
+  padding-left: 5%;
+}
+
+.creditCardImage {
+  grid-area: creditCardImage;
+  position: relative;
+}
+
+.creditCardImage img {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  height: 100%;
+  top: 0;
+  object-fit: contain;
+}
+
+#addCardModal {
+  background-color: white;
+}
+
+.grid-containerAddCard {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 10% 65% 15%;
+    grid-template-areas: "addCardHeader" "addCardMessage" "addCardDetails" "addCardActions";
+    font-family: 'Lato', sans-serif;
+  }
+
+  .addCardMessage {
+    grid-area: addCardMessage;
+    position: relative;
+  }
+
+  .addCardMessage p {
+    position: absolute;
+    top: 7.5%;
+    left: 7.5%;
+    font-size: 5.5vw;
+    color: rgb(90, 202, 249);
+  }
+
+.addCardHeader {
+  display: grid;
+  grid-area: addCardHeader;
+  grid-template-columns: 75% 25%;
+  grid-template-rows: 100%;
+  grid-template-areas: "addCardHeaderTitle addCardHeaderExit";
+}
+
+.addCardHeaderTitle {
+  grid-area: addCardHeaderTitle;
+  position: relative;
+}
+
+.addCardHeaderTitle p
+{
+  position: absolute;
+  top: 29%;
+  left: 7.5%;
+  font-size: 8vw;
+  font-weight: bold;
+  line-height: 1;
+  color: rgb(64, 64, 64);
+}
+
+.addCardHeaderExit {
+  grid-area: addCardHeaderExit;
+  position: relative;
+}
+
+.addCardHeaderExit img {
+    position: absolute;
+    width: 20%;
+    top: 35%;
+    left: 36.5%;
+}
+
+.addCardDetails {
+  display: grid;
+  grid-area: addCardDetails;
+  grid-template-columns: 100%;
+  grid-template-rows: 14.28% 14.28% 14.28% 57.16%;
+  grid-template-areas: "addCardNumber" "addCardName" "addCardTwoInputs" "." "." "." ".";
+}
+
+.addCardNumber {
+  display: grid;
+  grid-area: addCardNumber;
+  grid-template-columns: 100%;
+  grid-template-rows: 30% 70%;
+  grid-template-areas: "addCardNumberTitle" "addCardNumberInput";
+}
+
+.addCardNumberTitle {
+  grid-area: addCardNumberTitle;
+  position: relative;
+}
+
+.addCardNumberInput {
+  grid-area: addCardNumberInput;
+  position: relative;
+}
+
+.addCardNumberTitle p {
+  position: absolute;
+  color: rgb(216, 216, 216);
+  font-size: 4.3vw;
+  left: 10%;
+}
+
+.addCardNumberInput input {
+  position: absolute;
+  color: black;
+  font-size: 4.3vw;
+  left: 10%;
+  width: 80%;
+  border-bottom: solid 1.5px rgb(90, 202, 249);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  top: 3%;
+  padding-bottom: 2%;
+  height: 80%;
+}
+
+.addCardName {
+  grid-area: addCardName;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 30% 70%;
+  grid-template-areas: "addCardNameTitle" "addCardNameInput";
+}
+
+.addCardNameTitle {
+  grid-area: addCardNameTitle;
+  position: relative;
+}
+
+.addCardNameInput {
+  grid-area: addCardNameInput;
+  position: relative;
+}
+
+.addCardNameTitle p {
+  position: absolute;
+  color: rgb(216, 216, 216);
+  font-size: 4.3vw;
+  left: 10%;
+}
+
+.addCardNameInput input {
+  position: absolute;
+  color: black;
+  font-size: 4.3vw;
+  left: 10%;
+  width: 80%;
+  border-bottom: solid 1.5px rgb(90, 202, 249);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  top: 3%;
+  padding-bottom: 2%;
+  height: 80%;
+}
+
+.addCardTwoInputs {
+  grid-area: addCardTwoInputs;
+  display: grid;
+  grid-template-columns: 10% 40% 40% 10%;
+  grid-template-rows: 100%;
+  grid-template-areas: ". addCardExpiry addCardCVC .";
+}
+
+.addCardExpiry {
+  grid-area: addCardExpiry;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 30% 70%;
+  grid-template-areas: "addCardExpiryTitle" "addCardExpiryInput";
+}
+
+.addCardExpiryTitle {
+  grid-area: addCardExpiryTitle;
+  position: relative;
+}
+
+.addCardExpiryInput {
+  grid-area: addCardExpiryInput;
+  position: relative;
+}
+
+.addCardExpiryTitle p {
+  position: absolute;
+  color: rgb(216, 216, 216);
+  font-size: 4.3vw;
+}
+
+.addCardExpiryInput input {
+  position: absolute;
+  color: black;
+  font-size: 4.3vw;
+  border-bottom: solid 1.5px rgb(90, 202, 249);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  top: 3%;
+  padding-bottom: 2%;
+  height: 80%;
+  width: 90%;
+  left: 0;
+  background-color: none;
+}
+
+.addCardCVC {
+  grid-area: addCardCVC;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 30% 70%;
+  grid-template-areas: "addCardCVCTitle" "addCardCVCInput";
+}
+
+.addCardCVCTitle {
+  grid-area: addCardCVCTitle;
+  position: relative;
+}
+
+.addCardCVCInput {
+  grid-area: addCardCVCInput;
+  position: relative;
+}
+
+.addCardCVCTitle p {
+  position: absolute;
+  color: rgb(216, 216, 216);
+  font-size: 4.3vw;
+}
+
+.addCardCVCInput input {
+  position: absolute;
+  color: black;
+  font-size: 4.3vw;
+  border-bottom: solid 1.5px rgb(90, 202, 249);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  top: 3%;
+  padding-bottom: 2%;
+  height: 80%;
+  width: 90%;
+  left: 0;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+.buttonAddCard {
+  position: absolute;
+  width: 80%;
+  height: 15vw;
+  background-color: rgb(90, 202, 249);
+  border-radius: 10px;
+  left: 10%;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.buttonAddCard:active {
+  background-color: rgb(5, 104, 146);
+}
+
+.buttonAddCard p {
+  position: absolute;
+  color: white;
+  height: 50%;
+  width: 100%;
+  text-align: center;
+  top: 25%;
+  font-size: 5.5vw;
+}
+
+.addCardActions {
+  grid-area: addCardActions;
+  position: relative;
+}

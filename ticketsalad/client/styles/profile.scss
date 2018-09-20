@@ -1,0 +1,365 @@
+.grid-containerProfile {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 100%;
+  grid-template-rows: 2% 10% 40% 45%;
+  grid-template-areas: "." "profileHeader" "profileInfo" "profileButtons";
+  font-family: 'Lato', sans-serif;
+  transition: all 0.4s ease-in-out;
+}
+
+.profileHeader {
+  display: grid;
+  grid-area: profileHeader;
+  grid-template-columns: 75% 25%;
+  grid-template-rows: 100%;
+  grid-template-areas: "profileTitle menuIcon";
+
+}
+
+.profileTitle {
+  grid-area: profileTitle;
+  position: relative;
+}
+
+.profileTitle p
+{
+  position: absolute;
+  bottom: 2.5%;
+  left: 7.5%;
+  font-size: 7vw;
+  font-weight: bold;
+  color: rgb(64, 64, 64);
+  top: 0;
+}
+
+.menuIcon {
+  grid-area: menuIcon;
+  position: relative;
+}
+
+.menuIcon img
+{
+  position: absolute;
+  width: 27%;
+  top: 0;
+  left: 36.5%;
+}
+
+.profileInfo {
+  display: grid;
+  grid-area: profileInfo;
+  grid-template-columns: 100%;
+  grid-template-rows: 33% 67%;
+  grid-template-areas: "." ".";
+
+}
+
+.profileText {
+  display: grid;
+  grid-area: 2 / 1 / 2 / 1;
+  grid-template-columns: 100%;
+  grid-template-rows: 25% 25% 35% 15%;
+  grid-template-areas: "profileName" "profileUsrName" "profileBalance" "profileRemaining";
+}
+
+.profileName {
+  grid-area: profileName;
+  position: relative;
+}
+
+.profileName p {
+  position: absolute;
+  text-align: center;
+  color: rgb(64, 64, 64);
+  font-weight: bold;
+  width: 100%;
+  font-size: 8vw;
+  height: 50%;
+  top: 25%;
+}
+
+.profileUsrName {
+  grid-area: profileUsrName;
+  position: relative;
+}
+
+.profileUsrName p {
+  position: absolute;
+  text-align: center;
+  color: rgb(161, 161, 161);
+  font-weight: bold;
+  width: 100%;
+  font-size: 5.5vw;
+  height: 50%;
+  top: 25%;
+}
+
+.profileBalance {
+  grid-area: profileBalance;
+  position: relative;
+}
+
+.profileBalance p {
+  position: absolute;
+  text-align: center;
+  color: rgb(90, 202, 249);
+  font-weight: thin;
+  width: 100%;
+  font-size: 14vw;
+  height: 50%;
+  top: 0;
+}
+
+.profileRemaining {
+  grid-area: profileRemaining;
+  position: relative;
+}
+
+.profileRemaining p {
+  position: absolute;
+  text-align: center;
+  color: rgb(76, 76, 76);
+  font-weight: thin;
+  width: 100%;
+  font-size: 3vw;
+  height: 50%;
+  top: 0;
+}
+
+.profileImgBtn {
+  display: grid;
+  grid-template-columns: 33% 67%;
+  grid-template-rows: 100%;
+  grid-template-areas: "profilePictre buyClaimsBtn";
+}
+
+.profilePictre {
+  grid-area: profilePictre;
+  position: relative;
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+.profilePictre img {
+  position: absolute;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  width: 12vh;
+  height: 12vh;
+  border-radius: 50%;
+  object-fit: cover;
+  float: right;
+  right: 0;
+}
+
+.buyClaimsBtn {
+  grid-area: buyClaimsBtn;
+  position: relative;
+}
+
+.claimsBtn {
+  position: absolute;
+  width: 70%;
+  height: 55%;
+  top: 22.5%;
+  background-color: rgb(90, 202, 249);
+  border-radius: 10px;
+  left: 15%;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.claimsBtn:active {
+  background-color: rgb(5, 104, 146);
+}
+
+.claimsBtn p {
+  position: absolute;
+  color: white;
+  font-weight: thin;
+  font-size: 5.5vw;
+  text-align: center;
+  width: 100%;
+  height: 50%;
+  top: 25%;
+}
+
+.profileButtons {
+  display: grid;
+  grid-area: profileButtons;
+  grid-template-columns: 100%;
+  grid-template-rows: 25% 25% 25% 25%;
+  grid-template-areas: "button1" "button2" "button3" "button4";
+}
+
+.button1 {
+  grid-area: button1;
+  position: relative;
+}
+
+.button2 {
+  grid-area: button2;
+  position: relative;
+}
+
+.button3 {
+  grid-area: button3;
+  position: relative;
+}
+
+.button4 {
+  grid-area: button4;
+  position: relative;
+}
+
+.profileBtn {
+  position: absolute;
+  width: 80%;
+  height: 70%;
+  border-radius: 10px;
+  background-color: rgb(90, 202, 249);
+  left: 10%;
+  font-size: 5.5vw;
+  top: 15%;
+  color: white;
+  font-weight: thin;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.profileBtn:active {
+  background-color: rgb(5, 104, 146);
+}
+
+.profileBtn p {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  height: 50%;
+  top: 25%;
+}
+
+#howItWorksModal {
+  background-color: white;
+}
+
+.grid-containerHowItWorks {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 90%;
+    grid-template-areas: "howItWorksHeader" "howItWorksBody";
+    font-family: 'Lato', sans-serif;
+}
+
+.howItWorksHeader {
+    display: grid;
+    grid-area: howItWorksHeader;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 100%;
+    grid-template-areas: "howItWorksHeading howItWorksExit";
+}
+
+.howItWorksHeading {
+    grid-area: howItWorksHeading;
+    position: relative;
+}
+
+.howItWorksHeader p
+{
+    position: absolute;
+    top: 29%;
+    left: 7.5%;
+    font-size: 8vw;
+    font-weight: bold;
+    line-height: 1;
+    color: rgb(64, 64, 64);
+}
+
+.howItWorksExit {
+    grid-area: howItWorksExit;
+    position: relative;
+}
+
+.howItWorksExit img {
+    position: absolute;
+    width: 20%;
+    top: 35%;
+    left: 36.5%;
+}
+
+.howItWorksBody {
+    grid-area: chowItWorksBody;
+    position: relative;
+}
+
+.howItWorksScrollContent {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#contactUsModal {
+  background-color: white;
+}
+
+.grid-containerContactUs {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 90%;
+    grid-template-areas: "contactUsHeader" "contactUsBody";
+    font-family: 'Lato', sans-serif;
+}
+
+.contactUsHeader {
+    display: grid;
+    grid-area: contactUsHeader;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 100%;
+    grid-template-areas: "contactUsHeading contactUsExit";
+}
+
+.contactUsHeading {
+    grid-area: contactUsHeading;
+    position: relative;
+}
+
+.contactUsHeader p
+{
+    position: absolute;
+    top: 29%;
+    left: 7.5%;
+    font-size: 8vw;
+    font-weight: bold;
+    line-height: 1;
+    color: rgb(64, 64, 64);
+}
+
+.contactUsExit {
+    grid-area: contactUsExit;
+    position: relative;
+}
+
+.contactUsExit img {
+    position: absolute;
+    width: 20%;
+    top: 35%;
+    left: 36.5%;
+}
+
+.contactUsBody {
+    grid-area: contactUsBody;
+    position: relative;
+}
+
+.contactUsScrollContent {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+}

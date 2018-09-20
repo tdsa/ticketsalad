@@ -1,0 +1,96 @@
+<ion-view title="Profile" ng-load="profile.reload()" can-swipe-back="false">
+<ion-content scroll = "false">
+  {{profile.getUser}}
+    <div class="grid-containerProfile" id = "profileContainer">
+      <div class="profileHeader">
+        <div class = "profileTitle"><p>Profile</p></div>
+        <div class = "menuIcon"><img src = "/img/menu.png" alt = "menu" ng-click = "profile.openMenu()"></div>
+      </div>
+      <div class="profileInfo">
+        <div class="profileText">
+          <div class="profileName"><p>{{profile.user.profile.firstname}} {{profile.user.profile.lastname}}</p></div>
+          <div class="profileUsrName"><p>@{{profile.user.username}}</p></div>
+          <div class="profileBalance"><p>{{profile.user.profile.credits}}</p></div>
+          <div class="profileRemaining"><p>CLAIMS REMAINING</p></div>
+        </div>
+        <div class="profileImgBtn">
+          <div class="profilePictre"><img src= {{profile.user.profile.picture}} ng-click = "profile.updatePicture()"></div>
+          <div class="buyClaimsBtn"><div class = "claimsBtn" ng-click = "profile.buyCredits()"><p>Buy Claims</p></div></div>
+        </div>
+      </div>
+      <div class="profileButtons">
+        <div class="button1"><div class="profileBtn" ng-click = "profile.openHowItWorks()"><p>How It Works</p></div></div>
+        <div class="button2"><div class="profileBtn" ng-click = "profile.editProfile()" href = "#/editProfile"><p>Edit Profile</p></div></div>
+        <div class="button3"><div class="profileBtn" ng-click = "profile.openContactUs()"><p>Contact Us</p></div></div>
+        <div class="button4"><div class="profileBtn" ng-click = "profile.logout()" href = "#/login"><p>Log Out</p></div></div>
+      </div>
+    </div>
+
+    <div class = "slideUpMenu" id = "profileMenu">
+      <div class="containerMenu">
+        <div class = "halfCover"></div>
+          <div class="top">
+              <div class="profilePicture">
+                  <div class="circlePic" id = "picThing" ><img src= {{profile.user.profile.picture}}></div>
+                  <div class="picLef"><div class = "leftShoulder"></div></div>
+                  <div class="picRight"><div class = "rightShoulder"></div></div>
+              </div>
+              <div class="menuName"><p>@{{profile.user.username}}</p></div>
+              <div class="blank"></div>
+          </div>
+          <div class="bottom">
+              <div class="homeButton"><div class = "myButton" href = "#/events" ng-click="profile.goTo('events')"><p>Home</p></div></div>
+              <div class="activityButton"><div class = "myButton" href = "#/activity" ng-click="profile.goTo('activity')"><p>Activity</p></div></div>
+              <div class="profileButton"><div class = "myButton" href = "#/profile" ng-click="profile.goTo('profile')"><p>Profile</p></div></div>
+              <div class="searchButton"><div class = "myButton" ng-click = "profile.goTo('search')"><p>Search</p></div></div>
+              <div class="exitArea">
+                  <div class="exitButton"><img src = "/img/exit.png" alt = "exit" ng-click = "profile.closeMenu()"></div>
+                  <div class="exitLeft"></div>
+                  <div class="exitRight"></div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <div class = "slideUpMenu flexCenter" id = "completeDetailsPopUpProfile">
+        <div class="grid-containerPopUp">
+            <div class="popUpMessage flexCenter"><p>You need to complete your profile information before you can buy claims!</p></div>
+            <div class="popUpActions">
+                <div class="popUpAction1 flexCenter" ng-click = "profile.closePopUp()"><p>Later</p></div>
+                <div class="popUpAction2 flexCenter" ng-click = "profile.completeDetails()"><p>Okay</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div class = "slideUpMenu" id = "howItWorksModal">
+      <div class="grid-containerHowItWorks">
+          <div class="howItWorksHeader">
+              <div class="howItWorksHeading"><p>How It Works</p></div>
+              <div class="howItWorksExit">
+                <img src = "/img/exit.png" alt = "exit" ng-click = "profile.closeHowItWorks()">
+              </div>
+          </div>
+          <div class="howItWorksBody">
+              <ion-content class = "howItWorksScrollContent">
+              </ion-content>
+          </div>
+      </div>
+    </div>
+
+    <div class = "slideUpMenu" id = "contactUsModal">
+      <div class="grid-containerContactUs">
+          <div class="contactUsHeader">
+              <div class="contactUsHeading"><p>Contact Us</p></div>
+              <div class="contactUsExit">
+                <img src = "/img/exit.png" alt = "exit" ng-click = "profile.closeContactUs()">
+              </div>
+          </div>
+          <div class="contactUsBody">
+              <ion-content class = "contactUsScrollContent">
+              </ion-content>
+          </div>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,101 @@
+<ion-view can-swipe-back="false">
+    {{buyCredits.getUser}}
+    <ion-content scroll = "false">
+        <div class="grid-containerBuyClaims">
+            <div class="claimsHeader">
+                <div class="claimsTitle"><p>Buy Claims</p></div>
+                <div class="claimsExit"><img src = "/img/exit.png" alt = "exit" ng-click="buyCredits.exit()" href = "#/profile"></div>
+            </div>
+            <div class="claimsActions">
+                <div class="claimsAmount">
+                    <div class="claimsLess"><img src = "/img/minus.png" alt = "minus" class = "addMinus" ng-click="buyCredits.minus()"></div>
+                    <div class="claimsNumber"><input id = "inputNumber" pattern = "[0-9]*" type = "text" ng-model = "buyCredits.amount" maxlength = "4"></div>
+                    <div class="claimsMore"><img src = "/img/add.png" alt = "add" class = "addMinus" ng-click="buyCredits.add()"></div>
+                </div>
+                <div class="claimsWord"><p>CLAIMS</p></div>
+                <div class="claimsOptions">
+                    <div class="claimsO1"><div class = "amountOption" ng-click="buyCredits.option(100)"><p>100</p></div></div>
+                    <div class="claimsO2"><div class = "amountOption" ng-click="buyCredits.option(250)"><p>250</p></div></div>
+                    <div class="claimsO3"><div class = "amountOption" ng-click="buyCredits.option(500)"><p>500</p></div></div>
+                    <div class="claimsO4"><div class = "amountOption" ng-click="buyCredits.option(1000)"><p>1000</p></div></div>
+                </div>
+            </div>
+            <div class="claimsMoney">
+                <div class="claimsSubtotal"><p class = "totalWords">SUBTOTAL</p></div>
+                <div class="claimsTotal"><p class = "totalWords">TOTAL</p></div>
+                <div class="claimsCost"><p>R{{2*buyCredits.amount | number: 2}}</p></div>
+                <div class="claimsPrice">
+                    <div class="priceCost"><p class = "priceAmounts">R{{2*buyCredits.amount - (2*buyCredits.amount*0.15) | number: 2}}</p></div>
+                    <div class="priceWord"><p class = "priceWords">PRICE</p></div>
+                </div>
+                <div class="claimsVat">
+                    <div class="vatCost"><p class = "priceAmounts">R{{2*buyCredits.amount*0.15 | number: 2}}</p></div>
+                    <div class="vatWord"><p class = "priceWords">VAT (15%)</p></div>
+                </div>
+            </div>
+            <div class="claimsButton">
+                <div class="claimsPayWith"><p>PAY WITH</p></div>
+                <div class = "claimsCreditButton"><div class = "creditCardButton" ng-click="buyCredits.showCreditCards()"><p>Credit Card</p></div></div>
+            </div>
+        </div>
+
+        <div class = "slideUpMenu" id = "creditCardsModal">
+          <div class="grid-containerCreditCards">
+              <div class="creditCardsHeader">
+                  <div class="creditCardsHeading"><p>My Cards</p></div>
+                  <div class="creditCardsExit">
+                    <img src = "/img/exit.png" alt = "exit" ng-click = "buyCredits.exitCreditCards()" href = "#/buyCredits">
+                  </div>
+              </div>
+              <div class="creditCardsBody">
+                  <ion-content class = "creditCardsScrollContent">
+                    <div class = "item" ng-repeat = "card in buyCredits.getCards" ng-click = "buyCredits.completePurchase()">
+                      <div class="grid-cardItem">
+                        <div class="creditCardInfo"><b>&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; {{card.number.substr(12, 15)}}</b> <br>{{card.name}}</div>
+                        <div class="creditCardImage"><img src = {{card.picture}} alt = "cardType"></div>
+                      </div>
+                    </div>
+                    <div class = "item" ng-click = "buyCredits.addNewCard()" style = "border: none; text-align: center; color: rgb(90, 202, 249);">
+                      <b>+ Add New Card</b>
+                    </div>
+                  </ion-content>
+              </div>
+          </div>
+        </div>
+
+        <div class = "slideUpMenu" id = "addCardModal">
+          <div class="grid-containerAddCard">
+              <div class="addCardHeader">
+                  <div class = "addCardHeaderTitle"><p>Add Card</p></div>
+                  <div class = "addCardHeaderExit"><img src = "/img/exit.png" alt = "exit" ng-click = "buyCredits.exitAddNewCard()"></div>
+              </div>
+              <div class = "addCardMessage">
+                  <p class = "cardInstructions">Enter your details</p>
+              </div>
+              <div class="addCardDetails">
+                  <div class="addCardNumber">
+                      <div class="addCardNumberTitle"><p>Card Number</p></div>
+                      <div class="addCardNumberInput"><input id = "cardNumber" type = "text" pattern = "[0-9]*" maxlength = "16" ng-model = "buyCredits.cardNumber" required = "true" ng-click = "buyCredits.resetCardFields()"></div>
+                  </div>
+                  <div class="addCardName">
+                      <div class="addCardNameTitle"><p>Name on the card</p></div>
+                      <div class="addCardNameInput"><input type="text" ng-model = "buyCredits.name" required = "true" ng-click = "buyCredits.resetCardFields()"></div>
+                  </div>
+                  <div class="addCardTwoInputs">
+                    <div class="addCardExpiry">
+                        <div class="addCardExpiryTitle"><p>Expiry Date</p></div>
+                        <div class="addCardExpiryInput"><input type = "month" ng-model = "buyCredits.expiry" required = "true" ng-click = "buyCredits.resetCardFields()"></div>
+                    </div>
+                    <div class="addCardCVC">
+                        <div class="addCardCVCTitle"><p>CVC</p></div>
+                        <div class="addCardCVCInput"><input id = "cardCVC" type = "string" placeholder = "Enter 3 digits" maxlength = "3" pattern = "[0-9]*" ng-model = "buyCredits.cvc" required = "true" ng-click = "buyCredits.resetCardFields()"></div>
+                    </div>
+                  </div>
+              </div>
+              <div class = "addCardActions">
+                  <div class = "buttonAddCard" ng-click = "buyCredits.finishAddCard()"><p>Add</p></div>
+              </div>
+          </div>
+        </div>
+    </ion-content>
+</ion-view>
