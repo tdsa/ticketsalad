@@ -7,7 +7,7 @@ extend = function (target) {
     });
     return target;
 }
-var tests = ['login', 'events'];
+var tests = ['login', 'profile', 'events'];
 module.exports ={
     'Prepare Browser Window' : function (browser) {
         browser
@@ -24,5 +24,6 @@ tests.forEach(element =>
     require("./tests/"+element+"_page.js");
     module.exports = extend(module.exports, test);
 });
+
 
 
