@@ -140,11 +140,6 @@ export default class EventsCtrl extends Controller
             }
         );
 
-        /*for(var tempUser in Meteor.users.find())
-        {
-            Meteor.users.update(tempUser._id, {$push: {"profile.notifications": notificationID}});
-        }*/
-
         this.name = null;
         this.city = null;
         this.country = null;

@@ -272,11 +272,13 @@ export default class EventsCtrl extends Controller
         timestamp: Moment().toDate(),
       });
 
-      for(var tempID in this.data[tempIndex].subscribedUsers)
+      var subUsers = this.data[tempIndex].subscribedUsers
+
+      for(var i = 0; i < subUsers.length; i++)
       {
-        if(tempID != this.user._id)
+        if(subUsers[i] != this.user._id)
         {
-          Meteor.users.update(tempID, {$push: {"profile.notifications": notificationID}});
+          Meteor.call('addNotification', subUsers[i], notificationID)
         }
       }
 

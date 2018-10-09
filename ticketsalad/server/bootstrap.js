@@ -15,7 +15,7 @@ import { Events, Notifications, Cards } from '../lib/collections';
 
 Meteor.startup(function()
 {
-    process.env.MAIL_URL = 'smtp://tristan.jules:1009703Troy@smtp.gmail.com:587/'
+    process.env.MAIL_URL = 'smtp://tristan.jules:1009703Baby@smtp.gmail.com:587/'
 
     function generateCode()
     {

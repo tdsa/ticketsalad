@@ -40,6 +40,4 @@ Meteor.methods({
         this.unblock();
         Email.send({ to, from, subject, text });
     },
-
-
 });
