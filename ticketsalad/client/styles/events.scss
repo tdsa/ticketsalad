@@ -783,6 +783,7 @@
 .expandedEventPicture {
   grid-area: expandedEventPicture;
   position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 .expandedEventPicture img
@@ -824,13 +825,13 @@
   color: rgb(66, 64, 62);
 }
 
-#expandTitle {
+.expandTitle {
   font-size: 15px;
   font-weight: bold;
   line-height: 50%;
 }
 
-#expandAbout {
+.expandAbout {
   font-size: 10px;
   font-weight: 400;
   padding-top: 4%;
@@ -845,4 +846,41 @@
   font-size: 7.5px;
   font-weight: 200;
   line-height: 60%;
+}
+
+#expandedClaimsTickets {
+  width: 100%;
+  height: auto;
+  position: relative;
+  margin-top: 20%;
+}
+
+#expandedTickets {
+  position: absolute;
+  width: 50%;
+  height: auto;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#expandedClaims {
+  position: absolute;
+  width: 50%;
+  height: auto;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.expandTC {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 50%;
 }

@@ -115,11 +115,15 @@
               <div class="expandedEventPicture"><img id = "expandedPicture" src = "" alt = "pic"><div id = "expandedEventExit"><img src = "/img/exit.png" ng-click = "events.expandEvent(2)"></div></div>
               <div class="expandedEventBody">
                 <ion-content id = "expandedBodyContent">
-                  <p id = "expandTitle">{{events.inFocusEvent.name}}</p>
+                  <p class = "expandTitle">{{events.inFocusEvent.name}}</p>
                   <p class = "expandInfo">{{events.inFocusEvent.city}}, {{events.inFocusEvent.country}}</p>
                   <p class = "expandInfo">{{events.inFocusEvent.from}} - {{events.inFocusEvent.to}}</p>
-                  <p id = "expandAbout">ABOUT</p>
+                  <p class = "expandAbout">ABOUT</p>
                   <p id = "expandAboutText">{{events.inFocusEvent.about}}</p>
+                  <div id = "expandedClaimsTickets">
+                    <div id = "expandedTickets"><p class = "expandAbout">TICKETS</p><p class = "expandTC">{{events.inFocusEvent.tickets}}</p></div>
+                    <div id = "expandedClaims"><p class = "expandAbout">CLAIMS</p><p class = "expandTC">{{events.inFocusEvent.claims}}</p></div>
+                  </div>
                 </ion-content>
               </div>
           </div>
