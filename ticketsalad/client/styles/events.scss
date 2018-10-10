@@ -524,6 +524,13 @@
   grid-area: searchButton;
 }
 
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+}
+
 .exitArea {
   display: grid;
   grid-area: exitArea;
@@ -551,33 +558,32 @@
   grid-area: exitRight;
 }
 
-.myButton
+.myMenuButton
 {
   background-color: rgb(90, 202, 249);
   height: 70%;
-  margin-left: 10%;
-  top: 15%;
   width: 80%;
   border-radius: 20px;
-  text-align: center;
-  vertical-align: middle;
-  position: relative;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
-.myButton:active {
+.myMenuButton:active {
   background-color: rgb(5, 104, 146);
 }
 
-.myButton p
+.buttonMenuText
 {
-  position: absolute;
   color: white;
-  font-size: 180%;
+  font-size: 25px;
   font-weight: thin;
-  width: 100%;
-  height: 50%;
-  top: 25%;
+  text-align: center;
+  margin-left: 7%;
+}
+
+.myMenuButton img {
+  object-fit: contain;
+  height: 40%;
 }
 
 .menuIcon {
@@ -776,6 +782,7 @@
 
 .expandedEventPicture {
   grid-area: expandedEventPicture;
+  position: relative;
 }
 
 .expandedEventPicture img
@@ -785,6 +792,57 @@
   object-fit: cover;
 }
 
+#expandedEventExit {
+  position: absolute;;
+  top: 5%;
+  left: 2.5%;
+  z-index: 3;
+  height: 10%;
+  width: 10%;
+}
+
+#expandedEventExit img {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+
 .expandedEventBody {
   grid-area: expandedEventBody;
+  position: relative;
+}
+
+#expandedBodyContent {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  color: rgb(66, 64, 62);
+}
+
+#expandTitle {
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 50%;
+}
+
+#expandAbout {
+  font-size: 10px;
+  font-weight: 400;
+  padding-top: 4%;
+}
+
+#expandAboutText {
+  font-size: 8px;
+  font-weight: 200;
+}
+
+.expandInfo {
+  font-size: 7.5px;
+  font-weight: 200;
+  line-height: 60%;
 }

@@ -36,7 +36,6 @@ export default class ActivityCtrl extends Controller {
             },
             updateNotifications()
             {
-                //return Notifications.find({_id: {$in: Meteor.user().profile.notifications}});
                 return Notifications.find({$or: [{_id: {$in: Meteor.user().profile.notifications}}, {type: 'Event Added'}]});
             },
         });
@@ -44,9 +43,11 @@ export default class ActivityCtrl extends Controller {
 
     clearNotifications()
     {
-      for(var i = 0; i < Meteor.user().profile.notifications.length; i++)
+      var notID = Meteor.user().profile.notifications;
+
+      for(var i = 0; i < notID.length; i++)
       {
-        Meteor.users.update(this.user._id, { $pop: { "profile.notifications": 1 }});
+        Notifications.remove(notID[i]);
       }
     }
 

@@ -14,6 +14,7 @@ import anime from 'animejs'
 
 export default class ProfileCtrl extends Controller {
   constructor() {
+
     super(...arguments);
 
     this.helpers({
@@ -30,7 +31,26 @@ export default class ProfileCtrl extends Controller {
       }
     });
 
-    }
+    let ang = this;
+
+    $('#fileInput').change(function()
+        {
+            var file    = document.querySelector('input[type=file]').files[0];
+            var reader  = new FileReader();
+
+            reader.addEventListener("load", function ()
+            {
+              ang.imageURL = reader.result;
+              ang.callMethod('updatePicture', reader.result, (err) => {
+              });
+            }, false);
+
+            if (file)
+            {
+              reader.readAsDataURL(file);
+            }
+        });
+  }
 
   logout() //logs the user out (makes meteor.user = null)
   {

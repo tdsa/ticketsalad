@@ -41,6 +41,7 @@ export default class BuyCreditsCtrl extends Controller {
 
       this.amount = 0;
       this.inProgress = false;
+      this.cardID = null;
     }
 
     exit()
@@ -96,17 +97,58 @@ export default class BuyCreditsCtrl extends Controller {
       anime({targets: '#addCardModal', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
     }
 
+    editCard(card)
+    {
+      this.editName = card.name;
+      this.editNumber = card.number;
+      this.editDate = card.date;
+      this.editCvc = card.cvc;
+      this.cardID = card._id;
+      this.cardNumber = this.editNumber;
+      this.name = this.editName;
+      this.cvc = this.editCvc;
+      this.expiry = this.editDate;
+
+      anime({targets: '#editCardModal', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
+    }
+
     exitAddNewCard()
     {
       this.name = null;
       this.cardNumber = null;
       this.date = null;
       this.cvc = null;
-
+      this.cardID = null;
+      this.expiry = null;
       anime({targets: '#addCardModal', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
     }
 
-    finishAddCard()
+    exitEditCard()
+    {
+      this.editName = null;
+      this.editNumber = null;
+      this.editDate = null;
+      this.editCvc = null;
+      this.name = null;
+      this.cardNumber = null;
+      this.date = null;
+      this.cvc = null;
+      this.cardID = null;
+      this.expiry = null;
+      anime({targets: '#editCardModal', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
+    }
+
+    deleteEditCard() {
+
+      if(this.cardID != null)
+      {
+        Cards.remove(this.cardID);
+      }
+
+      this.exitEditCard();
+    }
+
+    finishAddCard(mode)
     {
       if(this.cardNumber == null)
       {
@@ -115,7 +157,7 @@ export default class BuyCreditsCtrl extends Controller {
       }
       if(this.cardNumber.length != 16)
       {
-        $("#cardNumber").css("color", "red");
+        $(".cardNumber").css("color", "red");
         $(".cardInstructions").text("Your card number must be 16 digits!").css("color", "red");
         return;
       }
@@ -136,7 +178,7 @@ export default class BuyCreditsCtrl extends Controller {
       }
       if(this.cvc.length != 3)
       {
-        $("#cardCVC").css("color", "red");
+        $(".cardCVC").css("color", "red");
         $(".cardInstructions").text("Your CVC must be 3 digits!").css("color", "red");
         return;
       }
@@ -175,7 +217,15 @@ export default class BuyCreditsCtrl extends Controller {
 
       Meteor.users.update(this.user._id, {$push: {"profile.cards": cardID}});
 
-      this.exitAddNewCard()
+      if(mode == 2)
+      {
+        this.deleteEditCard()
+        this.exitEditCard()
+      }
+      else
+      {
+        this.exitAddNewCard()
+      }
     }
 
     completePurchase()
@@ -191,8 +241,8 @@ export default class BuyCreditsCtrl extends Controller {
 
     resetCardFields()
     {
-      $("#cardCVC").css("color", "black");
-      $("#cardNumber").css("color", "black");
+      $(".cardCVC").css("color", "black");
+      $(".cardNumber").css("color", "black");
       $(".cardInstructions").text("");
     }
 

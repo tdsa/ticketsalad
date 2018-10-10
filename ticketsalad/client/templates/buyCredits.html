@@ -49,10 +49,11 @@
               </div>
               <div class="creditCardsBody">
                   <ion-content class = "creditCardsScrollContent">
-                    <div class = "item" ng-repeat = "card in buyCredits.getCards" ng-click = "buyCredits.completePurchase()">
+                    <div class = "item" ng-repeat = "card in buyCredits.getCards">
                       <div class="grid-cardItem">
-                        <div class="creditCardInfo"><b>&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; {{card.number.substr(12, 15)}}</b> <br>{{card.name}}</div>
-                        <div class="creditCardImage"><img src = {{card.picture}} alt = "cardType"></div>
+                        <div class="creditCardInfo" ng-click = "buyCredits.completePurchase()"><b>&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; {{card.number.substr(12, 15)}}</b> <br>{{card.name}}</div>
+                        <div class="creditCardImage" ng-click = "buyCredits.completePurchase()"><img src = {{card.picture}} alt = "cardType"></div>
+                        <div class="creditCardEditImage"><img src = /img/edit.png alt = "cardType" ng-click = "buyCredits.editCard(card)"></div>
                       </div>
                     </div>
                     <div class = "item" ng-click = "buyCredits.addNewCard()" style = "border: none; text-align: center; color: rgb(90, 202, 249);">
@@ -75,7 +76,7 @@
               <div class="addCardDetails">
                   <div class="addCardNumber">
                       <div class="addCardNumberTitle"><p>Card Number</p></div>
-                      <div class="addCardNumberInput"><input id = "cardNumber" type = "text" pattern = "[0-9]*" maxlength = "16" ng-model = "buyCredits.cardNumber" required = "true" ng-click = "buyCredits.resetCardFields()"></div>
+                      <div class="addCardNumberInput"><input id = "cardNumber" class = "cardNumber" type = "text" pattern = "[0-9]*" maxlength = "16" ng-model = "buyCredits.cardNumber" required = "true" ng-click = "buyCredits.resetCardFields()"></div>
                   </div>
                   <div class="addCardName">
                       <div class="addCardNameTitle"><p>Name on the card</p></div>
@@ -88,12 +89,52 @@
                     </div>
                     <div class="addCardCVC">
                         <div class="addCardCVCTitle"><p>CVC</p></div>
-                        <div class="addCardCVCInput"><input id = "cardCVC" type = "string" placeholder = "Enter 3 digits" maxlength = "3" pattern = "[0-9]*" ng-model = "buyCredits.cvc" required = "true" ng-click = "buyCredits.resetCardFields()"></div>
+                        <div class="addCardCVCInput"><input id = "cardCVC" class = "cardCVC" type = "string" placeholder = "Enter 3 digits" maxlength = "3" pattern = "[0-9]*" ng-model = "buyCredits.cvc" required = "true" ng-click = "buyCredits.resetCardFields()"></div>
                     </div>
                   </div>
               </div>
               <div class = "addCardActions">
-                  <div class = "buttonAddCard" ng-click = "buyCredits.finishAddCard()"><p>Add</p></div>
+                <div class = "buttonsContainer">
+                  <div class = "buttonAddCard" ng-click = "buyCredits.finishAddCard(1)"><p>Add</p></div>
+                </div>
+              </div>
+          </div>
+        </div>
+
+        <div class = "slideUpMenu" id = "editCardModal" style = "padding-top: env(safe-area-inset-top)">
+          <div class="grid-containerAddCard">
+              <div class="addCardHeader">
+                  <div class = "addCardHeaderTitle"><p>Edit Card</p></div>
+                  <div class = "addCardHeaderExit"><img src = "/img/exit.png" alt = "exit" ng-click = "buyCredits.exitEditCard()"></div>
+              </div>
+              <div class = "addCardMessage">
+                  <p class = "cardInstructions">Change your details</p>
+              </div>
+              <div class="addCardDetails">
+                  <div class="addCardNumber">
+                      <div class="addCardNumberTitle"><p>Card Number</p></div>
+                      <div class="addCardNumberInput"><input id = "cardNumber2" class = "cardNumber" placeholder = {{buyCredits.editNumber}} type = "text" pattern = "[0-9]*" maxlength = "16" ng-model = "buyCredits.cardNumber" required = "true" ng-click = "buyCredits.resetCardFields()"></div>
+                  </div>
+                  <div class="addCardName">
+                      <div class="addCardNameTitle"><p>Name on the card</p></div>
+                      <div class="addCardNameInput"><input placeholder = {{buyCredits.editName}} type="text" ng-model = "buyCredits.name" required = "true" ng-click = "buyCredits.resetCardFields()"></div>
+                  </div>
+                  <div class="addCardTwoInputs">
+                    <div class="addCardExpiry">
+                        <div class="addCardExpiryTitle"><p>Expiry Date</p></div>
+                        <div class="addCardExpiryInput"><input placeholder = {{buyCredits.editDate}} type = "month" ng-model = "buyCredits.expiry" required = "true" ng-click = "buyCredits.resetCardFields()"></div>
+                    </div>
+                    <div class="addCardCVC">
+                        <div class="addCardCVCTitle"><p>CVC</p></div>
+                        <div class="addCardCVCInput"><input placeholder = {{buyCredits.editCvc}} id = "cardCVC2" class = "cardCVC" type = "string" maxlength = "3" pattern = "[0-9]*" ng-model = "buyCredits.cvc" required = "true" ng-click = "buyCredits.resetCardFields()"></div>
+                    </div>
+                  </div>
+              </div>
+              <div class = "addCardActions">
+                <div class = "buttonsContainer">
+                  <div class = "buttonAddCard" ng-click = "buyCredits.finishAddCard(2)"><p>Save</p></div>
+                  <div class = "buttonDeleteCard" ng-click = "buyCredits.deleteEditCard()"><p>Delete</p></div>
+                </div>
               </div>
           </div>
         </div>

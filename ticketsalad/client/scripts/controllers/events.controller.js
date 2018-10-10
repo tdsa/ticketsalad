@@ -45,6 +45,7 @@ export default class EventsCtrl extends Controller
         this.titleIndex = 0;
         this.claimed = false;
         this.expanded = false;
+        this.inFocusEvent = null;
 
         this.helpers({
           data() {
@@ -95,12 +96,13 @@ export default class EventsCtrl extends Controller
       });
     }
 
-    expandEvent()
+    expandEvent(mode)
     {
-      if(this.expanded == false)
+      if(mode == 1)
       {
+        this.inFocusEvent = this.data[this.mySwiper.realIndex];
         var expPic = document.querySelector('#expandedPicture');
-        expPic.src = this.data[this.mySwiper.realIndex].picture;
+        expPic.src = this.inFocusEvent.picture;
         $('#expandedEvent').fadeIn(100);
         $('.swiper-container').fadeOut(100);
         $('#expandedEvent').addClass('expandCentre');
@@ -113,7 +115,7 @@ export default class EventsCtrl extends Controller
         $('#expandedEvent').removeClass('expandCentre');
         $('#expandedEvent').fadeOut(200);
         $('.swiper-container').fadeIn(250);
-
+        this.inFocusEvent = null;
         this.expanded = false;
       }
     }

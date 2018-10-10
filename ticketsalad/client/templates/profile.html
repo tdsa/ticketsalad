@@ -14,8 +14,9 @@
           <div class="profileRemaining"><p>CLAIMS REMAINING</p></div>
         </div>
         <div class="profileImgBtn">
-          <div class="profilePictre"><img src= {{profile.user.profile.picture}} ng-click = "profile.updatePicture()"></div>
+          <div class="profilePictre"><img src= {{profile.user.profile.picture}} onclick = "$('#fileInput').trigger('click');"></div>
           <div class="buyClaimsBtn"><div class = "claimsBtn" ng-click = "profile.buyCredits()"><p>Buy Claims</p></div></div>
+          <input type="file" id = "fileInput" accept="image/*" style = "z-index: -1">
         </div>
       </div>
       <div class="profileButtons">
@@ -39,10 +40,10 @@
               <div class="blank"></div>
           </div>
           <div class="bottom">
-              <div class="homeButton"><div class = "myButton" href = "#/events" ng-click="profile.goTo('events')"><p>Home</p></div></div>
-              <div class="activityButton"><div class = "myButton" href = "#/activity" ng-click="profile.goTo('activity')"><p>Activity</p></div></div>
-              <div class="profileButton"><div class = "myButton" href = "#/profile" ng-click="profile.goTo('profile')"><p>Profile</p></div></div>
-              <div class="searchButton"><div class = "myButton" ng-click = "profile.goTo('search')"><p>Search</p></div></div>
+              <div class="homeButton flex"><div class = "myMenuButton flex" href = "#/events" ng-click="profile.goTo('events')"><div class = "buttonMenuText">Home</div><img src = "/img/home.png"></div></div>
+              <div class="activityButton flex"><div class = "myMenuButton flex" href = "#/activity" ng-click="profile.goTo('activity')"><div class = "buttonMenuText">Activity</div><img src = "/img/notification.png"></div></div>
+              <div class="profileButton flex"><div class = "myMenuButton flex" href = "#/profile" ng-click="profile.goTo('profile')"><div class = "buttonMenuText">Profile</div><img src = "/img/profile.png"></div></div>
+              <div class="searchButton flex"><div class = "myMenuButton flex" ng-click = "profile.goTo('search')"><div class = "buttonMenuText">Search</div><img src = "/img/search.png"></div></div>
               <div class="exitArea">
                   <div class="exitButton"><img src = "/img/exit.png" alt = "exit" ng-click = "profile.closeMenu()"></div>
                   <div class="exitLeft"></div>

@@ -387,9 +387,9 @@ border-radius: 0;
 .grid-cardItem {
   display: grid;
   height: 100%;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 20% 60% 20%;
   grid-template-rows: 100%;
-  grid-template-areas: "creditCardImage creditCardInfo";
+  grid-template-areas: "creditCardImage creditCardInfo creditCardEditImage";
 }
 
 .creditCardInfo {
@@ -411,6 +411,21 @@ border-radius: 0;
   object-fit: contain;
 }
 
+.creditCardEditImage
+{
+  grid-area: creditCardEditImage;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.creditCardEditImage img {
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+}
+
 #addCardModal {
   background-color: white;
 }
@@ -419,7 +434,7 @@ border-radius: 0;
     display: grid;
     height: 100%;
     grid-template-columns: 100%;
-    grid-template-rows: 10% 10% 65% 15%;
+    grid-template-rows: 10% 10% 32.5% 47.5%;
     grid-template-areas: "addCardHeader" "addCardMessage" "addCardDetails" "addCardActions";
     font-family: 'Lato', sans-serif;
   }
@@ -477,8 +492,8 @@ border-radius: 0;
   display: grid;
   grid-area: addCardDetails;
   grid-template-columns: 100%;
-  grid-template-rows: 14.28% 14.28% 14.28% 57.16%;
-  grid-template-areas: "addCardNumber" "addCardName" "addCardTwoInputs" "." "." "." ".";
+  grid-template-rows: 33.33% 33.33% 33.33%;
+  grid-template-areas: "addCardNumber" "addCardName" "addCardTwoInputs";
 }
 
 .addCardNumber {
@@ -651,13 +666,15 @@ border-radius: 0;
 }
 
 .buttonAddCard {
-  position: absolute;
   width: 80%;
   height: 15vw;
   background-color: rgb(90, 202, 249);
   border-radius: 10px;
-  left: 10%;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5%;
 }
 
 .buttonAddCard:active {
@@ -665,16 +682,46 @@ border-radius: 0;
 }
 
 .buttonAddCard p {
-  position: absolute;
   color: white;
-  height: 50%;
-  width: 100%;
   text-align: center;
-  top: 25%;
+  font-size: 5.5vw;
+}
+
+.buttonDeleteCard {
+  width: 80%;
+  height: 15vw;
+  background-color: red;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonDeleteCard:active {
+  background-color: rgb(172, 52, 52);
+}
+
+.buttonDeleteCard p {
+  color: white;
+  text-align: center;
   font-size: 5.5vw;
 }
 
 .addCardActions {
   grid-area: addCardActions;
   position: relative;
+}
+
+.buttonsContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#editCardModal {
+  background-color: white;
 }

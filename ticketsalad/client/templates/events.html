@@ -13,7 +13,7 @@
                   <div class = "greenWin"><p>Congratulations! We are delighted to inform you that you have won <strong>{{events.data[events.currentIndex].tickets}}</strong> tickets to <strong>{{events.data[events.currentIndex].name}} - {{events.data[events.currentIndex].country}} {{events.data[events.currentIndex].year}}</strong>. All the details will be sent to your email address.</p></div>
                   <div class="swiper-container">
                       <div class="swiper-wrapper">
-                          <div class="swiper-slide" ng-repeat = "event in events.data" ng-click = "events.expandEvent()" id = "card{{$index}}">
+                          <div class="swiper-slide" ng-repeat = "event in events.data" ng-click = "events.expandEvent(1)" id = "card{{$index}}">
                               <div class="grid-containerCard">
                                   <div class="eventPicture"><img src = {{event.picture}} alt = "pic"></div>
                                   <div class="eventDescription">
@@ -70,10 +70,10 @@
                   <div class="blank"></div>
               </div>
               <div class="bottom">
-                  <div class="homeButton"><div class = "myButton" href = "#/events" ng-click="events.goTo('events')"><p>Home</p></div></div>
-                  <div class="activityButton"><div class = "myButton" href = "#/activity" ng-click="events.goTo('activity')"><p>Activity</p></div></div>
-                  <div class="profileButton"><div class = "myButton" href = "#/profile" ng-click="events.goTo('profile')"><p>Profile</p></div></div>
-                  <div class="searchButton"><div class = "myButton" ng-click = "events.openSearch()"><p>Search</p></div></div>
+                  <div class="homeButton flex"><div class = "myMenuButton flex" href = "#/events" ng-click="events.goTo('events')"><div class = "buttonMenuText">Home</div><img src = "/img/home.png"></div></div>
+                  <div class="activityButton flex"><div class = "myMenuButton flex" href = "#/activity" ng-click="events.goTo('activity')"><div class = "buttonMenuText">Activity</div><img src = "/img/notification.png"></div></div>
+                  <div class="profileButton flex"><div class = "myMenuButton flex" href = "#/profile" ng-click="events.goTo('profile')"><div class = "buttonMenuText">Profile</div><img src = "/img/profile.png"></div></div>
+                  <div class="searchButton flex"><div class = "myMenuButton flex" ng-click = "events.openSearch()"><div class = "buttonMenuText">Search</div><img src = "/img/search.png"></div></div>
                   <div class="exitArea">
                       <div class="exitButton"><img src = "/img/exit.png" alt = "exit" ng-click = "events.closeMenu()"></div>
                       <div class="exitLeft"></div>
@@ -110,10 +110,18 @@
           </div>
       </div>
 
-      <div class = "expandingEvent" id = "expandedEvent" ng-click = "events.expandEvent()">
+      <div class = "expandingEvent" id = "expandedEvent">
           <div class="grid-containerExpandedEvent">
-              <div class="expandedEventPicture"><img id = "expandedPicture" src = "" alt = "pic"></div>
-              <div class="expandedEventBody"></div>
+              <div class="expandedEventPicture"><img id = "expandedPicture" src = "" alt = "pic"><div id = "expandedEventExit"><img src = "/img/exit.png" ng-click = "events.expandEvent(2)"></div></div>
+              <div class="expandedEventBody">
+                <ion-content id = "expandedBodyContent">
+                  <p id = "expandTitle">{{events.inFocusEvent.name}}</p>
+                  <p class = "expandInfo">{{events.inFocusEvent.city}}, {{events.inFocusEvent.country}}</p>
+                  <p class = "expandInfo">{{events.inFocusEvent.from}} - {{events.inFocusEvent.to}}</p>
+                  <p id = "expandAbout">ABOUT</p>
+                  <p id = "expandAboutText">{{events.inFocusEvent.about}}</p>
+                </ion-content>
+              </div>
           </div>
       </div>
 </ion-view>
