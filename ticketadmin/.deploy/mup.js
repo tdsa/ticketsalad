@@ -26,7 +26,7 @@ module.exports = {
     env: {
       // TODO: Change to your app's url
       // If you are using ssl, it needs to start with https://
-      PORT: 80,
+      PORT: 3001,
       ROOT_URL: 'http://41.79.78.61',
       MONGO_URL: 'mongodb://mongodb:27017/ticketsalad'
     },
@@ -43,24 +43,4 @@ module.exports = {
     // You might need to disable it on CI servers
     enableUploadProgressBar: true
   },
-
-  mongo: {
-    version: '3.4.1',
-    servers: {
-      one: {}
-    }
-  },
-
-  // (Optional)
-  // Use the proxy to setup ssl or to route requests to the correct
-  // app when there are several apps
-
-  // proxy: {
-  //   domains: 'mywebsite.com,www.mywebsite.com',
-
-  //   ssl: {
-  //     // Enable Let's Encrypt
-  //     letsEncryptEmail: 'email@domain.com'
-  //   }
-  // }
 };

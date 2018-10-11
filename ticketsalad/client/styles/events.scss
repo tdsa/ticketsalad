@@ -1,3 +1,7 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
 .swiper-slide {
   width: 60%;
   height: 90%;
@@ -795,7 +799,7 @@
 
 #expandedEventExit {
   position: absolute;;
-  top: 5%;
+  top: 10%;
   left: 2.5%;
   z-index: 3;
   height: 10%;

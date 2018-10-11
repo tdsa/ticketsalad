@@ -2,7 +2,7 @@ module.exports = {
   servers: {
     one: {
       // TODO: set host address, username, and authentication method
-      host: '41.79.78.61',
+      host: '41.79.79.80',
       username: 'tristan',
       // pem: './path/to/pem'
       password: '1234'
@@ -26,8 +26,8 @@ module.exports = {
     env: {
       // TODO: Change to your app's url
       // If you are using ssl, it needs to start with https://
-      PORT: 3000,
-      ROOT_URL: 'http://41.79.78.61',
+      PORT: 80,
+      ROOT_URL: 'http://41.79.79.80',
     },
 
     docker: {

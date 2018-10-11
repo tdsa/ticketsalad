@@ -3,6 +3,10 @@ input[type='text'],input[type='user'],input[type='email'],input[type='password']
   border-radius: 0;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 .grid-containerLogIn {
   display: grid;
   height: 100%;

@@ -3,6 +3,10 @@ input[type = "month"] {
 border-radius: 0;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 .grid-containerBuyClaims {
     display: grid;
     height: 100%;
