@@ -40,4 +40,19 @@ Meteor.methods({
         this.unblock();
         Email.send({ to, from, subject, text });
     },
+
+    emailBelongsToUser(email)
+    {
+      if(Accounts.findUserByEmail(email) != null)
+      {
+        return true;
+      }
+
+      return false;
+    },
+
+    addNotification(userID, notifyID)
+    {
+      Meteor.users.update(userID, {$push: {"profile.notifications": notifyID}});
+    }
 });
