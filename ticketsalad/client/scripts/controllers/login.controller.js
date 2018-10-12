@@ -18,6 +18,9 @@ export default class LoginCtrl extends Controller
   constructor()
   {
     super(...arguments);
+    this.status = Meteor.status().status;
+    this.address = Meteor.connection.clientAddress;
+    console.log(this.status + "\n" + this.address);
   }
 
   login()
