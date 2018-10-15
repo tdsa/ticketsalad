@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="1"
+            tests="6">
+
+  <testsuite name="full_test"
+    errors="0" failures="1" hostname="" id="" package="full_test" skipped="8"
+    tests="6" time="14.71" timestamp="">
+  
+    <testcase name="Prepare Browser Window" classname="full_test" time="0.4140" assertions="0">
+    </testcase>
+  
+    <testcase name="Navigate to Login" classname="full_test" time="4.692" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Empty Login" classname="full_test" time="1.330" assertions="1">
+
+    
+    </testcase>
+  
+    <testcase name="No Pass Login" classname="full_test" time="1.348" assertions="1">
+
+    
+    </testcase>
+  
+    <testcase name="No User Login" classname="full_test" time="0.8660" assertions="1">
+
+    
+    </testcase>
+  
+    <testcase name="Incorrect Login" classname="full_test" time="6.061" assertions="1">  <failure message="Expected element &lt;.loginInstructions&gt; to have css property &#34;color&#34; which equals: &#34;rgba(255, 0, 0, 1)&#34; - expected [0;32m&#34;equals &#39;rgba(255, 0, 0, 1)&#39;&#34;[0m but got: [0;31m&#34;rgb(255, 0, 0)&#34;[0m">    at Object.Incorrect Login (/home/zeroc00l/ticketsalad/Testing/tests/login_page.js:45:15)
+    at Context.call (/root/nightwatch/lib/testsuite/context.js:203:32)
+    at TestCase.run (/root/nightwatch/lib/testsuite/testcase.js:49:31)
+    at Runnable.handleRunnable [as __runFn] (/root/nightwatch/lib/testsuite/testsuite.js:353:32)
+    at Runnable.run (/root/nightwatch/lib/testsuite/runnable.js:128:21)
+    at TestSuite.createRunnable (/root/nightwatch/lib/testsuite/testsuite.js:421:33)
+    at TestSuite.handleRunnable (/root/nightwatch/lib/testsuite/testsuite.js:425:17)
+    at createSession.then.then._ (/root/nightwatch/lib/testsuite/testsuite.js:352:21)
+    at &lt;anonymous&gt;
+    at process._tickCallback (internal/process/next_tick.js:188:7)</failure>
+
+    <failure message="    at Object.Incorrect Login (/home/zeroc00l/ticketsalad/Testing/tests/login_page.js:45:15)">    at Context.call (/root/nightwatch/lib/testsuite/context.js:203:32)
+    at TestCase.run (/root/nightwatch/lib/testsuite/testcase.js:49:31)
+    at Runnable.handleRunnable [as __runFn] (/root/nightwatch/lib/testsuite/testsuite.js:353:32)
+    at Runnable.run (/root/nightwatch/lib/testsuite/runnable.js:128:21)
+    at TestSuite.createRunnable (/root/nightwatch/lib/testsuite/testsuite.js:421:33)
+    at TestSuite.handleRunnable (/root/nightwatch/lib/testsuite/testsuite.js:425:17)
+    at createSession.then.then._ (/root/nightwatch/lib/testsuite/testsuite.js:352:21)
+    at &lt;anonymous&gt;
+    at process._tickCallback (internal/process/next_tick.js:188:7)</failure>
+    </testcase>
+  
+
+  
+
+  
+    
+    <testcase
+      name="Navigate To Sign Up" classname="full_test">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Forgot my Password" classname="full_test">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Valid Login Attempt" classname="full_test">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Navigate to profile" classname="full_test">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Buy Credits" classname="full_test">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Claim with no code" classname="full_test">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Click on event" classname="full_test">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Click with code entered" classname="full_test">
+      <skipped />
+    </testcase>
+    
+  
+  </testsuite>
+</testsuites>

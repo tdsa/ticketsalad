@@ -6,6 +6,7 @@
       "start_process" : true,
       "server_path" : "./bin/selenium-server-standalone-3.9.1.jar",
       "log_path" : "",
+      "host" : "127.0.0.1",
       "port" : 4444,
       "cli_args" : {
         "webdriver.gecko.driver" : "./bin/geckodriverlinux/geckodriver"
@@ -14,7 +15,7 @@
   
     "test_settings" : {
       "default" : {
-        "launch_url" : "http://localhost",
+        "launch_url" : "http://localhost:3000",
         "globals" : {
           "username" : "testSalad",
           "password" : "Salsa123"
@@ -28,7 +29,9 @@
         },
         "desiredCapabilities": {
           "browserName": "firefox",
-          "marionette": false
+          "javascriptEnabled": true,
+          "acceptSslCerts": true,
+          "marionette": true
         }
       }
     }
