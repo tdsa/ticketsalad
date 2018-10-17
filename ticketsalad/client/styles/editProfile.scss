@@ -51,8 +51,8 @@
     display: grid;
     grid-area: editProfileDetails;
     grid-template-columns: 100%;
-    grid-template-rows: 14.28% 14.28% 14.28% 14.28% 14.28% 8% 20.6%;
-    grid-template-areas: "editProfileUser" "editProfileFirst" "editOldPassword" "editNewPassword" "editConfirmNewPassword" "." "terms";
+    grid-template-rows: 16% 16% 16% 16% 16% 20%;
+    grid-template-areas: "editProfileUser" "editProfileFirst" "editOldPassword" "editNewPassword" "editConfirmNewPassword" "terms";
   }
 
   .editProfileUser {

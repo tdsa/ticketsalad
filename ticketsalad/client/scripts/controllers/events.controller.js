@@ -24,7 +24,7 @@ export default class EventsCtrl extends Controller
         this.mySwiper = new Swiper ('.swiper-container', {
           // Optional parameters
           direction: 'horizontal',
-          slidesPerView: '1.6',
+          slidesPerView: '1.5',
           centeredSlides: true,
           spaceBetween: 40,
           effect: 'coverflow',
