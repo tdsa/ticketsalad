@@ -61,6 +61,25 @@
 
 .contentView {
   position: fixed;
-  top: 52px;
   background-color: rgb(249,250,251);
+  padding-left: 25%;
+}
+
+#fixedSideMenu {
+  position: fixed;
+  top: 0;
+  left:0;
+  height: 100%;
+  width: 25%;
+  z-index: 2;
+  background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  padding: 2%;
+}
+
+#fixedSideMenu a {
+  font-weight: bold;
+  font-size: 30px;
+  cursor: pointer;
+  color: black;
 }

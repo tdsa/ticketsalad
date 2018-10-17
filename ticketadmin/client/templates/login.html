@@ -1,6 +1,6 @@
 <ion-view view-title="Log In" class = "loginView">
     <ion-content scroll="false">
-        <div class = "titleBox"><p class = "loginTitle">TicketAdmin</p></div>
+        <div class = "titleBox"><p class = "loginTitle">TICKET ADMIN</p></div>
         <form class="ui form">
             <div class="field required loginUsr">
               <label>Username</label>
@@ -10,7 +10,7 @@
               <label>Password</label>
               <input type="password" name="password" placeholder="Password" ng-model="login.pass" onclick = "$('.loginPass').removeClass('error');">
             </div>
-            <button class="ui button" type="submit" ng-click="login.login()" href = "#/events">Submit</button>
+            <button class="ui small green button" type="submit" ng-click="login.login()" href = "#/events">Login</button>
           </form>
     </ion-content>
 </ion-view>

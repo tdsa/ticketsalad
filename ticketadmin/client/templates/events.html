@@ -1,13 +1,19 @@
 <ion-view view-title="Events">
     <ion-content scroll = false>
-        <div class = "eventsMenu">
-            <div class="ui transparent icon input fixedMenu">
-                <input class="prompt" type="text" placeholder="Search events..." ng-model="events.searchTerm">
-                <i class="search link icon"></i>
+
+        <div id = "fixedSideMenu">
+          <div class="ui fluid search">
+            <div class="ui icon input">
+              <input class="prompt" type="text" placeholder="Search events..." ng-model="events.searchTerm">
+              <i class="search icon"></i>
             </div>
-            <img src = "/img/logout.png" alt = "userPic" ng-click = "events.logout()">
-            <a ng-click = "events.addEvent()">Add Event</a>
+          </div>
+          <br><br>
+          <div><a ng-click = "events.addEvent()">Add New Event</a></div>
+          <br>
+          <div><a ng-click = "events.logout()">Logout</a></div>
         </div>
+
         <ion-content class = "contentView">
             <div class="ui four stackable cards link cardContainer" style = "padding-top: 10px; padding-left: 10px; padding-right: 10px;">
                 <div class="card raised" ng-repeat="event in events.data | filter: events.searchTerm" ng-click= "events.viewEvent($index)">
@@ -50,8 +56,8 @@
                 </div>
             </div>
             <div class="actions">
-              <div class="ui button">Edit</div>
-              <div class="ui button" ng-click = "events.deleteEvent(events.focusEvent._id)">Delete</div>
+              <div class="ui button small blue">Edit</div>
+              <div class="ui button small red" ng-click = "events.deleteEvent(events.focusEvent._id)">Delete</div>
             </div>
         </div>
 
@@ -129,8 +135,8 @@
                 </div>
             </div>
             <div class="actions">
-              <div class="ui button" ng-click = "events.addNewEvent()">Add</div>
-              <div class="ui cancel button">Cancel</div>
+              <div class="ui button small blue" ng-click = "events.addNewEvent()">Add</div>
+              <div class="ui cancel button small red">Cancel</div>
             </div>
         </div>
     </ion-content>
