@@ -28,12 +28,12 @@ export default class LaunchCtrl extends Controller
 
   openHowItWorks()
   {
-    anime({targets: '#howItWorksModalLaunch', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
+    $('#howItWorksModalLaunch').addClass('slideMenuBottom');
   }
 
   closeHowItWorks()
   {
-    anime({targets: '#howItWorksModalLaunch', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
+    $('#howItWorksModalLaunch').removeClass('slideMenuBottom');
   }
 
   signIn()

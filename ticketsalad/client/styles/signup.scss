@@ -50,8 +50,8 @@
   display: grid;
   grid-area: signUpDetails;
   grid-template-columns: 100%;
-  grid-template-rows: 14.28% 14.28% 14.28% 14.28% 14.28% 8% 20.6%;
-  grid-template-areas: "signUpUser" "signUpFirst" "signUpLast" "signUpPass" "signUpConfirmPass" "signUpDetailsBlank" "nextButton";
+  grid-template-rows: 16% 16% 16% 16% 16% 20%;
+  grid-template-areas: "signUpUser" "signUpFirst" "signUpLast" "signUpPass" "signUpConfirmPass" "nextButton";
 }
 
 .signUpUser {
@@ -254,10 +254,6 @@
   height: 80%;
 }
 
-.signUpDetailsBlank {
-  grid-area: signUpDetailsBlank;
-}
-
 .nextButton {
   grid-area: nextButton;
   position: relative;
@@ -291,6 +287,7 @@
 .signUpActions {
   grid-area: signUpActions;
   position: relative;
+  padding-top: 2%;
 }
 
 .link {

@@ -24,9 +24,9 @@ export default class EventsCtrl extends Controller
         this.mySwiper = new Swiper ('.swiper-container', {
           // Optional parameters
           direction: 'horizontal',
-          slidesPerView: '1.4',
+          slidesPerView: '1.6',
           centeredSlides: true,
-          spaceBetween: 25,
+          spaceBetween: 40,
           effect: 'coverflow',
 
           // If we need pagination
@@ -106,12 +106,10 @@ export default class EventsCtrl extends Controller
         $('#expandedEvent').fadeIn(100);
         $('.swiper-container').fadeOut(100);
         $('#expandedEvent').addClass('expandCentre');
-        anime({targets: '#expandedEvent',scale: 2,});
         this.expanded = true;
       }
       else
       {
-        anime({targets: '#expandedEvent',scale: 1,});
         $('#expandedEvent').removeClass('expandCentre');
         $('#expandedEvent').fadeOut(200);
         $('.swiper-container').fadeIn(250);
@@ -303,13 +301,15 @@ export default class EventsCtrl extends Controller
 
     openPopUp()
     {
-      anime({targets: '#completeDetailsPopUp', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
+      //anime({targets: '#completeDetailsPopUp', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
+      $('#completeDetailsPopUp').addClass('slideMenuBottom');
       $('#eventsContainer').addClass('blur');
     }
 
     closePopUp()
     {
-      anime({targets: '#completeDetailsPopUp', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
+      //anime({targets: '#completeDetailsPopUp', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
+      $('#completeDetailsPopUp').removeClass('slideMenuBottom');
       $('#eventsContainer').removeClass('blur');
     }
 
@@ -327,25 +327,27 @@ export default class EventsCtrl extends Controller
 
     openMenu()
     {
-      anime({targets: '#eventMenuSlide', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
+      $('#eventMenuSlide').addClass('slideMenuBottom');
       $('#eventsContainer').addClass('blur');
     }
 
     closeMenu()
     {
-      anime({targets: '#eventMenuSlide', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
+      $('#eventMenuSlide').removeClass('slideMenuBottom');
       $('#eventsContainer').removeClass('blur');
     }
 
     openSearch()
     {
       this.closeMenu();
-      anime({targets: '#eventsSearchModal', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
+      //anime({targets: '#eventsSearchModal', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
+      $('#eventsSearchModal').addClass('slideMenuBottom');
     }
 
     closeSearch()
     {
-      anime({targets: '#eventsSearchModal', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
+      $('#eventsSearchModal').removeClass('slideMenuBottom');
+      //anime({targets: '#eventsSearchModal', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
     }
 
     findItem(event)

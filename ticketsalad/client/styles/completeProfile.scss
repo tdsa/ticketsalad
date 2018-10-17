@@ -11,7 +11,7 @@ input[type = "date"] {
     display: grid;
     height: 100%;
     grid-template-columns: 100%;
-    grid-template-rows: 20% 65% 15%;
+    grid-template-rows: 25% 60% 15%;
     grid-template-areas: "completeProfileHeader" "completeProfileDetails" "completeProfileActions";
   }
 
@@ -77,8 +77,8 @@ input[type = "date"] {
     display: grid;
     grid-area: completeProfileDetails;
     grid-template-columns: 100%;
-    grid-template-rows: 14.28% 14.28% 14.28% 14.28% 14.28% 8% 20.6%;
-    grid-template-areas: "completeProfileUser" "completeProfileFirst" "completeProfileLast" "." "." "." "terms";
+    grid-template-rows: 20% 20% 20% 10% 30%;
+    grid-template-areas: "completeProfileUser" "completeProfileFirst" "completeProfileLast" "." "terms";
   }
 
   .completeProfileUser {

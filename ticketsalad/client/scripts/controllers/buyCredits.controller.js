@@ -83,18 +83,18 @@ export default class BuyCreditsCtrl extends Controller {
         return;
       }
 
-      anime({targets: '#creditCardsModal', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
+      $('#creditCardsModal').addClass('slideMenuBottom');
       this.inProgress = true;
     }
 
     exitCreditCards()
     {
-      anime({targets: '#creditCardsModal', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
+      $('#creditCardsModal').removeClass('slideMenuBottom');
     }
 
     addNewCard()
     {
-      anime({targets: '#addCardModal', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
+      $('#addCardModal').addClass('slideMenuBottom');
     }
 
     editCard(card)
@@ -109,7 +109,7 @@ export default class BuyCreditsCtrl extends Controller {
       this.cvc = this.editCvc;
       this.expiry = this.editDate;
 
-      anime({targets: '#editCardModal', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
+      $('#editCardModal').addClass('slideMenuBottom');
     }
 
     exitAddNewCard()
@@ -120,7 +120,8 @@ export default class BuyCreditsCtrl extends Controller {
       this.cvc = null;
       this.cardID = null;
       this.expiry = null;
-      anime({targets: '#addCardModal', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
+      
+      $('#addCardModal').removeClass('slideMenuBottom');
     }
 
     exitEditCard()
@@ -135,7 +136,8 @@ export default class BuyCreditsCtrl extends Controller {
       this.cvc = null;
       this.cardID = null;
       this.expiry = null;
-      anime({targets: '#editCardModal', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
+
+      $('#editCardModal').removeClass('slideMenuBottom');
     }
 
     deleteEditCard() {

@@ -55,7 +55,7 @@ input[type='text'],input[type='user'],input[type='email'],input[type='password']
   display: grid;
   grid-area: loginDetails;
   grid-template-columns: 100%;
-  grid-template-rows: 25% 25% 25% 25%;
+  grid-template-rows: 30% 30% 15% 25%;
   grid-template-areas: "loginUser" "loginPass" "loginDetailsBlank" "loginInButton";
 }
 

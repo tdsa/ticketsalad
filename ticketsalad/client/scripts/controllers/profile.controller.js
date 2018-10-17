@@ -67,13 +67,13 @@ export default class ProfileCtrl extends Controller {
 
   openPopUp()
   {
-    anime({targets: '#completeDetailsPopUpProfile', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
+    $('#completeDetailsPopUpProfile').addClass('slideMenuBottom');
     $('#profileContainer').addClass('blur');
   }
 
   closePopUp()
   {
-    anime({targets: '#completeDetailsPopUpProfile', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
+    $('#completeDetailsPopUpProfile').removeClass('slideMenuBottom');
     $('#profileContainer').removeClass('blur');
   }
 
@@ -110,34 +110,34 @@ export default class ProfileCtrl extends Controller {
 
   openMenu()
   {
-    anime({targets: '#profileMenu', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
+    $('#profileMenu').addClass('slideMenuBottom');
     $('#profileContainer').addClass('blur');
   }
 
   closeMenu()
   {
-    anime({targets: '#profileMenu', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
+    $('#profileMenu').removeClass('slideMenuBottom');
     $('#profileContainer').removeClass('blur');
   }
 
   openHowItWorks()
   {
-    anime({targets: '#howItWorksModal', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
+    $('#howItWorksModal').addClass('slideMenuBottom');
   }
 
   closeHowItWorks()
   {
-    anime({targets: '#howItWorksModal', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
+    $('#howItWorksModal').removeClass('slideMenuBottom');
   }
 
   openContactUs()
   {
-    anime({targets: '#contactUsModal', bottom: 0, duration: 500, easing: 'easeInOutQuad'});
+    $('#contactUsModal').addClass('slideMenuBottom');
   }
 
   closeContactUs()
   {
-    anime({targets: '#contactUsModal', bottom: '-100%', duration: 500, easing: 'easeInOutQuad'});
+    $('#contactUsModal').removeClass('slideMenuBottom');
   }
 
   updatePicture ()
